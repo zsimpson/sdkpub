@@ -1,0 +1,6 @@
+*.o
+*.a
+*.lo
+*.la
+*.dylib
+configure
