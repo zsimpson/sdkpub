@@ -1,0 +1,284 @@
+0 1 {No error has occurred}
+1 0 {Invalid board number}
+2 0 {Digital device is not responding - Is base address correct?}
+3 0 {Counter device is not responding - Is base address correct?}
+4 0 {D/A is not responding - Is base address correct?}
+5 0 {A/D is not responding - Is base address correct?}
+6 0 {Selected board does not have digital I/O}
+7 0 {Selected board does not have a counter}
+8 0 {Selected board does not have a D/A}
+9 0 {Selected board does not have an A/D}
+10 0 {Selected board does not have thermocouple inputs}
+11 0 {Invalid digital port number}
+12 0 {Invalid counter device}
+13 0 {Invalid D/A device}
+14 0 {Invalid sample mode}
+15 0 {Board configured for invalid interrupt level}
+16 0 {Invalid A/D channel number}
+17 0 {Invalid count}
+18 0 {Invalid counter configuration specified}
+19 0 {Invalid D/A value}
+20 0 {Invalid D/A channel number}
+21 0 {Invalid error code}
+22 0 {Background operation already in progress}
+23 1 {DMA transfer crossed page boundary, may have small gap in data}
+24 0 {Invalid sampling rate}
+25 0 {Board switches set for Compatible mode}
+26 1 {Incorrect initial trigger state - D0 must start at TTL low}
+27 0 {A/D is not responding}
+28 1 {Trigger occurred before requested number of samples were collected}
+29 1 {Data overrun - data was lost}
+30 0 {Invalid voltage (or current) range}
+31 1 {This A/D board does not have programmable gain}
+32 0 {Specified file name is not valid}
+33 1 {Disk is full, could not complete operation}
+34 1 {Board switch set to compatible mode - sampling speed may be limited}
+35 0 {Pointer is not valid}
+36 0 {Too many gains}
+37 1 {Sample rate may be too fast for SINGLEIO mode}
+38 0 {CONVERTDATA cannot be used with DMA I/O and BACKGROUND}
+39 0 {Board does not support DTConnect option}
+40 0 {CONTINUOUS can only be run with BACKGROUND}
+41 0 {This function can not be used with this board}
+42 0 {Digital port not configured correctly for requested operation}
+43 1 {This digital port is not configurable (its an In/Out port)}
+44 0 {Invalid digital port configuration}
+45 0 {First point number is not valid}
+46 0 {Attempted to read past the end of the file}
+47 0 {This board does not have 8254 counter}
+48 0 {This board does not have 9513 counter}
+49 0 {Invalid trigger type}
+50 0 {Trigger value greater than maximum allowed}
+51 0 {Invalid error code}
+52 0 {Invalid option specified for this function}
+53 0 {Invalid pre-trigger count specified}
+55 0 {Invalid FoutDivider value}
+56 0 {Invalid FoutSource value}
+57 0 {Invalid compare value}
+58 0 {Invalid TimeOfDay value}
+59 0 {Invalid GateInterval value}
+60 0 {Invalid GateControl value}
+61 0 {Invalid CounterEdge value}
+62 0 {Invalid SpecialGate value}
+63 0 {Invalid Reload value}
+64 0 {Invalid RecycleMode value}
+65 0 {Invalid BCDMode value}
+66 0 {Invalid CountDirection value}
+67 0 {Invalid OutputControl value}
+68 0 {Invalid BitNum specified}
+69 0 {None of the counter channels were enabled}
+70 0 {An element of CntrControl array not set to DISABLED or ENABLED}
+71 0 {Invalid EXP channel specified}
+72 0 {Board set to wrong A/D range for reading thermocouples}
+73 1 {Temperature input is out of range}
+74 0 {Invalid temperature scale specified}
+75 0 {Invalid error code}
+76 0 {Specified board does not have chan/gain queue}
+77 0 {Count must be > packet size to use Continuous mode}
+78 1 {The FIFO went empty while doing output}
+79 0 {Invalid memory mode specified}
+80 1 {Measured frequency too high for selected gating interval}
+81 0 {A CJC channel must be configured to make temperature measurements}
+82 0 {Invalid ChipNum specified}
+83 0 {The digital I/O on this board is not enabled}
+84 1 {CONVERT option can not be used with 16 bit A/D converters}
+85 0 {The EXTMEMORY option requires that a memory board be attached to A/D}
+86 0 {No memory read/write allowed while DT transfer in progress}
+87 0 {The specified board is not a memory board}
+88 0 {The first chan in scan and number of chans must be even (0,2,4 etc)}
+89 0 {Counter was not configured or initialized}
+90 0 {This board does not have an 8536 counter chip}
+91 1 {Board does not time A/D sampling. Collecting at fastest possible speed}
+92 0 {Operation interrupted with CTRL-C key}
+93 0 {No selector could be allocated}
+94 1 {This board does not support Burst Mode}
+95 0 {This function not available in Windows library}
+96 1 {Board not configured for SIMULTANEOUS option}
+97 0 {An even chan is in an odd slot in queue (or vice versa)}
+98 1 {Sampling speed (>625 kHZ) to system memory MAY be too fast for counts > 1024}
+99 0 {Selected board is not a RS-485 board}
+100 0 {This function not available in DOS library}
+101 1 {Bipolar and Unipolar ranges can not be used together in A/D queue}
+102 0 {Sampling rate is too high for clock speed, change clock jumper on board}
+103 1 {Calibration factors are invalid - Disabling software calibration}
+104 0 {Invalid configuration information type specified}
+105 0 {Invalid configuration item specified}
+106 0 {Cannot access the PCMCIA board}
+107 0 {Board does not support background operation}
+108 1 {The string argument is too short for the string being returned}
+109 0 {CONVERTDATA not allowed with EXTMEMORY option}
+110 0 {Program error - bad values used in cbFromEngUnits or cbToEngUnits}
+111 1 {Rates greater than 125 KHz must use on board 10 MHz clock}
+112 1 {Desired sample rate is below hardware minimum}
+113 0 {Invalid error code}
+114 0 {More than one temperature sensor type defined for EXP-GP}
+115 0 {No temperature sensor type defined for EXP-GP}
+116 1 {Selected 12 bit board already returns converted data}
+117 1 {CONTINUOUS mode cannot be used with EXTMEMORY}
+118 1 {cbAConvertPretrigData called after cbAPretrig failed}
+119 0 {Bad counter arg passed to cbCLoad}
+120 0 {Low trigger threshold is greater than high threshold}
+121 0 {NO PCM Card was found in the specified slot}
+122 0 {Two identical PCM cards found.  Please specify exact slot in Instacal.}
+123 0 {Invalid sensor type selected in Instacal}
+124 0 {Tried to delete a board that does not exist}
+125 0 {Cannot find the board name file}
+126 0 {Cannot find CB.CFG file}
+127 0 {The CBUL.386 virtual device driver is not installed}
+128 0 {The requested amount of Windows page-locked memory is not available}
+129 0 {Not enough DOS memory available}
+130 0 {Obsolete option specified for cbSetConfig/cbGetConfig}
+131 0 {No registry entry for this PCMCIA board}
+132 0 {CBUL32.SYS device driver is not installed}
+133 0 {No DMA memory available to device driver}
+134 0 {The selected interrupt is not available}
+135 0 {This board does not have an LS7266 counter chip}
+136 0 {Invalid Quadrature arg passed to cbC7266Config()}
+137 0 {Invalid counting mode specified.}
+138 0 {Invalid DataEncoding arg passed to cbC7266Config()}
+139 0 {Invalid IndexMode arg passed to cbC7266Config()}
+140 0 {Invalid InvertIndex arg passed to cbC7266Config()}
+141 0 {Invalid FlagPins arg passed to cbC7266Config()}
+142 0 {This board does not support cbCStatus()}
+143 0 {Gating may not be used when indexing is enabled}
+144 0 {Indexing not allowed in non-quadrature mode}
+145 0 {Temperature input has open connection}
+146 0 {Count must be integer multiple of packet size for Continuous mode}
+147 0 {Invalid callback function specified}
+148 0 {MetraBus in use}
+149 0 {MetraBus I/O card has no configured controller card}
+150 0 {Invalid event type specified for this board}
+151 0 {An event handler has already been enabled for this event type}
+152 0 {Invalid event count specified}
+153 0 {Unable to install event handler}
+154 0 {Buffer is too small for operation}
+155 0 {Invalid analog input mode (single-ended vs differential) specified}
+156 0 {Invalid signal type specified}
+157 0 {Invalid connection specified}
+158 0 {Invalid index specified. If index>0, then you've reached end of internal list.} 
+160 0 {Count cannot be greater than the FIFO size for BURSTIO mode. Furthermore, Count must be integer multiple of number of channels in scan.}
+161 0 {Device has stopped responding. Please check connections.}
+163 0 {Required access or privilege not acquired for specified operation. Please check for other users of device and restart application.}
+164 1 {Device unavailable at time of request. Please repeat operation.}
+165 1 {Device is not ready to send data. Please repeat operation.}
+168 1 {There was a network error. Please check network connections, repeat operation and/or restart application.}
+169 0 {The specified bit is used for alarm.}
+170 0 {One or more bits on the specified port are used for alarm.}
+171 0 {Pacer overrun, external clock rate too fast.}
+172 0 {Invalid channel type specified.}
+173 0 {Invalid trigger sensitivity specified.}
+174 0 {Invalid trigger channel specified.}
+175 0 {Invalid trigger level specified.}
+176 0 {Pre-trigger mode is not supported for the specified trigger type.}
+177 0 {Invalid debounce time specified.}
+178 0 {Invalid debounce trigger mode specified.}
+179 0 {Invalid mapped channel specified.}
+180 0 {This function can not be used with the current mode of the specified counter.}
+181 0 {Single-Ended mode can not be used for temperature input.}
+182 0 {Invalid frequency specified.}
+183 0 {Invalid event parameter specified.}
+184 0 {No interface devices were found with required PAN ID and/or RF Channel.}
+185 0 {The interface device(s) with required PAN ID and RF Channel has failed. Please check connection.}
+186 0 {The remote device is not responding to commands and queries. Please check device.}
+187 0 {The device acknowledged the operation, but has not completed before the timeout.}
+188 0 {Number of Setpoints not equal to number of channels with setpoint flag set.}
+189 0 {Setpoint Level is outside channel range.}
+190 0 {Setpoint Output Type is invalid.}
+191 0 {Setpoint Output Value is outside channel range.}
+192 0 {Setpoint Comparison limit B greater than Limit A.}
+193 0 {The string length entered is too long for this device operation.}
+194 0 {An invalid user name or password has been entered.}
+195 0 {Device Session is already in use.}
+196 0 {External power is not connected.}
+197 0 {Invalid duty cycle specified.}
+199 0 {Invalid initial delay specified.}
+
+200 0 {Internal error occurred in library}
+201 0 {DMA buffer could not be locked}
+202 0 {DMA already controlled by another driver}
+203 0 {Invalid Windows memory handle}
+
+304 0 {Error reading from configuration file}
+305 0 {Error writing to configuration file}
+308 0 {Cannot open configuration file}
+325 1 {Overflow of RTD conversion}
+326 0 {PCI BIOS not present on the PC}
+327 0 {Specified PCI board not detected}
+328 0 {Specified PCI board not detected}
+334 0 {Cannot install interrupt handler. IRQ already in use}
+339 0 {Unable to access Card Information Structure}
+343 0 {Specified USB board not detected}
+344 0 {No more files in the directory}
+345 0 {No file exists for the specified file number}
+346 1 {The structure size is invalid}
+347 0 {This file may not contain all of the data from the logging session because the logging session was not terminated properly}
+348 0 {File is not a valid MCC binary file}
+349 0 {Invalid delimiter specified for CSV file extension}
+
+401 0 {PCMCIA Card and Socket Services Error - Invalid Adapter}
+402 0 {PCMCIA Card and Socket Services Error - Invalid Attribute}
+403 0 {PCMCIA Card and Socket Services Error - Invalid base system memory address}
+404 0 {PCMCIA Card and Socket Services Error - Invalid EDC Generator}
+406 0 {PCMCIA Card and Socket Services Error - Invalid IRQ Level}
+407 0 {PCMCIA Card and Socket Services Error - Invalid Card Offset}
+408 0 {PCMCIA Card and Socket Services Error - Invalid Page}
+409 0 {PCMCIA Card and Socket Services Error - Incomplete read request}
+410 0 {PCMCIA Card and Socket Services Error - Invalid Window size}
+411 0 {PCMCIA Card and Socket Services Error - Invalid Socket}
+413 0 {PCMCIA Card and Socket Services Error - Invalid Window type}
+414 0 {PCMCIA Card and Socket Services Error - Invalid VCC level}
+415 0 {PCMCIA Card and Socket Services Error - Invalid Vpp1 or Vpp2 level}
+417 0 {PCMCIA Card and Socket Services Error - Invalid Windows}
+418 0 {PCMCIA Card and Socket Services Error - Incomplete write request}
+420 0 {PCMCIA Card and Socket Services Error - No card present}
+421 0 {PCMCIA Card and Socket Services Error - Service not supported}
+422 0 {PCMCIA Card and Socket Services Error - Invalid Mode}
+423 0 {PCMCIA Card and Socket Services Error - Invalid Speed}
+424 0 {PCMCIA Card and Socket Services Error - Busy}
+425 0 {PCMCIA Card and Socket Services Error - Undefined Error}
+426 0 {PCMCIA Card and Socket Services Error - Write protect failure}
+427 0 {PCMCIA Card and Socket Services Error - Argument length invalid}
+428 0 {PCMCIA Card and Socket Services Error - Argument invalid}
+429 0 {PCMCIA Card and Socket Services Error - Configuration has been locked}
+430 0 {PCMCIA Card and Socket Services Error - Resource in use}
+431 0 {PCMCIA Card and Socket Services Error - No more of the requested items available}
+432 0 {PCMCIA Card and Socket Services Error - Card services is out of resources}
+433 0 {PCMCIA Card and Socket Services Error - Invalid handle}
+434 0 {PCMCIA Card and Socket Services Error - Client Version Not Supported}
+
+501 0 {Invalid DOS function number specified - *** Internal Error}
+502 0 {Cannot find file}
+503 0 {Cannot find path}
+504 0 {No DOS handles left}
+505 0 {File Access denied}
+506 0 {Invalid handle - *** Internal Error}
+507 0 {DOS has no more memory available}
+515 0 {Invalid disk drive}
+518 0 {Too many disk files}
+519 0 {Disk is write protected}
+521 0 {Disk drive is not ready}
+525 0 {DOS seek error}
+529 0 {DOS write error}
+530 0 {DOS read error}
+531 0 {DOS general fault}
+
+603 0 {Cannot enable interrupt.  IRQ already in use.}
+605 0 {Cannot disable interrupts}
+606	0 {Insufficient memory to page lock data buffer}
+630 0 {PCM card not detected}
+
+801 0 {The number of elements in the gain array must equal the number of channels in the scan}
+802 0 {The length of dimension 0 in the data array must equal the number of channels in the scan}
+
+1000 0 {No TEDS sensor was detected on the specified channel.}
+1001 0 {Connected TEDS sensor to the specified channel is not supported.}
+1002 0 {Calibration failed.}
+1003 0 {The specified bit is used for terminal count stauts.}
+1004 0 {One or more bits on the specified port are used for terminal count stauts.}
+1005 0 {Invalid excitation specified.}
+1006 0 {Invalid bridge type specified.}
+1007 0 {Invalid load value specified.}
+1008 0 {Invalid tick size specified.}
+-2 {}
+
+

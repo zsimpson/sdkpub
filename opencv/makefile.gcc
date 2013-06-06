@@ -1,0 +1,11 @@
+# Master make file for Mingw GNU C++
+ifdef debug
+OPT= debug=1
+else
+OPT=
+endif
+
+all:
+	make -C cv\make -f makefile.gcc
+	make -C cvaux\make -f makefile.gcc
+	make -C otherlibs\highgui -f makefile.gcc

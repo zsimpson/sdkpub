@@ -1,0 +1,237 @@
+Данный набор макросов, определённых в файле multiprocdiv.h, служит для упрощения процесса конвертации алгоритмов основанных на одном цикле, который потребляет основную часть времени работы алгоритма. Цель данных макросов - переложить выполнение тела цикла в отдельный поток(и), что будет особенно полезно на многопроцессорных системах. Основу метода разделения составляют 3 функции. Первая из них, условно названная child, выполняет само тело цикла. Вторая - control (сокращённо ctrl) - всю часть алгоритма, которая находится снаружи цикла, а также занимается синхронизацией и занимается формированием данных для child-функции. Третья - start-функция - запускает и останавливает ctrl-функцию. Child- и ctrl-функции запускаются в отдельных потоках, а start-функция после запуска ctrl-функции сразу выходит, что даёт возможность оконному приложению продолжить обработку сообщений.
+
+Использование этих макросов лучше рассмотреть на конкретном примере. Пусть необходимо вычислить сумму чисел из 6 массивов, в каждом из которых N чисел. Тогда имеем следующий текст:
+
+***********************************************************************
+// MainFrame.cpp
+
+const int N = 30;
+
+int a[6][N];
+
+void CMainFrame::OnDo()
+{
+    int i, j;
+    int s = 0;
+    for( j = 0; j < 6; j ++ )
+    {
+        for( i = 0; i < N; i ++ )
+        {
+            s += a[j][i];
+        }
+    }
+}
+
+***********************************************************************
+
+Здесь есть основной цикл по j, который мы и будем переводить на многопотоковую основу.
+Для начала нужно определить структуры для передачи параметров задачи в функции потоков. В нашем случае получаем:
+
+struct ChildInputStruct {
+    INPUT_STRUCT_COMMON_PARAMS();
+    int* sum;
+    int* array;
+    int N;
+};
+
+struct ControlInputStruct {
+    int* srcArray;
+    int* result;
+    int N;
+};
+
+Для первой структуры поле INPUT_STRUCT_COMMON_PARAMS() является обязательным!
+Поле sum первой структуры предназначено для суммирования в память по этому указателю чисел из одного массива. Поле array - указатель на один массив. N - число элементов в одном массиве. scrArray - указатель на весь исходный массив. result - указатель на участок памяти, который примет итоговое значение суммы. Следует учесть, что result должен указывать не на динамическую переменную, т.к. он будет использоваться в потоке.
+
+Далее определяем глобальные переменные, необходимые для функционирования потоков. Это делаем следующим образом:
+
+COMMON_GLOBAL_VARS( functionName, ControlInputStruct );
+
+Поле functionName означает имя стартовой функции ( оно также будет неоднократно вводиться в последующих макросах ). ControlInputStruct - имя структуры для передачи параметров в ctrl-поток.
+
+Далее пишем child-функцию:
+
+BEGIN_CHILD_THREAD_FUNCTION( functionName, ChildInputStruct );
+
+    int i;
+
+    BEGIN_CHILD_THREAD_CORE();
+
+        *(params->sum) = 0;
+
+        for( i = 0; i < params->N; i ++ )
+        {
+            *(params->sum) += params->array[i];
+        }
+
+    END_CHILD_THREAD_CORE();
+
+END_CHILD_THREAD_FUNCTION();
+
+Поле functionName здесь и далее имеет тот же смысл, что и в COMMON_GLOBAL_VARS. params является указателем на структуру ChildInputStruct, поданную потоку в качестве параметра. Определение дополнительных переменных производится между макросами BEGIN_CHILD_THREAD_FUNCTION() и BEGIN_CHILD_THREAD_CORE(). Все полезные действия произодятся между макросами BEGIN_CHILD_THREAD_CORE() и END_CHILD_THREAD_CORE(). В нашем случае там сначала обнуляется значение суммы, а затем в цикле к ней прибавляются значения из массива. Макрос END_CHILD_THREAD_FUNCTION() делает всё для выхода из функции.
+
+Пишем управляющую ctrl-функцию:
+
+BEGIN_CTRL_THREAD_FUNCTION( functionName, ControlInputStruct, ChildInputStruct,
+                eraseFunction, beginFunction, endFunction );
+
+    int numberOfTasks = 6;
+    int sum[6];
+
+    BEGIN_CTRL_THREAD_CORE( numberOfTasks );
+
+        childParams.sum = sum + i;
+        childParams.array = params->srcArray + i * params->N;
+        childParams.N = params->N;
+
+    END_CTRL_THREAD_CORE();
+
+    *(params->result) = sum[0] + sum[1] + sum[2] + sum[3] + sum[4] + sum[5];
+
+END_CTRL_THREAD_FUNCTION();
+
+Здесь ControlInputStruct и ChildInputStruct - имена входных структур данных для ctrl- и child-финкций соответственно. eraseFunction, beginFunction и endFunction - указатели на функции, типа bool function( void* ). Всем функциям на вход подаётся указатель на структуру ControlInputStruct, содержащую начальные данные для управляющего потока. Если какой-то из этих 3-х указателей равен нулю, то соответствующая функция не вызывается. eraseFunction - функция, вызываемая в случае досрочного завершения потока в случае его принудительного завершения, beginFunction - функция, вызываемая до начала вычислений ( может использоваться для смены статуса элементов управления окна, но в этом случае указатель на класс окна естесственно должен входить в структуру ControlInputStruct ). endFunction - функция, вызываемая после окончания счёта ( случай, противоположный функции beginFunction ). В нашем случае эти функции можно не писать и поставить в качестве параметров нули.
+numberOfTasks - общее число задач ( в макросе BEGIN_CTRL_THREAD_CORE() может стоять просто число 6 в нашем случае ).
+Между макросами BEGIN_CTRL_THREAD_FUNCTION() и BEGIN_CTRL_THREAD_CORE() следует помещать определение локальных переменных и вычисление, если такое необходимо, общего количества шагов в разворачиваемом цикле, а также все предварительные вычисления. Между макросами BEGIN_CTRL_THREAD_CORE() и END_CTRL_THREAD_CORE() следует заполнить структуру childParams - структуру типа ChildInputStruct новым заданием. В нашем случае заполняются поля sum, array и N соответствующими значениями. Внутри этих макросов переменная i отвечает за текущий номер задания.
+Между макросами END_CTRL_THREAD_CORE() и END_CTRL_THREAD_FUNCTION() помещается код, который должен выполняться после завершения всех child-процессов, но перед выходом из ctrl-процесса. В нашем примере в этом месте стоит вычисление суммы элементов из массива sum и занесение результата по адресу result.
+Таким образом, ctrl-функцию в нашем случае нужно записать следующим образом:
+
+BEGIN_CTRL_THREAD_FUNCTION( functionName, ControlInputStruct, ChildInputStruct, 0, 0, 0 );
+
+    int sum[6];
+
+    BEGIN_CTRL_THREAD_CORE( 6 );
+
+        childParams.sum = sum + i;
+        childParams.array = params->srcArray + i * params->N;
+        childParams.N = params->N;
+
+    END_CTRL_THREAD_CORE();
+
+    *(params->result) = sum[0] + sum[1] + sum[2] + sum[3] + sum[4] + sum[5];
+
+END_CTRL_THREAD_FUNCTION();
+
+Далее пишем стартовую функцию:
+
+BEGIN_START_THREAD_FUNCTION( functionName,( int* srcArray, int* result, int N ),
+        ControlInputStruct);
+
+    params->srcArray = srcArray;
+    params->result = result;
+    params->N = N;
+
+END_START_THREAD_FUNCTION();
+
+Здесь в макросе BEGIN_START_THREAD_FUNCTION() вторым параметром записаны входные данные стартовой функции, а третьим параметров - имя входной структуры для ctrl-функции.
+Между макросами BEGIN_START_THREAD_FUNCTION() и END_START_THREAD_FUNCTION() необходимо заполнить входную структуру типа ControlInputStruct, заданный указателем params.
+
+Для возможности запуска стартовой функции из других файлов в заголовочном файле необходимо написать:
+
+DEFINE_START_THREAD_FUNCTION( functionName, ( int* srcArray, int* result, int N ) );
+
+
+
+
+Итак, полная переработанная программа в нашем примере будет выглядеть следующим образом:
+
+***********************************************************************
+// MainFrame.cpp
+
+#include "MultiThr.h"
+
+const int N = 30;
+
+int a[6][N];
+int result;
+
+void CMainFrame::OnDo()
+{
+    functionName( (int*)a, &result, N );
+}
+***********************************************************************
+// MultiThr.h
+
+#include "multiprocdiv.h"
+
+DEFINE_START_THREAD_FUNCTION( functionName, ( int* srcArray, int* result, int N ) );
+
+***********************************************************************
+// MultiThr.cpp
+
+#include "MultiThr.h"
+
+// defining structures
+struct ChildInputStruct {
+    INPUT_STRUCT_COMMON_PARAMS();
+    int* sum;
+    int* array;
+    int N;
+};
+
+struct ControlInputStruct {
+    int* srcArray;
+    int* result;
+    int N;
+};
+
+// setting global variables
+COMMON_GLOBAL_VARS( functionName, ControlInputStruct );
+
+// child-function
+BEGIN_CHILD_THREAD_FUNCTION( functionName, ChildInputStruct );
+
+    int i;
+
+    BEGIN_CHILD_THREAD_CORE();
+
+        *(params->sum) = 0;
+
+        for( i = 0; i < params->N; i ++ )
+        {
+            *(params->sum) += params->array[i];
+        }
+
+    END_CHILD_THREAD_CORE();
+
+END_CHILD_THREAD_FUNCTION();
+
+// control-function
+BEGIN_CTRL_THREAD_FUNCTION( functionName, ControlInputStruct, ChildInputStruct, 0, 0, 0 );
+
+    int sum[6];
+
+    BEGIN_CTRL_THREAD_CORE( 6 );
+
+        childParams.sum = sum + i;
+        childParams.array = params->srcArray + i * params->N;
+        childParams.N = params->N;
+
+    END_CTRL_THREAD_CORE();
+
+    *(params->result) = sum[0] + sum[1] + sum[2] + sum[3] + sum[4] + sum[5];
+
+END_CTRL_THREAD_FUNCTION();
+
+// start-function
+BEGIN_START_THREAD_FUNCTION( functionName,( int* srcArray, int* result, int N ),
+        ControlInputStruct);
+
+    params->srcArray = srcArray;
+    params->result = result;
+    params->N = N;
+
+END_START_THREAD_FUNCTION();
+
+***********************************************************************
+
+Примечание 1: повторный запуск start-функции в случае, если ctrl-поток ещё не завершён приведёт к его принудительному завершению!
+Примечание 2: для Windows NT 4.0 в настройках проекта следует задать _WIN32_WINNT=4.
+
+
+
+
+Также есть некоторые вспомогательные средства для более детального управления:
+1) Для определения состояния ctrl потока служит макрос IS_THREAD_STILL_WORKING( functionName ), который возвращает true, если ctrl-поток всё ещё работает и false - в противном случае. Если start-функция ещё ни разу не запускалась, то макрос вернёт некорректное значение.
+2) Для использования критических секций внутри child- и ctrl-функций можно использовать макросы ENTER_THREAD_CRITICAL_SECTION() и LEAVE_THREAD_CRITICAL_SECTION(), только образующие функции макросы не могут стоять между ENTER_THREAD_CRITICAL_SECTION() и LEAVE_THREAD_CRITICAL_SECTION().
+3) Для трассировки потоков вместо макросов вида _RPT0, _RPT1 и т.д. можно использовать макросы thrWriteToTrace0, thrWriteToTrace1 и т.д., которые автоматически не будут скомпилированы для Release-версии.

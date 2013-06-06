@@ -1,0 +1,177 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include <windows.h>
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include <windows.h>\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x30003fL
+#ifdef _DEBUG
+ FILEFLAGS 0xbL
+#else
+ FILEFLAGS 0xaL
+#endif
+ FILEOS 0x10001L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "ActiveMovie", "Filter dll\0"
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "Intel\0"
+            VALUE "FileDescription", "Kalman\0"
+            VALUE "FileVersion", "1.00\0"
+            VALUE "InternalName", "Kalman.ax\0"
+            VALUE "LegalCopyright", "Copyright (C) 1999 Intel.\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OLESelfRegister", "AM20\0"
+            VALUE "OriginalFilename", "Kalman.ax\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Kalman\0"
+            VALUE "ProductVersion", "1.00\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TITLE               "Kalman"
+END
+
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_KALMAN DIALOGEX 0, 0, 209, 106
+STYLE WS_CHILD
+FONT 8, "MS Shell Dlg"
+BEGIN
+    PUSHBUTTON      "Start Track",1001,162,64,40,14,WS_GROUP,
+                    WS_EX_CONTROLPARENT
+    PUSHBUTTON      "Stop Track",1004,161,83,42,14
+    LTEXT           "Left",IDC_STATIC,14,15,32,10
+    LTEXT           "Top",IDC_STATIC,14,34,25,10
+    LTEXT           "Width",IDC_STATIC,14,53,25,10
+    LTEXT           "Height",IDC_STATIC,14,72,22,10
+    GROUPBOX        "Initial Window ",IDC_STATIC,6,4,66,96
+    CONTROL         "Slider1",IDC_WIN_LEFT,"msctls_trackbar32",TBS_TOP | 
+                    TBS_NOTICKS | WS_TABSTOP,8,23,61,12
+    CONTROL         "Slider1",IDC_WIN_TOP,"msctls_trackbar32",TBS_TOP | 
+                    TBS_NOTICKS | WS_TABSTOP,8,43,61,11
+    CONTROL         "Slider1",IDC_WIN_WIDTH,"msctls_trackbar32",TBS_TOP | 
+                    TBS_NOTICKS | WS_TABSTOP,8,62,61,12
+    CONTROL         "Slider1",IDC_WIN_HEIGHT,"msctls_trackbar32",TBS_TOP | 
+                    TBS_NOTICKS | WS_TABSTOP,8,82,61,12
+    LTEXT           "Minimal Saturation",IDC_STATIC,95,4,82,12
+    CONTROL         "Slider2",IDC_S_MIN,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | WS_TABSTOP,78,19,118,11
+    LTEXT           "Minimal Brightness",IDC_STATIC,95,35,90,12
+    CONTROL         "Slider2",IDC_V_MIN,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | WS_TABSTOP,78,47,118,11
+    CTEXT           "0",IDC_STATIC,76,11,17,12
+    CTEXT           "255",IDC_STATIC,181,9,17,12
+    CTEXT           "255",IDC_STATIC,182,36,17,12
+    CTEXT           "0",IDC_STATIC,75,38,17,12
+    GROUPBOX        "",IDC_STATIC,81,62,75,37,WS_GROUP
+    CONTROL         "Normal",IDC_NORMAL,"Button",BS_AUTORADIOBUTTON,88,73,57,
+                    10
+    CONTROL         "Back Project",IDC_BACKPR,"Button",BS_AUTORADIOBUTTON,88,
+                    86,57,10
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

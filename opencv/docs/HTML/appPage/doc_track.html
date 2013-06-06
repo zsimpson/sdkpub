@@ -1,0 +1,99 @@
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+  <HEAD>
+    <TITLE>Pyramidal Lucas-Kanade Feature Tracker</TITLE>
+    <!-- Changed by: Jean-Yves Bouguet, 31-Dec-1999 -->
+    <!-- Formatted and proofed in GNU Emacs by: Michael Chu, 00.06.03 -->
+    <META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+  </HEAD>
+  <BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000CC" VLINK="#0000FF" ALINK="#FF0000">
+    <a name="top">
+
+      <!-- <CENTER>
+    <BLOCKQUOTE>&nbsp;
+    <table border = 3 WIDTH="70%" >
+    <TR><TD>
+      -->
+
+    <CENTER>
+      <TABLE CELLSPACING=0 CELLPADDING=5 WIDTH="90%" BGCOLOR="#6A9BED" NOSAVE >
+	<TR NOSAVE>
+	  <TD NOSAVE>
+	    <CENTER><I><FONT COLOR="#000000"><FONT SIZE=+4> 
+		    Pyramidal Lucas-Kanade Feature Tracker
+		  </FONT></FONT></I></CENTER>
+	  </TD>
+	</TR>
+      </TABLE>
+    </CENTER>
+
+    <!--
+  </TD></TR>
+  </table>
+    &nbsp;</BLOCKQUOTE>
+  </center>
+    -->
+
+
+    <BR>
+
+    <center><IMG SRC="pict_track.gif" alt="tool_image" width="651" height="513"></center>
+
+    <BR><BR>
+
+    <H1>Description</H1>
+
+
+    This tool lets you compute optical flow based on the Lucas-Kanade
+    feature tracker in real time.  The optical flow computation is
+    implemented in pyramidal fashion, from coarse to fine resolution.
+    Consequently, the algorithm can handle large pixel flows, while
+    keeping a relatively small window of integration, and therefore
+    achieve high local accuracy (of the order of 0.1 pixel). The tracking
+    algorithm is described in detail in the report </a> <a
+      href="algo_tracking.pdf">algo_tracking.pdf (188KB)</a>.
+
+    The list of library functions used to build the application is
+    available at that <a href="../functPage/functPage.htm#TRACKING"
+      target="function window">link</a>.
+
+    <!-- make sure that the link to the matlab code works nicely -->
+
+    <h1>LKDemo.exe</h1>
+    A simple demo of Lucas-Kanade in pyramid (LKpyr) was created as
+    shown below: This demo assumes you have USB and a USB camera
+    installed with directShow. If you are running on Microsoft*
+    Windows* NT 4.0, this demo will only work if you have written your
+    own video capture source filter. Microsoft Windows 2000 is best
+    for this and all the rest of the demos.<br>
+    <br>
+
+    <center><img border="0" src="LKpyrLabled.jpg" width="858" height="272"></center>
+    <h2 align="left">Controls</h2>
+    <font size=+2><b>[1]</b></font> Start/Stop video capture
+    toggle.<br>
+    <font size=+2><b>[2]</b></font> Find a set of trackable
+    points (labeled by green dots) and track them.<br>
+    <font size=+2><b>[3]</b></font> Turn off the video image
+    and just show the tracked green points from [2].<br>
+    <font size=+2><b>[4]</b></font> Change the size of the
+    video display window.<br>
+    <font size=+2><b>[5]</b></font> Adjust USB camera
+    parameters.<br>
+    <h2 align="left">Limitations</h2>
+
+    This is just a simple, &quot;hard coded&quot; demo. We don't allow
+    you to change the pyramid depth nor allow you to adjust the
+    tracking parameters nor the thresholds for acceptable points
+    (minimum eigen value size). We do not monitor the quality of
+    the tracked points in this demo, thus when a point is occluded, it
+    often sticks near or on the occluding boundary. We will add user
+    parameter adjustments and point quality monitoring next rev. --
+    ran out of time for this demo, so sorry.
+
+    <br><br>
+    <hr noshade size=2 width=100%>
+    <H3>
+      <A NAME="Bottom"></A><A HREF="#Top">Back to Top<IMG SRC="up.gif" BORDER=0 width="30" height="26"></A></H3>
+    
+  </BODY> </HTML>

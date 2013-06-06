@@ -1,0 +1,131 @@
+Instructions for installing the d2xx shared lib
+As Linux distributions vary these instructions are a guide to installation and use.
+This setup works with Mandrake 9.2 but may require some investigation on other distributions.
+
+This library has been tested using kernel 2.4.25. 
+
+D2XX documentation is available for the Windows dll - some variations may occur between linux and 
+windows implementation. We have endevoured to make the APIs appear the same on both platforms however some
+issues may slip and we would appreciate that you contact support if you observe this.
+
+D2XX for linux was primarily developed to aid porting windows applications written with D2XX to linux.
+Unfortunately the source code for D2XX is not freely available - however if you prefer to have the 
+source and are starting a project from scratch you can try libftdi from Thomas Jarosch. 
+Details of this library are on the ftdi web site. 
+
+Installation:
+1. unzip and untar the file given to a suitable directory
+gunzip libftd2xx0.4.12.tar.gz
+tar -xvf libftd2xx0.4.12.tar
+
+2. As root user copy the following files to /usr/local/lib
+cp libftd2xx.so.0.4.12 /usr/local/lib
+
+3. Change directory to /usr/local/lib
+cd /usr/local/lib
+
+4. make symbolic links to these files using the following commands:
+ln -s libftd2xx.so.0.4.12 libftd2xx.so
+
+5. Change directory to /usr/lib
+cd /usr/lib
+
+6. make symbolic links to these files using the following commands:
+ln -s /usr/local/lib/libftd2xx.so.0.4.12 libftd2xx.so
+
+7. Add the following line to /etc/fstab:
+none /proc/bus/usb usbdevfs defaults,devmode=0666 0 0
+There have been reports that you may need to use the following command for some distros
+none /proc/bus/usb usbdevfs defaults,mode=0666 0 0 (use usbfs in 2.6 kernels)
+
+8. Remount all in the fstab file
+mount -a
+
+If you have problems with this check with usbview (search on the internet for application 
+or it can be sent to you by ftdi) to check the usb file system is mounted properly.
+
+Other problems will be related to the ftdi_sio driver loading - 
+1.you must unload this driver (and usbserial) if it is attached to your device ("rmmod ftdi_sio" and "rmmod usbserial"as root user). 
+2.Your PID/VID has not been included in the distribution.A PID of 0x6006 and VID of
+0x0403 should work as a temporary workaround.
+
+Release 0.4.13
+Software flow control fix (strip out flow control characters)
+Added FT_SetDeadmanTimeout API call
+
+Release 0.4.12
+Configuration file (see Config.txt for further details) option added to omit a usb reset
+on device open.
+
+Release 0.4.11
+FT_SetUSBParameters fix - checks for invalid parameters
+New driver version functions added.
+Altered behaviour of a usb reset - only performed on unopened device (2.6 kernels only)
+Improved multithreaded access around listdevices and open functions.
+
+Release 0.4.10
+W32 functions and samples added (for the extra event handling)
+232R EEPROM support added.
+Some minor bug fixes regarding FT_OpenEx.
+More robust checking of passed in arguments. Will fail on an invalid handle and NULL pointers instead
+of causing Segmentation Faults.
+
+Release 0.4.9
+Additional OpenEx bug fix - please report any future bugs as alternate dirstibutions 
+may behave in a different manner.
+100% CPU count fix when using FT_SetBitMode and not using FT_Read to clear internal buffers.
+
+Release 0.4.8
+Open bug fix - related to the detach of ftdi_sio kernel driver.
+
+Release 0.4.7
+Read timeout bug fix.
+
+Release 0.4.6 (known as 0.4.6 on the web)
+Bug fix to allow user area of 2232 chip to be programmed.
+
+Release 0.4.5 (known as 0.4.5 on the web)
+Small change to allow detach of ftdi_sio kernel driver on device access.
+
+Release 0.4.4 (known as 0.4.4 on the web)
+Added FT_CreateDeviceInfoList, FT_GetDeviceInfoList, FT_GetDeviceInfoDetail, FT_EE_ReadEx and
+FT_EE_ProgramEx.
+
+Release 0.4.3 (known as 0.4.3 on the web)
+Bug fix for 2.6 kernels with bulk writes - library now requres "/proc/sys/kernel/osrelease" file to be present in system
+
+Release 0.4.2 (known as 0.4.2 on the web)
+Bug fix for the lib_table functionality. Now works with both static and dynamic 
+library versions.
+
+Release 0.4.1 (known as 1.1.0.1 on the web)
+Minor bug fix relating to modem event notification
+
+Release 0.4.0 (known as 1.1.0.0 on the web)
+User space driver compiled with gcc version 3.3.1
+Major restructure of internals - it is now a pure c library so no c++ extensions required. 
+Should help with some c++ linkage problems. Upped version to 0.4.0 for this reason. PLEASE NOTE
+due to the conversion from c++ to c there is an unlikely chance you will experience problems.
+If you do a recompile of your application may solve this. If not please contact support. Users of the
+PenScope and Dualscope so will experience problems related to this. Please contact support for a suitable update.
+FT_GetBitMode Bug Fix
+FT_Read on a timeout Bug Fix
+FT_GetStatus Bug fix
+static library available (see static folder on how to compile)
+static linkage to libusb to avoid installation issues
+
+Release 0.3.0 (known as 1.0.0.0 on the web)
+Timeouts added.
+EEPROM reading/writitng.
+Event handling added (see example on how to use)
+More examples to help with development
+FT_SetVIDPID added - to allow setting of VID and PID - see example
+
+
+Known issues:
+
+2.6 kernels require a usb reset to be performed prior to opening a device 
+otherewise subsequent opens will not be successfull.
+This can cause a break (if there is a mixture of opened and unopened devices in 
+the system) in communication with any other opened device.
+FT_Listdevices and FT_CreateDeviceInfoList will also have this effect.

@@ -1,0 +1,163 @@
+
+Changes to GSL-1.15 for use with Microsoft Visual Studio 2010
+=============================================================
+
+1. Changes to Assist in DLL builds
+==================================
+
+The application gsl_defs.exe collects all the gsl and cblas
+header files into the gsl subdirectory and then scans them for
+function calls to place into the two definition files gsl.def
+and cblas.def.  This allows the two DLLs to be built. However, 
+the VC++ compiler can sometimes produce more optimised code if 
+the function definitions in header files (and in C files?) are
+annotated with DLL import/export declarations.
+
+Hence as an _alternative_ to gsl_defs.exe, the application
+gsl_hdrs.exe copies the GSL header files as before but modifies
+them by adding the symbol GSL_FUN to GSL function declarations
+and the symbol CBL_FUN to cblas function declarations.
+
+It also adds the following in GSL header files:
+
+----------
+#if !defined( GSL_FUN )
+#  if !defined( GSL_DLL )
+#    define GSL_FUN extern
+#  elif defined( BUILD_GSL_DLL )
+#    define GSL_FUN extern __declspec(dllexport)
+#  else
+#    define GSL_FUN extern __declspec(dllimport)
+#  endif
+#endif
+----------
+
+and the following in CBLAS header files:
+
+----------
+#if !defined( CBL_FUN )
+#  if !defined( CBLAS_DLL )
+#    define CBL_FUN extern
+#  elif defined( BUILD_CBLAS_DLL )
+#    define CBL_FUN extern __declspec(dllexport)
+#  else
+#    define CBL_FUN extern __declspec(dllimport)
+#  endif
+#endif
+----------
+
+Hence defining CBLAS_DLL and BUILD_CBLAS_DLL allows the
+cblas DLL to be built without using a DEF file.  In the
+same way defining GSL_DLL and BUILD_GSL_DLL allows the
+GSL_DLL to be built. Defining CBLAS_DLL and or GSL_DLL
+allows an applicataion to be built to use the CBLAS or
+GSL DLL rather than the static libraries. Note that the
+GSL DLL imports from the CBLAS DLL so CBLAS_DLL needs to
+be defined for this build (but not BUILD_CBLAS_DLL).
+
+2. Summary of Manual File Edits
+===============================
+
+The following manual file edits are needed to commpile with
+Microsoft Visual Studio 2010 (these have been done in this
+distribution).
+
+=====================================================
+To input Windows Floating Point Control Word Settings
+
+ieee-utils\env.c
+
+@@ -28,17 +28,25 @@
+   const char * p = getenv("GSL_IEEE_MODE") ;
+ 
+   int precision = 0, rounding = 0, exception_mask = 0 ;
+ 
+   int comma = 0 ;
+ 
++#if defined( _MSC_VER )	/* BRG */
++
++extern const char *fp_env_string;
++    p = fp_env_string;
++#else
++
+   if (p == 0)  /* GSL_IEEE_MODE environment variable is not set */
+     return ;
+ 
+   if (*p == '\0') /* GSL_IEEE_MODE environment variable is empty */
+     return ;
++
++#endif
+ 
+   gsl_ieee_read_mode_string (p, &precision, &rounding, &exception_mask) ;
+ 
+   gsl_ieee_set_mode (precision, rounding, exception_mask) ;
+   
+   fprintf(stderr, "GSL_IEEE_MODE=\"") ;
+
+==========================================================
+To force the DLL test to use inlined functions for testing
+matrix\test.c
+
+@@ -16,12 +16,16 @@
+  * along with this program; if not, write to the Free Software
+  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+  */
+ 
+ #include <config.h>
+ 
++#if defined( _MSC_VER ) && defined( GSL_DLL )	/* BRG */
++#undef inline
++#define inline __forceinline 
++#endif
+ #if (!GSL_RANGE_CHECK) && defined(HAVE_INLINE)
+ #undef GSL_RANGE_CHECK
+ #define GSL_RANGE_CHECK 1
+ #endif
+ 
+ #include <stdlib.h>
+
+vector\test.c
+
+@@ -16,12 +16,17 @@
+  * along with this program; if not, write to the Free Software
+  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+  */
+ 
+ #include <config.h>
+ 
++#if defined( _MSC_VER ) && defined( GSL_DLL )	/* BRG */
++#undef inline
++#define inline __forceinline 
++#endif
++
+ #if (!GSL_RANGE_CHECK) && defined(HAVE_INLINE)
+ #undef GSL_RANGE_CHECK
+ #define GSL_RANGE_CHECK 1
+ #endif
+ 
+ #include <stdlib.h>
+
+========================================================
+To remove symbol conflict for 'complex' in MS C compiler
+
+templates_on.h
+
+@@ -17,12 +17,17 @@
+ #define ATOMIC_IO ATOMIC
+ #define ZERO {{0.0L,0.0L}}
+ #define ONE {{1.0L,0.0L}}
+ #define BASE_EPSILON GSL_DBL_EPSILON
+ 
+ #elif defined(BASE_GSL_COMPLEX)
++
++#if defined( _MSC_VER ) && defined( complex )	/* BRG */
++#undef complex
++#endif
++
+ #define BASE gsl_complex
+ #define SHORT complex
+ #define SHORT_REAL
+ #define ATOMIC double
+ #define MULTIPLICITY 2
+ #define FP 1
+

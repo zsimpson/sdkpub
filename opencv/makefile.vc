@@ -1,0 +1,17 @@
+# Master make file for Microsoft Visual C++
+!ifdef debug
+OPT= debug=1
+!else
+OPT=
+!endif
+
+all:
+	cd cv\make
+	nmake /fmakefile.vc $(OPT)
+	cd ..\..
+	cd cvaux\make
+	nmake /fmakefile.vc $(OPT)
+	cd ..\..
+	cd otherlibs\highgui
+	nmake /fmakefile.vc $(OPT)
+	cd ..\..

@@ -1,0 +1,11 @@
+:Base NIDAQEX.hlp
+:Title NI-DAQ Examples On-Line Help
+1 List of Examples
+2 ..by Category=List_By_Category
+2 ...by Task Type=List_By_TaskType
+2 ...by NI-DAQ Functions Used=List_By_Functions
+1 Instructions
+2 About these examples=Instr_About
+2 Steps on how to use the examples=Instr_HowToUse
+1 Reference
+2 NI-DAQ Example Utility Functions=Ref_UtilityFuncs

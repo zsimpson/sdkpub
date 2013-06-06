@@ -1,0 +1,161 @@
+VERSION 2.00
+Begin Form frmCountTest 
+   Caption         =   "Universal Library Event Counter"
+   ClientHeight    =   3915
+   ClientLeft      =   105
+   ClientTop       =   1545
+   ClientWidth     =   4200
+   Height          =   4320
+   Left            =   45
+   LinkMode        =   1  'Source
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   3915
+   ScaleWidth      =   4200
+   Top             =   1200
+   Width           =   4320
+   Begin CommandButton cmdStopRead 
+      Caption         =   "Quit"
+      Default         =   -1  'True
+      Height          =   495
+      Left            =   3000
+      TabIndex        =   6
+      Top             =   3120
+      Width           =   855
+   End
+   Begin Timer tmrReadCount 
+      Interval        =   500
+      Left            =   1800
+      Top             =   3120
+   End
+   Begin Label lblShowCountRead 
+      ForeColor       =   &H00FF0000&
+      Height          =   255
+      Left            =   3000
+      TabIndex        =   5
+      Top             =   2520
+      Width           =   975
+   End
+   Begin Label lblCountRead 
+      Caption         =   "Value read from counter:"
+      Height          =   255
+      Left            =   720
+      TabIndex        =   3
+      Top             =   2520
+      Width           =   2175
+   End
+   Begin Label lblShowLoadVal 
+      ForeColor       =   &H00FF0000&
+      Height          =   255
+      Left            =   3000
+      TabIndex        =   4
+      Top             =   2040
+      Width           =   975
+   End
+   Begin Label lblCountLoaded 
+      Height          =   255
+      Left            =   240
+      TabIndex        =   2
+      Top             =   2040
+      Width           =   2655
+   End
+   Begin Label lblNoteFreqIn 
+      Alignment       =   2  'Center
+      Caption         =   "NOTE: There must be a TTL frequency at the counter 1 input."
+      ForeColor       =   &H000000FF&
+      Height          =   495
+      Left            =   360
+      TabIndex        =   1
+      Top             =   1200
+      Width           =   3495
+   End
+   Begin Label lblDemoFunction 
+      Alignment       =   2  'Center
+      Caption         =   "Demonstration of Event Counter Functions"
+      FontBold        =   -1  'True
+      FontItalic      =   0   'False
+      FontName        =   "MS Sans Serif"
+      FontSize        =   8.25
+      FontStrikethru  =   0   'False
+      FontUnderline   =   0   'False
+      Height          =   615
+      Left            =   240
+      TabIndex        =   0
+      Top             =   240
+      Width           =   3735
+   End
+End
+'ULCT07.MAK================================================================
+
+' File:                         ULCT07.MAK
+
+' Library Call Demonstrated:    Event Counter Functions
+'                               cbCLoad32%()
+'                               cbCIn32%()
+
+' Purpose:                      Operate the counter.
+
+' Demonstration:                Resets and reads the event counter.
+
+' Other Library Calls:          cbErrHandling%()
+
+' Special Requirements:         Board 0 must have an Event Counter, such as
+'                               the miniLAB 1008 and the PMD-1208LS.
+
+' (c) Copyright 2003, Measurement Computing Corp.
+' All rights reserved.
+'==========================================================================
+
+Const BoardNum = 0              ' Board number
+
+Const CounterNum% = 1           ' number of counter used
+Const RegName% = LOADREG1       ' register name of counter 1
+
+Sub cmdStopRead_Click ()
+   
+   End
+
+End Sub
+
+Sub Form_Load ()
+    
+   ULStat% = cbErrHandling(PRINTALL, DONTSTOP)
+   If ULStat% <> 0 Then Stop
+
+   ' If cbErrHandling% is set for STOPALL or STOPFATAL during the program
+   ' design stage, Visual Basic will be unloaded when an error is encountered.
+   ' We suggest trapping errors locally until the program is ready for compiling
+   ' to avoid losing unsaved data during program design.  This can be done by
+   ' setting cbErrHandling options as above and checking the value of ULStat%
+   ' after a call to the library. If it is not equal to 0, an error has occurred.
+
+   ' Reset starting value to the counter with cbCLoad32%()
+   '  Parameters:
+   '    BoardNum    :the number used by CB.CFG to describe this board
+   '    RegName%    :the counter to be loading with the starting value
+   '    LoadValue%  :the starting value to place in the counter
+   
+   LoadValue% = 0		'event counters can only be reset to 0
+    
+   ULStat% = cbCLoad(BoardNum, RegName%, LoadValue%)
+   If ULStat% <> 0 Then Stop
+
+   lblCountLoaded.Caption = "Counter starting value loaded:"
+   
+   lblShowLoadVal.Caption = Format$(LoadValue%, "0")
+
+End Sub
+
+Sub tmrReadCount_Timer ()
+
+   ' Parameters:
+   '   BoardNum        :the number used by CB.CFG to describe this board
+   '   CounterNum%     :the counter to be setup
+   '   CBCount%        :the count value in the counter
+    
+   ULStat% = cbCIn32(BoardNum, CounterNum%, CBCount&)
+   If ULStat% <> 0 Then Stop
+     
+   lblShowCountRead.Caption = Format$(CBCount&, "0")
+
+End Sub
+

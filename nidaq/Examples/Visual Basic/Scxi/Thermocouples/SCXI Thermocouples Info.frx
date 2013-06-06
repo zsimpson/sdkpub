@@ -1,0 +1,41 @@
+ÿæ	Cold Junction Compensation (CJC) is necessary when making temperature 
+measurements using thermocouples.  The thermocouple itself relies on the principle that 
+an electrical potential exists at the junction of two different metals.  The amount of this 
+potential varies with temperature.  When using a thermocouple we measure the voltage 
+potential across the thermocouple and can calculate the temperature causing this 
+potential difference.
+
+CJC becomes necessary because the junction between each end of the thermocouple 
+and your measuring system (connector block, terminal block) also adds a potential 
+difference to the thermocouple voltage. To compensate for this added potential we 
+must know the temperature at the junction between the thermocouple and your 
+measuring system.  This temperature is measure using a CJC sensor. This is a 
+temperature sensor different than a thermocouple, and commonly used types are IC 
+(integrated circuit) sensors and thermistors.
+
+To make our actual thermocouple temperature measurement we measure the voltage 
+from the thermocouple and CJC sensor. Then we convert the CJC sensor measurement 
+into a CJC temperature and pass the thermocouple voltage and CJC temperature to our 
+conversion function to calculate the thermocouple temperature.
+
+Many of the SCXI and other terminal blocks include CJC sensors that are addressed 
+using a special channel string.  The following terminal blocks use an IC sensor: 
+AMUX-64T, SCXI-1300, SCXI-1320, SCXI-1321, and SC-207X series. The following 
+terminal blocks use a thermistor: SCXI-1303, SCXI-1322, SCXI 1327, and SCXI-1328. 
+Specifying the CJC sensor in your channel string will depend on the device or SCXI 
+module your are using. For terminal blocks directly connected to a data acquisition 
+device such as the AMUX-64T and SC-207X series you configure the temperature 
+sensor using a jumper on the terminal block and specify the onboard channel such as 0 
+to measure the CJC sensor.  When you use an SCXI module and terminal block you 
+define a special channel (‘mtemp’, ‘dtemp’, or cjtemp’) depending on the module (see 
+below) you are using. The final channel string would include the chassis and module 
+number as well.
+
+e.g. ‘ob0!sc1!md1!mtemp’
+
+‘mtemp’ is used by the following modules: SCXI-1100, SCXI-1120 (multiplexed), 
+SCXI-1121 (multiplexed), and SCXI-1122. 
+
+‘dtemp’ is used on the following modules: SCXI-1120 (parallel) and SCXI-1121 (parallel).
+
+‘cjtemp’ is used on the SCXI-1102 module.

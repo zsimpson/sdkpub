@@ -1,0 +1,11 @@
+LIBRARY SYNCFILTER.AX
+DESCRIPTION 'Synchronizes video stream from 2 sources'
+
+EXPORTS 
+    DllGetClassObject PRIVATE 
+    DllCanUnloadNow PRIVATE 
+    DllRegisterServer PRIVATE 
+    DllUnregisterServer PRIVATE
+
+
+

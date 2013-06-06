@@ -1,0 +1,8 @@
+LIBRARY		CamShiftd.ax
+DESCRIPTION	'Microsoft ActiveVideo Video Contrast Transform Filter'
+EXPORTS
+             DllGetClassObject PRIVATE
+             DllCanUnloadNow PRIVATE
+	         DllRegisterServer PRIVATE
+	         DllUnregisterServer PRIVATE
+

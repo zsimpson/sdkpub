@@ -1,0 +1,3530 @@
+(saveFormat "2.3")
+(date "Thu 22/Oct/1998 15:27:08 ")
+(veerev "4.0")
+(platform "PC")
+(execMode compatible)
+(filterNAN 0)
+(workspaceStackingOrder M)
+(SaveCF yes)
+(Colors
+(Property "Detail View" "Lightest Gray" bwGrayScale 10)
+(Property "Panel View" "White")
+(Property "Workspace" "Dark Gray")
+(Property "Line Color" "Black" bwGrayScale 100)
+(Property "Line Color (numeric)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (complex)" "Dark Sky Blue" bwGrayScale 100)
+(Property "Line Color (string)" "Med Orange" bwGrayScale 100)
+(Property "Line Color (sequence out)" "Med Dark Gray" bwGrayScale 100)
+(Property "Line Color (highlight)" "Red" bwGrayScale 100)
+(Property "Print ID Number BG Color" "White" bwGrayScale 10)
+(Property "Tool Tip" "Pale Yellow" bwGrayScale 0)
+(Property "Tool Tip Text" "Black" bwGrayScale 100)
+(Property "Object Title" "Blue Gray" bwGrayScale 30)
+(Property "Object Title Text" "Black" bwGrayScale 100)
+(Property "Object" "Light Blue Gray")
+(Property "Object Text" "Black")
+(Property "Object Shadow" "Darkest Gray")
+(Property "Object Step Highlight" "Light Green")
+(Property "Object Execute Highlight" "Yellow")
+(Property "Object Trail Highlight" "Med Green")
+(Property "Object Error Highlight" "Red")
+(Property "Object Breakpoint Highlight" "Orange")
+(Property "Object Discovery Highlight" "Blue")
+(Property "Dialog Box Title Bar" "Dark Blue" bwGrayScale 30)
+(Property "Dialog Box Title Bar Text" "White" bwGrayScale 100)
+(Property "Dialog Box" "Gray")
+(Property "Dialog Box Text" "Black")
+(Property "Graph Background" "Black" bwGrayScale 0)
+(Property "Trace Pen 0" "Black" bwGrayScale 100)
+(Property "Trace Pen 1" "White" bwGrayScale 100)
+(Property "Trace Pen 2" "Red" bwGrayScale 100)
+(Property "Trace Pen 3" "Green" bwGrayScale 100)
+(Property "Trace Pen 4" "Yellow" bwGrayScale 100)
+(Property "Trace Pen 5" "Blue" bwGrayScale 100)
+(Property "Trace Pen 6" "Magenta" bwGrayScale 100)
+(Property "Trace Pen 7" "Cyan" bwGrayScale 100)
+(Property "Trace Pen 8" "Dark Yellow" bwGrayScale 100)
+(Property "Trace Pen 9" "Dark Gray" bwGrayScale 100)
+(Property "Edit Field" "White")
+(Property "Edit Field Text" "Black")
+(Property "Highlighted Edit Field" "Dark Blue")
+(Property "Highlighted Edit Field Text" "White")
+(Property "Menu" "Gray")
+(Property "Menu Text" "Black")
+(Property "Disabled Menu Text" "Dark Gray")
+(Property "Highlighted Menu" "Dark Blue")
+(Property "Highlighted Menu Text" "White"))
+(Fonts
+(Property "Menu Text" "times" 18)
+(Property "Object Title Text" "lucida" 14)
+(Property "Object Text" "lucida" 14)
+(Property "Object Description Text" "courier" 14)
+(Property "Terminal Text" "lucida" 12)
+(Property "Notepad Text" "courier" 14)
+(Property "Logging AlphaNumeric Text" "courier" 14)
+(Property "AlphaNumeric Scalar Text" "lucida" 18)
+(Property "AlphaNumeric Array Text" "lucida" 14)
+(Property "Bus Monitor Text" "courier" 14)
+(Property "Dialog Box Title Bar Text" "lucida" 14)
+(Property "Dialog Box Text" "lucida" 12)
+(Property "Printout Page Header Text" "lucida" 14)
+(Property "Printout Object Title Text" "lucida" 14)
+(Property "Printout Object Description Text" "lucida" 14)
+(Property "Printout Object ID Number Text" "Arial" 12)
+(Property "ToPrinter Printout Text" "courier" 14)
+(Property "Tool Tip Text" "Arial" 12))
+(device 0 ROOTCONTEXT
+(properties
+(trigMode deg)
+(nextID 187)
+(popupTitleText "Untitled")
+(popupMoveable 1)
+(popupTitleTextColor "Black")
+(popupTitleBackgroundColor "Gray")
+(deleteGlobals 0))
+(deviceList
+(device 2 START25
+(properties
+(name "Preset 871xES")))
+(device 40 START25
+(properties
+(name "Get Data")))
+(device 63 START25
+(properties
+(name "Setup Analyzer")))
+(device 64 CONTEXT
+(properties
+(name "Configure Analyzer")
+(trigMode rad)
+(nextID 66)
+(showPopupTitle 0)
+(popupMoveable 1))
+(deviceList
+(device 0 CONSTANT
+(properties
+(name "Start Freq  (Hz)")
+(initializeAtPrerun 1))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  300000))
+(initValue Real
+(data  300000))))
+(device 1 CONSTANT
+(properties
+(name "Stop Freq  (Hz)")
+(initializeAtPrerun 1))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  1200000000))
+(initValue Real
+(data  1200000000))))
+(device 2 CONSTANT
+(properties
+(name "Ref Lvl"))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  0))
+(initValue Real
+(data  0))))
+(device 5 TOGLOBAL
+(properties
+(globalName "Start"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 6 TOGLOBAL
+(properties
+(globalName "Stop"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 7 TOGLOBAL
+(properties
+(globalName "Ref_level"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 9 TOGLOBAL
+(properties
+(globalName "Ref_pos"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 10 CONSTANT
+(properties
+(name "Scale")
+(initializeAtPrerun 1))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  10))
+(initValue Real
+(data  10))))
+(device 11 CONSTANT
+(properties
+(name "Ref Position (0-10)")
+(initializeAtPrerun 1))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  5))
+(initValue Real
+(data  5))))
+(device 12 CONFIRM25
+(interface
+(output 1
+(name "Go")
+(lock name constraints)))
+(implementation))
+(device 13 EXITCONTEXT)
+(device 15 ENUMCONSTANT
+(properties
+(name "Format Type")
+(initializeAtPrerun 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("LOG MAG" 0)
+("PHASE" 1)
+("DELAY" 2)
+("LIN MAG" 3)
+("REAL" 4)
+("IMAGINARY" 5)
+("IMPEDANCE" 6))
+(data  "LOG MAG"))
+(initValue Text
+(data  "LOG MAG"))))
+(device 16 FORMULA
+(properties
+(name "ordinal(x)")
+(expr 1 "ordinal(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 17 TOGLOBAL
+(properties
+(globalName "format_type"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 18 CONSTANT
+(properties
+(name "Limit "))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  0))
+(initValue Real
+(data  0))))
+(device 19 TOGLOBAL
+(properties
+(globalName "limit"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 20 SLIDER
+(properties
+(name "Power (dBm)")
+(initializeAtPrerun 1)
+(range -60 10)
+(detents 0.5))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  0))
+(initValue Real
+(data  0))))
+(device 21 TOGLOBAL
+(properties
+(globalName "power"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 24 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Imag"))
+(initValue Text
+(data  ""))))
+(device 25 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Real"))
+(initValue Text
+(data  ""))))
+(device 26 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Linear"))
+(initValue Text
+(data  ""))))
+(device 27 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(lock name constraints))
+(input 2
+(name "B")
+(lock name constraints))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(input 5
+(name "E")
+(optional yes))
+(input 6
+(name "F")
+(optional yes))
+(input 7
+(name "G")
+(optional yes))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 28 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Delay"))
+(initValue Text
+(data  ""))))
+(device 29 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Phase"))
+(initValue Text
+(data  ""))))
+(device 30 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Log"))
+(initValue Text
+(data  ""))))
+(device 31 IFTHENELSE
+(properties
+(cases 7 "A==0" "A==1" "A==2" "A==3" "A==4" "A==5" "A==6"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else If")
+(lock name constraints))
+(output 5
+(name "Else If")
+(lock name constraints))
+(output 6
+(name "Else If")
+(lock name constraints))
+(output 7
+(name "Else If")
+(lock name constraints))
+(output 8
+(name "Else")
+(lock name constraints))))
+(device 32 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "Impedance"))
+(initValue Text
+(data  ""))))
+(device 33 CONSTANT
+(properties
+(name "Points")
+(initializeAtPrerun 1))
+(interface
+(output 1
+(name "Real")
+(lock name constraints)))
+(implementation
+(value Real
+(data  201))
+(initValue Real
+(data  201))))
+(device 34 TOGLOBAL
+(properties
+(globalName "Scale_div"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 35 TOGLOBAL
+(properties
+(globalName "points"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 37 ENUMCONSTANT
+(properties
+(name "Bandwidth")
+(initializeAtPrerun 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("Wide" 0)
+("Med Wide" 1)
+("Medium" 2)
+("Med Nar" 3)
+("Narrow" 4)
+("Fine" 5))
+(data  "Med Wide"))
+(initValue Text
+(data  "Med Wide"))))
+(device 38 TOGLOBAL
+(properties
+(globalName "Bandwidth"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 39 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(lock name constraints))
+(input 2
+(name "B")
+(lock name constraints))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(input 5
+(name "E")
+(optional yes))
+(input 6
+(name "F")
+(optional yes))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 46 IFTHENELSE
+(properties
+(cases 6 "A==0" "A==1" "A==2" "A==3" "A==4" "A==5"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else If")
+(lock name constraints))
+(output 5
+(name "Else If")
+(lock name constraints))
+(output 6
+(name "Else If")
+(lock name constraints))
+(output 7
+(name "Else")
+(lock name constraints))))
+(device 47 FORMULA
+(properties
+(name "ordinal(x)")
+(expr 1 "ordinal(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 49 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  6500))
+(initValue Int32
+(data  0))))
+(device 50 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  4000))
+(initValue Int32
+(data  0))))
+(device 51 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  3700))
+(initValue Int32
+(data  0))))
+(device 52 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  1200))
+(initValue Int32
+(data  0))))
+(device 53 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  250))
+(initValue Int32
+(data  0))))
+(device 54 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  15))
+(initValue Int32
+(data  0))))
+(device 55 TOGLOBAL
+(properties
+(globalName "points"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 56 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(lock name constraints))
+(input 2
+(name "B")
+(lock name constraints))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(input 5
+(name "E")
+(optional yes))
+(input 6
+(name "F")
+(optional yes))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 57 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  21))
+(initValue Int32
+(data  0))))
+(device 58 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  51))
+(initValue Int32
+(data  0))))
+(device 59 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  101))
+(initValue Int32
+(data  0))))
+(device 60 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  201))
+(initValue Int32
+(data  0))))
+(device 61 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  401))
+(initValue Int32
+(data  0))))
+(device 62 CONSTANT
+(properties
+(name "Integer"))
+(interface
+(output 1
+(name "Int32")
+(lock name constraints)))
+(implementation
+(value Int32
+(data  801))
+(initValue Int32
+(data  0))))
+(device 63 FORMULA
+(properties
+(name "ordinal(x)")
+(expr 1 "ordinal(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 64 ENUMCONSTANT
+(properties
+(name "Points")
+(initializeAtPrerun 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("801" 0)
+("401" 1)
+("201" 2)
+("101" 3)
+("51" 4)
+("21" 5))
+(data  "201"))
+(initValue Text
+(data  "201"))))
+(device 65 IFTHENELSE
+(properties
+(cases 6 "A==0" "A==1" "A==2" "A==3" "A==4" "A==5"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else If")
+(lock name constraints))
+(output 5
+(name "Else If")
+(lock name constraints))
+(output 6
+(name "Else If")
+(lock name constraints))
+(output 7
+(name "Else")
+(lock name constraints))))
+(configuration
+(connect D30:0 D0:0)
+(connect D0:0 D1:0)
+(connect D1:0 D2:0)
+(connect D0:1 D3:1)
+(connect D1:1 D4:1)
+(connect D2:1 D5:1)
+(connect D8:1 D6:1)
+(connect D2:0 D7:0)
+(connect D27:0 D8:0)
+(connect D16:0 D10:0)
+(connect D8:0 D11:0)
+(connect D11:1 D12:1)
+(connect D21:1 D13:1)
+(connect D11:0 D14:0)
+(connect D14:1 D15:1)
+(connect D14:0 D16:0)
+(connect D16:1 D17:1)
+(connect D25:6 D18:0)
+(connect D25:5 D19:0)
+(connect D25:4 D20:0)
+(connect D24:1 D21:1)
+(connect D23:1 D21:2)
+(connect D22:1 D21:3)
+(connect D20:1 D21:4)
+(connect D19:1 D21:5)
+(connect D18:1 D21:6)
+(connect D26:1 D21:7)
+(connect D25:3 D22:0)
+(connect D25:2 D23:0)
+(connect D25:1 D24:0)
+(connect D12:1 D25:1)
+(connect D25:7 D26:0)
+(connect D7:0 D27:0)
+(connect D7:1 D28:1)
+(connect D27:1 D29:1)
+(connect D9:1 D30:0)
+(connect D32:1 D31:1)
+(connect D35:1 D32:1)
+(connect D36:1 D32:2)
+(connect D37:1 D32:3)
+(connect D38:1 D32:4)
+(connect D39:1 D32:5)
+(connect D40:1 D32:6)
+(connect D34:1 D33:1)
+(connect D30:1 D34:1)
+(connect D33:1 D35:0)
+(connect D33:2 D36:0)
+(connect D33:3 D37:0)
+(connect D33:4 D38:0)
+(connect D33:5 D39:0)
+(connect D33:6 D40:0)
+(connect D42:1 D41:1)
+(connect D48:1 D42:1)
+(connect D47:1 D42:2)
+(connect D46:1 D42:3)
+(connect D45:1 D42:4)
+(connect D44:1 D42:5)
+(connect D43:1 D42:6)
+(connect D51:6 D43:0)
+(connect D51:5 D44:0)
+(connect D51:4 D45:0)
+(connect D51:3 D46:0)
+(connect D51:2 D47:0)
+(connect D51:1 D48:0)
+(connect D50:1 D49:1)
+(connect D49:1 D51:1))
+(ShowOnExecPanel
+(relativeOrigin 339 108)))
+(contextCarrier
+(active detail)
+(panel
+(extent 511 391)
+(widget 0 detail
+(relativeOrigin 0 10)
+(bg "Med Light Gray")
+(font "lucida" 18)
+(title on)
+(titleBg "Dark Blue")
+(titleFg "Light Yellow")
+(titleFont "lucida" 18 bold)
+(borderStyle flat)
+(extent 226 43)
+(showFormat real))
+(widget 11 detail
+(relativeOrigin 260 80)
+(bg "Light Gray")
+(font "lucida" 18)
+(title on)
+(titleBg "Light Green")
+(titleFont "lucida" 18 bold)
+(borderStyle flat)
+(extent 236 205)
+(format buttons))
+(widget 1 detail
+(relativeOrigin 260 10)
+(bg "Med Light Gray")
+(font "lucida" 18)
+(title on)
+(titleBg "Dark Blue")
+(titleFg "Light Yellow")
+(titleFont "lucida" 18 bold)
+(borderStyle flat)
+(extent 236 43)
+(showFormat real))
+(widget 7 detail
+(relativeOrigin 120 80)
+(bg "Light Beige")
+(font "lucida" 18)
+(title on)
+(titleBg "Light Teal")
+(titleFont "lucida" 18 bold)
+(borderStyle flat)
+(extent 106 43)
+(showFormat real))
+(widget 2 detail
+(relativeOrigin 0 80)
+(bg "Light Beige")
+(font "lucida" 18)
+(title on)
+(titleBg "Light Teal")
+(titleFont "lucida" 18 bold)
+(borderStyle flat)
+(extent 116 43)
+(showFormat real))
+(widget 8 detail
+(relativeOrigin 0 150)
+(bg "Light Beige")
+(font "lucida" 18)
+(title on)
+(titleBg "Light Teal")
+(titleFont "lucida" 18 bold)
+(borderStyle flat)
+(extent 226 43)
+(showFormat real))
+(widget 50 detail
+(relativeOrigin 0 220)
+(bg "Light Gray")
+(font "Arial" 18)
+(title on)
+(titleBg "Dark Blue")
+(titleFg "Pale Yellow")
+(titleFont "Arial" 18 bold)
+(borderStyle flat)
+(extent 96 43)
+(format dropDown))
+(widget 30 detail
+(relativeOrigin 100 220)
+(bg "Light Gray")
+(font "Arial" 18)
+(title on)
+(titleBg "Dark Blue")
+(titleFg "Light Yellow")
+(titleFont "Arial" 18 bold)
+(borderStyle flat)
+(extent 126 43)
+(format dropDown))
+(widget 16 detail
+(relativeOrigin 0 290)
+(bg "Light Gray")
+(font "lucida" 18)
+(title on)
+(titleBg "Dark Blue")
+(titleFg "Light Yellow")
+(titleFont "lucida" 18 bold)
+(borderStyle flat)
+(extent 226 53)
+(layout horizontal)
+(fastmode off))
+(widget 9 detail
+(relativeOrigin 280 320)
+(bg "Light Yellow")
+(font "lucida" 24 bold italic)
+(title off)
+(borderStyle none)
+(extent 190 60)))
+(detail
+(extent 731 619)
+(anchorPt 175 -154)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 121 0))
+(open
+(extent 226 45)
+(showFormat real))
+(pinCenter 10 -50))
+(devCarrierFor 1
+(active open)
+(icon
+(extent 114 0))
+(open
+(extent 226 45)
+(showFormat real))
+(pinCenter 10 30))
+(devCarrierFor 2
+(active open)
+(icon
+(extent 155 0))
+(open
+(extent 226 45)
+(showFormat real))
+(pinCenter 10 110))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 180 -40))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 180 30))
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 180 110))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 190 350))
+(devCarrierFor 10
+(active open)
+(icon
+(extent 108 0))
+(open
+(extent 226 45)
+(showFormat real))
+(pinCenter 10 190))
+(devCarrierFor 11
+(active open)
+(icon
+(extent 200 0))
+(open
+(extent 236 45)
+(showFormat real))
+(pinCenter 10 350))
+(devCarrierFor 12
+(active open)
+(icon)
+(open
+(extent 47 14))
+(title off)
+(pinCenter -150 -97))
+(devCarrierFor 13
+(active icon)
+(icon
+(extent 119 15))
+(open)
+(terminals on)
+(pinCenter 0 710))
+(devCarrierFor 15
+(active open)
+(icon
+(extent 99 0))
+(open
+(extent 125 182)
+(format buttons))
+(pinCenter -30 500))
+(devCarrierFor 16
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 105 31))
+(terminals on)
+(pinCenter 80 450))
+(devCarrierFor 17
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 113 51))
+(terminals on)
+(pinCenter 340 620))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 46 15))
+(open
+(extent 82 29)
+(showFormat real))
+(pinCenter 0 650))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 140 650))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 95 15))
+(open
+(extent 131 222)
+(layout vertical)
+(fastmode off))
+(pinCenter 0 680))
+(devCarrierFor 21
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 113 51))
+(terminals on)
+(pinCenter 120 680))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 214 29))
+(pinCenter 310 520))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 214 29))
+(pinCenter 310 490))
+(devCarrierFor 26
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 214 29))
+(pinCenter 310 460))
+(devCarrierFor 27
+(active icon)
+(icon
+(extent 28 85))
+(open
+(extent 12 162))
+(terminals on)
+(pinCenter 380 450))
+(devCarrierFor 28
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 214 29))
+(pinCenter 310 430))
+(devCarrierFor 29
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 214 29))
+(pinCenter 310 400))
+(devCarrierFor 30
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 214 29))
+(pinCenter 310 370))
+(devCarrierFor 31
+(active icon)
+(icon
+(extent 93 94))
+(open
+(extent 67 182))
+(terminals on)
+(pinCenter 170 450))
+(devCarrierFor 32
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 214 29))
+(pinCenter 310 550))
+(devCarrierFor 33
+(active open)
+(icon
+(extent 43 0))
+(open
+(extent 226 45)
+(showFormat real))
+(pinCenter 10 270))
+(devCarrierFor 34
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 190 190))
+(devCarrierFor 35
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 200 270))
+(devCarrierFor 37
+(active open)
+(icon
+(extent 71 0))
+(open
+(extent 107 25)
+(format dropDown))
+(pinCenter 10 -130))
+(devCarrierFor 38
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 113 51))
+(terminals on)
+(pinCenter 510 -130))
+(devCarrierFor 39
+(active icon)
+(icon
+(extent 28 85))
+(open
+(extent 12 162))
+(terminals on)
+(pinCenter 430 -130))
+(devCarrierFor 46
+(active icon)
+(icon
+(extent 93 94))
+(open
+(extent 67 182))
+(terminals on)
+(pinCenter 250 -140))
+(devCarrierFor 47
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 105 31))
+(terminals on)
+(pinCenter 120 -140))
+(devCarrierFor 49
+(active icon)
+(icon
+(extent 48 16))
+(open
+(extent 60 21)
+(showFormat int))
+(pinCenter 350 -210))
+(devCarrierFor 50
+(active icon)
+(icon
+(extent 48 16))
+(open
+(extent 60 21)
+(showFormat int))
+(pinCenter 350 -180))
+(devCarrierFor 51
+(active icon)
+(icon
+(extent 48 16))
+(open
+(extent 60 21)
+(showFormat int))
+(pinCenter 350 -150))
+(devCarrierFor 52
+(active icon)
+(icon
+(extent 48 16))
+(open
+(extent 60 21)
+(showFormat int))
+(pinCenter 350 -110))
+(devCarrierFor 53
+(active icon)
+(icon
+(extent 48 16))
+(open
+(extent 60 21)
+(showFormat int))
+(pinCenter 350 -80))
+(devCarrierFor 54
+(active icon)
+(icon
+(extent 48 16))
+(open
+(extent 60 21)
+(showFormat int))
+(pinCenter 350 -40))
+(devCarrierFor 55
+(active icon)
+(icon
+(extent 80 15))
+(open
+(extent 113 51))
+(terminals on)
+(pinCenter 510 -370))
+(devCarrierFor 56
+(active icon)
+(icon
+(extent 28 85))
+(open
+(extent 12 162))
+(terminals on)
+(pinCenter 430 -370))
+(devCarrierFor 57
+(active icon)
+(icon
+(extent 48 16))
+(open
+(extent 60 21)
+(showFormat int))
+(pinCenter 350 -280))
+(devCarrierFor 58
+(active icon)
+(icon
+(extent 48 16))
+(open
+(extent 60 21)
+(showFormat int))
+(pinCenter 350 -320))
+(devCarrierFor 59
+(active icon)
+(icon
+(extent 48 16))
+(open
+(extent 60 21)
+(showFormat int))
+(pinCenter 350 -350))
+(devCarrierFor 60
+(active icon)
+(icon
+(extent 48 16))
+(open
+(extent 60 21)
+(showFormat int))
+(pinCenter 350 -390))
+(devCarrierFor 61
+(active icon)
+(icon
+(extent 48 16))
+(open
+(extent 60 21)
+(showFormat int))
+(pinCenter 350 -420))
+(devCarrierFor 62
+(active icon)
+(icon
+(extent 48 16))
+(open
+(extent 60 21)
+(showFormat int))
+(pinCenter 350 -450))
+(devCarrierFor 63
+(active icon)
+(icon
+(extent 75 15))
+(open
+(extent 105 31))
+(terminals on)
+(pinCenter 110 -310))
+(devCarrierFor 64
+(active open)
+(icon
+(extent 43 0))
+(open
+(extent 79 25)
+(format dropDown))
+(pinCenter -10 -300))
+(devCarrierFor 65
+(active icon)
+(icon
+(extent 93 94))
+(open
+(extent 67 182))
+(terminals on)
+(pinCenter 240 -310))
+(connect D30:0 D0:0
+(points 2 10 -115 10 -93))
+(connect D0:0 D1:0
+(points 2 10 -25 10 -13))
+(connect D1:0 D2:0
+(points 2 10 55 10 67))
+(connect D0:1 D3:1
+(points 2 125 -50 137 -40))
+(connect D1:1 D4:1
+(points 2 125 30 137 30))
+(connect D2:1 D5:1
+(points 2 125 110 137 110))
+(connect D8:1 D6:1
+(points 2 130 350 147 350))
+(connect D2:0 D7:0
+(points 2 10 135 10 147))
+(connect D27:0 D8:0
+(points 2 10 295 10 307))
+(connect D16:0 D10:0
+(points 2 0 690 0 700))
+(connect D8:0 D11:0
+(points 6 10 375 10 390 0 390 0 380 -30 380 -30 388))
+(connect D11:1 D12:1
+(points 2 35 450 40 450))
+(connect D21:1 D13:1
+(points 6 396 450 430 450 430 580 280 580 280 620 297 620))
+(connect D11:0 D14:0
+(points 4 -30 593 -30 610 0 610 0 640))
+(connect D14:1 D15:1
+(points 2 25 650 97 650))
+(connect D14:0 D16:0
+(points 2 0 660 0 670))
+(connect D16:1 D17:1
+(points 2 50 680 77 680))
+(connect D25:6 D18:0
+(points 5 219 460 240 460 240 500 310 500 310 510))
+(connect D25:5 D19:0
+(points 5 219 450 250 450 250 470 310 470 310 480))
+(connect D25:4 D20:0
+(points 3 219 440 310 440 310 450))
+(connect D24:1 D21:1
+(points 6 330 370 360 370 360 410 350 410 350 420 363 420))
+(connect D23:1 D21:2
+(points 6 330 400 340 400 340 420 350 420 350 430 363 430))
+(connect D22:1 D21:3
+(points 4 330 430 340 430 340 440 363 440))
+(connect D20:1 D21:4
+(points 4 330 460 340 460 340 450 363 450))
+(connect D19:1 D21:5
+(points 8 330 490 360 490 360 520 420 520 420 390 350 390 350 460 363 460))
+(connect D18:1 D21:6
+(points 4 330 520 340 520 340 470 363 470))
+(connect D26:1 D21:7
+(points 4 330 550 350 550 350 480 363 480))
+(connect D25:3 D22:0
+(points 5 219 430 240 430 240 410 310 410 310 420))
+(connect D25:2 D23:0
+(points 7 219 420 230 420 230 400 240 400 240 380 310 380 310 390))
+(connect D25:1 D24:0
+(points 5 219 410 250 410 250 340 310 340 310 360))
+(connect D12:1 D25:1
+(points 2 120 450 121 450))
+(connect D25:7 D26:0
+(points 5 219 470 230 470 230 530 310 530 310 540))
+(connect D7:0 D27:0
+(points 2 10 215 10 227))
+(connect D7:1 D28:1
+(points 2 125 190 147 190))
+(connect D27:1 D29:1
+(points 2 125 270 157 270))
+(connect D9:1 D30:0
+(points 5 -124 -97 -100 -97 -100 -180 10 -180 10 -163))
+(connect D32:1 D31:1
+(points 2 446 -130 467 -130))
+(connect D35:1 D32:1
+(points 4 376 -210 400 -210 400 -160 413 -160))
+(connect D36:1 D32:2
+(points 4 376 -180 390 -180 390 -150 413 -150))
+(connect D37:1 D32:3
+(points 4 376 -150 390 -150 390 -140 413 -140))
+(connect D38:1 D32:4
+(points 4 376 -110 390 -110 390 -130 413 -130))
+(connect D39:1 D32:5
+(points 4 376 -80 400 -80 400 -120 413 -120))
+(connect D40:1 D32:6
+(points 6 376 -40 390 -40 390 -100 400 -100 400 -110 413 -110))
+(connect D34:1 D33:1
+(points 2 160 -140 201 -140))
+(connect D30:1 D34:1
+(points 2 66 -140 80 -140))
+(connect D33:1 D35:0
+(points 7 299 -170 310 -170 310 -200 300 -200 300 -240 350 -240 350 -221))
+(connect D33:2 D36:0
+(points 7 299 -160 320 -160 320 -180 340 -180 340 -200 350 -200 350 -191))
+(connect D33:3 D37:0
+(points 5 299 -150 340 -150 340 -170 350 -170 350 -161))
+(connect D33:4 D38:0
+(points 5 299 -140 310 -140 310 -130 350 -130 350 -121))
+(connect D33:5 D39:0
+(points 5 299 -130 310 -130 310 -100 350 -100 350 -91))
+(connect D33:6 D40:0
+(points 7 299 -120 320 -120 320 -90 310 -90 310 -60 350 -60 350 -51))
+(connect D42:1 D41:1
+(points 2 446 -370 467 -370))
+(connect D48:1 D42:1
+(points 4 376 -450 390 -450 390 -400 413 -400))
+(connect D47:1 D42:2
+(points 4 376 -420 400 -420 400 -390 413 -390))
+(connect D46:1 D42:3
+(points 4 376 -390 390 -390 390 -380 413 -380))
+(connect D45:1 D42:4
+(points 4 376 -350 390 -350 390 -370 413 -370))
+(connect D44:1 D42:5
+(points 6 376 -320 390 -320 390 -340 370 -340 370 -360 413 -360))
+(connect D43:1 D42:6
+(points 4 376 -280 400 -280 400 -350 413 -350))
+(connect D51:6 D43:0
+(points 5 289 -290 320 -290 320 -300 350 -300 350 -291))
+(connect D51:5 D44:0
+(points 7 289 -300 310 -300 310 -310 340 -310 340 -340 350 -340 350 -331))
+(connect D51:4 D45:0
+(points 7 289 -310 300 -310 300 -250 360 -250 360 -370 350 -370 350 -361))
+(connect D51:3 D46:0
+(points 9 289 -320 310 -320 310 -330 320 -330 320 -370 340 -370 340 -410 350
+-410 350 -401))
+(connect D51:2 D47:0
+(points 5 289 -330 300 -330 300 -440 350 -440 350 -431))
+(connect D51:1 D48:0
+(points 7 289 -340 310 -340 310 -380 290 -380 290 -480 350 -480 350 -461))
+(connect D50:1 D49:1
+(points 2 32 -310 70 -310))
+(connect D49:1 D51:1
+(points 2 150 -310 191 -310)))
+(stackingOrder 17 10 14 15 13 24 23 22 19 20 18 16 3 0 1 28 5 4 6 29 8 27 9 30
+34 33 40 39 38 37 36 35 32 31 42 49 51 43 44 45 46 47 48 41 50 2 7 11 26 21 12
+25))))
+(device 67 FROMGLOBAL
+(properties
+(globalName "Start"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 68 FROMGLOBAL
+(properties
+(globalName "Stop"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 69 FROMGLOBAL
+(properties
+(globalName "Scale_div"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 70 FROMGLOBAL
+(properties
+(globalName "Ref_level"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 71 FROMGLOBAL
+(properties
+(globalName "Ref_pos"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 89 FROMGLOBAL
+(properties
+(globalName "format_type"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 92 FROMGLOBAL
+(properties
+(globalName "power"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 94 START25
+(properties
+(name "Calibrate")))
+(device 100 REPEATUNTILBREAK
+(interface
+(output 1
+(name "Continuous")
+(lock name constraints))))
+(device 101 COUNTER
+(interface
+(input 1
+(name "Data"))
+(output 1
+(name "Count")
+(tag "Count")
+(lock name constraints))))
+(device 102 IFTHENELSE
+(properties
+(name "If 1st time then AutoScale")
+(cases 1 "2==A"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else")
+(lock name constraints))))
+(device 103 CONTEXT
+(properties
+(name "Get 4 S Parameters (Log Mag)")
+(trigMode deg)
+(nextID 28))
+(interface
+(output 1
+(type data)
+(name "S11")
+(lock constraints)
+(optional yes))
+(output 2
+(type data)
+(name "S21")
+(lock constraints)
+(optional yes))
+(output 3
+(type data)
+(name "S12")
+(lock constraints)
+(optional yes))
+(output 4
+(type data)
+(name "S22")
+(lock constraints)
+(optional yes)))
+(deviceList
+(device 7 TOFUNCTION
+(interface
+(input 1
+(name "InArray")
+(tag "InArray")
+(lock constraints))
+(input 2
+(name "Map From 1")
+(tag "Map From 1")
+(requires
+(datatype Real)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 3
+(name "Map To 1")
+(tag "Map To 1")
+(requires
+(datatype Real)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OutFunc")
+(tag "OutFunc")))
+(implementation
+(numDims 1)
+(xMappings "Linear")
+(mapFroms "300000")
+(mapTos "1200000000")))
+(device 8 TOFUNCTION
+(interface
+(input 1
+(name "InArray")
+(tag "InArray")
+(lock constraints))
+(input 2
+(name "Map From 1")
+(tag "Map From 1")
+(requires
+(datatype Real)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 3
+(name "Map To 1")
+(tag "Map To 1")
+(requires
+(datatype Real)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OutFunc")
+(tag "OutFunc")))
+(implementation
+(numDims 1)
+(xMappings "Linear")
+(mapFroms "300000")
+(mapTos "1200000000")))
+(device 10 TOFUNCTION
+(interface
+(input 1
+(name "InArray")
+(tag "InArray")
+(lock constraints))
+(input 2
+(name "Map From 1")
+(tag "Map From 1")
+(requires
+(datatype Real)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 3
+(name "Map To 1")
+(tag "Map To 1")
+(requires
+(datatype Real)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OutFunc")
+(tag "OutFunc")))
+(implementation
+(numDims 1)
+(xMappings "Linear")
+(mapFroms "300000")
+(mapTos "1200000000")))
+(device 12 TOFUNCTION
+(interface
+(input 1
+(name "InArray")
+(tag "InArray")
+(lock constraints))
+(input 2
+(name "Map From 1")
+(tag "Map From 1")
+(requires
+(datatype Real)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(input 3
+(name "Map To 1")
+(tag "Map To 1")
+(requires
+(datatype Real)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "OutFunc")
+(tag "OutFunc")))
+(implementation
+(numDims 1)
+(xMappings "Linear")
+(mapFroms "300000")
+(mapTos "1200000000")))
+(device 18 PNPTRANS
+(properties
+(name "To/From VNA")
+(transactions 2 "hp871x_measure(instrHandle, hp871x_S11, 1, cur_meas)"
+"hp871x_traceRead(instrHandle, traceRd, hp871x_TRC_RD_FDATA_Q, 1, traceRd2)")
+(parmInfo 11 "4" "F" "F" "F" "T 0" "5" "F" "T 0" "F" "F" "T 0"))
+(interface
+(input 1
+(name "traceRd")
+(requires
+(datatype Real))
+(lock name constraints)
+(optional yes))
+(input 2
+(name "traceRd2")
+(requires
+(datatype Real))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "cur_meas")
+(optional yes))
+(output 2
+(name "traceRd")
+(optional yes))
+(output 3
+(name "traceRd2")
+(optional yes)))
+(implementation
+(prefix "Hp871x")
+(ioDev "VNA")))
+(device 19 ALLOCATEARRAY
+(properties
+(name "Alloc Real"))
+(interface
+(input 1
+(name "Dim Size 1")
+(tag "Dim Size 1")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Array")
+(tag "Array")))
+(implementation
+(numDims 1)
+(dimSizes "201")
+(type "Real")
+(initEnum "Init Value")
+(initialValue
+(data  0))
+(from 1)
+(thru 10)))
+(device 20 ALLOCATEARRAY
+(properties
+(name "Alloc Real"))
+(interface
+(input 1
+(name "Dim Size 1")
+(tag "Dim Size 1")
+(requires
+(datatype Int32)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES))
+(output 1
+(name "Array")
+(tag "Array")))
+(implementation
+(numDims 1)
+(dimSizes "201")
+(type "Real")
+(initEnum "Init Value")
+(initialValue
+(data  0))
+(from 1)
+(thru 10)))
+(device 22 PNPTRANS
+(properties
+(name "To/From VNA")
+(transactions 2 "hp871x_measure(instrHandle, hp871x_S21, 1, cur_meas)"
+"hp871x_traceRead(instrHandle, traceRd, hp871x_TRC_RD_FDATA_Q, 1, traceRd2)")
+(parmInfo 11 "4" "F" "F" "F" "T 0" "5" "F" "T 0" "F" "F" "T 0"))
+(interface
+(input 1
+(name "traceRd")
+(requires
+(datatype Real))
+(lock name constraints)
+(optional yes))
+(input 2
+(name "traceRd2")
+(requires
+(datatype Real))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "cur_meas")
+(optional yes))
+(output 2
+(name "traceRd")
+(optional yes))
+(output 3
+(name "traceRd2")
+(optional yes))
+(output 4
+(name "cal_type")
+(optional yes)))
+(implementation
+(prefix "Hp871x")
+(ioDev "VNA")))
+(device 23 PNPTRANS
+(properties
+(name "To/From VNA")
+(transactions 2 "hp871x_measure(instrHandle, hp871x_S12, 2, cur_meas)"
+"hp871x_traceRead(instrHandle, traceRd, hp871x_TRC_RD_FDATA_Q, 2, traceRd2)")
+(parmInfo 11 "4" "F" "F" "F" "T 0" "5" "F" "T 0" "F" "F" "T 0"))
+(interface
+(input 1
+(name "traceRd")
+(requires
+(datatype Real))
+(lock name constraints)
+(optional yes))
+(input 2
+(name "traceRd2")
+(requires
+(datatype Real))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "cur_meas")
+(optional yes))
+(output 2
+(name "traceRd")
+(optional yes))
+(output 3
+(name "traceRd2")
+(optional yes)))
+(implementation
+(prefix "Hp871x")
+(ioDev "VNA")))
+(device 24 PNPTRANS
+(properties
+(name "To/From VNA")
+(transactions 2 "hp871x_measure(instrHandle, hp871x_S22, 2, cur_meas)"
+"hp871x_traceRead(instrHandle, traceRd, hp871x_TRC_RD_FDATA_Q, 2, traceRd2)")
+(parmInfo 11 "4" "F" "F" "F" "T 0" "5" "F" "T 0" "F" "F" "T 0"))
+(interface
+(input 1
+(name "traceRd")
+(requires
+(datatype Real))
+(lock name constraints)
+(optional yes))
+(input 2
+(name "traceRd2")
+(requires
+(datatype Real))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "cur_meas")
+(optional yes))
+(output 2
+(name "traceRd")
+(optional yes))
+(output 3
+(name "traceRd2")
+(optional yes)))
+(implementation
+(prefix "Hp871x")
+(ioDev "VNA")))
+(device 25 PNPTRANS
+(properties
+(name "To/From VNA")
+(transactions 3
+"hp871x_frequency(instrHandle, 1E+006, 1E+009, hp871x_START_STOP_Q, 1, cur_freq1, cur_freq2)"
+"hp871x_points(instrHandle, hp871x_PTS_201, hp871x_Q, 1, cur_points)"
+"hp871x_takeSweep(instrHandle, 1)")
+(parmInfo 17 "7" "F" "F" "F" "F" "F" "T 0" "T 0" "5" "F" "F" "F" "F" "T 0" "2"
+"T 19" "F"))
+(interface
+(output 1
+(name "cur_freq1")
+(optional yes))
+(output 2
+(name "cur_freq2")
+(optional yes))
+(output 3
+(name "cur_points")
+(optional yes))
+(output 4
+(name "cal_type")
+(optional yes)))
+(implementation
+(prefix "Hp871x")
+(ioDev "VNA")))
+(configuration
+(connect D4:2 D0:1)
+(connect D10:1 D0:2)
+(connect D10:2 D0:3)
+(connect D7:2 D1:1)
+(connect D10:1 D1:2)
+(connect D10:2 D1:3)
+(connect D8:2 D2:1)
+(connect D10:1 D2:2)
+(connect D10:2 D2:3)
+(connect D9:2 D3:1)
+(connect D10:1 D3:2)
+(connect D10:2 D3:3)
+(connect D5:1 D4:1)
+(connect D6:1 D4:2)
+(connect D10:3 D5:1)
+(connect D10:3 D6:1)
+(connect D4:0 D7:0)
+(connect D5:1 D7:1)
+(connect D6:1 D7:2)
+(connect D7:0 D8:0)
+(connect D5:1 D8:1)
+(connect D6:1 D8:2)
+(connect D8:0 D9:0)
+(connect D5:1 D9:1)
+(connect D6:1 D9:2)
+(connect D0:1 O1:1)
+(connect D1:1 O2:1)
+(connect D2:1 O3:1)
+(connect D3:1 O4:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 784 619)
+(anchorPt 242 294)
+(configuration
+(devCarrierFor 7
+(active icon)
+(icon
+(extent 118 64)
+(iconImage "build.icn"))
+(open
+(extent 347 154))
+(terminals on)
+(pinCenter 270 -130))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 118 64)
+(iconImage "build.icn"))
+(open
+(extent 347 154))
+(terminals on)
+(pinCenter 260 0))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 118 64)
+(iconImage "build.icn"))
+(open
+(extent 347 154))
+(terminals on)
+(pinCenter 280 108))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 118 64)
+(iconImage "build.icn"))
+(open
+(extent 347 154))
+(terminals on)
+(pinCenter 290 228))
+(devCarrierFor 18
+(active icon)
+(icon
+(extent 93 45))
+(open
+(extent 254 82))
+(terminals on)
+(pinCenter 70 -90))
+(devCarrierFor 19
+(active icon)
+(icon
+(extent 69 16))
+(open
+(extent 204 112))
+(terminals on)
+(pinCenter 70 -180))
+(devCarrierFor 20
+(active icon)
+(icon
+(extent 69 16))
+(open
+(extent 204 112))
+(terminals on)
+(pinCenter 70 -140))
+(devCarrierFor 22
+(active icon)
+(icon
+(extent 93 45))
+(open
+(extent 503 89))
+(terminals on)
+(pinCenter 80 0))
+(devCarrierFor 23
+(active icon)
+(icon
+(extent 93 45))
+(open
+(extent 254 82))
+(terminals on)
+(pinCenter 70 100))
+(devCarrierFor 24
+(active icon)
+(icon
+(extent 93 45))
+(open
+(extent 254 82))
+(terminals on)
+(pinCenter 70 220))
+(devCarrierFor 25
+(active icon)
+(icon
+(extent 93 45))
+(open
+(extent 515 124))
+(terminals on)
+(pinCenter 70 -240))
+(connect D4:2 D0:1
+(points 4 119 -90 160 -90 160 -150 208 -150))
+(connect D10:1 D0:2
+(points 4 119 -260 180 -260 180 -130 208 -130))
+(connect D10:2 D0:3
+(points 4 119 -250 170 -250 170 -110 208 -110))
+(connect D7:2 D1:1
+(points 4 129 -10 150 -10 150 -20 198 -20))
+(connect D10:1 D1:2
+(points 6 119 -260 150 -260 150 -80 160 -80 160 0 198 0))
+(connect D10:2 D1:3
+(points 4 119 -250 170 -250 170 20 198 20))
+(connect D8:2 D2:1
+(points 4 119 100 140 100 140 88 218 88))
+(connect D10:1 D2:2
+(points 6 119 -260 150 -260 150 -80 160 -80 160 108 218 108))
+(connect D10:2 D2:3
+(points 4 119 -250 170 -250 170 128 218 128))
+(connect D9:2 D3:1
+(points 4 119 220 140 220 140 208 228 208))
+(connect D10:1 D3:2
+(points 6 119 -260 150 -260 150 -80 160 -80 160 228 228 228))
+(connect D10:2 D3:3
+(points 4 119 -250 170 -250 170 248 228 248))
+(connect D5:1 D4:1
+(points 6 107 -180 120 -180 120 -160 0 -160 0 -100 21 -100))
+(connect D6:1 D4:2
+(points 6 107 -140 140 -140 140 -40 0 -40 0 -80 21 -80))
+(connect D10:3 D5:1
+(points 6 119 -240 140 -240 140 -280 0 -280 0 -180 33 -180))
+(connect D10:3 D6:1
+(points 8 119 -240 140 -240 140 -280 0 -280 0 -190 10 -190 10 -140 33 -140))
+(connect D4:0 D7:0
+(points 4 70 -65 70 -50 80 -50 80 -25))
+(connect D5:1 D7:1
+(points 6 107 -180 120 -180 120 -160 -30 -160 -30 -10 31 -10))
+(connect D6:1 D7:2
+(points 6 107 -140 140 -140 140 -40 -20 -40 -20 10 31 10))
+(connect D7:0 D8:0
+(points 4 80 25 80 50 70 50 70 75))
+(connect D5:1 D8:1
+(points 6 107 -180 120 -180 120 -160 -30 -160 -30 90 21 90))
+(connect D6:1 D8:2
+(points 8 107 -140 140 -140 140 -40 -20 -40 -20 10 -10 10 -10 110 21 110))
+(connect D8:0 D9:0
+(points 2 70 125 70 195))
+(connect D5:1 D9:1
+(points 6 107 -180 120 -180 120 -160 -30 -160 -30 210 21 210))
+(connect D6:1 D9:2
+(points 8 107 -140 140 -140 140 -40 -20 -40 -20 10 -10 10 -10 230 21 230))
+(connect D0:1 O1:1
+(points 4 331 -130 350 -130 350 -215 541 -215))
+(connect D1:1 O2:1
+(points 6 321 0 330 0 330 -40 310 -40 310 -65 541 -65))
+(connect D2:1 O3:1
+(points 4 341 108 375 108 375 85 541 85))
+(connect D3:1 O4:1
+(points 4 351 228 375 228 375 235 541 235)))
+(stackingOrder 2 3 1 6 0 4 7 8 9 5 10))))
+(device 105 YPLOT
+(properties
+(name "4 S Parameters"))
+(interface
+(input 1
+(name "Trace1")
+(lock constraints))
+(input 2
+(name "Trace2")
+(lock constraints)
+(optional yes))
+(input 3
+(name "Trace3")
+(lock constraints)
+(optional yes))
+(input 4
+(name "Trace4")
+(lock constraints)
+(optional yes))
+(input 5
+(type control)
+(name "Auto Scale")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(tracePin 2)
+(tracePin 3)
+(tracePin 4)
+(graphMode rectangular)))
+(device 106 YPLOT
+(properties
+(name "S22"))
+(interface
+(input 1
+(name "Rev")
+(lock constraints))
+(input 2
+(type control)
+(name "Auto Scale")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)))
+(device 107 YPLOT
+(properties
+(name "S12"))
+(interface
+(input 1
+(name "Rev")
+(lock constraints))
+(input 2
+(type control)
+(name "Auto Scale")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)))
+(device 108 YPLOT
+(properties
+(name "S21"))
+(interface
+(input 1
+(name "Fwd ")
+(lock constraints))
+(input 2
+(type control)
+(name "Auto Scale")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)))
+(device 109 YPLOT
+(properties
+(name "S11"))
+(interface
+(input 1
+(name "Fwd")
+(lock constraints))
+(input 2
+(type control)
+(name "Auto Scale")
+(lock name constraints)
+(optional yes)))
+(implementation
+(tracePin 1)
+(graphMode rectangular)))
+(device 151 PNPTRANS
+(properties
+(name "To/From VNA")
+(transactions 3 "hp871x_preset(instrHandle, hp871x_PRESET_DEFAULT)"
+"hp871x_channel(instrHandle, 2, hp871x_ON, chan_status)"
+"hp871x_calControl(instrHandle, hp871x_CAL_DEFAULT2, 1, cal_type)")
+(parmInfo 13 "2" "T 1769896" "F" "4" "T 458810" "F" "F" "T 0" "4" "T 480" "F"
+"F" "T 0"))
+(interface
+(output 1
+(name "cal_type")
+(optional yes))
+(output 2
+(name "chan_status")
+(optional yes)))
+(implementation
+(prefix "Hp871x")
+(ioDev "VNA")))
+(device 152 PNPTRANS
+(properties
+(name "To/From VNA")
+(transactions 4
+"hp871x_frequency(instrHandle, freq1, freq2, hp871x_START_STOP, 1, cur_freq1, cur_freq2)"
+"hp871x_points(instrHandle, points, hp871x_SET, 1, cur_points)"
+"hp871x_bandwidth(instrHandle, bandwidth, hp871x_SET, 1, cur_bw)"
+"hp871x_bandwidth(instrHandle, bandwidth, hp871x_SET, 2, cur_bw)")
+(parmInfo 26 "7" "F" "T 0" "T 0" "F" "F" "T 0" "T 0" "5" "F" "T 0" "F" "F" "T 0"
+"5" "T 2" "T 0" "F" "F" "T 0" "5" "T 277" "F" "F" "F" "T 0"))
+(interface
+(input 1
+(name "freq1")
+(requires
+(datatype Real))
+(lock name constraints)
+(optional yes))
+(input 2
+(name "freq2")
+(requires
+(datatype Real))
+(lock name constraints)
+(optional yes))
+(input 3
+(name "points")
+(requires
+(datatype Int32))
+(lock name constraints)
+(optional yes))
+(input 4
+(name "bandwidth")
+(requires
+(datatype Real))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "cur_freq1")
+(optional yes))
+(output 2
+(name "cur_freq2")
+(optional yes))
+(output 3
+(name "cur_points")
+(optional yes))
+(output 4
+(name "cur_bw")
+(optional yes)))
+(implementation
+(prefix "Hp871x")
+(ioDev "VNA")))
+(device 153 PNPTRANS
+(properties
+(name "To/From VNA")
+(transactions 3
+"hp871x_scale(instrHandle, scale_factor, hp871x_SCALE_DIV, 1, cur_value)"
+"hp871x_scale(instrHandle, ref_value, hp871x_SCALE_REF, 1, cur_value)"
+"hp871x_scale(instrHandle, ref_posn, hp871x_SCALE_POSN, 1, cur_value)")
+(parmInfo 18 "5" "F" "T 0" "F" "F" "T 0" "5" "F" "T 0" "F" "F" "T 0" "5"
+"T 37355924" "T 0" "F" "F" "T 0"))
+(interface
+(input 1
+(name "scale_factor")
+(requires
+(datatype Real))
+(lock name constraints)
+(optional yes))
+(input 2
+(name "ref_value")
+(requires
+(datatype Real))
+(lock name constraints)
+(optional yes))
+(input 3
+(name "ref_posn")
+(requires
+(datatype Real))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "cur_value")
+(optional yes)))
+(implementation
+(prefix "Hp871x")
+(ioDev "VNA")))
+(device 154 PNPTRANS
+(properties
+(name "To/From VNA")
+(transactions 2 "hp871x_power(instrHandle, power, hp871x_POW_LVL, 1, cur_power)"
+"hp871x_calControl(instrHandle, hp871x_CAL_DEFAULT2, 1, cal_type)")
+(parmInfo 11 "5" "F" "T 0" "F" "F" "T 0" "4" "F" "F" "F" "T 0"))
+(interface
+(input 1
+(name "power")
+(requires
+(datatype Real))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "cur_power")
+(optional yes))
+(output 2
+(name "cal_type")
+(optional yes)))
+(implementation
+(prefix "Hp871x")
+(ioDev "VNA")))
+(device 156 CONTEXT
+(properties
+(name "Select Cal Kit")
+(trigMode deg)
+(nextID 13)
+(popupTitleText "UserObject")
+(showPopupTitle 0)
+(popupMoveable 1))
+(deviceList
+(device 0 ENUMCONSTANT
+(properties
+(name "Select Cal Kit ")
+(waitForEvent 1))
+(interface
+(output 1
+(name "Enum")
+(lock name constraints))
+(output 2
+(name "Ordinal")))
+(implementation
+(value Enum
+(values
+("Type N Female, 50 ohm" 0)
+("Type N Male, 50 ohm" 1)
+("3.5 mm" 2)
+("User" 3)
+("Type N Female, 75 ohm" 4)
+("Type N Male, 75 ohm" 5)
+("Type F, 75 ohm" 6)
+("APC-7" 7))
+(data  "Type N Female, 50 ohm"))
+(initValue Text
+(data  "Type N Female, 50 ohm"))))
+(device 1 FORMULA
+(properties
+(name "ordinal(x)")
+(expr 1 "ordinal(x)"))
+(interface
+(input 1
+(name "X")
+(optional yes))
+(output 1
+(name "Result")
+(tag "Result")
+(lock name constraints)
+(optional yes))))
+(device 2 IFTHENELSE
+(properties
+(cases 8 "A==0" "A==1" "A==2" "A==3" "A==4" "A==5" "A==6" "A==7"))
+(interface
+(input 1
+(name "A")
+(optional yes))
+(output 1
+(name "Then")
+(lock name constraints))
+(output 2
+(name "Else If")
+(lock name constraints))
+(output 3
+(name "Else If")
+(lock name constraints))
+(output 4
+(name "Else If")
+(lock name constraints))
+(output 5
+(name "Else If")
+(lock name constraints))
+(output 6
+(name "Else If")
+(lock name constraints))
+(output 7
+(name "Else If")
+(lock name constraints))
+(output 8
+(name "Else If")
+(lock name constraints))
+(output 9
+(name "Else")
+(lock name constraints))))
+(device 3 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "\"N50F\""))
+(initValue Text
+(data  ""))))
+(device 4 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "\"N50M\""))
+(initValue Text
+(data  ""))))
+(device 5 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "\"3.5\""))
+(initValue Text
+(data  ""))))
+(device 6 JUNCTION
+(properties
+(name "JCT"))
+(interface
+(input 1
+(name "A")
+(lock name constraints))
+(input 2
+(name "B")
+(lock name constraints))
+(input 3
+(name "C")
+(optional yes))
+(input 4
+(name "D")
+(optional yes))
+(input 5
+(name "E")
+(optional yes))
+(input 6
+(name "F")
+(optional yes))
+(input 7
+(name "G")
+(optional yes))
+(input 8
+(name "H")
+(optional yes))
+(output 1
+(name "Data")
+(lock name constraints))))
+(device 7 TOGLOBAL
+(properties
+(globalName "cal_kit"))
+(interface
+(input 1
+(name "Data")
+(tag "Data"))))
+(device 8 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "\"USER\""))
+(initValue Text
+(data  ""))))
+(device 9 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "\"N75F\""))
+(initValue Text
+(data  ""))))
+(device 10 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "\"N75M\""))
+(initValue Text
+(data  ""))))
+(device 11 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "\"F75\""))
+(initValue Text
+(data  ""))))
+(device 12 LITERALCONSTANT
+(properties
+(name "Text"))
+(interface
+(output 1
+(name "Text")
+(lock name constraints)))
+(implementation
+(value Text
+(data  "\"APC-7\""))
+(initValue Text
+(data  ""))))
+(configuration
+(connect D0:1 D1:1)
+(connect D1:1 D2:1)
+(connect D2:1 D3:0)
+(connect D2:2 D4:0)
+(connect D2:3 D5:0)
+(connect D3:1 D6:1)
+(connect D4:1 D6:2)
+(connect D5:1 D6:3)
+(connect D8:1 D6:4)
+(connect D9:1 D6:5)
+(connect D10:1 D6:6)
+(connect D11:1 D6:7)
+(connect D12:1 D6:8)
+(connect D6:1 D7:1)
+(connect D2:4 D8:0)
+(connect D2:5 D9:0)
+(connect D2:6 D10:0)
+(connect D2:7 D11:0)
+(connect D2:8 D12:0))
+(ShowOnExecPanel
+(relativeOrigin 194 438)))
+(contextCarrier
+(active detail)
+(panel
+(extent 227 238)
+(widget 0 detail
+(relativeOrigin 0 0)
+(bg "Light Gray")
+(font "lucida" 18)
+(title on)
+(titleBg "Dark Blue")
+(titleFg "Light Yellow")
+(titleFont "lucida" 18 bold)
+(borderStyle flat)
+(extent 226 213)
+(format buttons)))
+(detail
+(extent 719 323)
+(anchorPt 129 95)
+(configuration
+(devCarrierFor 0
+(active open)
+(icon
+(extent 96 25))
+(open
+(extent 176 239)
+(format buttons))
+(pinCenter -10 70))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 75 15))
+(open
+(geometry 488 155 105 31))
+(terminals on)
+(pinCenter 140 0))
+(devCarrierFor 2
+(active icon)
+(icon
+(extent 93 94))
+(open
+(extent 61 182))
+(terminals on)
+(pinCenter 240 50))
+(devCarrierFor 3
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 214 29))
+(pinCenter 340 -30))
+(devCarrierFor 4
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 214 29))
+(pinCenter 340 0))
+(devCarrierFor 5
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 214 29))
+(pinCenter 340 30))
+(devCarrierFor 6
+(active icon)
+(icon
+(extent 28 85))
+(open
+(extent 12 162))
+(terminals on)
+(pinCenter 410 50))
+(devCarrierFor 7
+(active open)
+(icon
+(extent 80 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 505 -40))
+(devCarrierFor 8
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 214 29))
+(pinCenter 340 60))
+(devCarrierFor 9
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 214 29))
+(pinCenter 340 90))
+(devCarrierFor 10
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 214 29))
+(pinCenter 340 120))
+(devCarrierFor 11
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 214 29))
+(pinCenter 340 150))
+(devCarrierFor 12
+(active icon)
+(icon
+(extent 36 15))
+(open
+(extent 214 29))
+(pinCenter 340 180))
+(connect D0:1 D1:1
+(points 4 80 10 90 10 90 0 100 0))
+(connect D1:1 D2:1
+(points 6 180 0 190 0 190 10 180 10 180 50 191 50))
+(connect D2:1 D3:0
+(points 5 289 10 300 10 300 -60 340 -60 340 -40))
+(connect D2:2 D4:0
+(points 5 289 20 310 20 310 -20 340 -20 340 -10))
+(connect D2:3 D5:0
+(points 5 289 30 300 30 300 10 340 10 340 20))
+(connect D3:1 D6:1
+(points 4 360 -30 380 -30 380 10 393 10))
+(connect D4:1 D6:2
+(points 4 360 0 370 0 370 20 393 20))
+(connect D5:1 D6:3
+(points 2 360 30 393 30))
+(connect D8:1 D6:4
+(points 4 360 60 370 60 370 40 393 40))
+(connect D9:1 D6:5
+(points 6 360 90 370 90 370 80 350 80 350 50 393 50))
+(connect D10:1 D6:6
+(points 6 360 120 450 120 450 0 380 0 380 60 393 60))
+(connect D11:1 D6:7
+(points 4 360 150 370 150 370 70 393 70))
+(connect D12:1 D6:8
+(points 4 360 180 380 180 380 80 393 80))
+(connect D6:1 D7:1
+(points 6 426 50 440 50 440 -10 400 -10 400 -40 417 -40))
+(connect D2:4 D8:0
+(points 3 289 40 340 40 340 50))
+(connect D2:5 D9:0
+(points 5 289 50 330 50 330 60 340 60 340 80))
+(connect D2:6 D10:0
+(points 5 289 60 320 60 320 90 340 90 340 110))
+(connect D2:7 D11:0
+(points 5 289 70 310 70 310 130 340 130 340 140))
+(connect D2:8 D12:0
+(points 5 289 80 300 80 300 160 340 160 340 170)))
+(stackingOrder 1 4 5 8 9 10 11 12 3 0 7 6 2))))
+(device 161 CONTEXT
+(properties
+(name "Do Full 2-Port Cal")
+(trigMode deg)
+(nextID 5)
+(popupTitleText "UserObject")
+(popupMoveable 1))
+(deviceList
+(device 0 PNPTRANS
+(properties
+(name "To/From VNA")
+(transactions 2 "hp871x_calkit(instrHandle, request, 1, cur_kit)"
+"hp871x_doCal(instrHandle, hp871x_CAL_TWO_PORT, abortcal, 1, \"\")")
+(parmInfo 11 "4" "T -1" "T 0" "F" "T 0" "5" "F" "F" "T 0" "F" "F"))
+(interface
+(input 1
+(name "request")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "cur_kit")
+(optional yes))
+(output 2
+(name "abortcal")
+(optional yes)))
+(implementation
+(prefix "Hp871x")
+(ioDev "VNA")))
+(device 1 FROMGLOBAL
+(properties
+(globalName "cal_kit"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(configuration
+(connect D1:1 D0:1)))
+(contextCarrier
+(active detail)
+(detail
+(extent 720 383)
+(anchorPt -14 5)
+(configuration
+(devCarrierFor 0
+(active icon)
+(icon
+(extent 93 25))
+(open
+(extent 406 106))
+(terminals on)
+(pinCenter 270 70))
+(devCarrierFor 1
+(active icon)
+(icon
+(extent 86 16))
+(open
+(extent 81 53))
+(terminals on)
+(pinCenter 70 70))
+(connect D1:1 D0:1
+(points 2 115 70 221 70)))
+(stackingOrder 1 0))))
+(device 182 LABEL
+(properties
+(name "Log")
+(labelValue "Log"))
+(interface
+(input 1
+(name "Label")
+(tag "Label")
+(requires
+(datatype Text)
+(shape "Scalar"))
+(lock constraints)
+(optional yes)
+(buffer YES)))
+(implementation))
+(device 183 PNPTRANS
+(properties
+(name "To/From VNA")
+(transactions 10 "hp871x_channel(instrHandle, 1, hp871x_ON, chan_status)"
+"hp871x_channel(instrHandle, 2, hp871x_ON, chan_status)"
+"hp871x_measure(instrHandle, hp871x_S11, 1, cur_meas)"
+"hp871x_format(instrHandle, request, 1, cur_format)"
+"hp871x_measure(instrHandle, hp871x_S21, 1, cur_meas)"
+"hp871x_format(instrHandle, request, 1, cur_format)"
+"hp871x_measure(instrHandle, hp871x_S12, 2, cur_meas)"
+"hp871x_format(instrHandle, request, 2, cur_format)"
+"hp871x_measure(instrHandle, hp871x_S22, 2, cur_meas)"
+"hp871x_format(instrHandle, request, 2, cur_format)")
+(parmInfo 50 "4" "T 15007861" "F" "F" "T 0" "4" "F" "F" "F" "T 0" "4" "F" "F"
+"F" "T 0" "4" "T 277" "T 0" "F" "T 0" "4" "T 7996199" "F" "F" "T 0" "4" "F"
+"T 0" "F" "T 0" "4" "F" "F" "F" "T 0" "4" "T 459090" "T 0" "F" "T 0" "4" "F" "F"
+"F" "T 0" "4" "F" "T 0" "F" "T 0"))
+(interface
+(input 1
+(name "request")
+(requires
+(datatype Text))
+(lock name constraints)
+(optional yes))
+(output 1
+(name "cur_format")
+(optional yes))
+(output 2
+(name "cur_meas")
+(optional yes))
+(output 3
+(name "chan_status")
+(optional yes))
+(output 4
+(name "cal_type")
+(optional yes)))
+(implementation
+(prefix "Hp871x")
+(ioDev "VNA")))
+(device 184 FROMGLOBAL
+(properties
+(globalName "points"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 185 FROMGLOBAL
+(properties
+(globalName "Bandwidth"))
+(interface
+(output 1
+(name "Data")
+(tag "Data")
+(lock name constraints))))
+(device 186 NOTE
+(properties
+(text2 2 "4-Parameter Display Demo Program" "Rev A.01.00 981022.brh ")))
+(configuration
+(connect D2:0 D3:0)
+(connect D29:0 D4:0)
+(connect D4:0 D5:0)
+(connect D5:0 D6:0)
+(connect D6:0 D7:0)
+(connect D7:0 D8:0)
+(connect D8:0 D9:0)
+(connect D9:0 D10:0)
+(connect D1:0 D12:0)
+(connect D12:1 D13:1)
+(connect D13:1 D14:1)
+(connect D12:1 D15:0)
+(connect D15:1 D16:1)
+(connect D15:2 D16:2)
+(connect D15:3 D16:3)
+(connect D15:4 D16:4)
+(connect D14:1 D16:5)
+(connect D15:4 D17:1)
+(connect D14:1 D17:2)
+(connect D15:3 D18:1)
+(connect D14:1 D18:2)
+(connect D15:2 D19:1)
+(connect D14:1 D19:2)
+(connect D15:1 D20:1)
+(connect D14:1 D20:2)
+(connect D0:0 D21:0)
+(connect D4:1 D22:1)
+(connect D5:1 D22:2)
+(connect D29:1 D22:3)
+(connect D30:1 D22:4)
+(connect D6:1 D23:1)
+(connect D7:1 D23:2)
+(connect D8:1 D23:3)
+(connect D10:1 D24:1)
+(connect D11:0 D25:0)
+(connect D25:0 D26:0)
+(connect D9:1 D27:1)
+(connect D9:1 D28:1)
+(connect D30:0 D29:0)
+(connect D3:0 D30:0))
+(ShowOnExecPanel))
+(contextCarrier
+(wndOrigin -2 1)
+(wndState res)
+(active panel)
+(panel
+(extent 830 650)
+(widget 19 detail
+(relativeOrigin 410 10)
+(bg "Light Gray")
+(font "lucida" 14 bold)
+(title on)
+(titleBg "Light Teal")
+(titleFont "lucida" 18 bold)
+(borderStyle flat)
+(extent 386 253)
+(displayMode annotGraph)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "")
+(domainName "Freq")
+(pen 9)
+(show 1)
+(range -100 20 4 linear))
+(domain 0 1200000000 4 linear)
+(trace 0 onScale 0
+(name "Fwd ")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(widget 27 detail
+(relativeOrigin 420 260)
+(bg "Light Gray")
+(font "Arial" 11)
+(title off)
+(borderStyle none)
+(extent 70 20)
+(just l))
+(widget 17 detail
+(relativeOrigin 410 300)
+(bg "Light Gray")
+(font "lucida" 14 bold)
+(title on)
+(titleBg "Light Teal")
+(titleFont "lucida" 18 bold)
+(borderStyle flat)
+(extent 386 263)
+(displayMode annotGraph)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "")
+(domainName "Freq")
+(pen 9)
+(show 1)
+(range -35 5 4 linear))
+(domain 0 1200000000 4 linear)
+(trace 0 onScale 0
+(name "Rev")
+(pen 7)
+(lineType 1)
+(pointType 0)))
+(widget 27 detail
+(relativeOrigin 420 560)
+(bg "Light Gray")
+(font "Arial" 11)
+(title off)
+(borderStyle none)
+(extent 70 20)
+(just l))
+(widget 18 detail
+(relativeOrigin 10 300)
+(bg "Light Gray")
+(font "lucida" 14 bold)
+(title on)
+(titleBg "Light Teal")
+(titleFont "lucida" 18 bold)
+(borderStyle flat)
+(extent 386 263)
+(displayMode annotGraph)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "")
+(domainName "Freq")
+(pen 9)
+(show 1)
+(range -120 40 4 linear))
+(domain 0 1200000000 4 linear)
+(trace 0 onScale 0
+(name "Rev")
+(pen 7)
+(lineType 1)
+(pointType 0)))
+(widget 27 detail
+(relativeOrigin 20 560)
+(bg "Light Gray")
+(font "Arial" 11)
+(title off)
+(borderStyle none)
+(extent 70 20)
+(just l))
+(widget 20 detail
+(relativeOrigin 10 10)
+(bg "Light Gray")
+(font "lucida" 14 bold)
+(title on)
+(titleBg "Light Teal")
+(titleFont "lucida" 18 bold)
+(borderStyle flat)
+(extent 386 253)
+(displayMode annotGraph)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "")
+(domainName "Freq")
+(pen 9)
+(show 1)
+(range -16 2 4 linear))
+(domain 0 1200000000 4 linear)
+(trace 0 onScale 0
+(name "Fwd")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(widget 27 detail
+(relativeOrigin 20 260)
+(bg "Light Gray")
+(font "Arial" 11)
+(title off)
+(borderStyle none)
+(extent 70 20)
+(just l))
+(widget 0 detail
+(relativeOrigin 70 600)
+(bg "Med Light Red")
+(font "Arial" 18 bold italic)
+(title off)
+(borderStyle none)
+(extent 140 40))
+(widget 2 detail
+(relativeOrigin 240 600)
+(bg "Pale Cyan")
+(fg "Black")
+(font "Arial" 18 bold italic)
+(title off)
+(borderStyle none)
+(extent 150 40))
+(widget 11 detail
+(relativeOrigin 420 600)
+(bg "Pale Purple")
+(font "lucida" 18 bold italic)
+(title off)
+(borderStyle none)
+(extent 110 40))
+(widget 1 detail
+(relativeOrigin 560 600)
+(bg "Light Green")
+(font "Arial" 18 bold italic)
+(title off)
+(borderStyle none)
+(extent 110 40))
+(panelBg "Pale Golden Orange"))
+(detail
+(extent 1028 689)
+(anchorPt 173 -60)
+(configuration
+(devCarrierFor 2
+(active open)
+(icon
+(extent 88 0))
+(open
+(extent 98 24))
+(title off)
+(pinCenter 0 230))
+(devCarrierFor 40
+(active open)
+(icon
+(extent 78 0))
+(open
+(extent 112 21))
+(title off)
+(pinCenter 30 380))
+(devCarrierFor 63
+(active open)
+(icon
+(extent 116 0))
+(open
+(extent 123 28))
+(title off)
+(pinCenter 340 100))
+(devCarrierFor 64
+(active icon)
+(icon
+(extent 149 15))
+(open
+(extent 529 513)
+(carbonCopy))
+(terminals on)
+(bg "Light Blue Gray")
+(pinCenter 340 130))
+(devCarrierFor 67
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 340 220))
+(devCarrierFor 68
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 340 240))
+(devCarrierFor 69
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 340 260))
+(devCarrierFor 70
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 340 280))
+(devCarrierFor 71
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 340 300))
+(devCarrierFor 89
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 340 320))
+(devCarrierFor 92
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 340 340))
+(devCarrierFor 94
+(active open)
+(icon
+(extent 74 0))
+(open
+(extent 123 28))
+(title off)
+(pinCenter 170 230))
+(devCarrierFor 100
+(active icon)
+(icon
+(extent 110 64)
+(iconImage "loop.icn"))
+(open)
+(terminals on)
+(pinCenter 30 460))
+(devCarrierFor 101
+(active icon)
+(icon
+(extent 78 25))
+(open
+(extent 150 34))
+(pinCenter -60 630))
+(devCarrierFor 102
+(active icon)
+(icon
+(extent 244 25))
+(open
+(extent 67 70))
+(terminals on)
+(pinCenter 120 630))
+(devCarrierFor 103
+(active icon)
+(icon
+(extent 262 85))
+(terminals on)
+(pinCenter 40 560))
+(devCarrierFor 105
+(active icon)
+(icon
+(extent 118 65)
+(iconImage "display.icn"))
+(open
+(extent 473 423)
+(displayMode scrollGraph)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "Log Mag")
+(domainName "Freq")
+(pen 9)
+(show 1)
+(range -120 20 4 linear))
+(domain 0 1200000000 4 linear)
+(trace 0 onScale 0
+(name "Trace1")
+(pen 4)
+(lineType 1)
+(pointType 0))
+(trace 1 onScale 0
+(name "Trace2")
+(pen 7)
+(lineType 1)
+(pointType 0))
+(trace 2 onScale 0
+(name "Trace3")
+(pen 6)
+(lineType 1)
+(pointType 0))
+(trace 3 onScale 0
+(name "Trace4")
+(pen 3)
+(lineType 1)
+(pointType 0)))
+(pinCenter 480 450))
+(devCarrierFor 106
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "display.icn"))
+(open
+(extent 257 195)
+(displayMode scrollGraph)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "")
+(domainName "Freq")
+(pen 9)
+(show 1)
+(range -35 5 4 linear))
+(domain 0 1200000000 4 linear)
+(trace 0 onScale 0
+(name "Rev")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(pinCenter 340 550))
+(devCarrierFor 107
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "display.icn"))
+(open
+(extent 257 195)
+(displayMode scrollGraph)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "")
+(domainName "Freq")
+(pen 9)
+(show 1)
+(range -120 40 4 linear))
+(domain 0 1200000000 4 linear)
+(trace 0 onScale 0
+(name "Rev")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(pinCenter 340 620))
+(devCarrierFor 108
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "display.icn"))
+(open
+(extent 257 195)
+(displayMode scrollGraph)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "")
+(domainName "Freq")
+(pen 9)
+(show 1)
+(range -100 20 4 linear))
+(domain 0 1200000000 4 linear)
+(trace 0 onScale 0
+(name "Fwd ")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(pinCenter 340 430))
+(devCarrierFor 109
+(active icon)
+(icon
+(extent 68 51)
+(iconImage "display.icn"))
+(open
+(extent 257 195)
+(displayMode scrollGraph)
+(graphType cartesian)
+(gridType grid)
+(scale 0
+(name "")
+(domainName "Freq")
+(pen 9)
+(show 1)
+(range -16 2 4 linear))
+(domain 0 1200000000 4 linear)
+(trace 0 onScale 0
+(name "Fwd")
+(pen 4)
+(lineType 1)
+(pointType 0)))
+(pinCenter 340 490))
+(devCarrierFor 151
+(active icon)
+(icon
+(extent 93 25))
+(open
+(extent 336 81))
+(terminals on)
+(pinCenter 0 270))
+(devCarrierFor 152
+(active icon)
+(icon
+(extent 93 45))
+(open
+(extent 254 82))
+(terminals on)
+(pinCenter 490 160))
+(devCarrierFor 153
+(active icon)
+(icon
+(extent 93 34))
+(open
+(extent 254 78))
+(terminals on)
+(pinCenter 490 220))
+(devCarrierFor 154
+(active icon)
+(icon
+(extent 93 25))
+(open
+(extent 393 65))
+(terminals on)
+(pinCenter 490 320))
+(devCarrierFor 156
+(active icon)
+(icon
+(extent 92 15))
+(open
+(extent 259 136)
+(carbonCopy))
+(terminals on)
+(bg "Light Blue Gray")
+(pinCenter 170 270))
+(devCarrierFor 161
+(active icon)
+(icon
+(extent 124 16))
+(terminals on)
+(pinCenter 170 300))
+(devCarrierFor 182
+(active open)
+(icon)
+(open
+(extent 66 14)
+(just l))
+(title off)
+(bg "Light Gray")
+(font "Arial" 11)
+(pinCenter 480 362))
+(devCarrierFor 183
+(active icon)
+(icon
+(extent 93 45))
+(open
+(extent 492 211))
+(terminals on)
+(pinCenter 490 270))
+(devCarrierFor 184
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 340 200))
+(devCarrierFor 185
+(active icon)
+(icon
+(extent 82 15))
+(open
+(extent 90 51))
+(terminals on)
+(pinCenter 340 180))
+(devCarrierFor 186
+(active open)
+(icon
+(iconImage "notepad.icn"))
+(open
+(extent 305 50)
+(editing enabled))
+(titleBg "Yellow")
+(pinCenter 70 130))
+(connect D2:0 D3:0
+(points 2 340 116 340 120))
+(connect D29:0 D4:0
+(points 2 340 210 340 210))
+(connect D4:0 D5:0
+(points 2 340 230 340 230))
+(connect D5:0 D6:0
+(points 2 340 250 340 250))
+(connect D6:0 D7:0
+(points 2 340 270 340 270))
+(connect D7:0 D8:0
+(points 2 340 290 340 290))
+(connect D8:0 D9:0
+(points 2 340 310 340 310))
+(connect D9:0 D10:0
+(points 2 340 330 340 330))
+(connect D1:0 D12:0
+(points 2 30 393 30 425))
+(connect D12:1 D13:1
+(points 6 87 460 110 460 110 500 -120 500 -120 630 -102 630))
+(connect D13:1 D14:1
+(points 2 -19 630 -5 630))
+(connect D12:1 D15:0
+(points 5 87 460 110 460 110 500 40 500 40 515))
+(connect D15:1 D16:1
+(points 8 173 530 190 530 190 480 280 480 280 380 400 380 400 430 418 430))
+(connect D15:2 D16:2
+(points 8 173 550 180 550 180 420 270 420 270 370 410 370 410 440 418 440))
+(connect D15:3 D16:3
+(points 8 173 570 270 570 270 610 280 610 280 680 410 680 410 450 418 450))
+(connect D15:4 D16:4
+(points 6 173 590 260 590 260 670 400 670 400 460 418 460))
+(connect D14:1 D16:5
+(points 8 244 620 250 620 250 690 420 690 420 510 390 510 390 470 418 470))
+(connect D15:4 D17:1
+(points 4 173 590 190 590 190 540 303 540))
+(connect D14:1 D17:2
+(points 4 244 620 250 620 250 560 303 560))
+(connect D15:3 D18:1
+(points 4 173 570 270 570 270 610 303 610))
+(connect D14:1 D18:2
+(points 4 244 620 250 620 250 630 303 630))
+(connect D15:2 D19:1
+(points 4 173 550 180 550 180 420 303 420))
+(connect D14:1 D19:2
+(points 6 244 620 250 620 250 500 270 500 270 440 303 440))
+(connect D15:1 D20:1
+(points 4 173 530 190 530 190 480 303 480))
+(connect D14:1 D20:2
+(points 4 244 620 250 620 250 500 303 500))
+(connect D0:0 D21:0
+(points 2 0 244 0 255))
+(connect D4:1 D22:1
+(points 4 383 220 430 220 430 140 441 140))
+(connect D5:1 D22:2
+(points 4 383 240 420 240 420 150 441 150))
+(connect D29:1 D22:3
+(points 4 383 200 410 200 410 160 441 160))
+(connect D30:1 D22:4
+(points 4 383 180 400 180 400 170 441 170))
+(connect D6:1 D23:1
+(points 4 383 260 390 260 390 210 441 210))
+(connect D7:1 D23:2
+(points 6 383 280 400 280 400 230 430 230 430 220 441 220))
+(connect D8:1 D23:3
+(points 4 383 300 430 300 430 230 441 230))
+(connect D10:1 D24:1
+(points 6 383 340 400 340 400 330 430 330 430 320 441 320))
+(connect D11:0 D25:0
+(points 2 170 246 170 260))
+(connect D25:0 D26:0
+(points 2 170 280 170 289))
+(connect D9:1 D27:1
+(points 4 383 320 410 320 410 362 444 362))
+(connect D9:1 D28:1
+(points 4 383 320 410 320 410 270 441 270))
+(connect D30:0 D29:0
+(points 2 340 190 340 190))
+(connect D3:0 D30:0
+(points 2 340 140 340 170)))
+(stackingOrder 12 11 2 13 14 4 5 6 7 8 19 20 17 18 15 9 10 29 30 21 25 26 22 23
+28 24 0 1 16 3 27 31))
+(numberFormats
+(realFormat standard)
+(realSigDigits 4)
+(realRadixSpec 4)
+(integerBase decimal))))

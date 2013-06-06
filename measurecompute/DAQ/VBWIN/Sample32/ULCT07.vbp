@@ -1,0 +1,7 @@
+ULCT07.FRM
+..\CBW.BAS
+ProjWinSize=77,425,216,336
+ProjWinShow=2
+IconForm="frmCountTest"
+Title="ULCT07"
+ExeName="ULCT07.EXE"

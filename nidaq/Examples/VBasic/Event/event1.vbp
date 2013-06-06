@@ -1,0 +1,6 @@
+Form=Event1.FRM
+Module=NIDAQ32; ..\..\..\Include\NIDAQ32.BAS
+Module=NIDEX32; ..\..\..\Include\NIDEX32.BAS
+Module=NIDAQCNS1; ..\..\..\Include\NIDAQCNS.INC
+Module=NIDAQERR1; ..\..\..\Include\NIDAQERR.INC
+Object={93AC777D-CCD7-11CE-83A7-0020AFE6BEB3}#1.0#0; DAQEVENT.OCX

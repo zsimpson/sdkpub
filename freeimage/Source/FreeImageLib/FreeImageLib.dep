@@ -1,0 +1,402 @@
+# Microsoft Developer Studio Generated Dependency File, included by FreeImageLib.mak
+
+..\FreeImage\NNQuantizer.cpp : \
+	"..\FreeImage.h"\
+	"..\Quantizers.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\WuQuantizer.cpp : \
+	"..\FreeImage.h"\
+	"..\Quantizers.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\Conversion.cpp : \
+	"..\FreeImage.h"\
+	"..\Quantizers.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\Conversion16_555.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\Conversion16_565.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\Conversion24.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\Conversion32.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\Conversion4.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\Conversion8.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\ConversionRGBF.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\ConversionType.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\Halftoning.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\tmoColorConvert.cpp : \
+	"..\FreeImage.h"\
+	"..\ToneMapping.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\tmoDrago03.cpp : \
+	"..\FreeImage.h"\
+	"..\ToneMapping.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\tmoReinhard05.cpp : \
+	"..\FreeImage.h"\
+	"..\ToneMapping.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\ToneMapping.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\Plugin.cpp : \
+	"..\FreeImage.h"\
+	"..\FreeImageIO.h"\
+	"..\Plugin.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginBMP.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginCUT.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginDDS.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginGIF.cpp : \
+	"..\FreeImage.h"\
+	"..\Metadata\FreeImageTag.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginHDR.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginICO.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginIFF.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginJPEG.cpp : \
+	"..\FreeImage.h"\
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jerror.h"\
+	"..\LibJPEG\jinclude.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\Metadata\FreeImageTag.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginKOALA.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginMNG.cpp : \
+	"..\FreeImage.h"\
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\LibMNG\libmng.h"\
+	"..\LibMNG\libmng_conf.h"\
+	"..\LibMNG\libmng_types.h"\
+	"..\Utilities.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	
+
+..\FreeImage\PluginPCD.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginPCX.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginPNG.cpp : \
+	"..\FreeImage.h"\
+	"..\LibPNG\png.h"\
+	"..\LibPNG\pngconf.h"\
+	"..\Metadata\FreeImageTag.h"\
+	"..\Utilities.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	
+
+..\FreeImage\PluginPNM.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginPSD.cpp : \
+	"..\FreeImage.h"\
+	
+
+..\FreeImage\PluginRAS.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginTARGA.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginTIFF.cpp : \
+	"..\FreeImage.h"\
+	"..\LibTIFF\tif_config.h"\
+	"..\LibTIFF\tif_dir.h"\
+	"..\LibTIFF\tiff.h"\
+	"..\LibTIFF\tiffio.h"\
+	"..\LibTIFF\tiffiop.h"\
+	"..\LibTIFF\tiffvers.h"\
+	"..\Metadata\FreeImageTag.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginWBMP.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginXBM.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PluginXPM.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\DeprecationManager\DeprecationMgr.cpp : \
+	"..\DeprecationManager\DeprecationMgr.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\CacheFile.cpp : \
+	"..\CacheFile.h"\
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\MultiPage.cpp : \
+	"..\CacheFile.h"\
+	"..\FreeImage.h"\
+	"..\FreeImageIO.h"\
+	"..\Plugin.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\ZLibInterface.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	"..\ZLib\zutil.h"\
+	
+
+..\Metadata\Exif.cpp : \
+	"..\FreeImage.h"\
+	"..\Metadata\FreeImageTag.h"\
+	"..\Utilities.h"\
+	
+
+..\Metadata\FIRational.cpp : \
+	"..\FreeImage.h"\
+	"..\Metadata\FIRational.h"\
+	"..\Utilities.h"\
+	
+
+..\Metadata\FreeImageTag.cpp : \
+	"..\FreeImage.h"\
+	"..\Metadata\FreeImageTag.h"\
+	"..\Utilities.h"\
+	
+
+..\Metadata\IPTC.cpp : \
+	"..\FreeImage.h"\
+	"..\Metadata\FreeImageTag.h"\
+	"..\Utilities.h"\
+	
+
+..\Metadata\TagConversion.cpp : \
+	"..\FreeImage.h"\
+	"..\Metadata\FIRational.h"\
+	"..\Metadata\FreeImageTag.h"\
+	"..\Utilities.h"\
+	
+
+..\Metadata\TagLib.cpp : \
+	"..\FreeImage.h"\
+	"..\Metadata\FreeImageTag.h"\
+	"..\Utilities.h"\
+	
+
+..\Metadata\XTIFF.cpp : \
+	"..\FreeImage.h"\
+	"..\LibTIFF\tif_config.h"\
+	"..\LibTIFF\tif_dir.h"\
+	"..\LibTIFF\tiff.h"\
+	"..\LibTIFF\tiffio.h"\
+	"..\LibTIFF\tiffiop.h"\
+	"..\LibTIFF\tiffvers.h"\
+	"..\Metadata\FreeImageTag.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\BitmapAccess.cpp : \
+	"..\FreeImage.h"\
+	"..\FreeImageIO.h"\
+	"..\Metadata\FreeImageTag.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\ColorLookup.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\FreeImage.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\FreeImageIO.cpp : \
+	"..\FreeImage.h"\
+	"..\FreeImageIO.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\GetType.cpp : \
+	"..\DeprecationManager\DeprecationMgr.h"\
+	"..\FreeImage.h"\
+	"..\FreeImageIO.h"\
+	"..\Plugin.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\MemoryIO.cpp : \
+	"..\FreeImage.h"\
+	"..\FreeImageIO.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImage\PixelAccess.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImageToolkit\BSplineRotate.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImageToolkit\Channels.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImageToolkit\ClassicRotate.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImageToolkit\Colors.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImageToolkit\CopyPaste.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImageToolkit\Display.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImageToolkit\Flip.cpp : \
+	"..\FreeImage.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImageToolkit\JPEGTransform.cpp : \
+	"..\FreeImage.h"\
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jerror.h"\
+	"..\LibJPEG\jinclude.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\LibJPEG\transupp.h"\
+	
+
+..\FreeImageToolkit\Rescale.cpp : \
+	"..\FreeImage.h"\
+	"..\freeimagetoolkit\filters.h"\
+	"..\FreeImageToolkit\Resize.h"\
+	"..\Utilities.h"\
+	
+
+..\FreeImageToolkit\Resize.cpp : \
+	"..\FreeImage.h"\
+	"..\freeimagetoolkit\filters.h"\
+	"..\FreeImageToolkit\Resize.h"\
+	"..\Utilities.h"\
+	

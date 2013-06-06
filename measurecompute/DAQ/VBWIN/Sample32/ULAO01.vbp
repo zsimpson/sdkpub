@@ -1,0 +1,7 @@
+ULAO01.FRM
+..\CBW.BAS
+ProjWinSize=166,799,216,336
+ProjWinShow=2
+IconForm="frmSendAData"
+Title="ULAO01"
+ExeName="ULAO01.EXE"

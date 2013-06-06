@@ -1,0 +1,100 @@
+10.01.2000
+----------
+
+VisEiCL:
+- Pointers in EiC have been made unsafe. That is because the functions 
+  in ippiCVL take unsafe pointers. This EiC mechanism 
+  should be implemented by wrappers. Maybe it will be switched on if we 
+  find a simple decision how to make wrappers support safe pointers.
+
+HighGUI:
+- Added destroy_image function that frees the memory allocated for bitmap.
+
+
+11.01.2000
+----------
+
+Converters:
+- Corrected the bug in converters. All converters were turning bitmaps
+  upside down.
+- Added fast converter from IPPIIMAGE to IPLIMAGE, that creates an IPL 
+  header, but does not allocate memory and does not copy image data.
+
+
+13.01.2000
+----------
+
+ALL:
+- Removed memory leaks (all?)
+
+
+14.01.2000
+----------
+
+VisEiCL:
+- CHANGE IN PROJECT: *wrap.h files have been removed from VisEiCL.dsp. 
+  From now on EiC uses library headers, like ippiCVL.h, ipl.h, etc.
+
+18.01.2000
+----------
+
+HighGUI:
+- Added HG_AUTOSIZE window style. See the docs for more info.
+
+
+19.01.2000
+----------
+
+HighGUI:
+- Added save_bitmap function
+
+
+24.01.2000
+----------
+
+Hawk, VisEiCL:
+- CHANGE IN PROJECT: The plugin mechanism has been implemented. ippiCVL
+  and ipl wrapper functions are loaded to Hawk as plugins from now on.
+
+25.01.2000
+----------
+
+Hawk:
+- Popup menus with hints to all functions available in the interpreter
+  have been implemented.
+
+10.02.2000
+----------
+
+HighGUI:
+- Added toolbar and trackbar controls and the functions working with them.
+- Changed the scheme of windows, size calculation (due to controls).
+
+18.02.2000
+----------
+
+ALL:
+- Implemeted a script abort in case of a fatal error (e.g. load_bitmap fails
+  to find the file specified). Abort happens only if the "Safe mode" flag is 
+  set.
+
+29.02.2000
+----------
+
+Hawk:
+- Hawk text editor has been enhanced with syntax color highlighting and
+  other useful features.
+
+07.03.2000
+----------
+
+Converters:
+- Added the function play_avi that is temporarily places in converters block.
+  This function plays avi video file, calling a script function on every 
+  displayed frame.
+
+14.04.2000
+----------
+
+VisEiCL:
+- Incorporated with next EiC version, 4.2.6, which is more stable.

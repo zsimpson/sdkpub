@@ -1,0 +1,411 @@
+# Microsoft Developer Studio Generated Dependency File, included by FreeImage.mak
+
+.\Source\FreeImage\Plugin.cpp : \
+	"..\..\..\dev\vc98\include\basetsd.h"\
+	".\Source\FreeImage.h"\
+	".\Source\FreeImageIO.h"\
+	".\Source\Plugin.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginBMP.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginCUT.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginDDS.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginGIF.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Metadata\FreeImageTag.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginHDR.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginICO.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginIFF.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginJPEG.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\LibJPEG\jconfig.h"\
+	".\Source\LibJPEG\jerror.h"\
+	".\Source\LibJPEG\jinclude.h"\
+	".\Source\LibJPEG\jmorecfg.h"\
+	".\Source\LibJPEG\jpeglib.h"\
+	".\Source\Metadata\FreeImageTag.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginKOALA.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginMNG.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\LibJPEG\jconfig.h"\
+	".\Source\LibJPEG\jmorecfg.h"\
+	".\Source\LibJPEG\jpeglib.h"\
+	".\Source\LibMNG\libmng.h"\
+	".\Source\LibMNG\libmng_conf.h"\
+	".\Source\LibMNG\libmng_types.h"\
+	".\Source\Utilities.h"\
+	".\Source\ZLib\zconf.h"\
+	".\Source\ZLib\zlib.h"\
+	
+
+.\Source\FreeImage\PluginPCD.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginPCX.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginPNG.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\LibPNG\png.h"\
+	".\Source\LibPNG\pngconf.h"\
+	".\Source\Metadata\FreeImageTag.h"\
+	".\Source\Utilities.h"\
+	".\Source\ZLib\zconf.h"\
+	".\Source\ZLib\zlib.h"\
+	
+
+.\Source\FreeImage\PluginPNM.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginPSD.cpp : \
+	".\Source\FreeImage.h"\
+	
+
+.\Source\FreeImage\PluginRAS.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginTARGA.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginTIFF.cpp : \
+	"..\..\..\dev\vc98\include\basetsd.h"\
+	".\Source\FreeImage.h"\
+	".\Source\LibTIFF\tif_config.h"\
+	".\Source\LibTIFF\tif_dir.h"\
+	".\Source\LibTIFF\tiff.h"\
+	".\Source\LibTIFF\tiffio.h"\
+	".\Source\LibTIFF\tiffiop.h"\
+	".\Source\LibTIFF\tiffvers.h"\
+	".\Source\Metadata\FreeImageTag.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginWBMP.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginXBM.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PluginXPM.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\Conversion.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Quantizers.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\Conversion16_555.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\Conversion16_565.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\Conversion24.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\Conversion32.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\Conversion4.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\Conversion8.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\ConversionRGBF.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\ConversionType.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\Halftoning.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\tmoColorConvert.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\ToneMapping.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\tmoDrago03.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\ToneMapping.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\tmoReinhard05.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\ToneMapping.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\ToneMapping.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\NNQuantizer.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Quantizers.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\WuQuantizer.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Quantizers.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\DeprecationManager\DeprecationMgr.cpp : \
+	"..\..\..\dev\vc98\include\basetsd.h"\
+	".\Source\DeprecationManager\DeprecationMgr.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\CacheFile.cpp : \
+	".\Source\CacheFile.h"\
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\MultiPage.cpp : \
+	".\Source\CacheFile.h"\
+	".\Source\FreeImage.h"\
+	".\Source\FreeImageIO.h"\
+	".\Source\Plugin.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\ZLibInterface.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	".\Source\ZLib\zconf.h"\
+	".\Source\ZLib\zlib.h"\
+	".\Source\ZLib\zutil.h"\
+	
+
+.\Source\Metadata\Exif.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Metadata\FreeImageTag.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\Metadata\FIRational.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Metadata\FIRational.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\Metadata\FreeImageTag.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Metadata\FreeImageTag.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\Metadata\IPTC.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Metadata\FreeImageTag.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\Metadata\TagConversion.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Metadata\FIRational.h"\
+	".\Source\Metadata\FreeImageTag.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\Metadata\TagLib.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Metadata\FreeImageTag.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\Metadata\XTIFF.cpp : \
+	"..\..\..\dev\vc98\include\basetsd.h"\
+	".\Source\FreeImage.h"\
+	".\Source\LibTIFF\tif_config.h"\
+	".\Source\LibTIFF\tif_dir.h"\
+	".\Source\LibTIFF\tiff.h"\
+	".\Source\LibTIFF\tiffio.h"\
+	".\Source\LibTIFF\tiffiop.h"\
+	".\Source\LibTIFF\tiffvers.h"\
+	".\Source\Metadata\FreeImageTag.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\BitmapAccess.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\FreeImageIO.h"\
+	".\Source\Metadata\FreeImageTag.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\ColorLookup.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\FreeImage.cpp : \
+	"..\..\..\dev\vc98\include\basetsd.h"\
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\FreeImageC.c : \
+	".\Source\FreeImage.h"\
+	
+
+.\Source\FreeImage\FreeImageIO.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\FreeImageIO.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\GetType.cpp : \
+	".\Source\DeprecationManager\DeprecationMgr.h"\
+	".\Source\FreeImage.h"\
+	".\Source\FreeImageIO.h"\
+	".\Source\Plugin.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\MemoryIO.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\FreeImageIO.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImage\PixelAccess.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImageToolkit\BSplineRotate.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImageToolkit\Channels.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImageToolkit\ClassicRotate.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImageToolkit\Colors.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImageToolkit\CopyPaste.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImageToolkit\Display.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImageToolkit\Flip.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImageToolkit\JPEGTransform.cpp : \
+	".\Source\FreeImage.h"\
+	".\Source\LibJPEG\jconfig.h"\
+	".\Source\LibJPEG\jerror.h"\
+	".\Source\LibJPEG\jinclude.h"\
+	".\Source\LibJPEG\jmorecfg.h"\
+	".\Source\LibJPEG\jpeglib.h"\
+	".\Source\LibJPEG\transupp.h"\
+	
+
+.\Source\FreeImageToolkit\Rescale.cpp : \
+	".\Source\FreeImage.h"\
+	".\source\freeimagetoolkit\filters.h"\
+	".\Source\FreeImageToolkit\Resize.h"\
+	".\Source\Utilities.h"\
+	
+
+.\Source\FreeImageToolkit\Resize.cpp : \
+	".\Source\FreeImage.h"\
+	".\source\freeimagetoolkit\filters.h"\
+	".\Source\FreeImageToolkit\Resize.h"\
+	".\Source\Utilities.h"\
+	

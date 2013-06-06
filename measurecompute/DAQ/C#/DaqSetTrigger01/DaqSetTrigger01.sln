@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaqSetTrigger01", "DaqSetTrigger01.csproj", "{F50F9C3E-C9E1-4715-B8E2-6DA7B31A2C5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{F50F9C3E-C9E1-4715-B8E2-6DA7B31A2C5B}.Debug.ActiveCfg = Debug|.NET
+		{F50F9C3E-C9E1-4715-B8E2-6DA7B31A2C5B}.Debug.Build.0 = Debug|.NET
+		{F50F9C3E-C9E1-4715-B8E2-6DA7B31A2C5B}.Release.ActiveCfg = Release|.NET
+		{F50F9C3E-C9E1-4715-B8E2-6DA7B31A2C5B}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

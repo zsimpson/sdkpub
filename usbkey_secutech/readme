@@ -1,0 +1,17 @@
+Mar 2013:
+
+I have added lib2013 folders to each OS from the sdk 5_6_02 (downloaded 2 mar 2013)
+
+This was brought about by the current libs failing on windows 8.
+
+I AM NOT changing the sdkbuild.pl to reference the new libs for OSX or Linux, only Windows 8,
+since this is the only OS on which we have problems currently.
+
+
+Nov 2011: 
+
+I have added lib2011 folders to each OS, and placed the headers and libs from the secutech sdk 5_1_5 (downloaded 8 nov 2011)
+
+This was brought about my the move to 64bit compilation on OSX.  See the readme in the osx folder for a detailed history.
+
+

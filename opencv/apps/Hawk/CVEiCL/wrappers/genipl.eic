@@ -1,0 +1,8 @@
+// wrapping ipl
+#define IPL_WINDOWS
+#define __stdcall
+#define __cdecl
+#define __declspec(a)
+#define IPLAPI(type, name, arg) type name arg;
+#include "ipl.h"
+:gen ipl.h "iplwrap.c"

@@ -1,0 +1,6 @@
+*.ncb
+*.suo
+include
+Debug
+Dynamic
+Release

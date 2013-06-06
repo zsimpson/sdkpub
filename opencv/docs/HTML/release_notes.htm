@@ -1,0 +1,351 @@
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+    <META NAME="Generator" CONTENT="Microsoft Word 97">
+    <META NAME="Template" CONTENT="D:\WIN32APP\msoffice97\Office\html.dot">
+    <META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+    <META NAME="Author" CONTENT="Gary Bradski">
+    <META NAME="Description" CONTENT="Header for main functions">
+    <META NAME="KeyWords" CONTENT="CV.h">
+    <TITLE>Release Notes</TITLE>
+    <!-- Formatted and proofed in GNU Emacs by: Michael Chu, 00.06.05 -->
+  </HEAD>
+  <BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+    <a name="top">
+      
+    <CENTER><TABLE CELLSPACING=0 CELLPADDING=5 WIDTH="90%" BGCOLOR="#6A9BED" NOSAVE >
+    <TR NOSAVE>
+      <TD NOSAVE>
+        <h1 align="center">
+        Open Source Computer Vision Libray</h1>
+        <p align="center">
+        <i><font size="+4" color="#000000">
+          Release Notes
+        </font></i></p>
+      </TD>
+    </TR>
+      </TABLE></CENTER>
+
+      
+    
+    </a><h2>Index</h2>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="#Overview">Overview</a></p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="#Usage model">Usage
+    Model and Manual</a></p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="#What's Open">What's
+    Open What's Not</a></p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="#System Requirements">System
+    Requirements</a></p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="#License">License</a></p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="#Installation">Installation</a></p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="#Directory Structure">Directory
+    Structure</a></p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="#Known Problems">Known
+    Problems</a></p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="#Q&amp;A">Q&amp;A</a></p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="#Contact Info">Contact
+    Info</a></p>
+    <h1><a name="Overview"></a>Overview</h1>
+    <p><br>
+      
+This is a community effort, code and algorithm contribution of new and
+existing algorithms are encouraged. The library targets 3 areas of use.</p>
+
+    <ul>
+      <li>Commercial: Performance optimized code for use in commercial applications that are free for use, modification and redistribution (subject to the license);</li>
+      <li>Research: A common substrate for disseminating new work that, in addition, is largely optimized;</li>
+      <li>Tutorial: Documented code and algorithms intended to be used for teaching.</li>
+    </ul>
+    <p align="left">There are more than 300 functions in OpenCV that are tuned
+    for faster execution on the latest Intel processors. Significant part of the
+    library is optimized using MMX and SSE instructions.</p>
+    <p align="left">The library performance and functionality are improving
+    quickly.</p>
+    <p align="left">Read the <a href="../../History.txt">history</a>  file for change history.
+    The OpenCV API has changed. See the list of changes <a href="../../interface_changes.txt">here</a>.&nbsp;</p>
+    <h2 style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a name="Usage model"></a>Usage
+    model, Manual:</h2>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">Write your
+    code using library functions with reference to our the user manual <a href="../OpenCV%20Reference%20Manual.pdf">OpenCV
+    Reference Manual.pdf</a>
+    and the main header file <a href="functPage/functPage.htm">CV.h</a>.</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">Link
+    against the library files:</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">..\lib\cv.lib</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">..\OtherLibs\_Ipl\lib\msvc\ipl.lib</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+    <blockquote>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">depending on
+    the demo application, you may also need&nbsp;</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">..\lib\HighGUI.lib</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">..\lib\vlgfmts.lib</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">..\OtherLibs\_Mkl\lib\Default\Intel\mkl_c.lib</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">..\DirectShow
+    libraries</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+    </blockquote>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">The dynamic
+    link libraries (<b>dll</b>) must be in the system path, or in the directory
+    that you run your application from.&nbsp; The location of the dynamic link
+    libraries is:</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">..\bin</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">..\<a name="top">OtherLibs\_Ipl\bin </a> </p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp; </p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">Of course, if
+    you are making use of DirectShow, you will need it's dll's in the path
+    ..\DirectShow\bin</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">When you run
+    your application, cv.dll and ipl.dll will <i>automagically</i> look up the
+    processor type and swap in the correct optimized dll. If it can't find the
+    correct dll, or if it can't identify the processor type, the optimized C
+    version will be used.&nbsp; The &quot;code names&quot; for libs and dlls
+    are:</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">cv.dll or
+    cv.lib&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Dll and import library that can be built from supplied sources (pure C code)</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">OptCVPX.dll
+    and IppCVPX.dll&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; code, optimized for any
+    IA32 processor.</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">OptCVM5.dll
+    and IppCVM5.dll&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pentium MMX assembly
+    optimized code.</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">OptCVM6.dll
+    and IppCVM6.dll&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pentium II assembly
+    optimized code.</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">OptCVA6.dll
+    and IppCVA6.dll&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pentium III assembly
+    optimized code.</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">OptCVW7.dll
+    and IppCVW7.dll&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pentium 4 assembly
+    optimized code.</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+    <h2 style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a name="What's Open"></a>What's open,
+    what's not:</h2>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><b>Open</b>:</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">All the C++
+    and C source for the library, DirectShow filters and application demos as
+    well as the Matlab code.</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">The C++/C
+    library code compiles to build the cvPX.lib and cvPX.dll.</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><b>Closed</b>:</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">The assembly
+    language optimized versions of the C code for each processor that Intel is
+    contributing to the code base.&nbsp;&nbsp;</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">The reason
+    these are not open is that Intel is producing an array of primitive routines
+    covering virtually all of its optimized libraries. These primitives will be
+    freely re-distributable, but they will not be part of the open source
+    computer vision library.&nbsp; For now, we have ship preliminar (though,
+    stable) versions of these future optimized primitive routines inside the
+    OptCVXX.dlls and IppCVXX.dlls, but we will
+    use the actual primitives when they are released in Q3'2000.&nbsp; This
+    change will not affect the C code.&nbsp;</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"> If you think you have a good reason for needing the assembly source code please contact
+    us.</p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"> &nbsp;</p>
+    <h2 style="line-height: 100%; margin-top: 0; margin-bottom: 0"> <a name="System Requirements"></a>System Requirements
+    </h2>
+    <h2 style="line-height: 100%; margin-top: 0; margin-bottom: 0"> &nbsp;
+    </h2>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"> <b>Hardware requirements:</b> A Pentium
+    MMX, Pentium Pro, Pentium II, Pentium III or Pentium 4 processor-based PC.  Memory should be appropriate for the image sizes needed. <br>
+    <b>Recommended hardware:</b> Pentium III or Pentium 4 processor-based PC with USB
+    ports, camera.&nbsp;<br>
+    <b>Software requirements: </b> Win98, WinNT4.0, or Win2000. Microsoft Visual C++ 6.0.  The applications require
+    DirectShow to be installed (6.0 for NT4.0 and 7.0+ for Win98, Win2000).  The various filters require
+    graphedt.exe to be installed.  This may be downloaded with the full (LARGE) DirectShow download from
+    <a href="http://microsoft.com/directx/homeuser/downloads/default.asp" target="_top">http://microsoft.com/directx/homeuser/downloads/default.asp</a>
+    ~128MB.
+    </p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"> or
+    </p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"> Linux 2.2.x
+    or 2.4.x, glibc 2.95. The application VMDemo requires Tcl/Tk 8.3 and <b>img</b>
+    widget installed.
+    </p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"> <br>
+    <b>Recommended software:</b> Win2000 (comes with DirectShow (runtime only,
+    not SDK)) with graphedt.exe installed.
+    </p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"> or
+    </p>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"> Linux
+    Slackware 7.1 or Linux RedHat 7.0.&nbsp;
+    </p>
+      <p style="text-indent: 0; margin: 0">&nbsp;</p>
+      <p style="text-indent: 0; margin: 0">&nbsp;</p>
+      <h2 style="text-indent: 0; margin: 0"><a name="License"></a>License Definitions</h2>
+      <p style="text-indent: 0; margin: 0">&nbsp;</p>
+      <p style="text-indent: 0; margin: 0">&nbsp;</p>
+      <p style="text-indent: 0; margin: 0">Please see the license file <a href="../license.txt"> license.txt</a> for the license definitions and restrictions on the library.&nbsp;</p>
+      <p style="text-indent: 0; margin: 0">&nbsp;</p>
+      <h2>
+    
+    <a name="Installation"></a>
+    
+    Installation
+    </h2>
+      <h3>
+    
+    Under Win32:
+    </h3>
+      <p>
+    
+    The whole OpenCV delivery is broken up into several smaller packages:
+    </p>
+    <ul>
+      <li>The core: CV and helper libraries sources and binaries, documentation
+        (opencv_core_b1.zip)</li>
+      <li>Demo appplications, DirectShow filters, scripting environment, tests
+        for the library (opencv_apps_b1.zip). The package depends on the core
+        package.</li>
+      <li>Calibration toolbox for MATLAB (opencv_calib_toolbox.zip).</li>
+    </ul>
+      <p>
+    
+    To install each package download it, uncompress and run setup.exe&nbsp;
+    </p>
+      <h3>
+    
+    Under Linux:
+    </h3>
+    <p>There is a single package for Linux: opencv-linux-b1.tar.gz. The package
+    content is the same as opencv_core_b1.zip, but additionally includes demo
+    application VMDemo.
+    </p>
+    <p>To install it, do the following steps:
+    </p>
+    <ol>
+      <li>To install the libraries, type:<br>
+    ./configure<br>
+    make<br>
+    make install       # as root<br>
+    ldconfig           # as root<br>
+      </li>
+      <li>
+        <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">To run
+        demo application VMDemo, you should have TCL/TK 8.3.x and "Img image format extension"
+        widget installed.<br>
+        (visit&nbsp; <a href="http://www.scriptics.com" target="_top">http://www.scriptics.com</a> to obtain TCL/TK and<br>
+        <a href="http://members1.chello.nl/~j.nijtmans/img.html" target="_top">http://members1.chello.nl/~j.nijtmans/img.html
+        </a> to obtain the widget).<br>
+      </li>
+    </ol>
+      <h2>
+    
+    <a name="Directory Structure"></a>
+    
+    Directory Structure
+    </h2>
+      <p>
+    
+    <pre style="line-height: 100%; margin-top: 0; margin-bottom: 0"><b>%Root folder%</b>
+
+ |
+ + <b>_DSW</b>  // Workspace file for Microsoft Visual Studio and a few Perl utilities for statistics
+ |
+ + <b>CV</b>    // The library itself
+ |  + Include   // External library interface
+ |  + _Include  // Internal library interface
+ |  + Make      // Project file
+ |  + Src       // Source files
+ |
+ + <b>CVAux</b> // Additional (experimental) stuff.
+ |
+ + <b>Docs</b>  // documentation
+ |  + HTML      // overview documentatation in HTML format
+ |
+ + <b>Bin</b>   // all the pre-built binaries
+ |
+ + <b>Lib</b>   // pre-built import and static libraries
+ |
+ + <b>Apps</b>  // Demo Applications
+ |  |
+ |  + CamShiftDemo // Application - Wrapper for CamShift Tracker Filter
+ |  + VMDemo       // View Morphing demo
+ |  + LkDemo       // Lucas-Kanade Pyramid-based Point Tracker
+ |  + HMMDemo      // Hidden Markov Models Face Recognition Demo
+ |  + StereoGR     // Stereo-based Gesture Recognition App for PointGrey Stereo Cameras
+ |  + Hawk         // Scripting Environment
+ |  + Common       // CImage and CCamera classes 
+ |
+ + <b>Filters</b>  // Direct Show filters 
+ |  + CalibFilter // Camera Calibration filter 
+ |  + CamShift    // CamShift tracker 
+ |  + Condens     // ConDensation based tracker 
+ |  + Kalman      // Kalman filter based tracker 
+ |  + ProxyTrans  // Proxy DirectShow filter  
+ |
+ + <b>OtherLibs</b>
+ |   + _Mkl       // Math Kernel Library - used for tests on matrix functions
+ |   + _IPL       // Image Processing Library - base library for the OpenCV
+ |   + HighGUI    // Simple GUI library with platform-independed interface
+ |   + VlGrFmts   // Library for reading/writing raster images
+ |   + GestRec    // Experimental gesture recognition module
+ |   + PtGrey     // Interface Module for PointGrey Stereo Camera
+ |   
+ + <b>Tests</b>// sources for algorithmic tests
+ </pre>
+
+ <h2>
+     <a name="Known Problems"></a>
+     Known Problems
+    </h2>
+    <ul>
+      <li>Building of DirectShow-based filters and applications is not easy</li>
+    </ul>
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font size="2" face="Courier New">Look
+    at </font> <a href="FAQ.htm"> FAQs</a><font size="2" face="Courier New">&nbsp;</font></p>
+    <ul>
+      <li>Sometimes demo applications don't detect WebCameras properly.</li>
+    </ul>
+    <blockquote>
+      <p><font face="Courier New" size="2">Try to select another video format
+      via vidcap utility.</font></p>
+    </blockquote>
+      <h2>
+    
+    <a name="Q&amp;A"></a>
+    
+    Q&amp;A:
+    </h2>
+      <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">
+    
+    Q: How can I get an answer on my question about OpenCV?
+    </p>
+      <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">
+    
+    A: Look at <a href="FAQ.htm">FAQs</a>.&nbsp;&nbsp;
+    </p>
+      <h1>
+    
+    <a name="Contact Info"></a>
+    
+    Contact Info
+    </h1>
+    <p>
+    
+    For questions, bug reports, patches and suggestions, send email to <a href="mailto:OpenCV@yahoogroups.com">OpenCV@yahoogroups.com</a>&nbsp;(it
+    is a mailing list) or to Gary
+    Bradski at <a href="mailto:gary.bradski@intel.com">gary.bradski@intel.com</a>.&nbsp; Keep in mind that
+    this is a free library from a research lab when setting your expectations of
+    support.&nbsp; If you would like to volunteer to become part of the support
+    infrastructure please do contact us.
+
+      <br><Br>
+    <hr noshade size=2 width=100%>
+    <H3>
+      <A NAME="Bottom"></A><A HREF="#Top">Back to Top<IMG SRC="up.gif" BORDER=0 height=26 width=30></A></H3>
+
+  </BODY>
+</HTML>

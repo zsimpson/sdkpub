@@ -1,0 +1,120 @@
+# Microsoft Developer Studio Generated Dependency File, included by LibPNG.mak
+
+.\png.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	
+
+.\pngerror.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	
+
+.\pnggccrd.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	
+
+.\pngget.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	
+
+.\pngmem.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	
+
+.\pngpread.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	
+
+.\pngread.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	
+
+.\pngrio.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	
+
+.\pngrtran.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	
+
+.\pngrutil.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	
+
+.\pngset.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	
+
+.\pngtrans.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	
+
+.\pngvcrd.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	
+
+.\pngwio.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	
+
+.\pngwrite.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	
+
+.\pngwtran.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	
+
+.\pngwutil.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\png.h"\
+	".\pngconf.h"\
+	

@@ -1,0 +1,1156 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./HMMDemo_files/filelist.xml">
+<link rel=Edit-Time-Data href="./HMMDemo_files/editdata.mso">
+<link rel=OLE-Object-Data href="./HMMDemo_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>HMMDemo User’s Manual</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Molinov Sergey</o:Author>
+  <o:LastAuthor>vpisarev</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>156</o:TotalTime>
+  <o:Created>2001-03-01T17:46:00Z</o:Created>
+  <o:LastSaved>2001-03-01T17:46:00Z</o:LastSaved>
+  <o:Pages>7</o:Pages>
+  <o:Words>1158</o:Words>
+  <o:Characters>6604</o:Characters>
+  <o:Company>NSTLab</o:Company>
+  <o:Lines>55</o:Lines>
+  <o:Paragraphs>13</o:Paragraphs>
+  <o:CharactersWithSpaces>8110</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-font-kerning:16.0pt;}
+h2
+	{mso-style-next:Normal;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:Arial;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:83307743;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1022684124 67698705 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1
+	{mso-list-id:111168934;
+	mso-list-type:hybrid;
+	mso-list-template-ids:117207690 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l1:level1
+	{mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l2
+	{mso-list-id:267393602;
+	mso-list-type:hybrid;
+	mso-list-template-ids:748172254 67698705 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l2:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l3
+	{mso-list-id:535461267;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1721258010 67698705 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l3:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l4
+	{mso-list-id:953247354;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1216628638 67698705 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l4:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l5
+	{mso-list-id:955254941;
+	mso-list-type:hybrid;
+	mso-list-template-ids:787251466 67698705 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l5:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l6
+	{mso-list-id:1323043557;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1138009928 67698705 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l6:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l7
+	{mso-list-id:1566991098;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-881846118 67698705 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l7:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'>HMMDemo User’s Manual.</h1>
+
+<h3 style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span><![endif]>Main window.</h3>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Arial'>At startup, application tries to
+locate USB camera and runs it in YUV mode. In success main application window
+will appear as the following.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><!--[if gte vml 1]><v:line
+ id="_x0000_s1029" style='position:absolute;flip:x y;z-index:4' from="270pt,195.65pt"
+ to="4in,285.65pt">
+ <v:stroke endarrow="block"/>
+</v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:3;margin-left:356px;margin-top:260px;width:30px;height:123px'><img
+width=30 height=123 src="./HMMDemo_files/image001.gif" v:shapes="_x0000_s1029"></span><![endif]><!--[if gte vml 1]><v:line
+ id="_x0000_s1028" style='position:absolute;flip:y;z-index:3' from="90pt,213.65pt"
+ to="99pt,285.65pt">
+ <v:stroke endarrow="block"/>
+</v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+absolute;z-index:2;margin-left:119px;margin-top:284px;width:20px;height:99px'><img
+width=20 height=99 src="./HMMDemo_files/image002.gif" v:shapes="_x0000_s1028"></span><![endif]><span
+style='font-size:10.0pt;font-family:Arial'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:415.2pt;
+ height:279pt'>
+ <v:imagedata src="./HMMDemo_files/image003.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=554 height=372
+src="./HMMDemo_files/image004.jpg" v:shapes="_x0000_i1025"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t202" coordsize="21600,21600" o:spt="202" path="m0,0l0,21600,21600,21600,21600,0xe">
+ <v:stroke joinstyle="miter"/>
+ <v:path gradientshapeok="t" o:connecttype="rect"/>
+</v:shapetype><v:shape id="_x0000_s1026" type="#_x0000_t202" style='position:absolute;
+ margin-left:45pt;margin-top:4.2pt;width:1in;height:18pt;z-index:1' filled="f"/><v:shape
+ id="_x0000_s1027" type="#_x0000_t202" style='position:absolute;margin-left:234pt;
+ margin-top:4.2pt;width:90pt;height:18pt;z-index:2' filled="f"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout'>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=60 height=5></td>
+  <td width=99></td>
+  <td width=153></td>
+  <td width=123></td>
+ </tr>
+ <tr>
+  <td height=27></td>
+  <td width=99 height=27 align=left valign=top style='border:.75pt solid black;
+  vertical-align:top'><![endif]><![if !mso]><span style='position:absolute;
+  z-index:1'>
+  <table cellpadding=0 cellspacing=0 width="100%">
+   <tr>
+    <td><![endif]>
+    <div v:shape="_x0000_s1026" style='padding:3.6pt 7.2pt 3.6pt 7.2pt'
+    class=shape>
+    <p class=MsoNormal>Base view</p>
+    <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+    </div>
+    <![if !mso]></td>
+   </tr>
+  </table>
+  </span><![endif]><![if !mso & !vml]>&nbsp;<![endif]><![if !vml]></td>
+  <td></td>
+  <td width=123 height=27 align=left valign=top style='border:.75pt solid black;
+  vertical-align:top'><![endif]><![if !mso]><span style='position:absolute;
+  z-index:2'>
+  <table cellpadding=0 cellspacing=0 width="100%">
+   <tr>
+    <td><![endif]>
+    <div v:shape="_x0000_s1027" style='padding:3.6pt 7.2pt 3.6pt 7.2pt'
+    class=shape>
+    <p class=MsoNormal>Camera view</p>
+    </div>
+    <![if !mso]></td>
+   </tr>
+  </table>
+  </span><![endif]><![if !mso & !vml]>&nbsp;<![endif]><![if !vml]></td>
+ </tr>
+</table>
+
+</span><![endif]><span style='font-size:10.0pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<br style='mso-ignore:vglayout' clear=ALL>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Arial'>Main window is divided into 2 views.
+Right view usually contents view from camera (“Camera view”). Left view is for
+image database (“Base view”).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
+style='font-size:10.0pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<h2>Toolbar elements.</h2>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1026" type="#_x0000_t75" style='width:15pt;height:15pt' o:ole=""
+ o:bullet="t">
+ <v:imagedata src="./HMMDemo_files/image005.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=20 height=20
+src="./HMMDemo_files/image006.jpg" alt="*" v:shapes="_x0000_i1026"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1026"
+  DrawAspect="Content" ObjectID="_1044984716">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>- create
+new face database. Current base will be saved to disk.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1027" type="#_x0000_t75" style='width:16.2pt;height:13.8pt' o:ole=""
+ o:bullet="t">
+ <v:imagedata src="./HMMDemo_files/image007.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=22 height=19
+src="./HMMDemo_files/image008.jpg" alt="*" v:shapes="_x0000_i1027"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1027"
+  DrawAspect="Content" ObjectID="_1044984717">
+ </o:OLEObject>
+</xml><![endif]--><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><span style="mso-spacerun: yes"> </span>- open face database
+(stored in txt file) or open BMP file.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1028" type="#_x0000_t75" style='width:15pt;height:13.8pt' o:ole=""
+ o:bullet="t">
+ <v:imagedata src="./HMMDemo_files/image009.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=20 height=18
+src="./HMMDemo_files/image010.jpg" alt="*" v:shapes="_x0000_i1028"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1028"
+  DrawAspect="Content" ObjectID="_1044984718">
+ </o:OLEObject>
+</xml><![endif]--><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><span style="mso-spacerun: yes"> </span>- specify current
+face database parameters.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><!--[if gte vml 1]><v:shape id="_x0000_i1029" type="#_x0000_t75"
+ style='width:16.2pt;height:13.8pt' o:ole="" o:bullet="t">
+ <v:imagedata src="./HMMDemo_files/image011.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=22 height=19
+src="./HMMDemo_files/image012.jpg" alt="*" v:shapes="_x0000_i1029"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1029"
+  DrawAspect="Content" ObjectID="_1044984719">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>- add face
+into face database.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><!--[if gte vml 1]><v:shape id="_x0000_i1030" type="#_x0000_t75"
+ style='width:16.2pt;height:15pt' o:ole="">
+ <v:imagedata src="./HMMDemo_files/image013.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=22 height=20
+src="./HMMDemo_files/image014.jpg" v:shapes="_x0000_i1030"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1030"
+  DrawAspect="Content" ObjectID="_1044984720">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>- delete
+face from database.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><!--[if gte vml 1]><v:shape id="_x0000_i1031" type="#_x0000_t75"
+ style='width:15pt;height:15pt' o:ole="">
+ <v:imagedata src="./HMMDemo_files/image015.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=20 height=20
+src="./HMMDemo_files/image016.jpg" v:shapes="_x0000_i1031"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1031"
+  DrawAspect="Content" ObjectID="_1044984721">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>- zoom
+face database images.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt 54.0pt;mso-layout-grid-align:
+none;text-autospace:none'><!--[if gte vml 1]><v:shape id="_x0000_i1032" type="#_x0000_t75"
+ style='width:13.8pt;height:12.6pt' o:ole="" o:bullet="t">
+ <v:imagedata src="./HMMDemo_files/image017.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=18 height=17
+src="./HMMDemo_files/image018.jpg" alt="*" v:shapes="_x0000_i1032"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1032"
+  DrawAspect="Content" ObjectID="_1044984722">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes">  </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>- decimate
+face database images.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><!--[if gte vml 1]><v:shape id="_x0000_i1033" type="#_x0000_t75"
+ style='width:16.2pt;height:13.8pt' o:ole="" o:bullet="t">
+ <v:imagedata src="./HMMDemo_files/image019.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=22 height=19
+src="./HMMDemo_files/image020.jpg" alt="*" v:shapes="_x0000_i1033"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1033"
+  DrawAspect="Content" ObjectID="_1044984723">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>- </span><span
+style='font-size:10.0pt;font-family:Arial'>pause/resume camera capture.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><!--[if gte vml 1]><v:shape id="_x0000_i1034" type="#_x0000_t75"
+ style='width:17.4pt;height:15pt' o:ole="">
+ <v:imagedata src="./HMMDemo_files/image021.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=23 height=20
+src="./HMMDemo_files/image022.jpg" v:shapes="_x0000_i1034"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1034"
+  DrawAspect="Content" ObjectID="_1044984724">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>- specify
+camera resolution<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><!--[if gte vml 1]><v:shape id="_x0000_i1035" type="#_x0000_t75"
+ style='width:16.2pt;height:15pt' o:ole="">
+ <v:imagedata src="./HMMDemo_files/image023.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=22 height=20
+src="./HMMDemo_files/image024.jpg" v:shapes="_x0000_i1035"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1035"
+  DrawAspect="Content" ObjectID="_1044984725">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>- adjust
+video quality parameters.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><!--[if gte vml 1]><v:shape id="_x0000_i1036" type="#_x0000_t75"
+ style='width:15pt;height:13.2pt' o:ole="">
+ <v:imagedata src="./HMMDemo_files/image025.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=20 height=18
+src="./HMMDemo_files/image026.jpg" v:shapes="_x0000_i1036"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1036"
+  DrawAspect="Content" ObjectID="_1044984726">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>- select
+whole image in Camera view<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><!--[if gte vml 1]><v:shape id="_x0000_i1037" type="#_x0000_t75"
+ style='width:15pt;height:13.8pt' o:ole="" o:bullet="t">
+ <v:imagedata src="./HMMDemo_files/image027.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=20 height=19
+src="./HMMDemo_files/image028.jpg" alt="*" v:shapes="_x0000_i1037"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1037"
+  DrawAspect="Content" ObjectID="_1044984727">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>- train
+person(s) HMM(s)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><!--[if gte vml 1]><v:shape id="_x0000_i1038" type="#_x0000_t75"
+ style='width:16.2pt;height:13.8pt' o:ole="" o:bullet="t">
+ <v:imagedata src="./HMMDemo_files/image029.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=22 height=18
+src="./HMMDemo_files/image030.jpg" alt="*" v:shapes="_x0000_i1038"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1038"
+  DrawAspect="Content" ObjectID="_1044984728">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>-
+recognize face, selected in camera view.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><!--[if gte vml 1]><v:shape id="_x0000_i1039" type="#_x0000_t75"
+ style='width:16.8pt;height:11.4pt' o:ole="">
+ <v:imagedata src="./HMMDemo_files/image031.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=22 height=16
+src="./HMMDemo_files/image032.jpg" v:shapes="_x0000_i1039"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1039"
+  DrawAspect="Content" ObjectID="_1044984729">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>- delete
+all HMM information for face base.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><!--[if gte vml 1]><v:shape id="_x0000_i1040" type="#_x0000_t75"
+ style='width:15pt;height:15pt' o:ole="">
+ <v:imagedata src="./HMMDemo_files/image033.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=20 height=20
+src="./HMMDemo_files/image034.jpg" v:shapes="_x0000_i1040"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1040"
+  DrawAspect="Content" ObjectID="_1044984730">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>- about
+HMMDemo. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='tab-stops:list 36.0pt'><span style='mso-bidi-font-size:12.0pt'>Camera
+view<o:p></o:p></span></h2>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Initially camera view contents picture from camera. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Button </span><!--[if gte vml 1]><v:shape id="_x0000_i1041"
+ type="#_x0000_t75" style='width:16.2pt;height:13.8pt' o:ole="" o:bullet="t">
+ <v:imagedata src="./HMMDemo_files/image019.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=21 height=18
+src="./HMMDemo_files/image035.jpg" alt="*" v:shapes="_x0000_i1041"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1041"
+  DrawAspect="Content" ObjectID="_1044984731">
+ </o:OLEObject>
+</xml><![endif]--><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>pauses/resumes capture.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>User can specify rectangular image region on camera view
+using mouse (please begin selecting region from top left corner and finish at
+right bottom corner to avoid crashes).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Whole image can be selected by </span><!--[if gte vml 1]><v:shape
+ id="_x0000_i1042" type="#_x0000_t75" style='width:15pt;height:13.2pt' o:ole="">
+ <v:imagedata src="./HMMDemo_files/image025.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=20 height=17
+src="./HMMDemo_files/image036.jpg" v:shapes="_x0000_i1042"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1042"
+  DrawAspect="Content" ObjectID="_1044984732">
+ </o:OLEObject>
+</xml><![endif]--><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>button.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Selected rectangular region can be added into database using
+</span><!--[if gte vml 1]><v:shape id="_x0000_i1043" type="#_x0000_t75"
+ style='width:16.2pt;height:13.8pt' o:ole="" o:bullet="t">
+ <v:imagedata src="./HMMDemo_files/image011.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=21 height=19
+src="./HMMDemo_files/image037.jpg" alt="*" v:shapes="_x0000_i1043"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1043"
+  DrawAspect="Content" ObjectID="_1044984733">
+ </o:OLEObject>
+</xml><![endif]--><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>button or recognized using </span><!--[if gte vml 1]><v:shape
+ id="_x0000_i1044" type="#_x0000_t75" style='width:16.2pt;height:13.8pt' o:ole=""
+ o:bullet="t">
+ <v:imagedata src="./HMMDemo_files/image029.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=22 height=19
+src="./HMMDemo_files/image038.jpg" alt="*" v:shapes="_x0000_i1044"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1044"
+  DrawAspect="Content" ObjectID="_1044984734">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>button.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Camera view can also content image from BMP file. BMP file
+can be opened by </span><!--[if gte vml 1]><v:shape id="_x0000_i1045" type="#_x0000_t75"
+ style='width:16.2pt;height:13.8pt' o:ole="" o:bullet="t">
+ <v:imagedata src="./HMMDemo_files/image007.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=22 height=19
+src="./HMMDemo_files/image039.jpg" alt="*" v:shapes="_x0000_i1045"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1045"
+  DrawAspect="Content" ObjectID="_1044984735">
+ </o:OLEObject>
+</xml><![endif]--><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>button.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'>Base view.</p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>When face database is opened “Base view” contents images
+from this base. Base view can be stated in 2 modes: “all mode” and “person
+mode”.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>In “all mode”, for every person, stored in database, only
+one picture is shown. This situation is show below.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><!--[if gte vml 1]><v:shape id="_x0000_i1046" type="#_x0000_t75"
+ style='width:415.2pt;height:266.4pt'>
+ <v:imagedata src="./HMMDemo_files/image040.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=554 height=356
+src="./HMMDemo_files/image041.jpg" v:shapes="_x0000_i1046"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><span style="mso-spacerun: yes"> </span>In “person mode” all
+faces of one person are shown. This is depicted below.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><!--[if gte vml 1]><v:shape id="_x0000_i1047" type="#_x0000_t75"
+ style='width:415.2pt;height:258.6pt'>
+ <v:imagedata src="./HMMDemo_files/image042.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=554 height=344
+src="./HMMDemo_files/image043.jpg" v:shapes="_x0000_i1047"><![endif]><span
+style="mso-spacerun: yes"> </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>How to switch between “all mode” and “person mode?<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>To switch from “all mode” to “person mode” double click on
+image of person you are interested.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:list 36.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>To switch from “person mode” to “all mode” double click on
+free (not image) space of base view.</span><span style='font-size:10.0pt;
+font-family:Arial'><o:p></o:p></span></p>
+
+<h3 style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span><![endif]>Creating face base.</h3>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>At startup, application creates empty database. By default,
+new base is placed in untitled_base.txt file. To specify new database file
+press </span><!--[if gte vml 1]><v:shape id="_x0000_i1048" type="#_x0000_t75"
+ style='width:16.2pt;height:13.8pt' o:ole="">
+ <v:imagedata src="./HMMDemo_files/image044.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=21 height=19
+src="./HMMDemo_files/image045.jpg" v:shapes="_x0000_i1048"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1048"
+  DrawAspect="Content" ObjectID="_1044984737">
+ </o:OLEObject>
+</xml><![endif]--><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>button and fill fields of following dialog<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1049" type="#_x0000_t75" style='width:208.2pt;height:108.6pt'>
+ <v:imagedata src="./HMMDemo_files/image046.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=278 height=145
+src="./HMMDemo_files/image047.jpg" v:shapes="_x0000_i1049"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Type filename and some signature in specified fields.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Now you can add faces into base.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Select region with new face and press </span><!--[if gte vml 1]><v:shape
+ id="_x0000_i1050" type="#_x0000_t75" style='width:16.2pt;height:13.8pt' o:ole=""
+ o:bullet="t">
+ <v:imagedata src="./HMMDemo_files/image011.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=21 height=19
+src="./HMMDemo_files/image048.jpg" alt="*" v:shapes="_x0000_i1050"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1050"
+  DrawAspect="Content" ObjectID="_1044984738">
+ </o:OLEObject>
+</xml><![endif]--><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>button. If “base view” is in “person mode”, face will be
+added to person feces list. If “base view” in “all mode” you can be asked to
+specify person name. You can choose name from list of existing names (in this
+case image will join corresponding person images) or type new name (in this
+case new person with specified name will be created) <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>You can always delete any image or any person from base. For
+this purposes click on image or person you want to delete and press </span><!--[if gte vml 1]><v:shape
+ id="_x0000_i1051" type="#_x0000_t75" style='width:16.2pt;height:15pt' o:ole="">
+ <v:imagedata src="./HMMDemo_files/image013.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=22 height=20
+src="./HMMDemo_files/image049.jpg" v:shapes="_x0000_i1051"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1051"
+  DrawAspect="Content" ObjectID="_1044984739">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>button.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>When you perform add/delete operations, d</span><span
+style='font-size:10.0pt;font-family:Arial'>atabase saves automatically all your
+changes.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3 style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span><![endif]>Training/Recognition.</h3>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Arial'>When you've collected several
+persons and several photos present each one, you can train HMMs of every
+person. You can do it both in “all mode” and “person mode”.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Arial'>To train HMMs of all persons switch
+to “all mode” and press </span><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial'><!--[if gte vml 1]><v:shape id="_x0000_i1052" type="#_x0000_t75"
+ style='width:15pt;height:13.8pt' o:ole="" o:bullet="t">
+ <v:imagedata src="./HMMDemo_files/image027.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=20 height=18
+src="./HMMDemo_files/image050.jpg" alt="*" v:shapes="_x0000_i1052"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1052"
+  DrawAspect="Content" ObjectID="_1044984740">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span>button. All untrained
+HMMs will be trained ( clock-cursor will be shown during training process ).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>To train
+HMM of concrete person switch to “person mode” and<span style="mso-spacerun:
+yes">  </span></span><span style='font-size:10.0pt;font-family:Arial'>press </span><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1053" type="#_x0000_t75" style='width:15pt;height:13.8pt' o:ole=""
+ o:bullet="t">
+ <v:imagedata src="./HMMDemo_files/image027.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=20 height=18
+src="./HMMDemo_files/image051.jpg" alt="*" v:shapes="_x0000_i1053"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1053"
+  DrawAspect="Content" ObjectID="_1044984741">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span>button. HMM of person
+will be trained and during training segmentation of first image of person will
+appear.</span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>Note, than
+you add/delete person images, corresponding HMM becomes untrained, and after
+all changes user must train all untrained HMMs.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>If all
+HMMs are trained you can try to recognize somebody.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>For this<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l7 level1 lfo2;
+tab-stops:list 36.0pt;mso-layout-grid-align:none;text-autospace:none'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>1)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>Select
+face region in “camera view” (from camera of BMP file)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l7 level1 lfo2;
+tab-stops:list 36.0pt;mso-layout-grid-align:none;text-autospace:none'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>2)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial'>Press <!--[if gte vml 1]><v:shape
+ id="_x0000_i1054" type="#_x0000_t75" style='width:16.2pt;height:13.8pt' o:ole=""
+ o:bullet="t">
+ <v:imagedata src="./HMMDemo_files/image029.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=21 height=19
+src="./HMMDemo_files/image052.jpg" alt="*" v:shapes="_x0000_i1054"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1054"
+  DrawAspect="Content" ObjectID="_1044984742">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span>button.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt;mso-layout-grid-align:none;
+text-autospace:none'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Result of recognition will appear as message box with 3
+person names. First name will correspond to most similar person etc. “Base view”
+will be switched into “all mode” and most similar person will be highlighted
+with magenta rectangle. <o:p></o:p></span></p>
+
+<h3><!--[if gte vml 1]><v:shape id="_x0000_i1055" type="#_x0000_t75" style='width:415.2pt;
+ height:333.6pt' o:ole="">
+ <v:imagedata src="./HMMDemo_files/image053.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=554 height=445
+src="./HMMDemo_files/image054.jpg" v:shapes="_x0000_i1055"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1055"
+  DrawAspect="Content" ObjectID="_1044984743">
+ </o:OLEObject>
+</xml><![endif]--></h3>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h3 style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span><![endif]>Batch recognition.</h3>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>To demonstrate recognition rate of eHMM technique the batch
+recognition was implemented in HMMDemo. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>For batch recognition you must have 2 face base: one as
+training base and other as base for recognition. Both bases must be
+“personally” equal, i.e. base for recognition must consist of persons, which
+present in training base ( true matching is made by names ).<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Here is scenario of batch recognition.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo6;
+tab-stops:list 36.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial'>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Create first face base in usual way. Save it.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo6;
+tab-stops:list 36.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial'>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Create second base, which consists of people from first base
+(names must be equal in both bases), using another images. Save it.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo6;
+tab-stops:list 36.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial'>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Load first base and train it.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo6;
+tab-stops:list 36.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial'>4)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Go menu item “Options-&gt;Recognize another base”. You will
+be prompted to define .txt file, which is file of base you want recognize.
+Choose the base and recognition starts.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l6 level1 lfo6;
+tab-stops:list 36.0pt'><![if !supportLists]>5)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Recognition can take much time with large base. Be patient
+during cursor is “clock”. In the end of recognition massage box will appear. It
+will report how many images were processed and successfully recognized.</span></p>
+
+<h3 style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span><![endif]>HMMDemo settings</h3>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>There are several types of settings in HMMDemo concerning
+use of HMMs.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>To obtain settings property sheet go to Options-&gt;Settings
+item of menu.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Presently we have the following types of parameters<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo7;
+tab-stops:list 36.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial'>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Sampling parameters<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><!--[if gte vml 1]><v:shape id="_x0000_i1056"
+ type="#_x0000_t75" style='width:261pt;height:202.8pt'>
+ <v:imagedata src="./HMMDemo_files/image055.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=348 height=270
+src="./HMMDemo_files/image056.jpg" v:shapes="_x0000_i1056"><![endif]></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo7;
+tab-stops:list 36.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial'>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>HMM parameters<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial'><!--[if gte vml 1]><v:shape id="_x0000_i1057"
+ type="#_x0000_t75" style='width:261pt;height:202.8pt'>
+ <v:imagedata src="./HMMDemo_files/image057.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=348 height=270
+src="./HMMDemo_files/image058.jpg" v:shapes="_x0000_i1057"><![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial'>Number of checked checkboxes =
+number of superstates of HMM.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial'>Value in editbox near checkbox is
+number of states within corresponding superstate<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial'>All internal states of HMM have
+the same number of component of Gaussian mixture (here 3)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo7;
+tab-stops:list 36.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial'>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Other parameters<o:p></o:p></span></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1058" type="#_x0000_t75"
+ style='width:394.8pt;height:307.8pt'>
+ <v:imagedata src="./HMMDemo_files/image059.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=526 height=411
+src="./HMMDemo_files/image060.jpg" v:shapes="_x0000_i1058"><![endif]></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>In HMM face recognition it is important that<span
+style="mso-spacerun: yes">  </span>face images must have not very different
+sizes. So we must scale images, when we train or recognize. Above dialog allows
+to specify what scaling will be used.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>If “Width” box is checked and “Height” is not checked, then
+all images will be scaled to have specified width, height of every image will
+be scaled proportionally.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>If “Height” box is checked and “Width” is not checked, then
+all images will be scaled to have specified height, width of every image will
+be scaled proportionally.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>If “Width” box is checked and “Height” is checked, then all
+images will be scaled to have specified width and specified height.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>“Suppress intensity” flag allows not considering lowest DCT
+coefficient. This can help in case of different illumination conditions in
+training images and tested image.</span></p>
+
+<h3 style='margin-left:18.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo1;
+tab-stops:list 18.0pt'><![if !supportLists]>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span><![endif]>Working with settings.</h3>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo8;
+tab-stops:list 36.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:Arial'>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>When you start/exit application, it loads/stores settings
+from/into windows registry. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo8;
+tab-stops:list 36.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Arial'>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:Arial'>Every time you train base or recognize person settings,
+which are displayed in property pages, are used</span><span style='font-size:
+10.0pt;font-family:Arial'>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l2 level1 lfo8;
+tab-stops:list 36.0pt'><![if !supportLists]><span style='font-size:10.0pt;
+font-family:Arial'>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:10.0pt;font-family:Arial'>If any
+person of facebase was trained and you save facebase – configuration file,
+which stores all settings, are saved. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'><span
+style="mso-spacerun: yes">      </span><span style="mso-spacerun:
+yes">      </span>If the name of facebase file is “Base.txt”, then config file
+will have “BaseCFG.txt”<span style="mso-spacerun: yes">   </span>name.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'>If there
+are no trained persons in the base – config file will not be created.<o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent>4)<span style="mso-spacerun: yes">   </span>When you
+load facebase from file and there is corresp. Config file, then settings from
+this file will be loaded.</p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:10.0pt;
+font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:10.0pt;
+font-family:Arial'>5) If you have facebase loaded into application and you
+changes any parameters from property pages (HMM topology or sampling params)
+all (trained?) information will be removed. And you must train HMMs again.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'>Also you
+can store and load settings to/from any other config file.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'>Use
+“File-&gt;Save config file” and “File-&gt;Load config file” for these purposes.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'>Every time
+you change settings via property pages or loading config file and these new
+settings differs from you had before – all training information (hmms) are
+cleared.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></h3>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt;font-family:Arial'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+ULDI04.FRM
+..\CBW.BAS
+ProjWinSize=77,425,216,336
+ProjWinShow=2
+IconForm="frmDigAuxIn"
+Title="ULDI04"
+ExeName="ULDI04.EXE"

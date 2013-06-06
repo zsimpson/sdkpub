@@ -1,0 +1,22 @@
+:Base PXISWiz.hlp>Main
+:Title VISA Driver Development Wizard Help
+1 VISA Driver Development Wizard Help=Help_File_Title
+1 Conventions=Conventions
+1 Wizard Help
+2 Overview=HID_WIZARD_OVERVIEW
+2 Hardware Bus=HIDD_VISAINTR_PAGE_WELCOME
+2 Basic PXI/PCI Device Information=HIDD_VISAINTR_PAGE_WELCOME_PXI
+2 Basic USB Device Information=HIDD_VISAINTR_PAGE_WELCOME_USB
+2 Interrupt Detection Information=HIDD_VISAINTR_PAGE_ISMINE
+2 Interrupt Removal Information=HIDD_VISAINTR_PAGE_SQUELCH
+2 NI-VISA PXI Interrupt Information=HIDD_PAL_RDWRT_INFO
+2 Output Files Information=HIDD_VISAINTR_PAGE_FILES
+2 Installation Options=HIDD_VISAINTR_PAGE_AFTER_SAVE
+1 Important Information
+2 Warranty=Warranty
+2 Copyright=Copyright
+2 Trademarks=Trademarks
+2 Patents=Patents
+2 Warning Regarding Use of NI Products=WARNING_REGARDING_USE_OF_NATIONAL_INSTRUMENTS_PRODUCTS
+1 Technical Support and Professional Services
+2 Technical Support and Professional Services=Technical_Support_Resources

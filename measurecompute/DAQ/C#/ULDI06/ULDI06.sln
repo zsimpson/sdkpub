@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ULDI06", "ULDI06.csproj", "{F8A91296-E944-4D47-8B76-EB581957969F}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{F8A91296-E944-4D47-8B76-EB581957969F}.Debug.ActiveCfg = Debug|.NET
+		{F8A91296-E944-4D47-8B76-EB581957969F}.Debug.Build.0 = Debug|.NET
+		{F8A91296-E944-4D47-8B76-EB581957969F}.Release.ActiveCfg = Release|.NET
+		{F8A91296-E944-4D47-8B76-EB581957969F}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

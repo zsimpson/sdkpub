@@ -1,0 +1,56 @@
+To follow are some common questions related to the linux D2XX driver which may 
+solve some issues before conacting our support.
+
+Q. 	FT_ListDevices by number returns 0 even thought the device is listed in 
+	USBVIEW, why?
+A. 	It is possible you have not added your own device VID and PID to the driver. 
+	Use the FT_SetVIDPID function prior to calling any of the D2XX APIs.
+
+Q. 	Why does FT_Open/FT_OpenEx return FT_DEVICE_NOT_OPENED?
+A.  The VCP driver has ownership of the device and the D2XX driver cannot claim
+	the interface. Either change the VID and PID of the device so that it will not 
+	be loaded by the ftdi_sio driver or unload the ftdi_sio driver using the 
+	rmmod ftdi_sio command (you must also remove the usbserial in the same manner).
+	Please note this issue is suppressed in version 0.4.4 and later. Although you may 
+	find some issues related to this. If you are having trouble using FT_open/Ex please
+	contact support with your kernel version details.
+
+Q.	Why does the linux version of the D2XX driver behave in a different way to the windows 
+	driver? 
+A. 	Please contact support (support2@ftdichip.com) with your query as you may have found a bug.
+	We want the drivers to match as closely as possible and your comments may help us achieve this.
+
+Q. 	Can I obtain the source of the D2XX driver?
+A. 	Is is company policy not to release any source code as some of the linux driver is derived from the 
+	Windows based drivers which we currently do not want to release. If you must have the source code to 
+	your project you may try libftdi which is an open source project.
+		
+Q.	I have trouble compiling the sample applications.
+A.	The solution may vary but could be one of the following:
+	1. Library not isntalled in the correct area - please check documentation.
+	2. Incorrect header files included in current directory. WinTypes.h and ftd2xx.h are the two main header
+	   files required.
+	3. The pthreads library is required for the library itself. Please ensure this is installed properly on 
+	   your system.
+	   
+	Compilation errors are mostly simple problems that can be fixed in a very short period. 
+	Type the error message output by the compiler into a suitable search engine (www.google.com)
+	which may provide you with some clues on how to fix your compile problem. If you are still stuck 
+	then you can contact our support for some hints on how to solve your problem.
+	
+Q. 	Can I mix and match D2XX with the ftdi_sio driver?
+	Some customers have had success with this feature however we have noted some issues between 2.4 and 2.6 kernel 
+	trees regarding device indexing (for example FT_Open(0, &ftHandle) does not correspond to the /dev/ttyUSB0 
+	device). If you want to try this method please take care as due to the inconsistency between kernels we cannot 
+	support this feature.
+	
+Q.	I have an issue with a 2.6 kernel.
+	We have noted some issues with certain kernels of the 2.6 branch. Currently these stand at 2.6.4, 2.6.7, 2.6.8 
+	and	2.6.11. We try to test with as many kernels as practibly possible prior to release but if you see an issue 
+	that is	not one of the above kernels then contact support and we will test that kernel on site.
+	
+
+
+
+
+

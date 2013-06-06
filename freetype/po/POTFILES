@@ -1,0 +1,6 @@
+	/home/zack/sdk/freetype/lib/extend/ftxerr18.c \
+	/home/zack/sdk/freetype/test/fterror.c \
+	/home/zack/sdk/freetype/test/ftdump.c \
+	/home/zack/sdk/freetype/test/ftlint.c \
+	/home/zack/sdk/freetype/test/ftmetric.c \
+	/home/zack/sdk/freetype/test/ftsbit.c

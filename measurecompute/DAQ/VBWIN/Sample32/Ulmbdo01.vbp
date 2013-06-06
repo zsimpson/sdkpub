@@ -1,0 +1,7 @@
+ULMBDO01.FRM
+..\CBW.BAS
+ProjWinSize=77,425,216,336
+ProjWinShow=2
+IconForm="frmSetDigOut"
+Title="ULMBDO01"
+ExeName="ULMBDO01.EXE"

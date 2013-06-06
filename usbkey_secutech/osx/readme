@@ -1,0 +1,57 @@
+SecuTech provides individual files for PPC and x86 architectures with their UniKey SDK.  I used the lipo tool
+to create a single 'universal binary' .dylib:
+
+lipo UniKey.PPC.dylib UniKey.x86.dylib -create -output UniKey.dylib
+
+(similarly for the static .a libs)
+
+
+13 Feb 2007
+
+I have been working with secutech to debug a problem in which the key is not always found correctly on osx.  
+This appears to be resolved, and I'm updating the libraries for osx to the version which we have verified
+works well.  I only have a static-lib update for this, which is what we use.  So I'm removing the older
+.dylib versions of the library so they don't get accidentally used in the future.
+
+14 Apr 2010
+
+I have received updated static libraries from secutech based on a bug report I sent them in which the driver
+appears to be involved in a crash that locks the machine on intel macs osx 10.6.  They sent .a files for
+32bit PPC and intel, as well as one for 64bit intel.  I'm adding these to svn, and will update the single .a
+file using lipo as described above.
+
+lipo UniKeyIntel32.a UniKeyPPC32.a -create -output UniKey.a
+
+Note that at present I am not including the 64bit version of the library in the UniKey.a since still
+force 32bit builds on OSX.
+
+18 Apr 2010
+
+Ken has experienced problems that we think may be related to the new libraries - I have noticed that reading the key
+is noticeably slower than the previous libs - and for Ken it is a LOT slower, so as to make the program clunky to
+use.  I haven't verified that this is really the cause, but he wants to revert to the older libs.  So I've created
+lib2009 which contains the libs we've been using for a while, and lib2010_April which contains the updated libs, and
+the UniKey.a is reverted to the one built from the lib2009 files.
+
+5 Jul 2010
+
+After many back and forth testing of libraries, I finally have libs from secutech that appear to be reliable and
+quite fast in my simple tests.  These exist in the lib2010 folder, and I'm moving the fat .a from lib2010 into
+this folder such that it is the default lib we build with.
+
+9 Nov 2011
+
+We finally moved to 64bit builds on OSX, and I've had problems with the secutech libs.  So I have once again
+obtained new libraries from secutech, who now have a massive SDK with libraries built from an amazing array
+of compilers and platforms.  I again used lipo manually to create a fat .a file that contains all architectures
+that we support.  Since we have had no problems to speak of on windows, we are still using the original libs
+for that platform.
+
+NOTE: The header is also in the lib2011 folder.  It is named differently now, and the API has been
+renamed/reparameterized as well.  Arg. 
+
+2 Mar 2013
+
+lib2013 was downloaded to support Windows8, so I'm not using this version yet for OSX.
+In this version of the lib, the lib named UniKeyIntel32.a was actually already a fat file that contained libs
+for intel32, intel64, and ppc, so I just renamed it to Unikey.a

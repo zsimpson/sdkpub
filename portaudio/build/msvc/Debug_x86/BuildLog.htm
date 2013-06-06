@@ -1,0 +1,130 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=Windows-1252">
+</head>
+<body>
+<pre>
+<table width=100% bgcolor=#CFCFE5><tr> <td> <font face=arial size=+3>
+Build Log
+</font></table><table width=* cellspacing=0 cellpadding=0><tr><td width=0 bgcolor=#EDEDF5>&nbsp;</td><td width=0 bgcolor=#FFFFFF>&nbsp;</td><td width=*><pre>
+<h3>------- Build started: Project: portaudio, Configuration: Debug|Win32 -------
+</h3>
+</pre></table><table width=100% bgcolor=#DFDFE5><tr><td><font face=arial size=+2>
+Command Lines
+</font></table><table width=* cellspacing=0 cellpadding=0><tr><td width=0 bgcolor=#EDEDF5>&nbsp;</td><td width=0 bgcolor=#FFFFFF>&nbsp;</td><td width=*><pre>Creating temporary file "c:\prj\sdkpub\portaudio\build\msvc\Debug_x86\RSP00000C.rsp" with contents
+[
+/Od /I "..\..\src\common" /I "..\..\include" /I ".\\" /I "..\..\src\os\win" /D "WIN32" /D "_DEBUG" /D "_USRDLL" /D "PA_ENABLE_DEBUG_OUTPUT" /D "_CRT_SECURE_NO_DEPRECATE" /D "PAWIN_USE_WDMKS_DEVICE_INFO" /FD /EHsc /RTC1 /MDd /Fp".\Debug_x86/portaudio.pch" /Fo".\Debug_x86/" /Fd".\Debug_x86/" /W3 /c /ZI
+\prj\sdkpub\portaudio\src\os\win\pa_x86_plain_converters.c
+\prj\sdkpub\portaudio\src\os\win\pa_win_wdmks_utils.c
+\prj\sdkpub\portaudio\src\os\win\pa_win_waveformat.c
+\prj\sdkpub\portaudio\src\os\win\pa_win_util.c
+\prj\sdkpub\portaudio\src\os\win\pa_win_hostapis.c
+\prj\sdkpub\portaudio\src\hostapi\wdmks\pa_win_wdmks.c
+\prj\sdkpub\portaudio\src\hostapi\wasapi\pa_win_wasapi.cpp
+\prj\sdkpub\portaudio\src\hostapi\wmme\pa_win_wmme.c
+\prj\sdkpub\portaudio\src\hostapi\dsound\pa_win_ds_dynlink.c
+\prj\sdkpub\portaudio\src\hostapi\dsound\pa_win_ds.c
+\prj\sdkpub\portaudio\src\common\pa_stream.c
+\prj\sdkpub\portaudio\src\common\pa_skeleton.c
+\prj\sdkpub\portaudio\src\common\pa_process.c
+\prj\sdkpub\portaudio\src\common\pa_front.c
+\prj\sdkpub\portaudio\src\common\pa_dither.c
+\prj\sdkpub\portaudio\src\common\pa_debugprint.c
+\prj\sdkpub\portaudio\src\common\pa_cpuload.c
+\prj\sdkpub\portaudio\src\common\pa_converters.c
+\prj\sdkpub\portaudio\src\common\pa_allocation.c
+]
+Creating command line "cl.exe @c:\prj\sdkpub\portaudio\build\msvc\Debug_x86\RSP00000C.rsp /nologo"
+Creating temporary file "c:\prj\sdkpub\portaudio\build\msvc\Debug_x86\RSP00000D.rsp" with contents
+[
+/Od /I "..\..\src\hostapi\asio\ASIOSDK\host" /I "..\..\src\hostapi\asio\ASIOSDK\host\pc" /I "..\..\src\hostapi\asio\ASIOSDK\common" /I "..\..\src\common" /I "..\..\include" /I ".\\" /I "..\..\src\os\win" /D "WIN32" /D "_DEBUG" /D "_USRDLL" /D "PA_ENABLE_DEBUG_OUTPUT" /D "_CRT_SECURE_NO_DEPRECATE" /D "PAWIN_USE_WDMKS_DEVICE_INFO" /FD /EHsc /RTC1 /MDd /Fp".\Debug_x86/portaudio.pch" /Fo".\Debug_x86/" /Fd".\Debug_x86/" /W3 /c /ZI
+\prj\sdkpub\portaudio\src\hostapi\asio\pa_asio.cpp
+\prj\sdkpub\portaudio\src\hostapi\asio\Asiosdk\common\register.cpp
+\prj\sdkpub\portaudio\src\hostapi\asio\Asiosdk\common\debugmessage.cpp
+\prj\sdkpub\portaudio\src\hostapi\asio\Asiosdk\common\combase.cpp
+\prj\sdkpub\portaudio\src\hostapi\asio\Asiosdk\host\pc\asiolist.cpp
+\prj\sdkpub\portaudio\src\hostapi\asio\Asiosdk\host\asiodrivers.cpp
+\prj\sdkpub\portaudio\src\hostapi\asio\Asiosdk\host\ASIOConvertSamples.cpp
+\prj\sdkpub\portaudio\src\hostapi\asio\Asiosdk\common\asio.cpp
+]
+Creating command line "cl.exe @c:\prj\sdkpub\portaudio\build\msvc\Debug_x86\RSP00000D.rsp /nologo"
+Creating temporary file "c:\prj\sdkpub\portaudio\build\msvc\Debug_x86\RSP00000E.rsp" with contents
+[
+/OUT:"./Debug_x86/portaudio_x86.dll" /INCREMENTAL:NO /NOLOGO /DLL /DEF:".\portaudio.def" /DEBUG /PDB:".\Debug_x86/portaudio_x86.pdb" /IMPLIB:".\Debug_x86/portaudio_x86.lib" /MACHINE:X86 odbc32.lib odbccp32.lib setupapi.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib
+.\Debug_x86\pa_allocation.obj
+.\Debug_x86\pa_converters.obj
+.\Debug_x86\pa_cpuload.obj
+.\Debug_x86\pa_debugprint.obj
+.\Debug_x86\pa_dither.obj
+.\Debug_x86\pa_front.obj
+.\Debug_x86\pa_process.obj
+.\Debug_x86\pa_skeleton.obj
+.\Debug_x86\pa_stream.obj
+.\Debug_x86\asio.obj
+.\Debug_x86\ASIOConvertSamples.obj
+.\Debug_x86\asiodrivers.obj
+.\Debug_x86\asiolist.obj
+.\Debug_x86\combase.obj
+.\Debug_x86\debugmessage.obj
+.\Debug_x86\register.obj
+.\Debug_x86\pa_asio.obj
+.\Debug_x86\pa_win_ds.obj
+.\Debug_x86\pa_win_ds_dynlink.obj
+.\Debug_x86\pa_win_wmme.obj
+.\Debug_x86\pa_win_wasapi.obj
+.\Debug_x86\pa_win_wdmks.obj
+.\Debug_x86\pa_win_hostapis.obj
+.\Debug_x86\pa_win_util.obj
+.\Debug_x86\pa_win_waveformat.obj
+.\Debug_x86\pa_win_wdmks_utils.obj
+.\Debug_x86\pa_x86_plain_converters.obj
+]
+Creating command line "link.exe @c:\prj\sdkpub\portaudio\build\msvc\Debug_x86\RSP00000E.rsp"
+</pre></table><table width=100% bgcolor=#DFDFE5><tr><td><font face=arial size=+2>
+Output Window
+</font></table><table width=* cellspacing=0 cellpadding=0><tr><td width=0 bgcolor=#EDEDF5>&nbsp;</td><td width=0 bgcolor=#FFFFFF>&nbsp;</td><td width=*><pre>Compiling...
+pa_x86_plain_converters.c
+c:\prj\sdkpub\portaudio\src\os\win\pa_x86_plain_converters.c(128) : warning C4305: 'initializing' : truncation from 'double' to 'const float'
+pa_win_wdmks_utils.c
+c:\prj\sdkpub\portaudio\src\os\win\pa_win_wdmks_utils.c(219) : warning C4018: '<' : signed/unsigned mismatch
+pa_win_waveformat.c
+pa_win_util.c
+pa_win_hostapis.c
+pa_win_wdmks.c
+Generating Code...
+Compiling...
+pa_win_wasapi.cpp
+Generating Code...
+Compiling...
+pa_win_wmme.c
+pa_win_ds_dynlink.c
+pa_win_ds.c
+pa_stream.c
+pa_skeleton.c
+pa_process.c
+pa_front.c
+pa_dither.c
+pa_debugprint.c
+pa_cpuload.c
+pa_converters.c
+pa_allocation.c
+Generating Code...
+Compiling...
+pa_asio.cpp
+register.cpp
+debugmessage.cpp
+combase.cpp
+asiolist.cpp
+asiodrivers.cpp
+ASIOConvertSamples.cpp
+asio.cpp
+Generating Code...
+Linking...
+LINK : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+   Creating library .\Debug_x86/portaudio_x86.lib and object .\Debug_x86/portaudio_x86.exp
+</pre></table><table width=100% bgcolor=#DFDFE5><tr><td><font face=arial size=+2>
+Results
+</font></table><table width=* cellspacing=0 cellpadding=0><tr><td width=0 bgcolor=#EDEDF5>&nbsp;</td><td width=0 bgcolor=#FFFFFF>&nbsp;</td><td width=*><pre>
+Build log was saved at "file://c:\prj\sdkpub\portaudio\build\msvc\Debug_x86\BuildLog.htm"
+portaudio - 0 error(s), 3 warning(s)</pre></table><table   width=100% height=20 bgcolor=#CFCFE5><tr><td><font face=arial size=+2>
+</font></table></body></html>

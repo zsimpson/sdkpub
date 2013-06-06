@@ -1,0 +1,155 @@
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+    <META NAME="Generator" CONTENT="Microsoft Word 97">
+    <META NAME="Template" CONTENT="D:\WIN32APP\msoffice97\Office\html.dot">
+    <META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+    <META NAME="Author" CONTENT="Gary Bradski">
+    <META NAME="Description" CONTENT="Header for main functions">
+    <META NAME="KeyWords" CONTENT="CV.h">
+    <TITLE>CAMShift Demo</TITLE>
+    <!-- Formatted and proofed in GNU Emacs by: Michael Chu, 00.06.05 -->
+  </HEAD>
+  <BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+    <A NAME="Top">
+      <!-- <CENTER>
+    <BLOCKQUOTE>
+    <table border = 3 WIDTH="70%" >
+    <TR><TD>
+      -->
+    <CENTER><TABLE CELLSPACING=0 CELLPADDING=5 WIDTH="90%" BGCOLOR="#6A9BED" NOSAVE >
+	<TR NOSAVE>
+	  <TD NOSAVE>
+	    <CENTER><I><FONT COLOR="#000000"><FONT SIZE=+4>CAMSHIFT
+		    DEMO</FONT></FONT></I></CENTER>
+
+	    <CENTER><I><FONT COLOR="#000000"><FONT SIZE=+4>Face and Color Tracking</FONT></FONT></I></CENTER>
+	  </TD>
+	</TR>
+      </TABLE></CENTER>
+
+    <H1>
+      <!--
+    </TD></TR>
+    </table>
+      </BLOCKQUOTE>
+    </center>
+      --></H1>
+
+    <br>
+    <H1>
+      Description</H1>
+    This application demonstrates a fast, simple color tracking algorithm that
+    can be used to track faces, hands etc described in <B><A HREF="CAMSHIFT_doc/camshift.pdf">camshift.pdf</A></B>.
+    The CAMSHIFT algorithm is a modification of the Meanshift algorithm which
+    is a robust statistical method of finding the mode (top) of a probability
+    distribution. Both CAMSHIFT and Meanshift algorithms exist in the library.
+    While it is a very fast and simple method of tracking, because CAMSHIFT
+    tracks the center and size of the probability distribution of an object,
+    it is only as good as the probability distribution that you produce for
+    the object. Typically the probability distribution is derived from
+    color via a histogram, although it could be produced from correlation,
+    recognition scores or bolstered by frame differencing or motion detection
+    schemes, or joint probabilities of different colors/motions etc.
+    
+    <br><br>
+    In this application, we use only the most simplistic approach:
+    A 1-D Hue histogram is sampled from the object in an HSV color space version
+    of the image. To produce the probability image to track, histogram
+    "back projection" (we replace image pixels by their histogram hue value)
+    is used. The raw video image and backprojection is shown in the following
+    image:<br><br>
+    <CENTER><IMG SRC="faceNback.gif" HEIGHT=130 WIDTH=347></CENTER>
+    
+    <CENTER><B>Figure 1</B></CENTER>
+    
+    <br>
+    Since we use such a simple method in this application, you must tune
+    the parameters for your camera and the lighting in the image as described
+    below.
+    <BR><BR>
+    Note that this filter requires that you have DirectShow 6.0 or greater installed.
+    DirectShow 6.0 for NT4.0, DirectShow 7.0 for Win 98 or Win2000). 
+    You will also need a video camera source filter which should
+    be supplied by your USB camera vendor. <!-- except most don't support NT4.0. -->
+<!-- %%Some friendly advice from Uncle Gary?? -->
+<!--    Win2000 is your best bet for development, for just running the filter graph, Win98 will do.. An example filter graph is shown below (with the calibration filter processing a video source from a Matrox Meteor II card that we wrote ourselves) and then passing the output to a video renderer. -->
+
+    Microsoft* Windows* 2000 may be the most suitable operating system
+    for development since many vendors do not supply filters for
+    Windows NT 4.0. However, Windows 98 will be adequate for just
+    running the filter graph.&nbsp;
+      <br>
+    <!-- <HR WIDTH="100%"> -->
+    <H2>
+      Controls</H2>
+    
+    <CENTER><IMG SRC="csmshiftTrack_labeled.JPG" HEIGHT=319 WIDTH=381></CENTER>
+
+    <CENTER><IMG SRC="camshiftThresh_labeled.JPG" HEIGHT=138 WIDTH=855></CENTER>
+
+    <CENTER><B>Figure 2</B></CENTER>
+    
+    <!-- <H2>Buttons</H2> -->
+    <B><FONT SIZE=+2>[1]</FONT></B> Select input from USB video camera.
+    <BR><B><FONT SIZE=+2>[2]</FONT></B> Select input from "bouncing ball" simulation.
+    <BR><B><FONT SIZE=+2>[3]</FONT></B> Select input from an AVI movie file.
+    <BR><B><FONT SIZE=+2>[4]</FONT></B> Stop and start AVI movie file if [3]
+    is selected.
+    <BR><B><FONT SIZE=+2>[5]</FONT></B> Threshold the histogram bins to clean
+    noise.
+    <BR><B><FONT SIZE=+2>[6]</FONT></B> Select the number of histogram bins
+    to use in the 1-D Hue histogram.
+    <BR><B><FONT SIZE=+2>[7]</FONT></B> Minimum color saturation to accept
+    threshold on Hue pixels.
+    <BR><B><FONT SIZE=+2>[8]</FONT></B> Minimum brightness to accept threshold
+    on Hue pixels.
+    <BR><B><FONT SIZE=+2>[9]</FONT></B> Maximum brightness to accept threshold
+    on Hue pixels.
+    <BR><B><FONT SIZE=+2>[10]</FONT></B> View (top) Raw video; (middle) Histogram
+    backprojection; (bottom) Histogram bins.
+    <BR><B><FONT SIZE=+2>[11]</FONT></B> Select display window size -- on slower
+    machines, a smaller display window will run faster.
+    <BR>
+    <H2>
+      How to</H2>
+    <h3>Track a colored object (face, ball etc):</h3>
+    (<B>a</B>) Reset thresholds: Set Threshold [5] to zero; Saturation
+    [7] far left; Minimum brightness [8] far left; Maximum brightness [9] far
+    right.
+    <BR>(<B>b</B>) Click video [1], bouncing ball [2] or AVI [3] to select
+    your input source.
+    <BR>(<B>c</B>) Check the raw video display [10] button.
+    <BR>(<B>d</B>) Set the number of bins [6] you want in your histogram (32-100
+    is a good number).
+    <BR>(<B>e</B>) Use your mouse to draw a sample box over the colored object
+    that you want to track.
+    <h3>...Tuning...</h3>
+    (<B>f</B>) Check the histogram "Back Project" [10] button. You
+    want the object to be well segmented as in figure 1 above. To get
+    things well segmented, adjust things in the order described below:
+    <BR>(<B>g</B>) Increase (move the slider to the right) the mimimum acceptable
+    saturation threshold [7]. Make sure you allow a little time to see
+    how your adjustment is working. Often moving it about 25% of the way to
+    the right is sufficient.
+    <BR>(<B>h</B>) If (g) doesn't do the whole job, then increase the minimum
+    acceptable brightness threshold [8] to the right allowing enough time to
+    see the effect at each position. Usually 20-50% of the way to the right
+    works.
+    <h3>...not working...</h3>
+    (<B>i</B>) If (g) &amp; (h) do not give you a well segmented object,
+    you probably need to change your camera settings and/or lighting.
+    Histogram threshold [5] can have a marginal effect on edge regions.
+    Decreasing (move to the left) high brightness threshold [9] can diminish
+    edges and glaring white regions in the video image, usually moving it no
+    more than 10% of the way to the left. Setting more histogram bins
+    [6] sometimes helps.
+    <BR>
+    <BR>
+
+    <hr noshade size=2 width=100%>
+    <H3>
+      <A NAME="Bottom"></A><A HREF="#Top">Back to Top<IMG SRC="up.gif" BORDER=0 HEIGHT=26 WIDTH=30></A></H3>
+    
+  </BODY>
+</HTML>

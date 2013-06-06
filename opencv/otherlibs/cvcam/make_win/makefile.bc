@@ -1,0 +1,67 @@
+# Makefile for Borland C++ 5.5
+
+CXX = bcc32
+LINK = bcc32
+OBJ = .obj
+
+CXXFLAGS4 = -I"$(DSHOME)/include" -I"$(DSHOME)/samples/Multimedia/DirectShow/BaseClasses"
+LINKFLAGS4 = -L"$(DSHOME)/lib" -tWD -e$(OUTDLL) -L"$(BCHOME)/lib"  -L"$(BCHOME)/lib/PSDK" 
+
+!ifdef debug
+
+SUFFIX = d
+CXXFLAGS3 = $(CXXFLAGS4) -Od -v
+LINKFLAGS3 = $(LINKFLAGS4) 
+DR_SHORT = _Dbg
+DR = _Dbg/
+
+!else
+
+SUFFIX =
+CXXFLAGS3 = $(CXXFLAGS4) -O2
+LINKFLAGS3 = $(LINKFLAGS4) 
+DR_SHORT = _Rls
+DR = _Rls/
+
+!endif    
+
+OUTDLL = ../../../bin/cvcam$(SUFFIX).dll
+OUTLIB = ../../../lib/cvcam$(SUFFIX).lib
+
+OBJS = ../../../_temp/cvcam$(DR)cvcam$(OBJ) ../../../_temp/cvcam$(DR)cvcamavi$(OBJ) 
+
+
+INC = ../include/cvcam.h ../src/windows/cvcamavi.h 
+
+CXXFLAGS2 = -I"../src/windows" -I"../../../filters/cvsyncfilter" -I"../../../cv/include" -I"../include" -I"../../../filters/proxytrans" -I"../../highgui"  $(CXXFLAGS3) -3 -I"$(BCHOME)/include" -a8 -b -c -d -RT- -tWM -w-inl -w-aus -j200 -o
+
+!ifdef debug
+
+CXXFLAGS = -D"_MBCS" -D"WIN32" -D"CVCAM_EXPORTS" -D"_USRDLL" -D"_WINDOWS" -D"_DEBUG"  $(CXXFLAGS2)
+LINKFLAGS2 = $(LINKFLAGS3) highguid.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib quartz.lib strmbase.lib 
+
+!else
+
+CXXFLAGS = -D"NDEBUG" -D"_MBCS" -D"WIN32" -D"CVCAM_EXPORTS" -D"_USRDLL" -D"_WINDOWS"  $(CXXFLAGS2)
+LINKFLAGS2 = $(LINKFLAGS3) highgui.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib quartz.lib strmbase.lib  
+
+!endif
+
+LINKFLAGS = -L../../../lib $(LINKFLAGS2)
+
+$(OUTDLL): INIT_BUILD $(OBJS)
+	-mkdir ..\..\..\bin
+	-mkdir ..\..\..\lib
+	$(LINK) @&&|
+ $(LINKFLAGS) $(OBJS) 
+|
+	implib $(OUTLIB) $(OUTDLL)
+
+all: $(OUTDLL)
+
+INIT_BUILD: 
+	@-mkdir ..\..\..\_temp\cvcam$(DR_SHORT)
+../../../_temp/cvcam$(DR)cvcam$(OBJ): ..\src\windows\cvcam.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)../../../_temp/cvcam$(DR)cvcam$(OBJ) ..\src\windows\cvcam.cpp
+../../../_temp/cvcam$(DR)cvcamavi$(OBJ): ..\src\windows\cvcamavi.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)../../../_temp/cvcam$(DR)cvcamavi$(OBJ) ..\src\windows\cvcamavi.cpp

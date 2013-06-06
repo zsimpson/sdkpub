@@ -1,0 +1,687 @@
+PCI-GPIB,National Instruments,C801
+PCI-DIO-96,National Instruments,0160
+PCI-1200,National Instruments,0161
+PCI-MIO-16XE-50,National Instruments,0162
+PCI-DIO-32HS,National Instruments,1150
+PCI-GPIB+,National Instruments,C811
+PCI-5102,National Instruments,1640
+IMAQ PCI-1408,National Instruments,B001
+PXI-GPIB,National Instruments,C821
+PMC-GPIB,National Instruments,C831
+PCI-MIO-16XE-10,National Instruments,1170
+PCI-MIO-16E-1,National Instruments,1180
+PCI-MIO-16E-4,National Instruments,1190
+PCI-5411,National Instruments,1240
+PCI-DIO-32HS-T,National Instruments,1260
+PCI-CAN,National Instruments,E111
+PCI-CAN/2,National Instruments,E211
+PCI-6032E,National Instruments,1270
+PCI-4451,National Instruments,1280
+PCI-6704,National Instruments,1290
+CPCI-6533,National Instruments,12A0
+PCI-6534,National Instruments,12B0
+PCI-6602,National Instruments,1310
+PCI-6031E,National Instruments,1330
+PCI-6033E,National Instruments,1340
+PCI-6071E,National Instruments,1350
+PCI-7030,National Instruments,1410
+CPCI-6011E,National Instruments,1420
+CPCI-6030E,National Instruments,1430
+CPCI-6040E,National Instruments,1440
+CPCI-6070E,National Instruments,1450
+PCI-6810,National Instruments,1460
+CPCI-6810,National Instruments,1480
+CPCI-6534,National Instruments,14A0
+PCI-5911,National Instruments,14B0
+PCI-6110,National Instruments,14E0
+PCI-6111,National Instruments,14F0
+IMAQ PCI-1424,National Instruments,B021
+IMAQ PCI-1413,National Instruments,B031
+CPCI-6602,National Instruments,1370
+CPCI-6030E,National Instruments,15C0
+CPCI-6031E,National Instruments,15D0
+CPCI-6032E,National Instruments,15E0
+CPCI-6033E,National Instruments,15F0
+CPCI-6071E,National Instruments,1670
+PCI-4452,National Instruments,1380
+PCI-4551,National Instruments,1390
+PCI-4552,National Instruments,13A0
+CPCI-6508,National Instruments,13B0
+PCI-716,National Instruments,13D0
+PCI-4060,National Instruments,16D0
+VP-4060,National Instruments,1700
+PCI-7040,National Instruments,1740
+CPCI-5102,National Instruments,1760
+PCI-4351,National Instruments,1770
+CPCI-7030,National Instruments,1790
+CPCI-7040,National Instruments,17A0
+PCI-232/2,National Instruments,D130
+PCI-232/4,National Instruments,D140
+PCI-232/8,National Instruments,D150
+PCI-485/2,National Instruments,D160
+PCI-485/4,National Instruments,D170
+PCI-6503,National Instruments,17D0
+PCI-6504,National Instruments,17E0
+PCI-6713,National Instruments,1870
+PCI-6711,National Instruments,1880
+PCI-Servo-2A,National Instruments,2970
+PCI-Servo-4A,National Instruments,1234
+PCI-Step-2OX,National Instruments,2980
+PCI-Step-4OX,National Instruments,1235
+PCI-Step-2CX,National Instruments,2990
+PCI-Step-4CX,National Instruments,1236
+PCI-FlexMotion-6C,National Instruments,1247
+pciEncoder-4A,National Instruments,1237
+PCI-6023E,National Instruments,2A60
+PCI-6024E,National Instruments,2A70
+PCI-6025E,National Instruments,2A80
+Reconfigurable LabVIEW Board,National Instruments,2AC0
+PCI-6052E,National Instruments,18B0
+PCI-6525,National Instruments,2AE0
+PCI-6526,National Instruments,2B00
+PCI-6527,National Instruments,2B20
+PCI-6505,National Instruments,2B40
+PCI-5310,National Instruments,2B60
+PCI-5431,National Instruments,18E0
+PCI-6527,National Instruments,2BA0
+PCI-6504,National Instruments,2BC0
+PCI-6525,National Instruments,2BE0
+PCI-6526,National Instruments,2BF0
+WASP,National Instruments,2C30
+PCI-232/2 Isolated,National Instruments,D250
+PCI-485/2 Isolated,National Instruments,D260
+PCI-232/4 Isolated,National Instruments,D270
+PCI-485/4 Isolated,National Instruments,D280
+PCI-485/8,National Instruments,D290
+VXIpc-870,National Instruments,FE00
+IMAQ PCI-1407,National Instruments,B041
+IMAQ PCI-1411,National Instruments,B061
+IMAQ PCI-1422,National Instruments,B071
+PCI-6031E (OEM1),National Instruments,2C50
+PCI-6601,National Instruments,2C60
+PCI-6035E,National Instruments,2C80
+PCI-6703,National Instruments,2C90
+PCI-6034E,National Instruments,2CA0
+PCI-7344,National Instruments,2CB0
+PCI-5401,National Instruments,1A70
+PCI-6610,National Instruments,2CE0
+PCI-7324,National Instruments,2CF0
+PCI-7314,National Instruments,2D10
+PCI-CAN/LS,National Instruments,E141
+PCI-CAN/2 LS,National Instruments,E241
+PCI-4453,National Instruments,2D40
+PCI-4454,National Instruments,2D50
+PCI-232/16,National Instruments,D2B0
+PCI-GPIB (miniMITE1  Windows-only version),National Instruments,C840
+IMAQ 1394MV,National Instruments,B0A0
+PCI-5112,National Instruments,1A90
+PCI-6111E OEM1,National Instruments,2DA0
+PCI-6608,National Instruments,2DB0
+PCI-4070,National Instruments,2DC0
+IMAQ PCI-1409,National Instruments,B0B1
+IMAQ PXI-1409,National Instruments,B0C1
+NI 6222 for PCI,National Instruments,2DE0
+NI 6221 for PCI,National Instruments,2E10
+IMAQ Digital Test Fixture,National Instruments,B0D1
+PCI-6053E,National Instruments,2E70
+IMAQ PCI-1428,National Instruments,B0E1
+PCI-MXI-2,National Instruments,A001
+PCI-6115,National Instruments,2ED0
+PCI-6120,National Instruments,2EF0
+PCI-6071E (OEM1),National Instruments,2F40
+NI 4021 for PCI,National Instruments,9090
+PCI-CAN/DS,National Instruments,E261
+MagneMITE,National Instruments,A123
+PCI DAQ Development Device,National Instruments,2FA0
+IMAQ Analog Test Fixture,National Instruments,B0D2
+PCI-6624,National Instruments,1E30
+VXI-834x,National Instruments,F111
+PCI-7332,National Instruments,2FD0
+PCI-7334,National Instruments,2FD1
+PCI-7348,National Instruments,2FD2
+PCI-7342,National Instruments,2FD3
+PCI-7346,National Instruments,2FD4
+NI 4472 for PCI,National Instruments,19C0
+PCI-6036E,National Instruments,2890
+PCI-6551,National Instruments,7003
+PCI-DHV-Generic Input,National Instruments,2710
+PCI-DHV-Generic Output,National Instruments,2730
+PCI-DHV-Generic I/O,National Instruments,2750
+PCI-5421,National Instruments,700C
+PCI-5122,National Instruments,28D0
+PCI-GPIB (Talker/Listener),National Instruments,C850
+PCI-6733,National Instruments,2410
+PCI-6731,National Instruments,2430
+PCI-7041,National Instruments,701C
+PCI-7041 RT,National Instruments,701D
+DAQPad-6052E for Ethernet,National Instruments,2460
+PCI-4474,National Instruments,2470
+PCI-5420,National Instruments,7021
+PCI-MXI-2 Universal,National Instruments,7027
+PCI-1423,National Instruments,7028
+PCI-7831R,National Instruments,702D
+PCI-7811R,National Instruments,702F
+PCI-CAN (Series 2),National Instruments,7030
+PCI-CAN/2 (Series 2),National Instruments,7031
+PCI-CAN/LS (Series 2),National Instruments,7032
+PCI-CAN/LS2 (Series 2),National Instruments,7033
+PCI-CAN/DS (Series 2),National Instruments,7034
+NI-1455,National Instruments,7042
+MXI-4 Connection Monitor,National Instruments,7044
+IMAQ PCI-1412,National Instruments,7048
+PCI-FBUS,National Instruments,704D
+PCI-FBUS/2,National Instruments,704E
+PCI-6013,National Instruments,28B0
+PCI-6014,National Instruments,28C0
+PCI Digital Foundation Card,National Instruments,2780
+PCI-7830R,National Instruments,7056
+PCI-7810R,National Instruments,7058
+NetChip NET2280 (NI-Device),National Instruments,7059
+PCI-CAN/XS (Series 2),National Instruments,705A
+PCI-CAN/XS2 (Series 2),National Instruments,705B
+cRIO-9102,National Instruments,705E
+PCI-CAN/SW (Series 2),National Instruments,7068
+PCI-CAN/SW2 (Series 2),National Instruments,7069
+HSD Reserved,National Instruments,7072
+PCI-6723,National Instruments,7073
+PCI-6552,National Instruments,7076
+PCI-6602(Routing Only),National Instruments,7077
+WASP III FPGA,National Instruments,7079
+PCI-4065,National Instruments,24A0
+TNT5002/4 Customer Defined PCI Device ID,National Instruments,707D
+PCI-6133,National Instruments,1AD0
+NI-1454,National Instruments,7082
+PCI-7833R,National Instruments,7083
+PCI-6123,National Instruments,27A0
+PCI-6509,National Instruments,7085
+PCI-6515(sink),National Instruments,7087
+PCI-6514(source),National Instruments,7088
+MicroDAQ 4-Slot Active Backplane,National Instruments,709A
+NI PCI-6528,National Instruments,70A9
+PCI-6229,National Instruments,70AA
+PCI-6259,National Instruments,70AB
+PCI-6289,National Instruments,70AC
+PCI-6221,National Instruments,70AF
+PCI-6220,National Instruments,70B0
+PCI-6250,National Instruments,70B4
+PCI-6280,National Instruments,70B6
+PCI-6254,National Instruments,70B7
+PCI-6251,National Instruments,70B8
+PCI-6284,National Instruments,70BC
+PCI-6281,National Instruments,70BD
+PCI-6143,National Instruments,70C0
+PCI-6511,National Instruments,70C3
+PCI-7330,National Instruments,70C6
+PCI-7340,National Instruments,70C7
+PCI-6513,National Instruments,70C8
+IMAQ PCI-1405,National Instruments,70CA
+PCI-6512,National Instruments,70CC
+PCI-6512,National Instruments,70CC
+PCI-6722,National Instruments,70D4
+PCI-6541,National Instruments,70D9
+PCI-6542,National Instruments,70DA
+PCI-8430 RS-232/2,National Instruments,70DB
+PCI-8431 RS-485/2,National Instruments,70DC
+PCI-8430 RS-232/4,National Instruments,70DF
+PCI-8431 RS-485/4,National Instruments,70E0
+PCI-8430 RS-232/8,National Instruments,70E4
+PCI-8431 RS-485/8,National Instruments,70E5
+PCI-8430 RS-232/16,National Instruments,70E7
+PCI-8432 RS-232 /2 Isolated,National Instruments,70EA
+PCI-8433 RS-485 /2 Isolated,National Instruments,70EB
+PCI-8432 RS-232 /4 Isolated,National Instruments,70EE
+PCI-8433 RS-485 /4 Isolated,National Instruments,70EF
+NI PCI-5922,National Instruments,70F1
+PCI-6224,National Instruments,70F2
+PCI/PXI-843x Manf Unit,National Instruments,70F5
+cRIO-9102,National Instruments,705E
+cRIO-9101,National Instruments,70F6
+cRIO-9103,National Instruments,70F7
+cRIO-9104,National Instruments,70F8
+IMAQ PCI-1410,National Instruments,7101
+mxUniversity Class Board,National Instruments,7102
+PCI-5102B,National Instruments,17F0
+PCI-5422,National Instruments,7110
+PCI-5441,National Instruments,7112
+PCI-5442,National Instruments,7114
+PCI-6561,National Instruments,711B
+PCI-6562,National Instruments,711C
+PCI-7414 (Galileo),National Instruments,7120
+PCI-5122EX,National Instruments,7122
+PCI-6510,National Instruments,7124
+PCI-6516,National Instruments,7125
+PCI-6517,National Instruments,7126
+PCI-6518,National Instruments,7127
+PCI-6519,National Instruments,7128
+PCI-5124,National Instruments,7145
+PCI-6132,National Instruments,7146
+PCI-6122,National Instruments,7148
+PCI-5114,National Instruments,714D
+PCI-5640R,National Instruments,7152
+PCI-GPIB with corrupt EEPROM,National Instruments,7157
+PMC-GPIB with corrupt EEPROM,National Instruments,7158
+PXI-6070E,National Instruments,11B0
+PXI-6040E,National Instruments,11C0
+PXI-6030E,National Instruments,11D0
+PXI-6011E,National Instruments,11E0
+PXI-6533,National Instruments,1320
+PXI-6810,National Instruments,1470
+PXI-6534,National Instruments,1490
+PXI-5102,National Instruments,14D0
+IMAQ PXI-1408,National Instruments,B011
+PXI-6602,National Instruments,1360
+PXI-6031E,National Instruments,1580
+PXI-6032E,National Instruments,1590
+PXI-6033E,National Instruments,15A0
+PXI-6071E,National Instruments,15B0
+PXI-6508,National Instruments,13C0
+PXI-4060,National Instruments,16E0
+PXI-6509,National Instruments,1710
+PXI-7030,National Instruments,1720
+PXI-7040,National Instruments,1730
+PXI-4351,National Instruments,1780
+PXI-6503,National Instruments,1800
+PXI-6504,National Instruments,1810
+PXI-8422 RS-232/2 Isolated,National Instruments,D190
+PXI-8422 RS-232/4 Isolated,National Instruments,D1A0
+PXI-8423 RS-485/2 Isolated,National Instruments,D1B0
+PXI-8423 RS-485/4 Isolated,National Instruments,D1C0
+PXI-2501,National Instruments,9020
+PXI-2503,National Instruments,9030
+PXI-2527,National Instruments,9040
+PXI-8461(CAN),National Instruments,E131
+PXI-8461(CAN)/2,National Instruments,E231
+PXI-5112,National Instruments,1860
+PXI-7312,National Instruments,29A0
+PXI-7314,National Instruments,29B0
+PXI-7322,National Instruments,29C0
+PXI-7324,National Instruments,29D0
+PXI-7332,National Instruments,29E0
+PXI-7334,National Instruments,29F0
+PXI-7344,National Instruments,2A00
+PXI-8420 RS-232/2,National Instruments,D1D0
+PXI-8420 RS-232/4,National Instruments,D1E0
+PXI-8420 RS-232/8,National Instruments,D1F0
+PXI-8421 RS-485/2,National Instruments,D230
+PXI-8421 RS-485/4,National Instruments,D240
+PXI-6023E,National Instruments,2A90
+PXI-6024E,National Instruments,2AA0
+PXI-6025E,National Instruments,2AB0
+PXI-5411,National Instruments,1890
+PXI-6052E,National Instruments,18C0
+PXI-6525,National Instruments,2AD0
+PXI-6526,National Instruments,2AF0
+PXI-6527,National Instruments,2B10
+PXI-6505,National Instruments,2B30
+PXI-5310,National Instruments,2B50
+PXI-5431,National Instruments,18D0
+PXI-6713,National Instruments,2B80
+PXI-6711,National Instruments,2B90
+PXI-5152,National Instruments,2870
+PXI-6704,National Instruments,1920
+PXI-6527,National Instruments,2BB0
+PXI-6504,National Instruments,2BD0
+PXI-6525,National Instruments,2C10
+PXI-6526,National Instruments,2C20
+PXI-485/8,National Instruments,D2A0
+PXI-8240,National Instruments,F310
+PXI-6830,National Instruments,6831
+PXI-2565,National Instruments,9050
+IMAQ PXI-1407,National Instruments,B051
+IMAQ PXI-1422,National Instruments,B081
+IMAQ PXI-1411,National Instruments,B091
+PXI-2590,National Instruments,9060
+PXI-2580,National Instruments,9080
+PXI-6601,National Instruments,2C70
+PXI-5401,National Instruments,1A80
+PXI-6608,National Instruments,2CC0
+PXI-6610,National Instruments,2CD0
+PXI-5600,National Instruments,2D20
+PXI-5620,National Instruments,2D30
+PXI-8460 (LSCAN),National Instruments,E151
+PXI-8460 (LSCAN)/2,National Instruments,E251
+PXI-6703,National Instruments,2D60
+NI 5911 for PXI,National Instruments,2D80
+PXI-6035E,National Instruments,1AC0
+PXI-4070,National Instruments,2DD0
+NI 6222 for PXI,National Instruments,2DF0
+NI 6221 for PXI,National Instruments,2E20
+PXI-4551,National Instruments,2E50
+PXI-4552,National Instruments,2E60
+PXI-6053E,National Instruments,2E80
+never released (PXI-1428),National Instruments,B0F1
+PCI-8320 (MXI-2),National Instruments,0FE1
+NI 2591,National Instruments,9070
+PXI-8156B,National Instruments,E002
+PXI-4472,National Instruments,2EB0
+PXI-6115,National Instruments,2EC0
+PXI-6120,National Instruments,2EE0
+NI 4021 for PXI,National Instruments,90A0
+PXI-8462(CAN/DS),National Instruments,E271
+PXI DAQ Development Device,National Instruments,2FB0
+PXI-6624,National Instruments,1E40
+PXI-5404,National Instruments,1E50
+IMAQ PXI-1413,National Instruments,B032
+IMAQ PXI-1424,National Instruments,B022
+PXI-8420 RS-232/16,National Instruments,D1F1
+PXI-7348,National Instruments,2FD5
+PXI-7342,National Instruments,2FD6
+PXI-7346,National Instruments,2FD7
+PXI-7041,National Instruments,19B0
+PXI-6551,National Instruments,7004
+PXI-DHV-Generic Output,National Instruments,2720
+PXI-DHV-Generic Input,National Instruments,2740
+PXI-DHV-Generic I/O,National Instruments,2760
+PXI-5421,National Instruments,700B
+PXI-5122,National Instruments,28E0
+PXI-6733,National Instruments,2420
+PXI-6731,National Instruments,2440
+PXI-4474,National Instruments,2480
+PXI-5420,National Instruments,7020
+NI PXI-2593,National Instruments,7023
+NI 4461-BNC for PXI/CompactPCI,National Instruments,28A0
+PXI-1423,National Instruments,7029
+PXI-7831R,National Instruments,702C
+PXI-7811R,National Instruments,702E
+PXI-8460 (Series 2  1 port),National Instruments,7035
+PXI-8460 (Series 2  2 ports),National Instruments,7036
+PXI-8461 (Series 2  1 port),National Instruments,7037
+PXI-8461 (Series 2  2 ports),National Instruments,7038
+PXI-8462 (Series 2),National Instruments,7039
+PXI-2566,National Instruments,703F
+PXI-2567,National Instruments,7040
+PXI-4200,National Instruments,24B0
+NI PXI-6653,National Instruments,7047
+IMAQ PXI-1412,National Instruments,7049
+PXI-2530,National Instruments,704C
+PXI-4220,National Instruments,704F
+PXI-4204,National Instruments,7050
+PXI Digital Foundation Card,National Instruments,2770
+Unconfigured PXI Switch,National Instruments,7054
+PXI-7830R,National Instruments,7055
+PXI-7810R,National Instruments,7057
+PXI-5621,National Instruments,2790
+PXI-8464 (Series 2  1 port),National Instruments,705C
+PXI-8464 (Series 2  2 ports),National Instruments,705D
+PXI-5610,National Instruments,7060
+PXI-8180,National Instruments,7063
+Trigger Routing Module,National Instruments,7064
+NI PXI-6652,National Instruments,7065
+NI PXI-6651,National Instruments,7066
+NI PXI-2529,National Instruments,7067
+PXI-8463 (Series 2  1 port),National Instruments,706A
+PXI-8463 (Series 2  2 ports),National Instruments,706B
+HSD Reserved,National Instruments,7071
+PXI-7833R,National Instruments,7074
+PXI-6552,National Instruments,7075
+PXI-6602(Routing Only),National Instruments,7078
+PXI-4061,National Instruments,2490
+IMAQ PXI-1428,National Instruments,707C
+PXI-4110,National Instruments,1AA0
+NI 4462-BNC for PXI/CompactPCI,National Instruments,707E
+PXI-5433,National Instruments,707F
+PXI-8430 RS-232/2,National Instruments,7080
+PXI-8431 RS-485/2,National Instruments,7081
+PXI-6133,National Instruments,1AE0
+PXI-6123,National Instruments,27B0
+NI PXI-6528,National Instruments,7086
+NI PXI-2568,National Instruments,708C
+NI PXI-2569,National Instruments,708D
+PXI-6251,National Instruments,70AD
+PXI-6220,National Instruments,70AE
+PXI-6229,National Instruments,70B1
+PXI-6259,National Instruments,70B2
+PXI-6289,National Instruments,70B3
+PXI-6221,National Instruments,70B5
+PXI-6250,National Instruments,70B9
+PXI-6254,National Instruments,70BA
+PXI-6280,National Instruments,70BB
+PXI-6284,National Instruments,70BE
+PXI-6281,National Instruments,70BF
+PXI-7330,National Instruments,70C4
+PXI-7340,National Instruments,70C5
+PXI-6515(sink),National Instruments,70C9
+PXI-8252,National Instruments,70CB
+PXI-6514(source),National Instruments,70CD
+IMAQ PXI-1405,National Instruments,70CE
+NI PXI-2570,National Instruments,70D0
+PXI-6513,National Instruments,70D1
+PXI-6512,National Instruments,70D2
+PXI-6511,National Instruments,70D3
+PXI-4072,National Instruments,70D6
+PXI-6541,National Instruments,70D7
+PXI-6542,National Instruments,70D8
+PXI-8430 RS-232/4,National Instruments,70DD
+PXI-8431 RS-485/4,National Instruments,70DE
+NI PXI-2532,National Instruments,70E1
+PXI-8430 RS-232/8,National Instruments,70E2
+PXI-8431 RS-485/8,National Instruments,70E3
+PXI-8430 RS-232/16,National Instruments,70E6
+PXI-8432 RS-232 /2 Isolated,National Instruments,70E8
+PXI-8433 RS-485 /2 Isolated,National Instruments,70E9
+PXI-8432 RS-232 /4 Isolated,National Instruments,70EC
+PXI-8433 RS-485 /4 Isolated,National Instruments,70ED
+NI PXI-5922,National Instruments,70F0
+PXI-6224,National Instruments,70F3
+PXI-6723,National Instruments,70FF
+PXI-6722,National Instruments,7100
+PXI-4225,National Instruments,7106
+NI TB-2640,National Instruments,7107
+NI TB-2641,National Instruments,7108
+PXI-4071,National Instruments,710A
+PXI-6143,National Instruments,710D
+PXI-5422,National Instruments,710F
+PXI-5441,National Instruments,7111
+PXI-5442,National Instruments,7113
+PXI-5690,National Instruments,17C0
+PXI-6561,National Instruments,7119
+PXI-6562,National Instruments,711A
+NI TB-2605,National Instruments,711D
+NI TB-2606,National Instruments,711E
+PXI-5122EX,National Instruments,7121
+PXI-5653,National Instruments,7123
+NI PXI-2575,National Instruments,7137
+NI PXI-2585,National Instruments,713C
+NI PXI-2586,National Instruments,713D
+NI-PXI 2587,National Instruments,713E
+PXI-5102B,National Instruments,24C0
+PXI-4224,National Instruments,7142
+PXI-5124,National Instruments,7144
+PXI-6132,National Instruments,7147
+PXI-6122,National Instruments,7149
+NI TB-2643,National Instruments,714A
+NI TB-2644,National Instruments,714B
+PXI-5114,National Instruments,714C
+NI PXI-2564,National Instruments,7150
+NI PXI-1044 Trigger Routing Module,National Instruments,7156
+PXI-GPIB with corrupt EEPROM,National Instruments,7159
+PCI Instrument,Acqiris,0000
+PXI-7010,ASCOR,1B62
+PXI-7011,ASCOR,1B63
+PXI-7012,ASCOR,1B64
+PXI-7013,ASCOR,1B65
+PXI-7014,ASCOR,1B66
+PXI-7015,ASCOR,1B67
+PXI-7016,ASCOR,1B68
+PXI-7017,ASCOR,1B69
+PXI-7018,ASCOR,1B6A
+PXI-7019,ASCOR,1B6B
+PXI-7020,ASCOR,1B6C
+PXI-7021,ASCOR,1B6D
+PXI-7022,ASCOR,1B6E
+PXI-7023,ASCOR,1B6F
+cPCI/PXI Prototype card (52901),Chroma ATE Inc.,0001
+cPCI/PXI GP Relay card (52601),Chroma ATE Inc.,0010
+cPCI/PXI GP Relay card (52602),Chroma ATE Inc.,0011
+cPCI/PXI Scan/Mux card (52611),Chroma ATE Inc.,0012
+cPCI/PXI Scan/Mux card (52612),Chroma ATE Inc.,0013
+cPCI/PXI Scan/Mux card (52613),Chroma ATE Inc.,0014
+cPCI/PXI Scan/Mux card (52614),Chroma ATE Inc.,0015
+cPCI/PXI RF Switch card (52621),Chroma ATE Inc.,0016
+cPCI/PXI RF Switch card (52622),Chroma ATE Inc.,0017
+cPCI/PXI RF Switch card (52623),Chroma ATE Inc.,0018
+cPCI/PXI RF Switch card (52624),Chroma ATE Inc.,0019
+cPCI/PXI Relay Matrix card (52631),Chroma ATE Inc.,001A
+cPCI/PXI Relay Matrix card (52632),Chroma ATE Inc.,001B
+cPCI/PXI Power Relay card (52641),Chroma ATE Inc.,001C
+cPCI/PXI Power Relay card (52642),Chroma ATE Inc.,001D
+cPCI/PXI Power Relay card (52643),Chroma ATE Inc.,001E
+cPCI/PXI Relay Driver card (52651),Chroma ATE Inc.,001F
+cPCI/PXI Relay Driver card (52652),Chroma ATE Inc.,0020
+bc635CPCI/bc637CPCI,Datum,4013
+PXI1149.1-A,GOEPEL Electronic,3011
+PXI1149.1-B,GOEPEL Electronic,3012
+cM44,Innovative Integration,0002
+cM62,Innovative Integration,0001
+cChicoPlus,Innovative Integration,0004
+cADC64,Innovative Integration,807F
+cM44,Innovative Integration.,0002
+cM62,Innovative Integration.,0001
+cChicoPlus,Innovative Integration.,0004
+cADC64,Innovative Integration.,807F
+PXD222 digitizer,LeCroy Corporation,4002
+CPCI-DIO24H,Measurement Computing Corporation,0055
+CPCI-DIO48H,Measurement Computing Corporation,005B
+CPCI-DIO96H,Measurement Computing Corporation,005A
+CPCI-DAS4020/12,Measurement Computing Corporation,0069
+CPCI-GPIB,Measurement Computing Corporation,000E
+cPCI 75SD1,North Atlantic Industries,7501
+cPCI 75DS1,North Atlantic Industries,7511
+cPCI 75LD1,North Atlantic Industries,7531
+cPCI 75xx1,North Atlantic Industries,0001
+PX2000 607 PXI Development Module 6U,PX Instrument Technology,0607
+PX2000 5XX Intelligent Chassis Interface,PX Instrument Technology,0500
+PX2000 514 PXI - PXI Bridge,PX Instrument Technology,0514
+PX2000 388 Chassis Test Module,PX Instrument Technology,0388
+PX2000 311 Optical Attenuator,PX Instrument Technology,0311
+PX2000 310 Wavelength Meter,PX Instrument Technology,0310
+PX2000 309 PER Module,PX Instrument Technology,0309
+PX2000 308 Tuneable Laser Source,PX Instrument Technology,0308
+PX2000 307 TEC Controller,PX Instrument Technology,0307
+PX2000 306 Optical Power Meter,PX Instrument Technology,0306
+PX2000 305 Source Measure Module,PX Instrument Technology,0305
+PX2000 304 Voltage Source Module,PX Instrument Technology,0304
+PX2000 303 Frequency Synthesizer,PX Instrument Technology,0303
+PX2000 258 PXI Optical 8:1 Switch Module,PX Instrument Technology,0258
+PX2000 254 PXI Optical 4:1 Switch Module,PX Instrument Technology,0254
+PX2000 252 PXI Optical 2:1 Switch Module,PX Instrument Technology,0252
+PX2000 251 PXI Optical 2:2 Switch Module,PX Instrument Technology,0251
+PX2000 202 Quad 4:1 75 Ohm RF Multiplexer,PX Instrument Technology,0202
+PX2000 201 Qhad 4:1 50 Ohm RF Multiplexer,PX Instrument Technology,0201
+PX2000 108 High Density Solid State Multiplexer,PX Instrument Technology,0108
+PX2000 107 PXI Development Module,PX Instrument Technology,0107
+PX2000 106 Relay Driver,PX Instrument Technology,0106
+PX2000 105 Actuator Module,PX Instrument Technology,0105
+PX2000 104 General Purpose Relay Multiplexer,PX Instrument Technology,0104
+PX2000 103 General Purpose Relay Matrix Switch,PX Instrument Technology,0103
+PX2000 102 High Density Relay Multiplexer,PX Instrument Technology,0102
+PX2000 101A High Density Relay Matrix Switch,PX Instrument Technology,101A
+PX2000 101 High Density Relay Matrix Switch,PX Instrument Technology,0101
+PX2000 PXIT Module,PX Instrument Technology,0000
+4422-cPCI,SBS Technologies,4422
+4411-cPCI,SBS Technologies,4411
+4422-cPCI,SBS Technologies (Bit 3),4422
+4411-cPCI,SBS Technologies (Bit 3),4411
+SC150e,Systran,5301
+PDXI_MF_16_400_14L,United Electronic Industries,0211
+PDXI_MF_16_400_14H,United Electronic Industries,0212
+PDXI_MF_64_400_14L,United Electronic Industries,0213
+PDXI_MF_64_400_14H,United Electronic Industries,0214
+PDXI_MF_16_800_14L,United Electronic Industries,0215
+PDXI_MF_16_800_14H,United Electronic Industries,0216
+PDXI_MF_64_800_14L,United Electronic Industries,0217
+PDXI_MF_64_800_14H,United Electronic Industries,0218
+PDXI_MF_16_1M_12L,United Electronic Industries,0219
+PDXI_MF_16_1M_12H,United Electronic Industries,021A
+PDXI_MF_64_1M_12L,United Electronic Industries,021B
+PDXI_MF_64_1M_12H,United Electronic Industries,021C
+PDXI_MF_16_50_16L,United Electronic Industries,021D
+PDXI_MF_16_50_16H,United Electronic Industries,021E
+PDXI_MF_64_50_16L,United Electronic Industries,021F
+PDXI_MF_64_50_16H,United Electronic Industries,0220
+PDXI_MF_16_333_16L,United Electronic Industries,0221
+PDXI_MF_16_333_16H,United Electronic Industries,0222
+PDXI_MF_64_333_16L,United Electronic Industries,0223
+PDXI_MF_64_333_16H,United Electronic Industries,0224
+PDXI_MF_16_2M_14L,United Electronic Industries,0225
+PDXI_MF_16_2M_14H,United Electronic Industries,0226
+PDXI_MF_64_2M_14L,United Electronic Industries,0227
+PDXI_MF_64_2M_14H,United Electronic Industries,0228
+PDXI_MF_16_500_16L,United Electronic Industries,0229
+PDXI_MF_16_500_16H,United Electronic Industries,022A
+PDXI_MF_64_500_16L,United Electronic Industries,022B
+PDXI_MF_64_500_16H,United Electronic Industries,022C
+PDXI_MFS_4_500_14,United Electronic Industries,022D
+PDXI_MFS_8_500_14,United Electronic Industries,022E
+PDXI_MFS_4_500_14DG,United Electronic Industries,022F
+PDXI_MFS_4_500_14H,United Electronic Industries,0230
+PDXI_MFS_8_500_14DG,United Electronic Industries,0231
+PDXI_MFS_8_500_14H,United Electronic Industries,0232
+PDXI_MFS_4_800_14,United Electronic Industries,0233
+PDXI_MFS_8_800_14,United Electronic Industries,0234
+PDXI_MFS_4_800_14DG,United Electronic Industries,0235
+PDXI_MFS_4_800_14H,United Electronic Industries,0236
+PDXI_MFS_8_800_14DG,United Electronic Industries,0237
+PDXI_MFS_8_800_14H,United Electronic Industries,0238
+PDXI_MFS_4_1M_12,United Electronic Industries,0239
+PDXI_MFS_8_1M_12,United Electronic Industries,023A
+PDXI_MFS_4_1M_12DG,United Electronic Industries,023B
+PDXI_MFS_4_1M_12H,United Electronic Industries,023C
+PDXI_MFS_8_1M_12DG,United Electronic Industries,023D
+PDXI_MFS_8_1M_12H,United Electronic Industries,023E
+PDXI_MFS_4_2M_14,United Electronic Industries,023F
+PDXI_MFS_8_2M_14,United Electronic Industries,0240
+PDXI_MFS_4_2M_14DG,United Electronic Industries,0241
+PDXI_MFS_4_2M_14H,United Electronic Industries,0242
+PDXI_MFS_8_2M_14DG,United Electronic Industries,0243
+PDXI_MFS_8_2M_14H,United Electronic Industries,0244
+PDXI_MFS_4_300_16,United Electronic Industries,0245
+PDXI_MFS_8_300_16,United Electronic Industries,0246
+PDXI_MFS_4_300_16DG,United Electronic Industries,0247
+PDXI_MFS_4_300_16H,United Electronic Industries,0248
+PDXI_MFS_8_300_16DG,United Electronic Industries,0249
+PDXI_MFS_8_300_16H,United Electronic Industries,024A
+PDXI_DIO_64,United Electronic Industries,024B
+PDXI_DIO_128,United Electronic Industries,024C
+PDXI_DIO_256,United Electronic Industries,024D
+PDXI_AO_8_16,United Electronic Industries,024E
+PDXI_AO_16_16,United Electronic Industries,024F
+PDXI_AO_32_16,United Electronic Industries,0250
+PDXI_AO_96_16,United Electronic Industries,0251
+PDXI_AO_R1,United Electronic Industries,0252
+PDXI_AO_R2,United Electronic Industries,0253
+PDXI_AO_R3,United Electronic Industries,0254
+PDXI_AO_R4,United Electronic Industries,0255
+PDXI_AO_R5,United Electronic Industries,0256
+PDXI_AO_R6,United Electronic Industries,0257
+PDXI_AO_R7,United Electronic Industries,0258
+PDXI_DIO_64CE,United Electronic Industries,0259
+PDXI_DIO_128CE,United Electronic Industries,025A
+PDXI_DIO_64ST,United Electronic Industries,025B
+PDXI_DIO_128ST,United Electronic Industries,025C
+PDXI_DIO_64HS,United Electronic Industries,025D
+PDXI_DIO_128HS,United Electronic Industries,025E
+PDXI_DIO_64CT,United Electronic Industries,025F
+PDXI_DIO_128CT,United Electronic Industries,0260
+PDXI_MFS_4_500_16,United Electronic Industries,0269
+PDXI_MFS_8_500_16,United Electronic Industries,026A
+PDXI_MFS_4_500_16DG,United Electronic Industries,026B
+PDXI_MFS_4_500_16H,United Electronic Industries,026C
+PDXI_MFS_8_500_16DG,United Electronic Industries,026D
+PDXI_MFS_8_500_16H,United Electronic Industries,026E
+PDXI_MF_16_150_16L,United Electronic Industries,026F
+PDXI_MF_16_150_16H,United Electronic Industries,0270
+PDXI_MF_64_150_16L,United Electronic Industries,0271
+PDXI_MF_64_150_16H,United Electronic Industries,0272
+PDXL_MF_16,United Electronic Industries,0283
+PDXL_MF_16_1,United Electronic Industries,0284
+PDXL_MF_16_2,United Electronic Industries,0285
+PDXL_MF_16_3,United Electronic Industries,0286
+PDXL_DIO_64,United Electronic Industries,0287
+PDXL_DIO_64_1,United Electronic Industries,0288
+PDXL_DIO_64_2,United Electronic Industries,0289
+PDXL_DIO_64_3,United Electronic Industries,028A
+PDXL_AO_64,United Electronic Industries,028B
+PDXL_AO_64_1,United Electronic Industries,028C
+PDXL_AO_64_2,United Electronic Industries,028D
+PDXL_AO_64_3,United Electronic Industries,028E

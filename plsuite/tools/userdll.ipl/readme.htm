@@ -1,0 +1,153 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<META NAME="Generator" CONTENT="Microsoft FrontPage 4.0">
+<TITLE>Intel® Image Processing Library Custom DLL Builder</TITLE>
+<link rel="stylesheet" type="text/css" href="../../doc/css/plsuite.css">
+</HEAD>
+<BODY>
+
+<h1 ALIGN="left">Intel® Image Processing Library</h1>
+<h1 ALIGN="left">User DLL Builder Example</h1>
+<h2>Introduction</h2>
+<P>The User DLL builder example demonstrates how you can create a custom DLL package using the static library provided in the Intel® Image Processing Library binary release. The example allows you to create DLL dispatcher and a set of the processor specific DLLs which contain optimized implementation of the functions you have decided to use in your applications.</P>
+<P>The example uses the Microsoft* Visual C++ compiler and NMAKE utility. The command line version of the make-file is provided to simplify the build process. Although the example uses the Microsoft* Visual C++ compiler to build the custom DLL, . you can make a import library for Borland* compiler as well.</P>
+<h2>Directory contents</h2>
+<P>The Image Processing Library UserDLL example reside in the following directory and consists of the following files</P>
+<TABLE BORDER CELLSPACING=1>
+<TR><TD VALIGN="MIDDLE" COLSPAN=2>
+<P ALIGN="CENTER">plsuite\tools\userdll.ipl</TD>
+</TR>
+<TR><TD WIDTH=163 VALIGN="MIDDLE">
+<pre>&nbsp;Readme.htm&nbsp;</pre>
+  </TD>
+<TD WIDTH=616 VALIGN="MIDDLE">
+<P>&nbsp;This file, description of custom DLL builder package&nbsp;</TD>
+</TR>
+<TR><TD WIDTH=163 VALIGN="MIDDLE">
+<pre>&nbsp;Userdll.mak&nbsp;</pre>
+  </TD>
+<TD WIDTH=616 VALIGN="MIDDLE">
+<P>&nbsp;Make-file to build the custom DLL, accessed from Makefile make-file&nbsp;</TD>
+</TR>
+<TR><TD WIDTH=163 VALIGN="MIDDLE">
+<pre>&nbsp;Userdll.c&nbsp;</pre>
+  </TD>
+<TD WIDTH=616 VALIGN="MIDDLE">
+<P>&nbsp;Source file for custom DLL package. You need not to edit this file&nbsp;</TD>
+</TR>
+<TR><TD WIDTH=163 VALIGN="MIDDLE">
+<pre>&nbsp;userdll.h&nbsp;</pre>
+  </TD>
+<TD WIDTH=616 VALIGN="MIDDLE">
+<P>&nbsp;Include file included by userdll.c file&nbsp;</TD>
+</TR>
+<TR><TD WIDTH=163 VALIGN="MIDDLE">
+<pre>&nbsp;explist.def&nbsp;</pre>
+  </TD>
+<TD WIDTH=616 VALIGN="MIDDLE">
+<P>&nbsp;Definition file, contains a list of the function names you are going to use&nbsp;</TD>
+</TR>
+<TR><TD WIDTH=163 VALIGN="MIDDLE">
+<pre>&nbsp;test.c&nbsp;</pre>
+  </TD>
+<TD WIDTH=616 VALIGN="MIDDLE">
+<P>&nbsp;Source code of a simple test program&nbsp;</TD>
+</TR>
+<TR><TD WIDTH=163 VALIGN="MIDDLE">
+<pre>&nbsp;Makefile&nbsp;</pre>
+  </TD>
+<TD WIDTH=616 VALIGN="MIDDLE">
+<P>&nbsp;The main make-file to build the libraries, test and to run the test&nbsp;</TD>
+</TR>
+<TR><TD WIDTH=163 VALIGN="MIDDLE">
+<pre>&nbsp;tools.ini&nbsp;</pre>
+  </TD>
+<TD WIDTH=616 VALIGN="MIDDLE">
+<P>&nbsp;Main settings, it is read before NMAKE reads the make-file</TD>
+</TR>
+</TABLE>
+
+<h2>How to build?</h2>
+<FONT FACE="Arial"><P>Names definition</P>
+</FONT><P>To build your own DLL based on IPLib you need to customize the <I>userdll.h, explist.def</I> and <I>tools.ini</I> files. </P>
+<P>First, you need to set a list of IPLib library functions you are going to use in an application. Copy the function prototypes from the include files provided with the release, and place them in the USERLIST section of the <I>userdll.h</I> file, for example</P>
+<CODE><pre>#ifdef __USERLIST__
+IPLAPI(const IPLLibVersion*, iplGetLibVersion,( void ))</pre>
+<P>Place the names of the functions in the export list of the definition file explist.def, for example</P>
+<pre>EXPORTS
+iplGetLibVersion</pre>
+</CODE><P>Then, you need to define a name for your custom DLL. Note that you should not use common name such as "ipl" or "nsp" to avoid confusions. Please modify the <B><I>UserName</B></I> name in the tools.ini file. Default name is "usr".</P>
+<CODE><pre>## Prefix of the user DLL names
+UserName=usr</pre>
+</CODE><P>Probably, the name <B><I>MSVCDir</B></I> should be defined to point to the Microsoft* Visual C++ compiler root directory. You need to do it if MS CL compiler is not accessible or INC and LIB environment variables were not set on your computer.</P>
+<CODE><pre>## MS VC home directory.
+MSVCDir=h:\devstudio\vc</pre>
+</CODE><P>Please check if <B><I>PLDir</B></I> name in the tools.ini file is correct and points to the root directory of the IPLib library. PL means Performance Library here.</P>
+<CODE><pre>## Library root directory
+PLDir=d:\perform</pre>
+</CODE><P>You may change the names of the work folders <B><I>OutDir </B></I>and<B><I> DllDir</B></I>, the temporary and DLL files will be created in. The default names are</P>
+<CODE><pre>## Directory name for lib-,map-,obj-files
+OutDir=.\Lib
+## Directory name for dll-files
+DllDir=.\Bin</pre>
+</CODE><P>If you have modified the name of the example that have to be built don't forget to change the <B><I>TestName</B></I> name. Default name is &quot;test&quot;</P>
+<CODE><pre>## Name of the test application to build
+TestName=test</pre>
+</CODE><P>You need not to modify the <I>userdll.c</I> file at all.</P>
+<h2>How to exclude target CPU?</h2>
+<P>You can exclude building of a CPU-specific library that you need not. For that please delete appropriate line in the <I>Makefile</I>, for example, </P>
+<CODE><pre>nmake /nologo -f userdll.mak Target=P6</pre>
+</CODE><h2>Building</h2>
+<P>To do all, that is to build custom DLLs and test application and to run the test you may run <I>Makefile</I> by just</P>
+<CODE><pre>nmake</pre>
+</CODE><P>You may as well do it by piecemeal, for example</P>
+<CODE><pre>nmake hint</pre>
+</CODE><P>Then you shall see </P><DIR>
+<DIR>
+
+<FONT FACE="Arial" SIZE=2><pre>Usage of this Makefile:
+"nmake" - [builds library[, test] and] runs test
+"nmake clean" - removes directories created
+"nmake run" - [builds and] executes test
+"nmake buildtest" - builds [library and] test
+"nmake buildlib" - builds library
+"nmake hint" - hint</pre></DIR>
+</DIR>
+
+</FONT><DL>
+<DT>Note that the commands &quot;rd&quot; and &quot;del&quot; in &quot;clean&quot; mode are used with &quot;/q&quot; option (works only under WinNT). </DT>
+</DL>
+<h2>Import for Borland* compiler</h2>
+<P>If it is assumed that Borland* C++ will be used to build an application you can create the import library for your DLL by Borland* implib.exe utility</P>
+<CODE>
+<blockquote>
+  <pre>implib usr.dll usrbcc.lib</pre>
+</blockquote>
+</CODE><h2>What is the test?</h2>
+<P>The test application in the User DLL builder example is given to demonstrate the build process. It simply creates a gray image of size 6x16 then calls iplAdd function. Dump of image data before and after operation is printed on the screen</P>
+<CODE>
+<blockquote>
+  <pre>/// print IPLib version number
+printf("\n%s \n", iplGetLibVersion()-&gt;Version );
+/// create image and check result
+img = iplCreateImageJaehne( IPL_DEPTH_8U, W, H );
+if( !img ) return -1;
+/// dump data, add 10, and dump data again
+dump8u( img, "\nsource :\n" );
+iplAddS( img, img, 10 );
+dump8u(img,"\nsource+10, note some saturated values:\n");</pre>
+</blockquote>
+</CODE><h2>Waterfall</h2>
+<P>The executable file that user has built contains the cpu-specific library dispatcher. It detects Intel® processor and loads an appropriate version of the user’s DLL library. And more if there is no such library the dispatcher tries to load another user’s library, which can be executed on the target processor, using &quot;waterfall&quot; way. For example, if the target processor is Pentium II and there is no usrm6.dll library then the dispatcher attempts to find and load usrp6.dll and at last usrpx.dll.</P>
+<h2>Why to use?</h2>
+<P>User DLL contains the library functions only you want to use. The DLL you has built in this example has a size of about 100KBytes. Compare with DLL of full Image Processing Library, which contains more than 160 functions and takes 2MB. That could dramatically simplify the software distribution issues.</P>
+
+<p>&nbsp;</p>
+
+<p><font SIZE="2">*Other brands and names are the property of their respective owners.</font></p>
+
+<p><font SIZE="2">Copyright 1999-2000, Intel® Corporation, All Rights Reserved.</font><big>
+</big></p>
+</body>
+</HTML>

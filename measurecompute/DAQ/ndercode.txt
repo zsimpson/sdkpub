@@ -1,0 +1,24 @@
+0 {No error has occurred.}
+166 {Current device owner refused to release device control.}
+167 {Failed to acquire device ownership.}
+208 {Cannot open configuration file.}
+209 {Incorrect file id.}
+210 {Incorrect file version.}
+211 {Error 211.}
+212 {Error 212}
+224 {Address resources are all in use.}
+225 {Interrupt resources are all in use.}
+226 {Mux channel resources are all in use.}
+227 {Test not implemented.}
+228 {Calibration not implemented.}
+229 {Properties not implemented.}
+230 {Calibration not required.}
+
+1200 {Address resources are all in use.}
+1201 {Interrupt resources are all in use.}
+1202 {Mux channel resources are all in use.}
+1203 {Test not implemented.}
+1206 {Calibration not implemented.}
+1207 {Properties not implemented.}
+1208 {Calibration not required.}
+-2 {}

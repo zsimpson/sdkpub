@@ -1,0 +1,516 @@
+This file contains a list of all NI-DAQ Examples and their descriptions.
+Each of these examples are found in the appropriate examples directory.
+For more detailed descriptions, refer to the NI-DAQ Examples On-Line Help.
+(NI-DAQ version 6.7)
+
+############################################################
+[AI\AIonePoint.*]
+     Read one channel, one point at a time, immediately
+############################################################
+[AI\AIonePointExtConv.*]
+     Read one analog input channel, one point at a time, using
+     external timing
+############################################################
+[AI\AIonePointExtConv_Eseries.*]
+     Read one channel, one point at a time, using external timing (for
+     E-series devices)
+############################################################
+[AI\AIonePointAMUX.*]
+     Read a set of channels from an AMUX-64T
+############################################################
+[AI\DAQsingleBufSync.*]
+     Read a waveform from one analog input channel using internal
+     timing (uses high-level NI-DAQ functions)
+############################################################
+[AI\DAQsingleBufAsync.*]
+     Read a waveform from one analog input channel using internal
+     timing (uses low-level NI-DAQ functions)
+############################################################
+[AI\DAQsingleBufExtConv.*]
+     Read a waveform from one analog input channel using external
+     sample timing (uses low-level NI-DAQ functions)
+############################################################
+[AI\DAQsingleBufExtConv_Eseries.*]
+     Read a waveform from one analog input channel using external
+     sample timing (uses low-level NI-DAQ functions, for E-series devices)
+    
+############################################################
+[AI\SCANsingleBufSync.*]
+     Read a waveform from two analog input channels using internal
+     timing (uses high-level NI-DAQ functions)
+############################################################
+[AI\SCANsingleBufAsync.*]
+     Read a waveform from two analog input channels using internal
+     timing (uses low-level NI-DAQ functions)
+############################################################
+[AI\SCANsingleBufExtScan.*]
+     Read a waveform from two analog input channels using external
+     scan interval timing but with internal sample timing (uses low-level
+     NI-DAQ functions)
+############################################################
+[AI\SCANsingleBufExtScan_Eseries.*]
+     Read a waveform from two analog input channels using external
+     scan interval timing (uses low-level NI-DAQ functions, for E-series
+     devices)
+############################################################
+[AI\DAQsingleBufExtTrig.*]
+     Read a waveform from one analog input channel upon an external
+     digital trigger using internal timing (uses low-level NI-DAQ
+     functions)
+############################################################
+[AI\DAQsingleBufExtTrig_Eseries.*]
+     Read a waveform from one analog input channel upon an external
+     digital trigger using internal timing (uses low-level NI-DAQ
+     functions, for E-series devices)
+############################################################
+[AI\DAQsingleBufStopTrig.*]
+     Read a waveform from one analog input channel until an external
+     digital STOP trigger (10 samples taken after STOP trigger), using
+     internal timing (uses low-level NI-DAQ functions)
+############################################################
+[AI\DAQsingleBufStopTrig_Eseries.*]
+     Read a waveform from one analog input channel until an external
+     digital STOP trigger (10 samples taken after STOP trigger), using
+     internal timing (uses low-level NI-DAQ functions, for E-series
+     devices)
+############################################################
+[AI\DAQdoubleBuf.*]
+     Read a waveform from one analog input channel continuously using
+     internal timing (uses low-level NI-DAQ functions)
+############################################################
+[AI\DAQsingleBufToDisk.*]
+     Read a waveform from one analog input channel and store the
+     binary data to a file (DAQdata.DAT) (uses high-level NI-DAQ
+     functions)
+############################################################
+[AI\SCANsingleBufMultiRate.*]
+     Read a waveform from three analog input channels at per-channel
+     scan rate divisors of 1:2:4:8 (uses low-level NI-DAQ functions) NOTE:
+     There are quite a few hardware limitations depending on devices when
+     using this example.  Refer to the description for the
+     SCAN_Sequence_Setup function for details.
+############################################################
+[AI\DAQsingleBufAnalogTrig.*]
+     Read a waveform from one analog input channel upon an
+     rising-slope analog trigger using internal timing (uses low-level
+     NI-DAQ functions, ONLY for E-series devices with analog triggering
+     support)
+############################################################
+[AO\AOonePoint.*]
+     Output one channel, one point at a time, immediately (first
+     output 2.5 volts, then after a key press, 0 volts)
+############################################################
+[AO\AOonePointCurrent.*]
+     Output one channel, one current value point at a time,
+     immediately (first output 5mA then 0A)
+############################################################
+[AO\AOonePointExtUpdate.*]
+     Output one channel from one analog output channel, using external
+     timing
+############################################################
+[AO\AOonePointExtUpdate_Eseries.*]
+     Output one channel, one point at a time, using external timing
+     (for E-series devices)
+############################################################
+[AO\WFMsingleBufSync.*]
+     Output a waveform from one analog output channel, using internal
+     timing (uses high-level NI-DAQ functions)
+############################################################
+[AO\WFMsingleBufAsync.*]
+     Output a waveform from one analog output channel, using internal
+     timing (uses low-level NI-DAQ functions)
+############################################################
+[AO\WFMsingleBufExtUpdate.*]
+     Output a waveform from one analog output channel, using external
+     timing (uses low-level NI-DAQ functions)
+############################################################
+[AO\WFMsingleBufExtUpdate_Eseries.*]
+     Output a waveform from one analog output channel, using external
+     timing (uses low-level NI-DAQ functions, for E-series)
+############################################################
+[AO\WFMsingleBufRegenerate.*]
+     Repeatedly outputs a waveform from one analog output channel,
+     using internal timing (uses high-level NI-DAQ functions)
+############################################################
+[AO\WFMsingleBufExtTrig_Eseries.*]
+     Outputs a waveform from one analog output channel, upon an
+     external digital trigger, using internal timing (uses high-level
+     NI-DAQ functions, for E-series)
+############################################################
+[AO\WFMsingleBufFromDisk.*]
+     Outputs a waveform from one analog output channel, using data on
+     a disk file (DAQdata.DAT). You can use the datafile from the
+     'DAQsingleBuftoDisk' example program. (uses high-level NI-DAQ
+     functions)
+############################################################
+[AO\WFMdoubleBuf.*]
+     Continuously outputs a waveform from one analog output channel,
+     using internal timing (uses low-level NI-DAQ functions)
+############################################################
+[DI\DIoneLine.*]
+     Inputs digital data from a single digital line. Please note that
+     some DAQ devices have predetermined port directions for each digital
+     port.
+############################################################
+[DI\DIonePort.*]
+     Inputs digital data from a single digital port. Please note that
+     some DAQ devices have predetermined port directions for each digital
+     port.
+############################################################
+[DI\DIonePortHandshake.*]
+     Inputs digital data from a single digital port upon a handshaking
+     signal. Please note that some DAQ devices have predetermined port
+     directions for each digital port.
+############################################################
+[DI\DIoneGroupHandshake653x.*]
+     Inputs digital data from a group of two digital ports upon a
+     handshaking signal. (for DIO-32 series devices)
+############################################################
+[DI\DIsingleBufPatternGen653x.*]
+     Inputs digital data into a buffer from a group of two digital
+     ports using internal timing (or pattern generation, for DIO-32 series
+     devices)
+############################################################
+[DI\DIsingleBufHandshake653x.*]
+     Inputs digital data into a buffer from a group of two digital
+     ports using hanshaking (for DIO-32 series devices)
+############################################################
+[DI\DIsingleBufHandshake8255.*]
+     Inputs digital data into a buffer from a group of two digital
+     ports using hanshaking (for 8255-based devices)
+############################################################
+[DI\DIdoubleBufPatternGen653x.*]
+     Inputs digital data continuously into a buffer from a group of
+     two digital ports using internal timing (pattern generation, for
+     DIO-32 series devices)
+############################################################
+[DI\DIsingleBufPatternTrig653x.*]
+     Inputs digital data into a buffer from a group of two digital
+     ports upon a pattern-based trigger, using internal timing (for
+     DIO-32HS devices)
+############################################################
+[DI\DIsingleBufExtTrig653x.*]
+     Inputs digital data into a buffer from a group of two digital
+     ports upon a digital start trigger, using internal timing (for
+     DIO-32HS devices)
+############################################################
+[DI\DIsingleBufBurstHandshake653x.*]
+     Inputs digital data into a buffer from a group of two digital
+     ports using burst mode hanshaking (for DIO-32HS 				 
+     series devices)
+    
+############################################################
+[DI\DIsingleBufBurstHandshakeExtPClock653x.*]
+     Inputs digital data into a buffer from a group of two digital
+     ports using burst mode hanshaking (for DIO-32HS series devices) 			 	
+       and an external PClock
+############################################################
+[DI\DIsingleBufPatternGenExtClock653x.*]
+     Inputs digital data into a buffer from a group of two digital
+     ports using external timing (or pattern generation, for DIO-32 series
+     devices)
+############################################################
+[DI\DIdoubleBufPatternGenExtClock653x.*]
+     Inputs digital data continuously into a buffer from a group of
+     two digital ports using external timing (pattern generation, for
+     DIO-32 series devices)
+############################################################
+[DI\DIsingleBufChangeDetection653x.*]
+     Inputs digital data into a buffer from a group of two digital
+     ports. Data is latched in only when the input changes.
+############################################################
+[DI\DIdoubleBufChangeDetection653x.*]
+     Inputs digital data continuously into a buffer from a group of
+     two digital ports. Data is latched in when any of the input lines
+     change state 	(change detection, for DIO-32 series devices)
+############################################################
+[DI\DIdoubleBufHandshake653x.*]
+     Inputs digital data continuously into a buffer from a group of
+     two digital ports using handshaking (for DIO-32 series devices)
+    
+############################################################
+[DO\DOoneLine.*]
+     Outputs digital data from a single digital line
+############################################################
+[DO\DOonePort.*]
+     Outputs digital data from a single digital port
+############################################################
+[DO\DOonePortHandshake.*]
+     Outputs digital data from a single digital port upon a
+     handshaking signal
+############################################################
+[DO\DOoneGroupHandshake.*]
+     Outputs digital data from a group of two digital ports upon a
+     handshaking signal
+############################################################
+[DO\DOsingleBufPatternGen653x.*]
+     Outputs digital data in a buffer from a group of two digital
+     ports using internal timing (or pattern generation)
+############################################################
+[DO\DOsingleBufHandshake653x.*]
+     Outputs digital data into a buffer from a group of two digital
+     ports using hanshaking (for DIO-32 series devices)
+############################################################
+[DO\DOsingleBufHandshake8255.*]
+     Outputs digital data into a buffer from a group of two digital
+     ports using hanshaking (for 8255-based devices)
+############################################################
+[DO\DOdoubleBufPatternGen653x.*]
+     Outputs digital data continuously into a buffer from a group of
+     two digital ports using internal timing (pattern generation, for
+     DIO-32 series devices)
+############################################################
+[DO\DOsingleBufExtTrig653x.*]
+     Outputs digital data from a buffer to a group of two digital
+     ports upon a digital start trigger, using internal timing (for
+     DIO-32HS devices)
+############################################################
+[DO\DOsingleBufPatternGenExtClock653x.*]
+     Outputs digital data in a buffer from a group of two digital
+     ports using external timing (or pattern generation)
+############################################################
+[DO\DOsingleBufBurstHandshake653x.*]
+     Outputs digital data into a buffer from a group of two digital
+     ports using burst mode hanshaking (for DIO-32 series devices)
+    
+############################################################
+[DO\DOsingleBufBurstHandshakeExtPClock653x.*]
+     Outputs digital data into a buffer from a group of two digital
+     ports using burst mode hanshaking protocol and external PCLK(for
+     DIO-32HS series devices)
+############################################################
+[DO\DOdoubleBufHandshake653x.*]
+     Outputs digital data continuously into a buffer from a group of
+     two digital ports using handshaking (pattern generation, for DIO-32
+     series devices)
+############################################################
+[CTR\8253eventCount.*]
+     Counts the number of digital pulses (or events, Mode 0) going
+     into the clock input of counter 1, ten times (for devices with the
+     8253 interval counter/timer)
+############################################################
+[CTR\8253generateSinglePulse.*]
+     Generates a single digital pulse from counter 0 (Mode 0, for
+     devices with the 8253 interval counter/timer)
+############################################################
+[CTR\8253generateSquareWave.*]
+     Generates a square wave (digital pulse train) from counter 0 (for
+     devices with the 8253 interval counter/timer)
+############################################################
+[CTR\9513eventCount.*]
+     Counts the number of digital pulses (or events) going into the
+     clock input of counter 1 in a loop (for devices with the Am9513
+     counter/timer)
+############################################################
+[CTR\9513pulseWidthMeasure.*]
+     Measures the width of a single digital pulse using counter 1 and
+     a 1MHz internal timebase (for devices with the Am9513 counter/timer)
+    
+############################################################
+[CTR\9513freqMeasure.*]
+     Measures the frequency of a digital pulse train using counter 5
+     and a 1 second pulse generated from counter 1 (for devices with the
+     Am9513 counter/timer). See NOTE below about measuring frequencies
+     above 65535Hz.
+############################################################
+[CTR\9513generateSinglePulse.*]
+     Generates a single digital pulse 1 ms LOW and 100 ms HIGH using
+     counter 1 and an internal timebase (for devices with the Am9513
+     counter/timer)
+############################################################
+[CTR\9513generateSquareWave.*]
+     Generates a square wave (digital pulse train) with 1kHz frequency
+     and 50% duty cycle using counter 1 and an internal timebase (for
+     devices with the Am9513 counter/timer)
+############################################################
+[CTR\9513generateFreqOut.*]
+     Generates a square wave (digital pulse train) with 1kHz frequency
+     (fixed 50% duty cycle) using the 4-bit frequency divider, FOUT, and
+     an internal timebase (for devices with the Am9513 counter/timer)
+    
+############################################################
+[CTR\STCeventCount.*]
+     Counts the number of digital pulses (or events) going into the
+     clock input of general purpose counter 0 in a loop (for devices with
+     the DAQ-STC counter/timer)
+############################################################
+[CTR\STCcountWithHWDirControl.*]
+     Counts the number of digital pulses (or events) going into the
+     clock input of general purpose counter 0 in a loop, with digital
+     count direction control, so that the counter will count UP when the
+     direction signal is HIGH, and DOWN when the direction signal is LOW.
+     (for devices with the DAQ-STC counter/timer)
+############################################################
+[CTR\STCsinglePeriodMeasure.*]
+     Takes one measurement of the period of a digital pulse train
+     using general purpose counter 0 (for devices with the DAQ-STC
+     counter/timer)
+############################################################
+[CTR\STCsinglePulseWidthMeasure.*]
+     Measures the pulse width of a single digital pulse using general
+     purpose counter 0 (for devices with the DAQ-STC counter/timer.)
+    
+############################################################
+[CTR\STCsingleTriggeredPulseWidthMeasure.*]
+     Measures the pulse width of a single digital pulse using general
+     purpose counter 0 upon a trigger (for devices with the DAQ-STC
+     counter/timer.)
+############################################################
+[CTR\STCgenerateSinglePulse.*]
+     Generates a single digital pulse 100 ms wide (output HIGH)
+     delayed 1 ms after the trigger using general purpose counter 0 and an
+     internal 100kHz timebase (for devices with the DAQ-STC counter/timer)
+    
+############################################################
+[CTR\STCgenerateSingleTriggeredPulse.*]
+     Generates a single digital pulse 1 ms LOW and 100 ms HIGH using
+     general purpose counter 0 upon a trigger (for devices with the
+     DAQ-STC counter/timer)
+############################################################
+[CTR\STCgenerateRepeatedTriggeredPulse.*]
+     Repeatedly generates a digtal pulse 1 ms LOW and 100 ms HIGH
+     using general purpose counter 0 upon every trigger.  This is
+     different from CSTC1tPl in that you don't have to rearm after each
+     trigger. (for devices with the DAQ-STC counter/timer)
+############################################################
+[CTR\STCgenerateSquareWave.*]
+     Generates a 1kHz square wave (digital pulse train) using general
+     purpose counter 0 and an internal 100kHz timebase. (for devices with
+     the DAQ-STC counter/timer)
+############################################################
+[CTR\STCsingleBufEventCount.*]
+     Counts the number of digital pulses that occur between
+     consecutive digital triggers on the gate input, using general purpose
+     counter 0 and an internal 20MHz timebase. (for devices with the
+     DAQ-STC counter/timer) Regarding using your own timebase source for
+     buffered GPCTR operations, refer to the GPCTR_Set_Application
+     description in the NI-DAQ Function Reference Manual.
+    
+############################################################
+[CTR\STCsingleBufPeriodMeasure.*]
+     Counts the periods (time in between two consecutive pulses) of a
+     digital pulse train, using general purpose counter 0 and an internal
+     20MHz timebase. (for devices with the DAQ-STC counter/timer)
+     Regarding using your own timebase source for buffered GPCTR
+     operations, refer to the GPCTR_Set_Application description in the
+     NI-DAQ Function Reference Manual.
+############################################################
+[CTR\STCsingleBufSemiperiodMeasure.*]
+     Counts the semi-periods (HIGH duration and LOW duration,
+     separately) of each pulse in a digital pulse train, using general
+     purpose counter 0 and an internal 20MHz timebase. (for devices with
+     the DAQ-STC counter/timer) Regarding using your own timebase source
+     for buffered GPCTR operations, refer to the GPCTR_Set_Application
+     description in the NI-DAQ Function Reference Manual.
+    
+############################################################
+[CTR\STCsingleBufPulseWidthMeasure.*]
+     Counts the pulse widths (HIGH duration only) of each pulse in a
+     digital pulse train, using general purpose counter 0 and an internal
+     20 MHz timebase. (for devices with the DAQ-STC counter/timer)
+     Regarding using your own timebase source for buffered GPCTR
+     operations, refer to the GPCTR_Set_Application description in the
+     NI-DAQ Function Reference Manual.
+############################################################
+[CTR\TIOquadEncoderPosMeasure.*]
+     Counts the number of quadrature encoded digital pulses using a
+     general purpose counter 0 in a loop. Also accepts a Z-index pulse so
+     that the counter initializes automatically (for NI-TIO based devices)
+    
+############################################################
+[CTR\TIOeventCountWithFilter.*]
+     Counts the number of digital pulses (or events) using a general
+     purpose counter 0 in a loop while using an internal filter set at
+     5uSec (for NI-TIO based devices)
+############################################################
+[CTR\TIOeventCountWithPrescaling.*]
+     Counts the number of digital pulses (or events) using a general
+     purpose counter 0 in a loop while using prescaling.  This is useful
+     for counting signals with frequencies faster than the maximum
+     internal timebase. (for NI-TIO based devices)
+############################################################
+[CTR\TIOsingleBufEventCount.*]
+     Counts the number of digital pulses (or events) in between gate
+     pulses into a single buffer using general purpose counter 0 (for
+     NI-TIO based devices)
+############################################################
+[CTR\TIOcircularBufEventCount.*]
+     Counts the number of digital pulses (or events) in between gate
+     pulses continuously into a circular-buffer (or double-buffer) using
+     general purpose counter 0 (for NI-TIO based devices)
+    
+############################################################
+[CTR\TIOtwoEdgeSeparationMeasure.*]
+     Counts the number of digital pulses (or events) between two
+     independent gate pulses (gate and auxiliary line) using an internal
+     100kHz timebase (for NI-TIO based devices)
+############################################################
+[CTR\TIOgenSquareWave.*]
+     Generates a variable frequency squarewave (digital pulse train)
+     between 1kHz and 100Hz using general purpose counter 0 and an
+     internal 100kHz timebase. (for NI-TIO based devices)
+############################################################
+[CTR\TIOgenSquareWaveStartTrig.*]
+     Generates a 1kHz squarewave (digital pulse train) using general
+     purpose counter 0 and an internal 100kHz timebase upon a digital
+     start trigger (for NI-TIO based devices)
+############################################################
+[SCXI\SCXI_AIonePoint.*]
+     Read one channel, one point at a time, immediately from an SCXI
+     analog input module.  This example can easily be extended to be
+     useable with an SCXI-1140 module, utilizing the Track-and-Hold
+     capabilities.
+############################################################
+[SCXI\SCXI_FREQonePoint.*]
+     Read one channel, one point at a time, immediately from an
+     SCXI-1126 frequency input module.  This example adds special function
+     calls to set input frequency range, cutoff frequency and voltage
+     threshold (2.1V for TTL). (Only for the SCXI-1126 module)
+############################################################
+[SCXI\SCXI_SCANsingleBuf.*]
+     Read 4 channels at the SAME gain from an SCXI analog input module
+     into a buffer, using internal scan and sample timing. The DAQ device
+     must have a scan clock and a channel clock. NOTE: This example is NOT
+     suitable for the SCXI-1122 module, which uses a relay multiplexer.
+     For the SCXI-1122 module, sample a buffer of data on one channel,
+     then call SCXI_Change_Chan to sample another channel. Also, if you
+     are using this example with an SCXI-1100, make sure the filter
+     setting is set to NO FILTER, so that the signals can settle properly.
+    
+############################################################
+[SCXI\SCXI_AOVoltWrite.*]
+     Output a single analog voltage from an SCXI analog output module,
+     immediately (5 Volts, then 0 volts)
+############################################################
+[SCXI\SCXI_AOCurrentWrite.*]
+     Output a single analog current from an SCXI analog output module,
+     immediately (first 5mA, then 0 mA)
+############################################################
+[SCXI\SCXI_DIonePoint.*]
+     Reads the state of a single digital line/relay on an SCXI digital
+     input module, immediately
+############################################################
+[SCXI\SCXI_DOonePoint.*]
+     Outputs a HIGH(ON) and LOW(OFF) to a single digital line/relay on
+     an SCXI digital output module, immediately
+############################################################
+[CALIB\Calibrate_Eseries.*]
+     Calibrate an E-series board using internal voltage reference
+     (SELF_CALIBRATE) and store calibration constants in USER_EEPROM_AREA.
+     (E-series only)  This example also takes measurements over 50/60Hz
+     sinewave periods and averages the data before and after calibration,
+     so you can compare.
+############################################################
+[AI\SCC_A10.*]
+     Use the SCC-A10 module with an E-series device to measure a
+     voltage signal attenuated by a factor of 10. (Requires an SCC
+     carrier, such as the SC-2345, and the SCC-A10 signal conditioning
+     component)
+############################################################
+[AI\SCC_CI20.*]
+     Use the SCC-CI20 module with an E-series device to measure a
+     current signal through a current resistor (249ohms) (Requires an SCC
+     carrier, such as the SC-2345, and the SCC-CI20 signal conditioning
+     component)
+
+

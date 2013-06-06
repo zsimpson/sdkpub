@@ -1,0 +1,179 @@
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+    <META NAME="Generator" CONTENT="Microsoft Word 97">
+    <META NAME="Template" CONTENT="D:\WIN32APP\msoffice97\Office\html.dot">
+    <META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+    <META NAME="Author" CONTENT="Gary Bradski">
+    <META NAME="Description" CONTENT="Header for main functions">
+    <META NAME="KeyWords" CONTENT="CV.h">
+    <TITLE>OpenCV Frequently Asked Questions</TITLE>
+  </HEAD>
+  <BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+    <a name="top">
+      
+    <CENTER><TABLE CELLSPACING=0 CELLPADDING=5 WIDTH="90%" BGCOLOR="#6A9BED" NOSAVE >
+    <TR NOSAVE>
+      <TD NOSAVE>
+        <h1 align="center">
+        Open Source Computer Vision Libray</h1>
+        <p align="center">
+        <i><font size="+4" color="#000000">
+          Frequently Asked Questions
+        </font></i></p>
+      </TD>
+    </TR>
+      </TABLE></CENTER>
+
+    <p>&nbsp;</p>
+    <h2>
+
+<b>General Qs:</b>
+    </h2>
+    <p>&nbsp;</p>
+<h3 ><b>Q1: Where do I submit Bug reports for
+the computer vision library?</b></h3>
+<p >A1: Send email to <a href="mailto:OpenCV@yahoogroups.com">OpenCV@yahoogroups.com</a>&nbsp;
+Subject: BUG &lt;....your title...&gt;</p>
+<p >&nbsp;</p>
+<h3 ><b>Q2: How do I send bug reports for the
+Intel® Image Processing Library?</b></h3>
+<p >A2: Send email to <a href="mailto:developer_support@intel.com">developer_support@intel.com</a><br>
+</p>
+<h3 ><b>Q3: How do I join the web group for
+the library?</b></h3>
+<p >A3: Send email to <a href="mailto:OpenCV-subscribe@yahoogroups.com">OpenCV-subscribe@yahoogroups.com</a>,
+after you are a member and select your logon, you can read the web group at <a href="http://groups.yahoo.com/group/OpenCV">http://groups.yahoo.com/group/OpenCV</a>
+ **. </p>
+<p >&nbsp;</p>
+<h3 ><b>Q4: How do I modify the web group so
+that I don't receive email everyday?</b></h3>
+<p >A4: To get the messages real time, or
+once a day as a daily digest, you can go to <a href="http://groups.yahoo.com/mygroups" target="_top">http://groups.yahoo.com/mygroups</a>
+ ** and choose your setting from the pull down list to the right of OpenCV.&nbsp;&nbsp;</p>
+
+<p>&nbsp; 
+</p>
+
+<h3><b>Q5: How do I get support for the Image Processing Library (IPL)?</b> 
+</h3>
+
+<p>
+A5: For the Image Processing Library, all support questions should go through:<BR>
+<a href="http://support.intel.com/support/performancetools/support.htm"> http://support.intel.com/support/performancetools/support.htm</a> (for release libraries)<BR>
+<a href="https://premier.intel.com/scripts-quad/welcomeplsb.asp"> https://premier.intel.com/scripts-quad/welcomeplsb.asp</a>  (for beta libraries)<BR> 
+</p>
+
+    <h2><BR>
+<b >Windows* OS related Qs:</b>
+<BR><BR>
+    </h2>
+<h3 ><b>Q1: When I try to build one of the
+apps, I get an error, streams.h not found?</b></h3>
+    <p >A1: You need the direct show SDK for
+streams.h. You do not need DirectX* SDK for NT* 4.0 to compile and run DirectShow
+filters. You need only DirectX Media* SDK (version 5.x or higher), that can be
+downloaded from <a href="http://microsoft.com/directx/homeuser/downloads/default.asp" target="_top">http://microsoft.com/directx/homeuser/downloads/default.asp</a>
+ ** This SDK can be used under Win98, NT 4.0 or Win2000 without any problem. Do not forget to put
+paths to the <i>include</i> subfolder and <i> classes\base</i> (in case of
+    DirectX Media 5.x or 6.x) or <i>samples\Multimedia\DirectShow\BaseClasses </i>(in
+    case of DirectX 8.x) subfolder to include paths in
+DevStudio* (they should go <b>first </b>in the list!!!) and <i> lib</i> subfolder to lib
+paths in DevStudio. </p>
+    <p >If you have DirectX 8.x, you should build base C++ library for Direct
+    Show by yourself. In DevStudio open <i>baseclasses.dsw</i> workspace from <i>samples\Multimedia\DirectShow\BaseClasses</i>
+    subfolder and build both release and debug configurations of the library.
+    Finally, copy resulting <i>strmbase.lib</i> and <i>strmbasd.lib </i>libraries
+    to <i>lib</i> subfolder of DirectX 8.x or OpenCV installation folder. That's
+    it. </p>
+<h3 >&nbsp;</h3>
+<h3 ><b>Q2: I've installed the DirectX Media
+SDK, but get build problems.</b></h3>
+<p >A2: Do not forget to put paths to the
+include subfolder and classes\base subfolder to include paths in DevStudio (they
+should go <b>first </b>in the list!!!) and lib subfolder to lib paths in
+DevStudio. Do not forget to build DirectShow C++ libraries. See the previous
+question as well. </p>
+<h3 >&nbsp;</h3>
+<h3 ><b>Q3: Where can I find out about
+compatible USB Cameras?</b></h3>
+<p >A3: look at <a href="http://web2.airmail.net/mprater/101/">http://web2.airmail.net/mprater/101/</a>&nbsp;**
+There are a lot of USB camera (often called WebCams) links there. </p>
+<p >&nbsp;</p>
+<h3 ><b>Q4: When I build a filter graph with
+a USB camera, there are no output pins!? (Happens with Win2000* 3Com* camera).</b></h3>
+<p >A4: You can get the output pins to
+appear by selecting &quot;refresh&quot; from the graphedt.exe** menu.</p>
+<p >&nbsp;</p>
+<h3 ><b>Q5: How do you set the video format
+(e.g., resolution) of a WDM* video capture source camera within GraphEdit* (Filter
+Graph Editor)?</b></h3>
+<p >A5: Set the video format with the
+property page of the output pin of the capture source. Just click the right
+mouse button in GraphEdit on the output pin to display the property page. <b>But</b>
+make sure you do that before connecting the pin to other pins.</p>
+<p >&nbsp;</p>
+<h3 ><b>Q6: When I try to register a filter
+or install the library, I get an &quot;IPL Waterfall&quot; error, what's up?</b></h3>
+<p >A6: IPL library has a bug in it, it
+uses a DLL switcher so that IPL.DLL replaces itself with the processor
+appropriate DLL (such as IPLA6.DLL for a PIII).&nbsp; The problem is, the DLL
+switcher looks only in the system path, not in the current directory.&nbsp;
+Thus, if the IPL DLL directory isn't in the system path, or you have a different
+version of IPL somewhere in front of the current directory in the system path,
+this error will occur.&nbsp; Solution: Get rid of other versions of IPL and
+change the system path to point to the correct IPL directory or move the IPL
+DLLs to a directory (system, system32) that is in the system path.</p>
+<p >&nbsp;</p>
+<h3 ><b>Q7: How do I register a
+directShow filter?</b></h3>
+<p >A7: Call up a command line prompt, cd
+to the directory the filter is in, run regsvr32 &lt;filtername.ax&gt;.&nbsp;
+Obviously, this will only work if regsvr32 is in your system path.&nbsp;</p>
+<p >&nbsp;</p>
+<h3 ><b>Q8: regsvr32 &lt;filtername.ax&gt;
+fails.&nbsp; What to do?</b></h3>
+<p >A8: Almost always means that some DLL
+the filter depends on is not being found in the local directory or the system
+path.&nbsp; If you have MSVC++* installed, you have a copy of a program called
+&quot;depends.exe&quot;.&nbsp; Run this program on the offending filter.&nbsp;
+Missing DLLs will appear highlighted.&nbsp; Find these DLLs, move them to the
+local directory or system path and try regsvr32 again. Viola.</p>
+<h3>&nbsp;</h3>
+<h3><b>
+Q9: I get: LINK : fatal error LNK1104: cannot open file "cvd.lib" Error executing link.exe. Where can I get this lib from?</B></h3>
+<p>
+A9: It's the debug version of the library. Using MSVC++: Either: Under the Project menu, select Settings. Then select the Link tab and change the library to use to cv.lib; Or: Build a debug version of the library -- Under the build menu select "Set Active Configuration", click on "Debug" and the build all to build a debug version of cv.lib named cvd.lib. Another method is to just rename cv.lib to cvd.lib ... but you won't be able to debug.</p>
+<p >&nbsp;</p>
+
+    <h2>
+
+<b >Linux* Related Qs:</b>
+    </h2>
+<p >&nbsp;</p>
+<h3><b>Q1:
+Do you know, if there exist any Linux drivers for USB cameras and/or for Matrox
+MeteorII boards?</b></h3>
+<p>A1:&nbsp;
+USB on Linux is just now maturing, but is doing so very quickly. The best site
+to visit is (URL:<a href="http://www.linux-usb.org/">http://www.linux-usb.org/ </a>**
+). Of specific interest is the link (URL:<a href="http://www.qbik.ch/usb/devices/">http://www.qbik.ch/usb/devices/</a>
+**), which has a video section. For the Matrox MeteorII, there appears to be a
+driver for the Linux4Video2 system, which is a more advanced video system being
+developed in parallel with the Linux4Video(1), included in the kernel. Details
+at (URL:<a href="http://www.thedirks.org/v4l2/">http://www.thedirks.org/v4l2/</a>
+**). See the &quot;People&quot; section for the driver. A downside with V4L2 is
+that it's not yet working under 2.3.x or 2.4.x of the Linux kernel.</p>
+<p >&nbsp;</p>
+<!-- <h3 ><b>Q2: OpenCV won't run without a Linux
+version of the Intel® Image Processing Library, where do I get this?</b></h3>
+<p >A2: Go to the <a href="/research/mrl/research/cvlib/Downloadlicense.htm">download</a>
+page and get the Intel® Image Processing Library (IPL) for Linux<font size="3">.</font></p>
+<p >&nbsp;</p>
+-->
+<hr noshade size=2 width=100%>
+<H3>
+  <A NAME="Bottom"></A><A HREF="#Top">Back to Top<IMG SRC="up.gif" BORDER=0 height=26 width=30></A></H3>
+
+  </BODY>
+</HTML>

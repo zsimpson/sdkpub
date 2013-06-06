@@ -1,0 +1,352 @@
+# Microsoft Developer Studio Generated Dependency File, included by LibMNG.mak
+
+.\libmng_callback_xs.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_error.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	
+
+.\libmng_chunk_descr.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_chunk_descr.h"\
+	".\libmng_chunk_io.h"\
+	".\libmng_chunk_prc.h"\
+	".\libmng_chunks.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_display.h"\
+	".\libmng_error.h"\
+	".\libmng_memory.h"\
+	".\libmng_object_prc.h"\
+	".\libmng_objects.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	
+
+.\libmng_chunk_io.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_chunk_io.h"\
+	".\libmng_chunk_prc.h"\
+	".\libmng_chunks.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_display.h"\
+	".\libmng_error.h"\
+	".\libmng_memory.h"\
+	".\libmng_object_prc.h"\
+	".\libmng_objects.h"\
+	".\libmng_pixels.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	".\libmng_zlib.h"\
+	
+
+.\libmng_chunk_prc.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_chunk_prc.h"\
+	".\libmng_chunks.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_error.h"\
+	".\libmng_memory.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	
+
+.\libmng_chunk_xs.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_chunk_descr.h"\
+	".\libmng_chunk_io.h"\
+	".\libmng_chunk_prc.h"\
+	".\libmng_chunks.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_error.h"\
+	".\libmng_memory.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	
+
+.\libmng_cms.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_cms.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_error.h"\
+	".\libmng_objects.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	
+
+.\libmng_display.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_chunks.h"\
+	".\libmng_cms.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_display.h"\
+	".\libmng_error.h"\
+	".\libmng_jpeg.h"\
+	".\libmng_memory.h"\
+	".\libmng_object_prc.h"\
+	".\libmng_objects.h"\
+	".\libmng_pixels.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	".\libmng_zlib.h"\
+	
+
+.\libmng_dither.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_dither.h"\
+	".\libmng_error.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	
+
+.\libmng_error.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_error.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	
+
+.\libmng_filter.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_error.h"\
+	".\libmng_filter.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	
+
+.\libmng_hlapi.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_chunks.h"\
+	".\libmng_cms.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_display.h"\
+	".\libmng_error.h"\
+	".\libmng_jpeg.h"\
+	".\libmng_memory.h"\
+	".\libmng_object_prc.h"\
+	".\libmng_objects.h"\
+	".\libmng_pixels.h"\
+	".\libmng_read.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	".\libmng_write.h"\
+	".\libmng_zlib.h"\
+	
+
+.\libmng_jpeg.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_error.h"\
+	".\libmng_jpeg.h"\
+	".\libmng_memory.h"\
+	".\libmng_pixels.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	
+
+.\libmng_object_prc.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_chunks.h"\
+	".\libmng_cms.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_display.h"\
+	".\libmng_error.h"\
+	".\libmng_memory.h"\
+	".\libmng_object_prc.h"\
+	".\libmng_objects.h"\
+	".\libmng_pixels.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	
+
+.\libmng_pixels.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_cms.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_error.h"\
+	".\libmng_filter.h"\
+	".\libmng_memory.h"\
+	".\libmng_object_prc.h"\
+	".\libmng_objects.h"\
+	".\libmng_pixels.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	
+
+.\libmng_prop_xs.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_cms.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_error.h"\
+	".\libmng_memory.h"\
+	".\libmng_objects.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	
+
+.\libmng_read.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_chunk_descr.h"\
+	".\libmng_chunk_io.h"\
+	".\libmng_chunk_prc.h"\
+	".\libmng_chunks.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_display.h"\
+	".\libmng_error.h"\
+	".\libmng_memory.h"\
+	".\libmng_object_prc.h"\
+	".\libmng_objects.h"\
+	".\libmng_read.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	
+
+.\libmng_trace.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_error.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	
+
+.\libmng_write.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_chunk_io.h"\
+	".\libmng_chunks.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_error.h"\
+	".\libmng_memory.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	".\libmng_write.h"\
+	
+
+.\libmng_zlib.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\libmng.h"\
+	".\libmng_conf.h"\
+	".\libmng_data.h"\
+	".\libmng_error.h"\
+	".\libmng_filter.h"\
+	".\libmng_memory.h"\
+	".\libmng_pixels.h"\
+	".\libmng_trace.h"\
+	".\libmng_types.h"\
+	".\libmng_zlib.h"\
+	

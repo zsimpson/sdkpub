@@ -1,0 +1,7 @@
+ULDO04.FRM
+..\CBW.BAS
+ProjWinSize=77,425,216,336
+ProjWinShow=2
+IconForm="frmDigAuxOut"
+Title="ULDO04"
+ExeName="ULDO04.EXE"

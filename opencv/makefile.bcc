@@ -1,0 +1,17 @@
+# Master make file for Borland C++
+!ifdef debug
+OPT= debug=1
+!else
+OPT=
+!endif
+
+all:
+	cd cv\make
+	bcmake -fmakefile.bcc $(OPT)
+	cd ..\..
+	cd cvaux\make
+	bcmake -fmakefile.bcc $(OPT)
+	cd ..\..
+	cd otherlibs\highgui
+	bcmake -fmakefile.bcc $(OPT)
+	cd ..\..

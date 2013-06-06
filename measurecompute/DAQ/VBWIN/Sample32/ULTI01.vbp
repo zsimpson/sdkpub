@@ -1,0 +1,7 @@
+ULTI01.FRM
+..\CBW.BAS
+ProjWinSize=124,404,216,336
+ProjWinShow=2
+IconForm="frmDataDisplay"
+Title="ULTI01"
+ExeName="ULTI01.EXE"

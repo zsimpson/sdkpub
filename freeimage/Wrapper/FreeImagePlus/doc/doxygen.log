@@ -1,0 +1,18 @@
+C:/Projects/FreeImage/Source/FreeImage.h:143: Warning: Compound tagRGBQUAD is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:156: Warning: Compound tagRGBTRIPLE is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:188: Warning: Compound tagBITMAPINFO is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:174: Warning: Compound tagBITMAPINFOHEADER is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:208: Warning: Member red of class tagFIRGB16 is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:209: Warning: Member green of class tagFIRGB16 is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:210: Warning: Member blue of class tagFIRGB16 is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:216: Warning: Member red of class tagFIRGBA16 is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:217: Warning: Member green of class tagFIRGBA16 is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:218: Warning: Member blue of class tagFIRGBA16 is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:219: Warning: Member alpha of class tagFIRGBA16 is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:233: Warning: Member red of class tagFIRGBAF is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:234: Warning: Member green of class tagFIRGBAF is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:235: Warning: Member blue of class tagFIRGBAF is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:236: Warning: Member alpha of class tagFIRGBAF is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:225: Warning: Member red of class tagFIRGBF is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:226: Warning: Member green of class tagFIRGBF is not documented.
+C:/Projects/FreeImage/Source/FreeImage.h:227: Warning: Member blue of class tagFIRGBF is not documented.

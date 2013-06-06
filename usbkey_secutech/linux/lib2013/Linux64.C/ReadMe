@@ -1,0 +1,155 @@
+UniKey API Sample
+===============================================================
+
+Compilation notes
+---------------------------------------------------------------
+1. Link with .a library
+2. It works via generic USB interface, so no HID module is needed
+3. Please modify the udev rule file 
+
+		a. for Ubuntu(7.10) (/etc/udev/rules.d/40-permissions.rules)
+		add these lines at the end of the file
+		# UniKey 
+		ATTRS{idVendor}=="0403", ATTRS{idProduct}=="c580", MODE="0666"
+
+		for Ubuntu(8.04/8.10) (/etc/udev/rules.d/40-basic-permissions.rules)
+		add these lines at the end of the file
+		# UniKey 
+		ATTRS{idVendor}=="0403", ATTRS{idProduct}=="c580", MODE="0666"
+
+		for Ubuntu(9.04) (/lib/udev/rules.d/50-udev-default.rules) 
+		add these lines at the end of the file
+		# UniKey 
+		ATTRS{idVendor}=="0403", ATTRS{idProduct}=="c580", MODE="0666"
+
+		for Ubuntu(9.10) (/lib/udev/rules.d/50-udev-default.rules)
+		add these lines at the end of the file
+		# UniKey 
+		ATTRS{idVendor}=="0403", ATTRS{idProduct}=="c580", MODE="0666"
+
+                for Ubuntu(10.10) (/lib/udev/rules.d/50-udev-default.rules)
+		add these lines at the end of the file
+		# UniKey 
+		ATTRS{idVendor}=="0403", ATTRS{idProduct}=="c580", MODE="0666"
+		
+
+		
+		b. for Fedora Core (/etc/udev/rules.d/50-udev.rules)
+		### original ###
+		ACTION=="add", SUBSYSTEM=="usb_device", \
+		PROGRAM="/bin/sh -c 'K=%k; K=$${K#usbdev}; printf bus/usb/%%03i/%%03i $${K%%%%.*} $${K#*.}'", \
+		NAME="%c", MODE="0660" 
+		### end of original ###
+		to 
+		ACTION=="add", SUBSYSTEM=="usb_device", \
+		PROGRAM="/bin/sh -c 'K=%k; K=$${K#usbdev}; printf bus/usb/%%03i/%%03i $${K%%%%.*} $${K#*.}'", \
+		NAME="%c", MODE="0666" 
+		### end of modification ###	
+
+
+
+                for Fedora Core 10 (/lib/udev/rules.d/50-udev-default.rules)
+		### original ###
+		ACTION=="add", SUBSYSTEM=="usb_device", \
+		PROGRAM="/bin/sh -c 'K=%k; K=$${K#usbdev}; printf bus/usb/%%03i/%%03i $${K%%%%.*} $${K#*.}'", \
+		NAME="%c", MODE="0660" 
+		### end of original ###
+		to 
+		ACTION=="add", SUBSYSTEM=="usb_device", \
+		PROGRAM="/bin/sh -c 'K=%k; K=$${K#usbdev}; printf bus/usb/%%03i/%%03i $${K%%%%.*} $${K#*.}'", \
+		NAME="%c", MODE="0666" 
+		### end of modification ###
+
+
+		for Fedora Core 12 (/lib/udev/rules.d/50-udev-default.rules)
+		### original ###
+		ACTION=="add", SUBSYSTEM=="usb_device", \
+		PROGRAM="/bin/sh -c 'K=%k; K=$${K#usbdev}; printf bus/usb/%%03i/%%03i $${K%%%%.*} $${K#*.}'", \
+		NAME="%c", MODE="0660" 
+		### end of original ###
+		to 
+		ACTION=="add", SUBSYSTEM=="usb_device", \
+		PROGRAM="/bin/sh -c 'K=%k; K=$${K#usbdev}; printf bus/usb/%%03i/%%03i $${K%%%%.*} $${K#*.}'", \
+		NAME="%c", MODE="0666" 
+		### end of modification ###	
+
+		for Fedora Core 14 (/lib/udev/rules.d/50-udev-default.rules)
+		### please find original code ###
+		libusb device nodes
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", MODE="0664"
+		### modify it as the following code ###
+		libusb device nodes
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", MODE="0666"
+		### end of modification ###
+
+		
+
+		c. for Debian	
+ 		### USB dongle can not be accessed from non-privilegued account.### 
+
+		### Please follow these steps to add the rules for your system:### 
+
+		1. As the system administrator (root) open the file /etc/udev/rules.d/91-permissions.rules with the text editor.
+		2. Locate following text :
+                   SUBSYSTEM=="usb_device", MODE="0664"
+                   SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", 
+                   MODE="0664"
+		3. add the text MODE="0666"
+                   SUBSYSTEM=="usb_device", MODE="0666"
+                   SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", 
+                   MODE="0666"
+		4. Save the modified file and reboot the system.
+		
+
+                d. for Redhat(5.5) (/etc/udev/rules.d/50-udev.rules)
+		add these lines at the end of the file
+		# UniKey 
+		ATTRS{idVendor}=="0403", ATTRS{idProduct}=="c580", MODE="0666"
+
+
+                e. for Knoppix
+                ### USB dongle can not be accessed from non-privilegued account.### 
+
+		### Please follow these steps to add the rules for your system:### 
+
+		1. As the system administrator (root) open the file /etc/udev/rules.d/91-permissions.rules with the text editor.
+		2. Locate following text :
+                   SUBSYSTEM=="usb_device", MODE="0664"
+                   SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", 
+                   MODE="0664"
+		3. add the text MODE="0666"
+                   SUBSYSTEM=="usb_device", MODE="0666"
+                   SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", 
+                   MODE="0666"
+		4. Save the modified file and reboot the system.
+
+                f. for CentOS 5.0 x86(/etc/udev/rules.d/50-udev.rules)
+
+                1 , Please modify the original usb_device field's 0644 into 0666
+                ### original ###
+		ACTION=="add", SUBSYSTEM=="usb_device", \
+                PROGRAM="/bin/sh -c 'K=%k; K=$${K#usbdev}; printf bus/usb/%%03i/%%03i $${K%%%%.*} $${K#*.}'", \
+		NAME="%c", MODE="0644" 
+		### end of original ###
+		to 
+		ACTION=="add", SUBSYSTEM=="usb_device", \
+                PROGRAM="/bin/sh -c 'K=%k; K=$${K#usbdev}; printf bus/usb/%%03i/%%03i $${K%%%%.*} $${K#*.}'", \
+		NAME="%c", MODE="0666" 
+		### end of modification ###	
+
+
+Supported enviroments
+---------------------------------------------------------------
+Programming Language: GCC
+Platform: Linux with Kernel 2.4 and above
+APIs: all UniKey APIs, ver 2.0
+
+Trademarks
+---------------------------------------------------------------
+SecuTech Solution Inc. All rights reserved.
+
+
+
+
+
+

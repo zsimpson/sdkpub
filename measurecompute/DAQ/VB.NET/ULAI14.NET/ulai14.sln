@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ulai14", "ulai14.vbproj", "{FFA84331-1C6E-420E-B2CC-6FA3D33E1A80}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{FFA84331-1C6E-420E-B2CC-6FA3D33E1A80}.Debug.ActiveCfg = Debug|.NET
+		{FFA84331-1C6E-420E-B2CC-6FA3D33E1A80}.Debug.Build.0 = Debug|.NET
+		{FFA84331-1C6E-420E-B2CC-6FA3D33E1A80}.Release.ActiveCfg = Release|.NET
+		{FFA84331-1C6E-420E-B2CC-6FA3D33E1A80}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

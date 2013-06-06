@@ -1,0 +1,34 @@
+
+4-Parameter Display Demo Program
+Rev A.01.00
+
+This HP VEE demo program uses the HP 871x Plug&Play driver to display 
+all four S-parameters simultaneously on the computer's screen.  For 
+best results, the computer's display resolution should be at least 
+1024 x 768.  This program will only function with an 8712ES or 
+8714ES.   
+
+In this program, the Plug&Play driver has a VEE device name of "VNA".
+VEE will report that the device "VNA" needs to be configured; this 
+means that the HP 871x Plug&Play driver needs to be selected and 
+configured for the device name "VNA" (Advanced I/O Config... button).
+Once the program has been loaded into VEE, DO NOT PRESS THE RUN BUTTON!
+Instead, use the four control buttons at the bottom of the screen to 
+control the analyzer as described below.
+
+PRESET 871xES - Presets Analyzer to default conditions and selects the 
+	default two-port calibration.
+
+SETUP ANALYZER - Allows the user to select start/stop frequencies, 
+	number of points, bandwidth, and more.  The scale and 
+	reference selections only affect the analyzer's display, not
+	the computer's display.
+
+CALIBRATE - Allows the user to perform a two-port calibration.  Before
+	the calibration begins, the program will display the cal kit
+        choices and the user must click on the cal kit to be used.
+
+GET DATA - This will start the process of gathering and displaying of 
+	data.  THIS IS AN ENDLESS LOOP!  To stop the data gathering, 
+	press the STOP button on the HP VEE control bar.
+

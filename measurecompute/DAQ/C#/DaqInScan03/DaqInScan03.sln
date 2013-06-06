@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaqInScan03", "DaqInScan03.csproj", "{0C610483-A11E-4312-BD56-0187CA750550}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{0C610483-A11E-4312-BD56-0187CA750550}.Debug.ActiveCfg = Debug|.NET
+		{0C610483-A11E-4312-BD56-0187CA750550}.Debug.Build.0 = Debug|.NET
+		{0C610483-A11E-4312-BD56-0187CA750550}.Release.ActiveCfg = Release|.NET
+		{0C610483-A11E-4312-BD56-0187CA750550}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

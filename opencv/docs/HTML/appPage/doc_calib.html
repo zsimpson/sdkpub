@@ -1,0 +1,247 @@
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+    <META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+    <TITLE>Camera Calibration Tool</TITLE>
+    <!-- Changed by: Jean-Yves Bouguet, 31-Dec-1999 -->
+  </HEAD>
+  <BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000CC" VLINK="#0000FF" ALINK="#FF0000">
+    <A NAME="TOP">
+    <!-- <CENTER>
+
+  <BLOCKQUOTE>
+
+  <table border = 3 WIDTH="70%" >
+
+  <TR><TD>
+
+    -->
+    <CENTER><TABLE CELLSPACING=0 CELLPADDING=5 WIDTH="90%" BGCOLOR="#6A9BED" NOSAVE >
+	<TR NOSAVE>
+	  <TD NOSAVE>
+	    <CENTER><I><FONT COLOR="#000000"><FONT SIZE=+4>Camera Calibration Tool</FONT></FONT></I></CENTER>
+	  </TD>
+	</TR>
+      </TABLE></CENTER>
+    <!--
+    
+  </TD></TR>
+    
+  </table>
+
+    </BLOCKQUOTE>
+    
+  </center>
+
+    -->
+
+    <br><br>
+
+    <CENTER><IMG SRC="pict_calib.gif" HEIGHT=600 WIDTH=990></CENTER>
+
+    <H1>
+      Description
+    </H1>
+    The camera calibration tool lets you calibrate any video camera very accurately
+    and in few seconds.
+    
+    <br><br>
+      The user presents a flat checkerboard pattern in front of the camera,
+      and the program automatically acquires a number of images and uses them
+      to compute the intrinsic camera parameters (focal length, principal point,
+      distortion coefficients) as well as the extrinsic parameters (3D position
+      of the pattern for each image).
+    <br><br>
+    Since the corners of the pattern are located automatically on each image,
+      the entire procedure is fully automatic. Once calibration is done, the
+      program lets you undistort the video images in real time (at frame rate).
+      The lens distortion model consists of two terms: a radial distortion term
+      (up to the fourth order) and a tangential distortion term (two scalars
+      for encoding the angular orientation of the focal plane with respect to
+      the sensor plane). Consequently, the lens distortion model is parameterized
+      using four scalar coefficients.
+<br><Br>
+    A complete tutorial of the algorithm with matlab code is provided, see
+      <A HREF="#Tutorial">Tuturial Section below</A>.
+    
+    <H2>
+      DirectShow Filter Application
+    </H2>
+    Note that this filter requires that you have DirectShow 6.0 or greater installed
+    with <B>graphedt.exe&nbsp; </B>(DirectShow 6.0 for NT4.0, DirectShow 7.0 for
+    Win 98 or Win2000) 
+    (<A HREF="http://www.microsoft.com/downloads/release.asp?ReleaseID=16927">http://www.microsoft.com/downloads/release.asp?ReleaseID=16927</A> ~128MB[!]). 
+    You will also need a video camera source filter which should
+    be supplied by your USB camera vendor. <!-- except most don't support NT4.0. -->
+<!-- %%Some friendly advice from Uncle Gary?? -->
+<!--    Win2000 is your best bet for development, for just running the filter graph, Win98 will do.. An example filter graph is shown below (with the calibration filter processing a video source from a Matrox Meteor II card that we wrote ourselves) and then passing the output to a video renderer. -->
+
+    Microsoft* Windows* 2000 may be the most suitable operating system
+    for development since many vendors do not supply filters for
+    Windows NT 4.0. However, Windows 98 will be adequate for just
+    running the filter graph
+    <br><br>
+    An example filter graph is shown below. It is running our own
+    calibration filter that processes a video source from a Matrox
+    Meteor II card and then passes the output to a video renderer.
+
+    <BR><br>
+    <CENTER><IMG SRC="CalibFilterGraph.gif" HEIGHT=210 WIDTH=601></CENTER>
+
+    <a name="properties">
+    <br>Right clicking on the CalibFilter brings up its property control page
+      as follows:
+
+
+    <br>
+    <BR>
+    <CENTER><IMG SRC="CalibFilterLabled.gif" HEIGHT=284 WIDTH=384></CENTER>
+    
+    <H2>
+      Controls
+    </H2>
+    <B><FONT SIZE=+2>[1]</FONT></B> Enter the
+    number of columns (Squares per row)in your calibration checkerboard.
+    Click "Apply" [12] to enter.<br>
+    
+    <B><FONT SIZE=+2>[2]</FONT></B> Enter the
+      number of rows (Squares per column)in your calibration checkerboard.
+      Click "Apply" [12] to enter.<br>
+      
+    <B><FONT SIZE=+2>[3]</FONT></B> Actual
+      size of squares in your calibration checkerboard (in whatever units --
+      say cm). Click "Apply" [12] to enter.<br>
+      
+    <B><FONT SIZE=+2>[4]</FONT></B> Start automatic
+      collection of calibration frames.<br>
+
+    <B><FONT SIZE=+2>[5]</FONT></B> Save current
+      set of calibration parameters to disk.<br>
+      
+    <B><FONT SIZE=+2>[6]</FONT></B> Load previously
+      saved calibration parameters.<br>
+
+    <B><FONT SIZE=+2>[7]</FONT></B> If you've
+      just calibrated the camera, or have loaded [6] previous calibration parameters,
+      checking this box causes the computation of the undistorted image in real
+      time. If this box is not checked, the raw video frames are displayed.
+      You must click "Apply" [12] to register the check.<br>
+
+    <B><FONT SIZE=+2>[8]</FONT></B> Checking
+      this box causes an OpenGL display to show the tracking of the calibration
+      checkerboard. You must click "Apply" [12] to register the check.<br>
+
+    <B><FONT SIZE=+2>[9]</FONT></B> Set how
+      many frames of the calibration checkerboard you want to collect before
+      performing calibration (between 10 and 20 is usually enough, use more only
+      if high accuracy is desired). Click "Apply" [12] to enter.<br>
+
+    <B><FONT SIZE=+2>[10]</FONT></B> Set how
+      number of miliseconds of delay between collecting frames of the calibration
+      checkerboard when you start [4] calibration. This allows you as much
+      time as desired to move the calibration checkerboard around the video scene
+      before the next frame is taken during calibration. Click "Apply"
+      [12] to enter.<br>
+      
+    <B><FONT SIZE=+2>[11]</FONT></B> The current
+      calibration parameters are displayed in this box.<br>
+      
+    <B><FONT SIZE=+2>[12]</FONT></B> You must
+      click "Apply" after setting any or all of [1], [2], [3], [9] and/or [10].
+
+    <H2>
+      How To...
+    </H2>
+    
+    <h3>
+      Calibrate a camera
+    </h3>
+
+    <B>(a)</B> Get or make a black and white checkerboard calibration object
+    as shown in the images above or animated gif's below.
+    <BR><B>(b)</B> Enter the number of columns ("squares per row") in [1] and
+    number of rows (squares per column) in [2]; Enter the size of a square
+    <!-- %%Whatever units? -->
+    in whatever units in [3] (optional) ; Enter the number of frames that you
+    want to collect in [9] (10-20 usually suffices); Enter the minimum time
+    between capturing frames to allow you time to move the calibration object.
+    <BR><B>(c)</B> Click "Apply" [12].
+    <BR><B>(d)</B> Click "Start" [4].
+    <BR><B>(e)</B> Move the checkerboard around. The number of frames
+    collected will display in [11]. When all frames are collected it will solve
+    for the calibration parameters and display them in [11].
+    <BR><B>(f)</B> Checking [7] followed by clicking "Apply" [12] causes the
+    rectified video image to be displayed as shown in the second example below.
+    
+    <br><br>Notes: When calibrating, the video image flashes when a frame is captured.
+      It won't capture unless the colored lines are drawn on the checkerboard
+      as shown in the examples below. You must move the calibration object
+      around -- if your views are too much alike, you will get an ill-conditioned
+      matrix with resultant divide by zero when the filter solves for the camera
+      calibration parameters.
+      
+    <h3>
+      Save calibration parameters to a file:
+    </h3>
+    <B>(a) </B>Click "Save" [5] and a dialog box will prompt you for
+    saving the calibration parameters under a text file. Click this
+    <a href="cam_model.html">link</a> for information on the camera model, and the content of the text file.
+      
+    <h3>
+      Load previously stored calibration parameters:
+    </h3>
+    <B>(a)</B> Click "Load" [6] and a dialog box will allow you to select
+    a calibration parameter file.
+    <BR><B>(b)</B> Calibration parameters will appear in [11].
+      
+    <h3>
+      Turn image rectification on and off:
+    </h3>
+    <B>(a)</B> On: Check the "Undistortion" box [7]. Click "Apply" [12].
+    <BR><B>(b)</B> Off: Un-check the "Undistortion" box [7]. Click "Apply"
+    [12].
+      
+    <h3>
+      Turn the 3D OpenGL window on and off:
+    </h3>
+    <B>(a)</B> On: Check the "Show 3D window" box [8]. Click "Apply" [12].
+    <BR><B>(b)</B> Off: Un-check the "Show 3D window" box [8]. Click
+    "Apply" [12].
+
+    <H1>
+      Examples
+    </H1>
+    The following movie shows the 3D pose of the calibration object being computed
+    in real time after the camera has been calibrated.
+    <br>
+    <BR>
+    <CENTER><IMG SRC="calibrate anim.gif" HEIGHT=253 WIDTH=528></CENTER>
+    
+    
+    <br>
+    
+    
+    The next movie shows image undistortion in real time.
+    
+    
+    <br><BR>
+    <CENTER><IMG SRC="distort anim2.gif" HEIGHT=226 WIDTH=721></CENTER>
+    
+    <H1>
+      <A NAME="Tutorial"></A>C Source; Tutorial with Matlab Implementation</H1>
+    In addition to the <A HREF="../functPage/functPage.htm#CAMERA" target="function window">source
+      code in C</A> of the calibration functions and tool, we provide a complete
+    <A HREF="calib_doc/index.html" target="application window">tutorial</A>
+    of the calibration algorithm with <A HREF="calib_doc/index.html" target="application window">matlab
+      implementation.</A><!-- %%make sure that the link tot he matlab code works nicely -->
+
+    <br><br>
+    <hr noshade size=2 width=100%>
+    <H3>
+      <A NAME="Bottom"></A><A HREF="#Top">Back to Top<IMG SRC="up.gif" BORDER=0 HEIGHT=26 WIDTH=30></A></H3>
+
+  </BODY>
+</HTML>
+
+
+

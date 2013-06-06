@@ -1,0 +1,84 @@
+# Makefile for GNU C/C++ 2.95.3
+
+CXX = g++
+LINK = g++
+
+ifdef debug
+
+SUFFIX = d
+DR = _Dbg
+
+else
+
+SUFFIX =
+DR = _Rls
+
+endif    
+
+OUTDLL = ..\..\bin\HighGUI$(SUFFIX).dll
+OUTLIB = ..\..\lib\libHighGUI$(SUFFIX).a
+OBJS = ..\..\_temp\HighGUI$(DR)\bitstrm.o ..\..\_temp\HighGUI$(DR)\grfmt_base.o \
+..\..\_temp\HighGUI$(DR)\grfmt_bmp.o ..\..\_temp\HighGUI$(DR)\grfmt_jpeg.o \
+..\..\_temp\HighGUI$(DR)\grfmt_pxm.o ..\..\_temp\HighGUI$(DR)\grfmt_sunras.o \
+..\..\_temp\HighGUI$(DR)\grfmt_tiff.o ..\..\_temp\HighGUI$(DR)\utils.o \
+..\..\_temp\HighGUI$(DR)\image.o ..\..\_temp\HighGUI$(DR)\loadsave.o \
+..\..\_temp\HighGUI$(DR)\precomp.o ..\..\_temp\HighGUI$(DR)\window_lnx.o \
+..\..\_temp\HighGUI$(DR)\window_w32.o 
+
+
+INC = ./bitstrm.h ./grfmt_base.h ./grfmt_bmp.h ./grfmt_jpeg.h ./grfmt_pxm.h \
+./grfmt_sunras.h ./grfmt_tiff.h ./utils.h ./_highgui.h ./grfmts.h ./HighGUI.h 
+
+CXXFLAGS2 = -I"../../cv/include" -I".//" -I"."  -I"$(GCCHOME)/include" -Wall -c -o
+LINKFLAGS2 = -L..\..\lib -o$(OUTDLL) -shared -Wl,-call_shared,--out-implib,$(OUTLIB)  
+
+ifdef debug
+
+CXXFLAGS = -D"_MBCS" -D"WIN32" -D"HIGHGUI_EXPORTS" -D"_USRDLL" -D"_WINDOWS" -D"_DEBUG"  -O0 -ggdb3 $(CXXFLAGS2)
+LIBS = -lcvd -lkernel32 -luser32 -lgdi32 -lcomdlg32 -ladvapi32 -lshell32 -lcomctl32 
+LINKFLAGS = $(LINKFLAGS2)  
+
+else
+
+CXXFLAGS = -D"NDEBUG" -D"_MBCS" -D"WIN32" -D"HIGHGUI_EXPORTS" -D"_USRDLL" -D"_WINDOWS"  -O2 $(CXXFLAGS2)
+LIBS = -lcv -lkernel32 -luser32 -lgdi32 -lcomdlg32 -ladvapi32 -lshell32 -lcomctl32 
+LINKFLAGS = $(LINKFLAGS2)  
+
+endif
+
+
+$(OUTDLL): $(OBJS)
+	-mkdir ..\..\bin 2>nul
+	-mkdir ..\..\lib 2>nul
+	$(LINK)  $(LINKFLAGS) $(OBJS) $(LIBS) 
+	
+
+all: $(OUTDLL)
+
+..\..\_temp\HighGUI$(DR)\bitstrm.o: .\bitstrm.cpp $(INC)
+	@-mkdir ..\..\_temp\HighGUI$(DR) 2>nul
+	-$(CXX) $(CXXFLAGS)..\..\_temp\HighGUI$(DR)\bitstrm.o .\bitstrm.cpp
+..\..\_temp\HighGUI$(DR)\grfmt_base.o: .\grfmt_base.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\HighGUI$(DR)\grfmt_base.o .\grfmt_base.cpp
+..\..\_temp\HighGUI$(DR)\grfmt_bmp.o: .\grfmt_bmp.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\HighGUI$(DR)\grfmt_bmp.o .\grfmt_bmp.cpp
+..\..\_temp\HighGUI$(DR)\grfmt_jpeg.o: .\grfmt_jpeg.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\HighGUI$(DR)\grfmt_jpeg.o .\grfmt_jpeg.cpp
+..\..\_temp\HighGUI$(DR)\grfmt_pxm.o: .\grfmt_pxm.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\HighGUI$(DR)\grfmt_pxm.o .\grfmt_pxm.cpp
+..\..\_temp\HighGUI$(DR)\grfmt_sunras.o: .\grfmt_sunras.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\HighGUI$(DR)\grfmt_sunras.o .\grfmt_sunras.cpp
+..\..\_temp\HighGUI$(DR)\grfmt_tiff.o: .\grfmt_tiff.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\HighGUI$(DR)\grfmt_tiff.o .\grfmt_tiff.cpp
+..\..\_temp\HighGUI$(DR)\utils.o: .\utils.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\HighGUI$(DR)\utils.o .\utils.cpp
+..\..\_temp\HighGUI$(DR)\image.o: .\image.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\HighGUI$(DR)\image.o .\image.cpp
+..\..\_temp\HighGUI$(DR)\loadsave.o: .\loadsave.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\HighGUI$(DR)\loadsave.o .\loadsave.cpp
+..\..\_temp\HighGUI$(DR)\precomp.o: .\precomp.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\HighGUI$(DR)\precomp.o .\precomp.cpp
+..\..\_temp\HighGUI$(DR)\window_lnx.o: .\window_lnx.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\HighGUI$(DR)\window_lnx.o .\window_lnx.cpp
+..\..\_temp\HighGUI$(DR)\window_w32.o: .\window_w32.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\HighGUI$(DR)\window_w32.o .\window_w32.cpp

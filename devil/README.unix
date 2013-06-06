@@ -1,0 +1,26 @@
+How do I compile the 3 libraries ?
+-----------------------------------------
+
+Just type ./configure && make. It should find automatically what can
+(or cannot) be built on your system.
+
+NB : ./configure --help gives you all compiling options available for the three
+      libs. This includes enabling/disabling picture formats, ilut apis.
+
+
+Libraries needed to compile DevIL* :
+-----------------------------------
+
+They are all autodetected by the ./configure script. But if you want to include
+one of those format, you have just to install the corresponding lib :
+
+(libs listed in libraries.txt)
+
+or in your distro/port ftp/site/whatever_you_want :-)
+
+
+Installation:
+-------------
+
+If #make succeeded, just type #make install, followed by #ldconfig
+(as su, of course)

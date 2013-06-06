@@ -1,0 +1,2 @@
+EXTRA_DIST = assert.h ctype.h dirent.h eic.h eicval.h errno.h fcntl.h float.h iso646.h limits.h math.h setjmp.h signal.h starteic.h stdarg.h stddef.h stdio.h stdlib.h string.h termios.h time.h unistd.h xalloc.h
+SUBDIRS = sys

@@ -1,0 +1,353 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft FrontPage 4.0">
+<TITLE>Intel® Image Processing Library Release Notes</TITLE>
+<link rel="stylesheet" type="text/css" href="doc/css/plsuite.css">
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<h1 ALIGN="left">Intel&reg; Image Processing Library v2.5 </h1>
+
+<h1 ALIGN="left"> Product Release Notes</h1>
+<h2>Contents</h2>
+<P><font size="2"><A HREF="#Overview">Intel Image Processing Library 2.5</A> <BR>
+<A HREF="#System_Requirements">System Requirements</A><BR>
+<A HREF="#Compilers">Compiler Support </A><BR>
+<A HREF="#License_Definitions">License Definitions</A> <BR>
+<A HREF="#Installation">Installation</A> <BR>
+<A HREF="#Library_Use">Library Use</A><BR>
+<A HREF="#Whats_New">What's New in Version 2.5</A><BR>
+<A HREF="#History">History</A><BR>
+<A HREF="#Known_Limitations">Known Limitations in Version 2.5</A> <BR>
+<A HREF="#Technical_Support">Technical Support and Feedback</A> <BR>
+<A NAME="Overview"></P>
+</A>
+<A NAME="Overview"><B><I><h2>Intel Image Processing Library 2.5</h2>
+</B></I></A><FONT SIZE=2><P>The Intel<SUP>&reg;</SUP> Image Processing Library provides a set of low-level image manipulation functions in standard DLLs and static libraries form. The functions are optimized for Intel<SUP>&reg;</SUP> Architecture processors, and are particularly effective at taking advantage of MMX&trade;
+technology, the Streaming SIMD Extensions (SSE) and SSE-2.. Currently, versions have been developed for the Intel486&trade; and compatible processors, the Pentium&reg; processor, the Pentium Pro processor, the Pentium processor with MMX technology, the Pentium II processor, the Pentium
+<font face="Arial"> III</font>  processor, and, most recently, the Pentium 4
+processor.&nbsp; A separate DLL is available for each processor.</P>
+<P>The library contains functions that perform filtering, thresholding, and transforms (FFT, DCT, geometric), as well as arithmetic and morphological operations. The library uses a flexible image format, supporting channels of 1-, 8-, 16-, and 32-bit integer pixels, as well as 32-bit floating point pixels, with an arbitrary number of channels per image. Conversion to and from the Windows* DIB (device independent bitmap) image format is supported, as are conversions between color and gray-scale.</P>
+<P>Major changes from the Image Processing Library 1.0 include many more geometric functions, mask region of interest, floating point support, example code, and color space conversions.</P>
+<P>Changes since version 2.2&nbsp; include further optimization for Pentium <font face="Arial"> III</font> 
+processors and support for the Pentium 4 processor.</P>
+<P>Additional information on this software as well as other libraries is
+available at the <a href="http://developer.intel.com/software/products/perflib/">Intel Performance Libraries</a>
+homepage. </P>
+ </FONT><B><I><h2><A NAME="System_Requirements">System Requirements</h2>
+</A>
+</B></I>
+</B><FONT SIZE=2><P>The Intel<SUP>&reg;</SUP> Image Processing Library requires the following software and hardware:</P>
+<B><P>Recommended hardware:</B> A Pentium </FONT><FONT FACE="Symbol" SIZE=2>
+</FONT><FONT SIZE=2> II,&nbsp; Pentium
+<font face="Arial"> III, </font>or Pentium 4 processor-based PC with memory appropriate to the image sizes needed.</P>
+<B><P>Software Requirements:</B> Windows* 95, 98, 2000, or Windows NT* 3.51 or 4.0.</P>
+</FONT><B><I><h2><a name="Compilers">Compiler Support</a></h2>
+</B></I><FONT SIZE=2><P>Intel<SUP>&reg;</SUP> C/C++ Compiler, Borland* C/C++ 5, or Microsoft* Visual C/C++* 4.2 or
+later. Other compatible compilers have not been tested extensively but might work.</P>
+</FONT><B><I><h2><A NAME="License_Definitions">License Definitions</h2>
+</A>
+</B></I><FONT SIZE=2><P>Please see the license file </FONT><A HREF="ipllic.htm"><FONT SIZE=2>ipllic.htm</FONT></A><FONT SIZE=2> for the license definitions and restrictions on the library.</P>
+</FONT><B><I><h2><A NAME="Installation">Installation</h2>
+</A>
+</B></I><FONT SIZE=2><P>You can install the Image Processing Library package by downloading and running the appropriate self-extracting installation files from the Web site.&nbsp;
+See the&nbsp; <a href="http://developer.intel.com/software/products/perflib/ipl/">Intel
+Image Processing Library homepage</a> for updates, when available.</P>
+</FONT><h2><B><I><A NAME="Library_Use">Library Use</A></h2></I>
+</B><FONT SIZE=2><P>To get started using the library, the following steps are required:</P>
+
+<UL>
+<LI>Include the file "ipl.h" in your program. </LI>
+<LI>Call Image Processing Library functions. </LI>
+<LI>Link to the file ipl.lib in the lib\msvc or lib\bcc directory. </LI>
+<LI>Put the DLLs ipl.dll, cpuinf32.dll, and iplxxx.dll in your path before executing your program.</LI></UL>
+
+</FONT><B><I><h2><a name="Whats_New">What’s New in the Intel Image Processing Library Version
+2.5</a></h2>
+
+</I>
+
+</B> 
+<ul>
+  <li>Further optimizations for the Pentium  <font face="Arial">III</font>
+    processor</li>
+  <li>Support for the Pentium 4 processor</li>
+  <li>New functions generating noise were developed, they are iplNoiseImage, iplNoiseUniformInit, iplNoiseUniformInitFP, iplNoiseGaussianInit,
+    iplNoiseGaussianInitFP.</li>
+  <li>A new mode was added for iplRGB2YUV and iplYUV2RGB functions to support
+    planar YUV color space.</li>
+  <li>A&nbsp; new, faster version of the DFT part of the FFT transform functions was developed.</li>
+  <li>The ConvertFromDIB function was corrected to support conversion of 24 bit images with color palette.</li>
+  <li>Bug was fixed in the dll-dispatcher.</li>
+  <li>A bug was fixed in the iplFixedFilter&nbsp; for Hi-Pass filters using
+    32-bit signed images when running Pentium II processors.</li>
+  <li>The Compare functions no longer process Alpha channels.</li>
+  <li>A bug was fixed in the iplMirror function, in-place mode.</li>
+  <li>Bugs were fixed in the iplResize,&nbsp; iplNorm, iplDecimateBlur, iplEqual,
+    <font size="2"> iplZoom, iplReduceBits,</font> <font size="2">and Moments
+
+</font>
+
+    functions.</li>
+  <li>A bug was fixed in the iplConvolve2D function in the case when the convolution kernel consists of
+    all&nbsp; zeros.</li>
+</ul>
+<B><I><h2><A NAME="History">History</A></h2>
+</I></B>
+
+</font>
+
+<h3>New in v2.2:</h3>
+
+
+
+<ul>
+  <font size="2">
+  <li>Extensive optimizations for the Pentium&reg; <font face="Arial">III</font> 
+    processor&nbsp;</li>
+  <li>Wavelet transform functions</li>
+  <li>Renaming of the function iplDecimateExt to the more
+    descriptive name iplDecimateBlur</li>
+  <li>Support for Borland* Delphi* v4.0 and more Delphi usage
+    demos</li>
+  <li>Support for 32-bit floating point images has been added to
+    the following functions: iplResize, iplWarpPerspective, iplWarpBilinear, all
+    Geometric functions, iplSquare,, iplRemap, iplWarpAffine, iplDecimate,
+    iplMirror,</li>
+  <li>Other new APIs: iplNormCrossCorr, iplRotateCenter, iplNoiseImage</li>
+  <li>User-defined pixel functions</li>
+  <li>iplTranslateDIB now supports conversion to RGB24 DIBs with
+    a palette.</li>
+
+</font>
+
+</ul>
+
+<h3>New in v2.1:</h3>
+
+
+
+<font size="2">
+
+
+
+<UL>
+<B><LI><FONT SIZE=2>Pentium <font face="Arial"> III</font> processor optimizations
+
+</FONT></B> <FONT SIZE=2> were added. They reside in ipla6.dll and ipla6l.lib
+
+</FONT> </LI>
+<B><LI><FONT SIZE=2>Comparison functions</FONT></B><FONT SIZE=2>, in support of
+MaskROI, were added. These functions produce 1-bit results of the comparison of two images or an image and
+a constant. The functions groups are iplGreater, iplLess, and iplEqual.</FONT> </LI>
+<LI><FONT SIZE=2>Two new geometric operations were added: <B>iplRemap and
+  iplDecimateExt.</B>
+
+</FONT> </LI>
+ <B>
+<LI><FONT SIZE=2>iplScale</FONT></B><FONT SIZE=2>, which converts bit depths while scaling up or down to keep data in range, was added.</FONT> </LI>
+<LI><FONT SIZE=2>Functions in support of 32F depth were added: <B>iplColorTwistFP, iplConvolveSep2DFP, iplScaleFP
+</B>
+
+</FONT> </LI>
+<LI><FONT SIZE=2>A function to convert to a DIB with non-contiguous header and data was created: <B>iplConvertToDIBSep</B>.
+
+</FONT> </LI>
+<LI><FONT SIZE=2>The function <B>iplDeallocateHeader</B> was created.
+
+</FONT> </LI>
+<LI><FONT SIZE=2>iplFixedFilter return value was changed from int to IPLStatus.
+
+</FONT></LI></UL>
+
+</font>
+
+<h3>New in v2.01:</h3>
+
+<font size="2">
+
+<font size="2">
+
+<UL>
+<FONT SIZE=2><LI>The "waterfall model" of DLL selection was implemented; now the dispatcher ipl.dll will search for the <I>best available</I> DLL for the detected processor. </LI>
+<LI>Channel of Interest now takes precedence over alpha channel for arithmetic, logical, morphological, histogram, geometric, and linear transform functions, and convolution, set, copy, and threshold. </LI>
+<LI>A bug that caused iplDecimate and iplResize to request out-of-bounds tiles was fixed. </LI>
+<LI>Bugs were fixed in iplMpyRCPack2D, so that this function is now available for use. </LI>
+<LI>Some <B>new functions</B>: iplSetPixel, iplGetPixel, iplConvertFromDIBSep, iplCloneImage, and iplResize. These functions are primarily derived from other library functions but provide a more convenient interface. </LI>
+<B><LI>Delphi examples</B>. The library now includes a .pas file declaring library functions for use with Delphi, and binary executable and source code for a simple image editor. Please note that while we hope these files will be helpful, this interface is not as extensively tested as the remainder of the library. </LI>
+<LI>A <B>tutorial</B> is available. This tutorial is HTML based and requires Internet Explorer 3.0 or later to run the examples from within the browser or Netscape 3.0 to view the explanations. This tutorial includes several example routines that should be generally useful, such as DIB loading, image display, and timer functions. </LI>
+<LI>Source code for <B>video effects</B> is provided. Building video effects, including Microsoft DirectShow* and Adobe* Premiere* filters, is demonstrated with six examples. Pre-built versions of the binaries are also available. </LI>
+<LI>The <B>performance</B> of these and other functions has been significantly enhanced: iplXYZ2RGB, iplRGB2XYZ, iplYCrCb2RGB, iplRGB2YCrCb, iplConvertToDIB with palettes, iplReduceBits with dithering, iplConvolve2D in general and more with 3x3 and 5x5 kernels, iplWarpAffine with linear interpolation. </LI>
+<B><LI>Alpha channel</B> interpretation by non-alpha-compositing functions has changed. In version 1.0, the behavior was not consistent. Now the uniform rule, excepting only geometric functions, is that the alpha channel is not to be operated upon by these functions. That is, the destination alpha channel will remain unchanged in all but alpha-compositing and geometric functions. </LI>
+<LI>The following bugs have been resolved: </LI>
+<LI>YCrCb – color plane order changed from YCbCr to YCrCb </LI>
+<LI>Small issues fixed in: Open, Close, PerspectiveWarp, MaxFilter, Convolve2D, FixedFilter, Mirror, Norm </LI>
+<LI>ipliedit.exe supports Abs, AlphaCompositeC, and PremultiplyAlpha</LI></UL>
+
+</font></font></font><h3>New in v2.0:</h3>
+
+<FONT SIZE=2>
+
+<font size="2">
+
+<font size="2">
+
+<font size="2">
+
+<UL>
+<B><FONT SIZE=2><LI>Many new geometric operations: Affine, Bilinear, Perspective, Shear </LI>
+<LI>Mask Region Of Interest (ROI)</LI></UL>
+<DIR>
+
+</B><P>A field </FONT><FONT FACE="Courier New" SIZE=2>IplImage* maskROI</FONT><FONT SIZE=2> was added to the IplImage header. This parameter is used by most functions to select whether an operation is done on a pixel-by-pixel basis. It is a 1-bit, 1-plane image that, when applied to the source image, determines which pixels are used for an operation; when applied to the destination image, it determines which pixels can be set in that destination.</P></DIR>
+
+
+<UL>
+<B><LI>32-bit floating point pixel depth</LI></UL>
+<DIR>
+
+</B><P>Support is limited to some functions. See Appendix A of the manual for details of which functions support IPL_DEPTH_32F. Key support for this includes: AddSFP, SubtractSFP, ...;IplCreateConvKernelFP; Convolution, dyadic arithmetic operations, FFT</P></DIR>
+
+
+<UL>
+<B><LI>Color conversions</LI></UL>
+<DIR>
+
+</B><P>Many color conversions to and from RGB have been added. These include: YUV, CIELUV, CIELab (XYZ), YCC, and YCrCb.</P></DIR>
+
+
+<UL>
+<B><LI>New functions: iplAbs, iplFixedFilter, iplCloneImage, iplMoments</LI></UL>
+<DIR>
+
+</B><P>The library now includes functions to calculate the absolute value, perform various pre-determined filters, create a copy of an entire image including the header, and calculate the 0-3</FONT><FONT SIZE=1>rd</FONT><FONT SIZE=2> order moments of an image.</P></DIR>
+
+
+<UL>
+<B><LI>API and behavior changes</LI></UL>
+<DIR>
+
+</B><P>IplCoord* mapping parameter was removed from all functions and the IplCoord structure was eliminated</P>
+<P>Alpha compositing functions now support in-place operation</P>
+<P>All coordinate and size pairs have been reordered to (x,y) or (width,height).</P>
+<P>iplAllocateImage now includes a flag to opt to fill the image data or not</P>
+<P>Convolution kernel values changed from int to char; for conversion convenience, the functions iplCreateConvKernelChar and iplSetConvKernelChar have the same interface as the old create and set functions.</P>
+<P>See above and below about alpha channel behavior.</P>
+<B><P>Note: </B>The header file </FONT><FONT FACE="Courier New" SIZE=2>conv1_2.h</FONT><FONT SIZE=2> and executable </FONT><FONT FACE="Courier New" SIZE=2>conv1_2.exe</FONT><FONT SIZE=2> support this conversion. The conversion header is the best reference for the changes made to the API.</P></DIR>
+
+
+<UL>
+<B><LI>__cdecl changed to __stdcall</LI></UL>
+<DIR>
+<DIR>
+
+</B><P>The IP Library can now be used without modification or hassle with the Borland compiler in a C++ program; it also allows compatibility with Microsoft Visual Basic*. This change should not otherwise be noticable, except in the declaration of callback functions for tiling.</P></DIR>
+</DIR>
+
+
+<UL>
+<B><LI>Bug fixes and performance enhancements</LI></UL>
+<DIR>
+
+</B><P>Thread-local storage fixes for multi-thread safety</P>
+<P>A specified alpha channel should <B>not</B> be operated upon by any but alpha compositing operations; several exceptions to this rule have been found and most were corrected. Note: to have a given function operate on the alpha channel, set alphaChannel in the header to 0 for that call.</P>
+<P>A problem that resulted in a missing line was fixed in geometric functions</P>
+<P>iplTransformFromDIB no longer resets the alphaChannel field.</P>
+<P>A problem with mask processing for an arithmetic function on a two-channel image was corrected</P>
+<P>A problem with iplConvolve2D, 16S data, and a shift-only kernel was corrected</P>
+<P>Other problems were corrected in Open, Close, MaxFilter, Convolve2D, FixedFilter, Mirror, Norm, yCrCb2RGB.</P>
+<P>The performance improvement in some geometric operations is significant; other faster functions include: iplConvertToDIB, iplReduceBits; iplConvolve2D, iplErode, iplDilate.</P></DIR>
+
+</FONT><B><I><h2><A NAME="Known_Limitations">Known Limitations In Version 2.5</h2>
+
+<UL>
+<LI></A></B></I><FONT SIZE=2>Tests indicate several failures with iplMoment on a Pentium®
+<font face="Arial"> III</font> processor when using the Borland compiler. </LI>
+<LI>The tutorial uses a test certificate for the user to permit the execution of the examples. This certificate results in an ugly dialog box from Internet Explorer*.</LI></UL>
+
+</FONT><B><I><h2><A NAME="Technical_Support">Technical Support and Feedback</h2>
+</A></I>
+</B>
+<p><span style="FONT-SIZE: 10pt; mso-fareast-font-family: SimSun">If you would
+like to provide feedback or if you encounter problems with installation or usage
+of the Intel Image Processing Library, we want to hear from you. Submit all questions and
+problems via our Intel Premier Support website. This web site requires either
+Microsoft* Internet Explorer* 4.0 (or higher) or Netscape Navigator* 4.0 (or
+higher). The following are guidelines for getting access to and using Intel
+Premier Support:<o:p>
+</o:p>
+</span></p>
+<p><span style="FONT-SIZE: 10pt; mso-fareast-font-family: SimSun">You must first
+register for a Premier Support account. Go to the <a href="http://support.intel.com/support/performancetools/libraries/ipl/index.htm"> Intel
+Image Processing Library
+support page</a> and click on the <a href="http://support.intel.com/support/performancetools/support.htm">Service
+&amp; Support</a> link to find the account request information.<o:p>
+</o:p>
+</span></p>
+<p><span style="FONT-SIZE: 10pt; mso-fareast-font-family: SimSun">Once you have
+your account, the URL to the Intel Premier Support website is <a href="https://premier.intel.com/">https://premier.intel.com</a><o:p>
+</o:p>
+</span></p>
+<p><span style="FONT-SIZE: 10pt; mso-fareast-font-family: SimSun">If you have
+forgotten your password, please email a request to</span><span style="FONT-SIZE: 7.5pt; mso-fareast-font-family: SimSun">:
+</span><span style="FONT-SIZE: 10pt; mso-fareast-font-family: SimSun"><a href="mailto:quadsupport@mailbox.intel.com">quadsupport@mailbox.intel.com</a><o:p>
+</o:p>
+</span></p>
+<p><span style="FONT-SIZE: 10pt; mso-fareast-font-family: SimSun">If you are
+unable to access your Intel Premier Support account, or it has not been enabled,
+contact <a href="mailto:developer_support@intel.com">developer_support@intel.com</a></span><span style="FONT-SIZE: 7.5pt; mso-fareast-font-family: SimSun">
+</span><span style="FONT-SIZE: 10pt; mso-fareast-font-family: SimSun"><o:p>
+</o:p>
+</span></p>
+<p><span style="FONT-SIZE: 10pt; mso-fareast-font-family: SimSun">To submit an
+issue via the Intel Premier Support website:<o:p>
+</o:p>
+</span></p>
+<ol type="1">
+  <li class="MsoNormal" style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l1 level1 lfo1; tab-stops: list .5in">Go
+    to <a href="https://premier.intel.com/">https://premier.intel.com/</a>
+  <li class="MsoNormal" style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l1 level1 lfo1; tab-stops: list .5in">Type
+    in your Premier Support Login and Password
+  <li class="MsoNormal" style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l1 level1 lfo1; tab-stops: list .5in">Click
+    the &quot;Submit&quot; button
+  <li class="MsoNormal" style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l1 level1 lfo1; tab-stops: list .5in">Read
+    the Confidentiality Statement and click the &quot;I Accept&quot; button
+  <li class="MsoNormal" style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l1 level1 lfo1; tab-stops: list .5in">Click
+    on the &quot;Submit Issue&quot; link in the left navigation bar
+  <li class="MsoNormal" style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l1 level1 lfo1; tab-stops: list .5in">Choose
+    &quot;Initiatives, technologies &amp; tools&quot; from the &quot;Product
+    Type&quot; drop-down list
+  <li class="MsoNormal" style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l1 level1 lfo1; tab-stops: list .5in">Choose
+    &quot;Intel® Performance Library Suite&quot; from the &quot;Product
+    Name&quot; drop-down list.
+  <li class="MsoNormal" style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l1 level1 lfo1; tab-stops: list .5in">Enter
+    your question and complete the fields in the windows that follow to
+    successfully submit the issue.</li>
+</ol>
+<p><span style="FONT-SIZE: 10pt; mso-fareast-font-family: SimSun">Please follow
+these guidelines when forming your problem report or product suggestion: <o:p>
+</o:p>
+</span></p>
+<ol type="1">
+  <li class="MsoNormal" style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l0 level1 lfo2; tab-stops: list .5in">Describe
+    your difficulty or suggestion.<br>
+    For problem reports please be as specific as possible, so that we may
+    reproduce the problem. Please include a small test case if possible.
+  <li class="MsoNormal" style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l0 level1 lfo2; tab-stops: list .5in">Describe
+    your system configuration information.<br>
+    Be sure to include specific information that may be applicable to your
+    setup: operating system, version numbers of the specific library, and
+    anything else that is relevant to helping us address your concern.</li>
+</ol>
+<p><span style="FONT-SIZE: 10pt; mso-fareast-font-family: SimSun">Contact us
+with your suggestion or problem report using your Intel Premier Support account.
+A technical support engineer will respond within one (1) Intel business day.<o:p>
+</o:p>
+</span></p>
+<p><FONT FACE="Arial,HELVETICA" SIZE=1>Intel, the Intel logo, and Pentium are registered trademarks of Intel Corporation. <BR>
+Intel386, Intel486, and MMX are trademarks of Intel Corporation. <BR>
+*Other brands and names are the property of their respective owners.</p>
+<P>Copyright 2000, Intel Corporation, All Rights Reserved. </P>
+</FONT></font></BODY>
+</HTML>

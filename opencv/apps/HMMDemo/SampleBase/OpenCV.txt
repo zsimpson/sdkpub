@@ -1,0 +1,8 @@
+FACE DATABASE
+OPENCV_FACEBASE
+
+Valery.Mosyagin
+Victor.Eruhimov
+Vadim.Pisarevsky
+Valery.Cherepennikov
+Sergey.Molinov

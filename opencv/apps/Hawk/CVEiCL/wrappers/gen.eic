@@ -1,0 +1,7 @@
+#include "highguiwrap.h"
+:gen highguiwrap.h "highguiwrap.c"
+:-I ..\..\..\ippicvl\include
+#include "convertwrap.h"
+:gen convertwrap.h "convertwrap.c"
+//#include "ippiwrap.h"
+//:gen ippiwrap.h "ippiwrap.c"

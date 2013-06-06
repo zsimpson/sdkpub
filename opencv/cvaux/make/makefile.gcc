@@ -1,0 +1,88 @@
+# Makefile for GNU C/C++ 2.95.3
+
+CXX = g++
+LINK = g++
+
+ifdef debug
+
+SUFFIX = d
+DR = _Dbg
+
+else
+
+SUFFIX =
+DR = _Rls
+
+endif    
+
+OUTDLL = ..\..\bin\cvaux$(SUFFIX).dll
+OUTLIB = ..\..\lib\libcvaux$(SUFFIX).a
+OBJS = ..\..\_temp\cvaux$(DR)\correspond.o ..\..\_temp\cvaux$(DR)\cvaux.o \
+..\..\_temp\cvaux$(DR)\cvBilateralFiltering.o ..\..\_temp\cvaux$(DR)\cvcalibfilter.o \
+..\..\_temp\cvaux$(DR)\cvclique.o ..\..\_temp\cvaux$(DR)\cvcontourex.o \
+..\..\_temp\cvaux$(DR)\cvepilines.o ..\..\_temp\cvaux$(DR)\cvgraphex.o \
+..\..\_temp\cvaux$(DR)\cvhmm1d.o ..\..\_temp\cvaux$(DR)\cvsubdiv2.o \
+..\..\_temp\cvaux$(DR)\cvtexture.o ..\..\_temp\cvaux$(DR)\cvvideo.o \
+..\..\_temp\cvaux$(DR)\decomppoly.o ..\..\_temp\cvaux$(DR)\ExtendedEdges.o \
+..\..\_temp\cvaux$(DR)\precomp.o 
+
+
+INC = ../src/_cvaux.h ../include/cvaux.h 
+
+CXXFLAGS2 = -I"../../cv/include" -I"../include" -I"../src" -I"../../cv/src"  -I"$(GCCHOME)/include" -Wall -c -o
+LINKFLAGS2 = -L..\..\lib -o$(OUTDLL) -shared -Wl,-call_shared,--out-implib,$(OUTLIB)  
+
+ifdef debug
+
+CXXFLAGS = -D"CVAUX_DLL" -D"WIN32" -D"_WINDOWS" -D"_DEBUG"  -O0 -ggdb3 $(CXXFLAGS2)
+LIBS = -lcvd -lkernel32 -luser32 -lgdi32 
+LINKFLAGS = $(LINKFLAGS2)  
+
+else
+
+CXXFLAGS = -D"NDEBUG" -D"CVAUX_DLL" -D"WIN32" -D"_WINDOWS"  -O2 $(CXXFLAGS2)
+LIBS = -lcv -lkernel32 -luser32 -lgdi32 
+LINKFLAGS = $(LINKFLAGS2)  
+
+endif
+
+
+$(OUTDLL): $(OBJS)
+	-mkdir ..\..\bin 2>nul
+	-mkdir ..\..\lib 2>nul
+	$(LINK)  $(LINKFLAGS) $(OBJS) $(LIBS) 
+	
+
+all: $(OUTDLL)
+
+..\..\_temp\cvaux$(DR)\correspond.o: ..\src\correspond.cpp $(INC)
+	@-mkdir ..\..\_temp\cvaux$(DR) 2>nul
+	-$(CXX) $(CXXFLAGS)..\..\_temp\cvaux$(DR)\correspond.o ..\src\correspond.cpp
+..\..\_temp\cvaux$(DR)\cvaux.o: ..\src\cvaux.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\cvaux$(DR)\cvaux.o ..\src\cvaux.cpp
+..\..\_temp\cvaux$(DR)\cvBilateralFiltering.o: ..\src\cvBilateralFiltering.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\cvaux$(DR)\cvBilateralFiltering.o ..\src\cvBilateralFiltering.cpp
+..\..\_temp\cvaux$(DR)\cvcalibfilter.o: ..\src\cvcalibfilter.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\cvaux$(DR)\cvcalibfilter.o ..\src\cvcalibfilter.cpp
+..\..\_temp\cvaux$(DR)\cvclique.o: ..\src\cvclique.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\cvaux$(DR)\cvclique.o ..\src\cvclique.cpp
+..\..\_temp\cvaux$(DR)\cvcontourex.o: ..\src\cvcontourex.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\cvaux$(DR)\cvcontourex.o ..\src\cvcontourex.cpp
+..\..\_temp\cvaux$(DR)\cvepilines.o: ..\src\cvepilines.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\cvaux$(DR)\cvepilines.o ..\src\cvepilines.cpp
+..\..\_temp\cvaux$(DR)\cvgraphex.o: ..\src\cvgraphex.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\cvaux$(DR)\cvgraphex.o ..\src\cvgraphex.cpp
+..\..\_temp\cvaux$(DR)\cvhmm1d.o: ..\src\cvhmm1d.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\cvaux$(DR)\cvhmm1d.o ..\src\cvhmm1d.cpp
+..\..\_temp\cvaux$(DR)\cvsubdiv2.o: ..\src\cvsubdiv2.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\cvaux$(DR)\cvsubdiv2.o ..\src\cvsubdiv2.cpp
+..\..\_temp\cvaux$(DR)\cvtexture.o: ..\src\cvtexture.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\cvaux$(DR)\cvtexture.o ..\src\cvtexture.cpp
+..\..\_temp\cvaux$(DR)\cvvideo.o: ..\src\cvvideo.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\cvaux$(DR)\cvvideo.o ..\src\cvvideo.cpp
+..\..\_temp\cvaux$(DR)\decomppoly.o: ..\src\decomppoly.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\cvaux$(DR)\decomppoly.o ..\src\decomppoly.cpp
+..\..\_temp\cvaux$(DR)\ExtendedEdges.o: ..\src\ExtendedEdges.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\cvaux$(DR)\ExtendedEdges.o ..\src\ExtendedEdges.cpp
+..\..\_temp\cvaux$(DR)\precomp.o: ..\src\precomp.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\cvaux$(DR)\precomp.o ..\src\precomp.cpp

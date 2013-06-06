@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ULDI04", "ULDI04.vbproj", "{F7608A14-0289-4E61-A3BE-C701B583E150}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{F7608A14-0289-4E61-A3BE-C701B583E150}.Debug.ActiveCfg = Debug|.NET
+		{F7608A14-0289-4E61-A3BE-C701B583E150}.Debug.Build.0 = Debug|.NET
+		{F7608A14-0289-4E61-A3BE-C701B583E150}.Release.ActiveCfg = Release|.NET
+		{F7608A14-0289-4E61-A3BE-C701B583E150}.Release.Build.0 = Release|.NET
+		{B64424C2-FFA8-453C-AE67-10C036217F68}.Debug.ActiveCfg = Debug|.NET
+		{B64424C2-FFA8-453C-AE67-10C036217F68}.Debug.Build.0 = Debug|.NET
+		{B64424C2-FFA8-453C-AE67-10C036217F68}.Release.ActiveCfg = Release|.NET
+		{B64424C2-FFA8-453C-AE67-10C036217F68}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,119 @@
+ 1394cmdr
+
+ Timestamp is 3f524c0d (Sun Aug 31 15:27:09 2003)
+
+ Preferred load address is 00010000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00003e78H .text                   CODE
+ 0002:00000000 0000008cH .idata$5                DATA
+ 0002:00000090 0000002cH .rdata                  DATA
+ 0002:000000bc 00000049H .rdata$debug            DATA
+ 0003:00000000 00000028H .idata$2                CODE
+ 0003:00000028 00000014H .idata$3                CODE
+ 0003:0000003c 0000008cH .idata$4                CODE
+ 0003:000000c8 000002b4H .idata$6                CODE
+ 0004:00000000 00000058H .rsrc$01                DATA
+ 0004:00000060 000004c8H .rsrc$02                DATA
+
+  Address         Publics by Value              Rva+Base     Lib:Object
+
+ 0001:00000000       _t1394_GetLocalHostInformation@20 00010300 f   1394api.obj
+ 0001:00000180       _t1394_Get1394AddressFromDeviceObject@16 00010480 f   1394api.obj
+ 0001:00000280       _t1394_GetMaxSpeedBetweenDevices@24 00010580 f   1394api.obj
+ 0001:000003a6       _t1394_SetDeviceXmitProperties@16 000106a6 f   1394api.obj
+ 0001:0000049e       _t1394_Control@8           0001079e f   1394api.obj
+ 0001:0000049e       _t1394_GetConfigurationInformation@8 0001079e f   1394api.obj
+ 0001:000004a6       _t1394_BusReset@12         000107a6 f   1394api.obj
+ 0001:00000598       _t1394_GetGenerationCount@12 00010898 f   1394api.obj
+ 0001:00000690       _t1394_SendPhyConfigurationPacket@16 00010990 f   1394api.obj
+ 0001:00000788       _t1394_SetLocalHostProperties@16 00010a88 f   1394api.obj
+ 0001:00000a88       _t1394_BusResetRoutine@4   00010d88 f   1394api.obj
+ 0001:00000b1c       _t1394_BusResetNotification@12 00010e1c f   1394api.obj
+ 0001:00000c1c       _t1394Diag_Close@8         00010f1c f   1394cmdr.obj
+ 0001:00000c32       _t1394Diag_CancelIrp@8     00010f32 f   1394cmdr.obj
+ 0001:00000ca4       _t1394Cmdr_GetState@12     00010fa4 f   1394cmdr.obj
+ 0001:00000ced       _t1394Cmdr_ReadRegister@16 00010fed f   1394cmdr.obj
+ 0001:00000d8d       _t1394Cmdr_WriteRegister@16 0001108d f   1394cmdr.obj
+ 0001:00000e8e       _t1394Cmdr_GetConfigInfo@8 0001118e f   1394cmdr.obj
+ 0001:0000147b       _t1394Diag_Create@8        0001177b f   1394cmdr.obj
+ 0001:00001695       _t1394Cmdr_ResetState@8    00011995 f   1394cmdr.obj
+ 0001:00001812       _DriverEntry@8             00011b12 f   1394cmdr.obj
+ 0001:00001856       _t1394_AsyncRead@48        00011b56 f   asyncapi.obj
+ 0001:000019ac       _t1394_AsyncWrite@48       00011cac f   asyncapi.obj
+ 0001:00001bc4       _t1394Diag_IoControl@8     00011ec4 f   ioctl.obj
+ 0001:00002300       _t1394_IsochAllocateBandwidth@28 00012600 f   isochapi.obj
+ 0001:0000242e       _t1394_IsochAllocateChannel@20 0001272e f   isochapi.obj
+ 0001:0000254c       _t1394_IsochAllocateResources@40 0001284c f   isochapi.obj
+ 0001:000026bc       _t1394_IsochFreeBandwidth@12 000129bc f   isochapi.obj
+ 0001:000027be       _t1394_IsochFreeChannel@12 00012abe f   isochapi.obj
+ 0001:000028c0       _t1394_IsochFreeResources@12 00012bc0 f   isochapi.obj
+ 0001:00002a04       _t1394_IsochListen@20      00012d04 f   isochapi.obj
+ 0001:00002b02       _t1394_IsochQueryCurrentCycleTime@12 00012e02 f   isochapi.obj
+ 0001:00002bfa       _t1394_IsochQueryResources@20 00012efa f   isochapi.obj
+ 0001:00002d0a       _t1394_IsochSetChannelBandwidth@16 0001300a f   isochapi.obj
+ 0001:00002e02       _t1394_IsochStop@16        00013102 f   isochapi.obj
+ 0001:00002efa       _t1394_IsochTalk@20        000131fa f   isochapi.obj
+ 0001:00002ff8       _t1394_IsochDetachCompletionRoutine@12 000132f8 f   isochapi.obj
+ 0001:00003068       _t1394_IsochAttachCompletionRoutine@12 00013368 f   isochapi.obj
+ 0001:000031d7       _t1394_IsochCleanup@4      000134d7 f   isochapi.obj
+ 0001:000032fa       _t1394_IsochCallback@8     000135fa f   isochapi.obj
+ 0001:000033c7       _t1394_IsochTimeout@16     000136c7 f   isochapi.obj
+ 0001:0000346c       _t1394_NewAttachBuffer@20  0001376c f   isochapi.obj
+ 0001:0000368e       _t1394Diag_PnpAddDevice@8  0001398e f   pnp.obj
+ 0001:000037ac       _t1394Diag_PnpStartDevice@8 00013aac f   pnp.obj
+ 0001:000037e4       _t1394Diag_PnpStopDevice@8 00013ae4 f   pnp.obj
+ 0001:00003831       _t1394Diag_PnpRemoveDevice@8 00013b31 f   pnp.obj
+ 0001:00003a86       _t1394Diag_PnpBusReset@8   00013d86 f   pnp.obj
+ 0001:00003b0a       _t1394Diag_Pnp@8           00013e0a f   pnp.obj
+ 0001:00003bd6       _t1394Diag_DeviceSetPowerIrpCompletion@20 00013ed6 f   power.obj
+ 0001:00003c54       _t1394Diag_SystemSetPowerIrpCompletion@12 00013f54 f   power.obj
+ 0001:00003cee       _t1394Diag_Power@8         00013fee f   power.obj
+ 0001:00003d8c       _t1394_SubmitIrpAsync@12   0001408c f   util.obj
+ 0001:00003dc2       _t1394_SynchCompletionRoutine@12 000140c2 f   util.obj
+ 0001:00003dde       _t1394_SubmitIrpSynch@12   000140de f   util.obj
+ 0001:00003e72       _DbgPrint                  00014172 f   wdm:NTOSKRNL.EXE
+ 0002:00000000       __imp_@KfAcquireSpinLock@4 00014180     wdm:HAL.DLL
+ 0002:00000004       __imp_@KfReleaseSpinLock@8 00014184     wdm:HAL.DLL
+ 0002:00000008       \177HAL_NULL_THUNK_DATA    00014188     wdm:HAL.DLL
+ 0002:0000000c       __imp__IoBuildDeviceIoControlRequest@36 0001418c     wdm:NTOSKRNL.EXE
+ 0002:00000010       __imp__ExAllocatePoolWithTag@12 00014190     wdm:NTOSKRNL.EXE
+ 0002:00000014       __imp__KeInitializeEvent@12 00014194     wdm:NTOSKRNL.EXE
+ 0002:00000018       __imp__KeWaitForSingleObject@20 00014198     wdm:NTOSKRNL.EXE
+ 0002:0000001c       __imp__MmBuildMdlForNonPagedPool@4 0001419c     wdm:NTOSKRNL.EXE
+ 0002:00000020       __imp__IoAllocateMdl@20    000141a0     wdm:NTOSKRNL.EXE
+ 0002:00000024       __imp_@IofCompleteRequest@8 000141a4     wdm:NTOSKRNL.EXE
+ 0002:00000028       __imp_@InterlockedExchange@8 000141a8     wdm:NTOSKRNL.EXE
+ 0002:0000002c       __imp__IoFreeIrp@4         000141ac     wdm:NTOSKRNL.EXE
+ 0002:00000030       __imp__IoAllocateIrp@8     000141b0     wdm:NTOSKRNL.EXE
+ 0002:00000034       __imp__IoReleaseCancelSpinLock@4 000141b4     wdm:NTOSKRNL.EXE
+ 0002:00000038       __imp__DbgPrint            000141b8     wdm:NTOSKRNL.EXE
+ 0002:0000003c       __imp__KeCancelTimer@4     000141bc     wdm:NTOSKRNL.EXE
+ 0002:00000040       __imp_@IofCallDriver@8     000141c0     wdm:NTOSKRNL.EXE
+ 0002:00000044       __imp__KeSetTimer@16       000141c4     wdm:NTOSKRNL.EXE
+ 0002:00000048       __imp__KeInitializeDpc@12  000141c8     wdm:NTOSKRNL.EXE
+ 0002:0000004c       __imp__KeInitializeTimer@4 000141cc     wdm:NTOSKRNL.EXE
+ 0002:00000050       __imp__KeInitializeSpinLock@4 000141d0     wdm:NTOSKRNL.EXE
+ 0002:00000054       __imp__IoAttachDeviceToDeviceStack@8 000141d4     wdm:NTOSKRNL.EXE
+ 0002:00000058       __imp__IoDeleteDevice@4    000141d8     wdm:NTOSKRNL.EXE
+ 0002:0000005c       __imp__IoRegisterDeviceInterface@16 000141dc     wdm:NTOSKRNL.EXE
+ 0002:00000060       __imp__IoCreateDevice@28   000141e0     wdm:NTOSKRNL.EXE
+ 0002:00000064       __imp__IoSetDeviceInterfaceState@8 000141e4     wdm:NTOSKRNL.EXE
+ 0002:00000068       __imp__RtlFreeUnicodeString@4 000141e8     wdm:NTOSKRNL.EXE
+ 0002:0000006c       __imp__IoDetachDevice@4    000141ec     wdm:NTOSKRNL.EXE
+ 0002:00000070       __imp__PoStartNextPowerIrp@4 000141f0     wdm:NTOSKRNL.EXE
+ 0002:00000074       __imp__PoSetPowerState@12  000141f4     wdm:NTOSKRNL.EXE
+ 0002:00000078       __imp__PoRequestPowerIrp@24 000141f8     wdm:NTOSKRNL.EXE
+ 0002:0000007c       __imp__PoCallDriver@8      000141fc     wdm:NTOSKRNL.EXE
+ 0002:00000080       __imp__KeSetEvent@12       00014200     wdm:NTOSKRNL.EXE
+ 0002:00000084       __imp__ExFreePool@4        00014204     wdm:NTOSKRNL.EXE
+ 0002:00000088       \177NTOSKRNL_NULL_THUNK_DATA 00014208     wdm:NTOSKRNL.EXE
+ 0002:000000ac       _GUID_1394CMDR             0001422c     1394api.obj
+ 0003:00000000       __IMPORT_DESCRIPTOR_NTOSKRNL 00014300     wdm:NTOSKRNL.EXE
+ 0003:00000014       __IMPORT_DESCRIPTOR_HAL    00014314     wdm:HAL.DLL
+ 0003:00000028       __NULL_IMPORT_DESCRIPTOR   00014328     wdm:NTOSKRNL.EXE
+
+ entry point at        0001:00001812
+
+ Static symbols
+

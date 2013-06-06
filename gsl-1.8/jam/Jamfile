@@ -1,0 +1,1454 @@
+#
+# Jamfile to build gsl - lib, dll, tests
+# (see http://www.freetype.org/jam/index.html)
+# 
+# Copyright (C) 2005,2006  Jerry St.Clair
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+#---------------------------------------------------------------------------
+#
+# NOTE - While jam can build the gsl static libraries, the jam build
+#        of the gsl dll is currently broken.  The gsl dll may be built
+#        on Windows using gcc/mingw with the make-gsl-1.7-mingw.bat
+#        batch command file.
+#
+#        Previous versions of the gsl dll were built from the static
+#        libraries and the export definition (.def) files in this
+#        subdirectory.  However, this failed to properly export the
+#        public data in gsl, probably due to a change in gcc in the
+#        interim.  The typical solution is direct linking of the objects.
+#
+#        However, this approach failed for gsl.  Gsl has so many source
+#        files that the jam-generated command to link the dll from the
+#        individual object files is too long for the Windows XP console.
+#        The normal Windows workaround for this is using response files,
+#        but gcc does not support response files at this time.
+#        If the path qualifiers are removed and the object filenames
+#        shortened, then linking the dll is possible.  However, this
+#        would require custom jam rules that we were disinclined to
+#        write.  Instead, we used jam to generate the batch command file
+#        which was manually modified to build everything using gcc.
+#        Even this required a speciallized jam with the maximum
+#        allowable command length (MAXLINE) increased.
+#        
+#        So, the old approach is imlemented herein for building the gsl dll -
+#        the static library is created and the dll built therefrom.  As
+#        noted, the public data members are not properly exported from
+#        the dll built in this way.
+#
+# This Jamfile, along with the Jamrules and Jambase files in this
+# directory, builds the Gnu Scientific Library.  It includes
+# commands for building gsl as both static and dynamic libraries,
+# as well as the test programs distributed with the gsl source.
+#
+# The built files are named (in Jamrules) as follows:
+#
+#    libgsl.a          static gsl library (optimized)
+#    libgslcblas.a     static cblas library (optimized)
+#    libgsl.dll        gsl dynamic library (optimized)
+#    libgslclas.dll    cblas dynamic library (optimized)
+#    libgsl_dll.a      gsl dynamic library (optimized)
+#    libgslclas_dll.a  cblas dynamic library (optimized)
+#    test_ROOT.exe     test programs using release libs
+#    test_ROOT_dll.exe test programs using release dll's
+#
+#    libgsl_d.a        debug versions of the above
+#    libgslcblas_d.a    (debug test programs named the same)
+#    libgsl_d.dll
+#    libgslclas_d.dll
+#    libgsl_d_dll.a
+#    libgslclas_d_dll.a
+#
+# This build system was designed to build gsl on Windows using MinGW,
+# although it should be extensible to linux/unix and other compilers.
+# Note that Windows libraries built using Borland C++ 5.5 failed
+# numerous internal gsl tests, primarily due to inadequate floating
+# point precision.  Note also that randist/landau.c needs to be 
+# modified for bcc32 to remove the leading '0' in lines 380-499.
+# Initial attempts to compile using Open Watcom also had numerous 
+# test failures and were abandoned.  Some of these may be due to 
+# inadequate tuning of config.h for Watcom.
+#
+# This system was developed using the ftjam variant of jam, but may
+# work with traditional jam (http://www.perforce.com) as long as the
+# included Jambase file is used.  Custom build rules are defined in
+# Jamrules and documented therein.
+#
+# With 2 exceptions, all files generated during the build will be
+# located in a subdirectory of the Jamfile location.  The subdir
+# is constructed using a configuration type (Release or Debug)
+# and a compiler/platform code (mingw, bcc, msvc, linux).  So, a
+# release build using MinGW will store executables & libraries in
+# .\Release\mingw and object files in .\Release\mingw\temp.  The
+# first exception is config.h, which is generated from template and
+# stored at the top of the source tree (.\..).  Second are the
+# public gsl headers distributed amongst the source subdirectories,
+# which are copied to .\..\gsl before building gsl.
+#
+# The included Jambase file provides the basic ftjam platform support,
+# as well as minor modifications facilitating compiling with MinGW
+# and Open Watcom.
+#
+# Only minor modifications to the gsl source were necessary for
+# building on Windows.  Most of these were associated with support
+# for building and using Windows dll's.  See ChangeLog for more info.
+#
+#---------------------------------------------------------------------------
+# Installation Guidelines:
+#
+#   To build gsl:
+#      jam -f Jambase
+#
+#   To overwrite the config.h file with a clean copy:
+#      jam -f Jambase config
+#
+#   To install the library, headers, and docs:
+#      => modify the prefix at the top of the Jamrules file, then
+#      jam -f Jambase install
+#
+#   To uninstall the library, headers, and docs:
+#      jam -f Jambase uninstall
+#
+#   To clean up after the build:
+#      jam -f Jambase clean
+#
+#   To run the gsl test programs (DOS batch file):
+#      test_gsl <rel path to build dir>
+#      e.g. test_gsl Release\mingw
+#
+#---------------------------------------------------------------------------
+
+include Jamrules ;
+
+HDRS += $(srcdir) ;
+
+#----------------------------------------------------------
+# Configure for compiler
+#----------------------------------------------------------
+
+File config.h : $(GSL_CONFIG_H_TEMPLATE) ;
+LOCATE on config.h = $(srcdir) ;
+DEPENDS config : config.h ;
+NOTFILE config ;
+
+#----------------------------------------------------------
+# TOP directory
+#----------------------------------------------------------
+
+AddToGslHeaders $(DOT) :
+    gsl_math.h
+    gsl_pow_int.h
+    gsl_nan.h
+    gsl_machine.h
+    gsl_mode.h
+    gsl_precision.h
+    gsl_types.h
+    gsl_version.h
+    ;
+
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) : version.c ;
+
+#----------------------------------------------------------
+# blas subdir
+#----------------------------------------------------------
+
+AddToGslHeaders blas : gsl_blas.h gsl_blas_types.h ;
+
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) blas : blas.c ;
+
+#----------------------------------------------------------
+# block subdir
+#----------------------------------------------------------
+
+AddToGslHeaders block :
+    gsl_block.h
+    gsl_block_char.h
+    gsl_block_complex_double.h
+    gsl_block_complex_float.h
+    gsl_block_complex_long_double.h
+    gsl_block_double.h
+    gsl_block_float.h
+    gsl_block_int.h
+    gsl_block_long.h
+    gsl_block_long_double.h
+    gsl_block_short.h
+    gsl_block_uchar.h
+    gsl_block_uint.h
+    gsl_block_ulong.h
+    gsl_block_ushort.h
+    gsl_check_range.h
+    ;
+
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) block :
+    init.c
+    file.c
+    block.c
+    ;
+
+BuildGslTest $(srcdir_e) block : test.c ;
+
+#----------------------------------------------------------
+# cblas subdir
+#----------------------------------------------------------
+
+AddToGslHeaders cblas : gsl_cblas.h ;
+
+CBLAS_LIB_SOURCES =
+    sasum.c     saxpy.c   scasum.c    scnrm2.c    scopy.c   sdot.c
+    sdsdot.c    sgbmv.c   sgemm.c     sgemv.c     sger.c    snrm2.c
+    srot.c      srotg.c   srotm.c     srotmg.c    ssbmv.c   sscal.c
+    sspmv.c     sspr.c    sspr2.c     sswap.c     ssymm.c   ssymv.c
+    ssyr.c      ssyr2.c   ssyr2k.c    ssyrk.c     stbmv.c   stbsv.c
+    stpmv.c     stpsv.c   strmm.c     strmv.c     strsm.c   strsv.c
+    dasum.c     daxpy.c   dcopy.c     ddot.c      dgbmv.c   dgemm.c
+    dgemv.c     dger.c    dnrm2.c     drot.c      drotg.c   drotm.c
+    drotmg.c    dsbmv.c   dscal.c     dsdot.c     dspmv.c   dspr.c
+    dspr2.c     dswap.c   dsymm.c     dsymv.c     dsyr.c    dsyr2.c
+    dsyr2k.c    dsyrk.c   dtbmv.c     dtbsv.c     dtpmv.c   dtpsv.c
+    dtrmm.c     dtrmv.c   dtrsm.c     dtrsv.c     dzasum.c  dznrm2.c
+    caxpy.c     ccopy.c   cdotc_sub.c cdotu_sub.c cgbmv.c   cgemm.c
+    cgemv.c     cgerc.c   cgeru.c     chbmv.c     chemm.c   chemv.c
+    cher.c      cher2.c   cher2k.c    cherk.c     chpmv.c   chpr.c
+    chpr2.c     cscal.c   csscal.c    cswap.c     csymm.c   csyr2k.c
+    csyrk.c     ctbmv.c   ctbsv.c     ctpmv.c     ctpsv.c   ctrmm.c
+    ctrmv.c     ctrsm.c   ctrsv.c     zaxpy.c     zcopy.c   zdotc_sub.c
+    zdotu_sub.c zdscal.c  zgbmv.c     zgemm.c     zgemv.c   zgerc.c
+    zgeru.c     zhbmv.c   zhemm.c     zhemv.c     zher.c    zher2.c
+    zher2k.c    zherk.c   zhpmv.c     zhpr.c      zhpr2.c   zscal.c
+    zswap.c     zsymm.c   zsyr2k.c    zsyrk.c     ztbmv.c   ztbsv.c
+    ztpmv.c     ztpsv.c   ztrmm.c     ztrmv.c     ztrsm.c   ztrsv.c
+    icamax.c    idamax.c  isamax.c    izamax.c    xerbla.c
+    ;
+
+SEARCH_SOURCE = $(srcdir)$(SLASH)cblas ;
+LOCATE_TARGET = $(BUILD_DIR)$(SLASH)cblas ;
+
+Library $(CBLAS_LIB_NAME) : $(CBLAS_LIB_SOURCES) ;
+
+AddObjectToCblasDll $(CBLAS_LIB_SOURCES) ;
+MainFromObjects $(CBLAS_LIB_NAME)$(SUFSHR) : $(CBLAS_DLL_OBJECTS) ;
+MakeLocate $(CBLAS_LIB_NAME)$(SUFSHR) : $(BUILD_DIR) ;
+LINKFLAGS on $(CBLAS_LIB_NAME)$(SUFSHR) +=
+    -shared
+    -Wl,--out-implib,$(BUILD_DIR)$(SLASH)$(CBLAS_IMPLIB_NAME)$(SUFLIB)
+    ;
+  MakeImportLibrary $(CBLAS_LIB_NAME)$(SUFSHR) : $(CBLAS_IMPLIB_NAME)$(SUFLIB) ;
+
+BuildGslTest $(srcdir_e) cblas :
+    test.c        test_amax.c test_asum.c test_axpy.c test_copy.c
+    test_dot.c    test_gbmv.c test_gemm.c test_gemv.c test_ger.c
+    test_hbmv.c   test_hemm.c test_hemv.c test_her.c  test_her2.c
+    test_her2k.c  test_herk.c test_hpmv.c test_hpr.c  test_hpr2.c
+    test_nrm2.c   test_rot.c  test_rotg.c test_rotm.c test_rotmg.c
+    test_sbmv.c   test_scal.c test_spmv.c test_spr.c  test_spr2.c
+    test_swap.c   test_symm.c test_symv.c test_syr.c  test_syr2.c
+    test_syr2k.c  test_syrk.c test_tbmv.c test_tbsv.c test_tpmv.c
+    test_tpsv.c   test_trmm.c test_trmv.c test_trsm.c test_trsv.c
+    ;
+
+#----------------------------------------------------------
+# cdf subdir
+#----------------------------------------------------------
+
+AddToGslHeaders cdf : gsl_cdf.h ;
+
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) cdf :
+    beta.c
+    betainv.c
+    cauchy.c
+    cauchyinv.c
+    chisq.c
+    chisqinv.c
+    exponential.c
+    exponentialinv.c
+    exppow.c
+    fdist.c
+    fdistinv.c
+    flat.c
+    flatinv.c
+    gamma.c
+    gammainv.c
+    gauss.c
+    gaussinv.c
+    gumbel1.c
+    gumbel1inv.c
+    gumbel2.c
+    gumbel2inv.c
+    laplace.c
+    laplaceinv.c
+    logistic.c
+    logisticinv.c
+    lognormal.c
+    lognormalinv.c
+    pareto.c
+    paretoinv.c
+    rayleigh.c
+    rayleighinv.c
+    tdist.c
+    tdistinv.c
+    weibull.c
+    weibullinv.c
+    binomial.c
+    poisson.c
+    geometric.c
+    nbinomial.c
+    pascal.c
+    hypergeometric.c
+    ;
+
+BuildGslTest $(srcdir_e) cdf : test.c ;
+
+#----------------------------------------------------------
+# cheb subdir
+#----------------------------------------------------------
+
+AddToGslHeaders cheb : gsl_chebyshev.h ;
+
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) cheb : 
+  deriv.c
+  eval.c
+  init.c
+  integ.c
+  ;
+BuildGslTest $(srcdir_e) cheb : test.c ;
+
+#----------------------------------------------------------
+# combination subdir
+#----------------------------------------------------------
+
+AddToGslHeaders combination : gsl_combination.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) combination :
+  init.c
+  file.c
+  combination.c
+  ;
+BuildGslTest $(srcdir_e) combination : test.c ;
+
+#----------------------------------------------------------
+# complex subdir
+#----------------------------------------------------------
+
+AddToGslHeaders complex : gsl_complex.h gsl_complex_math.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) complex : math.c ;
+BuildGslTest $(srcdir_e) complex : test.c ;
+
+#----------------------------------------------------------
+# const subdir
+#----------------------------------------------------------
+
+AddToGslHeaders const :
+    gsl_const.h
+    gsl_const_cgs.h
+    gsl_const_mks.h
+    gsl_const_cgsm.h
+    gsl_const_mksa.h
+    gsl_const_num.h
+    ;
+BuildGslTest $(srcdir_e) const : test.c ;
+
+#----------------------------------------------------------
+# deriv subdir
+#----------------------------------------------------------
+
+AddToGslHeaders deriv : gsl_deriv.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) deriv : deriv.c ;
+BuildGslTest $(srcdir_e) deriv : test.c ;
+
+#----------------------------------------------------------
+# dht subdir
+#----------------------------------------------------------
+
+AddToGslHeaders dht : gsl_dht.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) dht : dht.c ;
+BuildGslTest $(srcdir_e) dht : test.c ;
+
+#----------------------------------------------------------
+# diff subdir
+#----------------------------------------------------------
+
+AddToGslHeaders diff : gsl_diff.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) diff : diff.c ;
+BuildGslTest $(srcdir_e) diff : test.c ;
+
+#----------------------------------------------------------
+# eigen subdir
+#----------------------------------------------------------
+
+AddToGslHeaders eigen : gsl_eigen.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) eigen :
+    jacobi.c 
+    symm.c 
+    symmv.c 
+    herm.c 
+    hermv.c 
+    sort.c 
+    ;
+BuildGslTest $(srcdir_e) eigen : test.c ;
+
+#----------------------------------------------------------
+# err subdir
+#----------------------------------------------------------
+
+AddToGslHeaders err : gsl_errno.h gsl_message.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) err : 
+    error.c 
+    stream.c 
+    message.c 
+    strerror.c 
+    ;
+
+#----------------------------------------------------------
+# fft subdir
+#----------------------------------------------------------
+
+AddToGslHeaders fft :
+    gsl_fft.h
+    gsl_fft_complex.h
+    gsl_fft_halfcomplex.h
+    gsl_fft_real.h
+    gsl_dft_complex.h
+    gsl_dft_complex_float.h
+    gsl_fft_complex_float.h
+    gsl_fft_halfcomplex_float.h
+    gsl_fft_real_float.h
+    ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) fft : dft.c fft.c ;
+BuildGslTest $(srcdir_e) fft : test.c signals.c ;
+
+#----------------------------------------------------------
+# fit subdir
+#----------------------------------------------------------
+
+AddToGslHeaders fit : gsl_fit.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) fit : linear.c ;
+BuildGslTest $(srcdir_e) fit : test.c ;
+
+#----------------------------------------------------------
+# histogram subdir
+#----------------------------------------------------------
+
+AddToGslHeaders histogram : gsl_histogram.h gsl_histogram2d.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) histogram :
+    add.c
+    get.c
+    init.c
+    params.c
+    reset.c
+    file.c
+    pdf.c
+    add2d.c
+    get2d.c
+    init2d.c
+    params2d.c
+    reset2d.c
+    file2d.c
+    pdf2d.c
+    calloc_range.c
+    calloc_range2d.c
+    copy.c
+    copy2d.c
+    maxval.c
+    maxval2d.c
+    oper.c
+    oper2d.c 
+    stat.c 
+    stat2d.c
+    ;
+BuildGslTest $(srcdir_e) histogram :
+    test.c
+    test1d.c
+    test2d.c
+    test1d_resample.c
+    test2d_resample.c
+    test1d_trap.c
+    test2d_trap.c
+    ;
+
+#----------------------------------------------------------
+# ieee-utils subdir
+#----------------------------------------------------------
+
+AddToGslHeaders ieee-utils : gsl_ieee_utils.h ;
+
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) ieee-utils :
+    print.c
+    make_rep.c
+    env.c
+    fp.c
+    read.c
+    ;
+
+BuildGslTest $(srcdir_e) ieee-utils : test.c ;
+
+#----------------------------------------------------------
+# integration subdir
+#----------------------------------------------------------
+
+AddToGslHeaders integration : gsl_integration.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) integration :
+    qk15.c
+    qk21.c
+    qk31.c
+    qk41.c
+    qk51.c
+    qk61.c
+    qk.c
+    qng.c
+    qag.c
+    qags.c
+    qagp.c 
+    workspace.c 
+    qcheb.c
+    qawc.c
+    qmomo.c
+    qaws.c
+    qmomof.c
+    qawo.c
+    qawf.c
+    ;
+BuildGslTest $(srcdir_e) integration : test.c tests.c ;
+
+#----------------------------------------------------------
+# interpolation subdir
+#----------------------------------------------------------
+
+AddToGslHeaders interpolation : gsl_interp.h gsl_spline.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) interpolation :
+    accel.c akima.c bsearch.c cspline.c
+    interp.c linear.c spline.c poly.c
+    ;
+BuildGslTest $(srcdir_e) interpolation : test.c ;
+
+#----------------------------------------------------------
+# linalg subdir
+#----------------------------------------------------------
+
+AddToGslHeaders linalg : gsl_linalg.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) linalg :
+    multiply.c
+    exponential.c
+    tridiag.c
+    lu.c
+    luc.c
+    hh.c
+    qr.c
+    qrpt.c
+    lq.c
+    ptlq.c
+    svd.c
+    householder.c
+    householdercomplex.c
+    cholesky.c
+    symmtd.c
+    hermtd.c
+    bidiag.c
+    balance.c
+    ;
+BuildGslTest $(srcdir_e) linalg : test.c ;
+
+#----------------------------------------------------------
+# matrix subdir
+#----------------------------------------------------------
+
+AddToGslHeaders matrix :
+    gsl_matrix.h
+    gsl_matrix_char.h
+    gsl_matrix_complex_double.h
+    gsl_matrix_complex_float.h
+    gsl_matrix_complex_long_double.h
+    gsl_matrix_double.h
+    gsl_matrix_float.h
+    gsl_matrix_int.h
+    gsl_matrix_long.h
+    gsl_matrix_long_double.h
+    gsl_matrix_short.h
+    gsl_matrix_uchar.h
+    gsl_matrix_uint.h
+    gsl_matrix_ulong.h
+    gsl_matrix_ushort.h
+    ;
+
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) matrix :
+    init.c
+    matrix.c
+    file.c
+    rowcol.c
+    swap.c
+    copy.c
+    minmax.c
+    prop.c
+    oper.c
+    getset.c
+    view.c
+    submatrix.c
+    ;
+
+BuildGslTest $(srcdir_e) matrix : test.c ;
+
+#----------------------------------------------------------
+# min subdir
+#----------------------------------------------------------
+
+AddToGslHeaders min : gsl_min.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) min : 
+  fsolver.c golden.c brent.c convergence.c bracketing.c ;
+BuildGslTest $(srcdir_e) min : test.c test_funcs.c ;
+
+#----------------------------------------------------------
+# monte subdir
+#----------------------------------------------------------
+
+AddToGslHeaders monte : 
+    gsl_monte.h
+    gsl_monte_vegas.h
+    gsl_monte_miser.h
+    gsl_monte_plain.h
+    ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) monte :
+    miser.c
+    plain.c
+    vegas.c
+    ;
+# MinGW 3.4.2 gives test errors when optimization turned on...
+if $(NT) && ($(MINGW) || $(TOOLSET) = MINGW)
+  { CCFLAGS on vegas.c += -O0 ; }
+BuildGslTest $(srcdir_e) monte : test.c ;
+
+#----------------------------------------------------------
+# multifit subdir
+#----------------------------------------------------------
+
+AddToGslHeaders multifit :
+    gsl_multifit.h
+    gsl_multifit_nlin.h
+    ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) multifit :
+    multilinear.c
+    work.c
+    lmder.c
+    fsolver.c
+    fdfsolver.c
+    convergence.c
+    gradient.c
+    covar.c
+    ;
+BuildGslTest $(srcdir_e) multifit : test.c ;
+
+#----------------------------------------------------------
+# multimin subdir
+#----------------------------------------------------------
+
+AddToGslHeaders multimin : gsl_multimin.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) multimin :
+    fdfminimizer.c 
+    steepest_descent.c
+    conjugate_fr.c 
+    conjugate_pr.c 
+    convergence.c
+    diff.c 
+    vector_bfgs.c 
+    fminimizer.c 
+    simplex.c
+    ;
+BuildGslTest $(srcdir_e) multimin : test.c test_funcs.c ;
+
+#----------------------------------------------------------
+# multiroots subdir
+#----------------------------------------------------------
+
+AddToGslHeaders multiroots : gsl_multiroots.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) multiroots :
+    fdjac.c 
+    fsolver.c 
+    fdfsolver.c
+    convergence.c 
+    newton.c 
+    gnewton.c
+    dnewton.c 
+    broyden.c 
+    hybrid.c 
+    hybridj.c
+    ;
+BuildGslTest $(srcdir_e) multiroots : test.c test_funcs.c ;
+
+#----------------------------------------------------------
+# ntuple subdir
+#----------------------------------------------------------
+
+AddToGslHeaders ntuple : gsl_ntuple.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) ntuple : ntuple.c ;
+BuildGslTest $(srcdir_e) ntuple : test.c ;
+
+#----------------------------------------------------------
+# ode-initval subdir
+#----------------------------------------------------------
+
+AddToGslHeaders ode-initval : gsl_odeiv.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) ode-initval :
+    control.c
+    cstd.c
+    cscal.c 
+    evolve.c 
+    step.c
+    rk2.c 
+    rk2imp.c 
+    rk2simp.c 
+    rk4.c 
+    rk4imp.c 
+    rkf45.c 
+    rk8pd.c
+    rkck.c 
+    bsimp.c 
+    gear1.c
+    gear2.c
+    ;
+BuildGslTest $(srcdir_e) ode-initval : test.c ;
+
+#----------------------------------------------------------
+# permutation subdir
+#----------------------------------------------------------
+
+AddToGslHeaders permutation :
+    gsl_permutation.h
+    gsl_permute.h
+    gsl_permute_char.h
+    gsl_permute_complex_double.h
+    gsl_permute_complex_float.h
+    gsl_permute_complex_long_double.h
+    gsl_permute_double.h
+    gsl_permute_float.h
+    gsl_permute_int.h
+    gsl_permute_long.h
+    gsl_permute_long_double.h
+    gsl_permute_short.h
+    gsl_permute_uchar.h 
+    gsl_permute_uint.h
+    gsl_permute_ulong.h 
+    gsl_permute_ushort.h
+    gsl_permute_vector.h
+    gsl_permute_vector_char.h 
+    gsl_permute_vector_complex_double.h 
+    gsl_permute_vector_complex_float.h
+    gsl_permute_vector_complex_long_double.h
+    gsl_permute_vector_double.h 
+    gsl_permute_vector_float.h
+    gsl_permute_vector_int.h
+    gsl_permute_vector_long.h 
+    gsl_permute_vector_long_double.h 
+    gsl_permute_vector_short.h 
+    gsl_permute_vector_uchar.h 
+    gsl_permute_vector_uint.h
+    gsl_permute_vector_ulong.h 
+    gsl_permute_vector_ushort.h
+    ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) permutation : 
+    init.c 
+    file.c 
+    permutation.c 
+    permute.c 
+    canonical.c
+    ;
+BuildGslTest $(srcdir_e) permutation : test.c ;
+
+#----------------------------------------------------------
+# poly subdir
+#----------------------------------------------------------
+
+AddToGslHeaders poly : gsl_poly.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) poly :
+    dd.c
+    eval.c
+    solve_quadratic.c
+    solve_cubic.c
+    zsolve_quadratic.c
+    zsolve_cubic.c
+    zsolve.c
+    zsolve_init.c
+    ;
+BuildGslTest $(srcdir_e) poly : test.c ;
+
+#----------------------------------------------------------
+# qrng subdir
+#----------------------------------------------------------
+
+AddToGslHeaders qrng : gsl_qrng.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) qrng : 
+  qrng.c 
+  niederreiter-2.c 
+  sobol.c 
+  ;
+BuildGslTest $(srcdir_e) qrng : test.c ;
+
+#----------------------------------------------------------
+# randist subdir
+#----------------------------------------------------------
+
+AddToGslHeaders randist : gsl_randist.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) randist :
+    bernoulli.c
+    beta.c
+    bigauss.c
+    binomial.c
+    cauchy.c
+    chisq.c
+    dirichlet.c
+    discrete.c
+    erlang.c
+    exponential.c
+    exppow.c
+    fdist.c
+    flat.c
+    gamma.c
+    gauss.c
+    gausszig.c
+    gausstail.c
+    geometric.c
+    gumbel.c
+    hyperg.c
+    laplace.c
+    levy.c
+    logarithmic.c
+    logistic.c 
+    lognormal.c
+    multinomial.c
+    nbinomial.c
+    pareto.c
+    pascal.c
+    poisson.c
+    rayleigh.c
+    shuffle.c
+    sphere.c
+    tdist.c
+    weibull.c
+    landau.c
+    binomial_tpe.c
+    ;
+BuildGslTest $(srcdir_e) randist : test.c ;
+
+#----------------------------------------------------------
+# rng subdir
+#----------------------------------------------------------
+
+AddToGslHeaders rng : gsl_rng.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) rng :
+    borosh13.c
+    cmrg.c
+    coveyou.c 
+    default.c 
+    file.c
+    fishman18.c 
+    fishman20.c
+    fishman2x.c
+    gfsr4.c 
+    knuthran2.c 
+    knuthran.c 
+    lecuyer21.c 
+    minstd.c 
+    mrg.c
+    mt.c
+    r250.c
+    ran0.c 
+    ran1.c
+    ran2.c
+    ran3.c 
+    rand48.c 
+    rand.c
+    random.c 
+    randu.c 
+    ranf.c
+    ranlux.c
+    ranlxd.c 
+    ranlxs.c
+    ranmar.c
+    rng.c
+    slatec.c 
+    taus.c 
+    taus113.c
+    transputer.c
+    tt.c
+    types.c
+    uni32.c
+    uni.c 
+    vax.c 
+    waterman14.c 
+    zuf.c
+    ;
+BuildGslTest $(srcdir_e) rng : test.c ;
+
+#----------------------------------------------------------
+# roots subdir
+#----------------------------------------------------------
+
+AddToGslHeaders roots : gsl_roots.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) roots :
+    bisection.c
+    brent.c
+    falsepos.c
+    newton.c
+    secant.c
+    steffenson.c
+    convergence.c
+    fsolver.c
+    fdfsolver.c
+    ;
+BuildGslTest $(srcdir_e) roots : test.c test_funcs.c ;
+
+#----------------------------------------------------------
+# siman subdir
+#----------------------------------------------------------
+
+AddToGslHeaders siman : gsl_siman.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) siman : siman.c ;
+BuildGslTest $(srcdir_e) siman : test.c ;
+
+#----------------------------------------------------------
+# sort subdir
+#----------------------------------------------------------
+
+AddToGslHeaders sort :
+    gsl_heapsort.h
+    gsl_sort.h
+    gsl_sort_char.h
+    gsl_sort_double.h
+    gsl_sort_float.h
+    gsl_sort_int.h
+    gsl_sort_long.h 
+    gsl_sort_long_double.h 
+    gsl_sort_short.h 
+    gsl_sort_uchar.h 
+    gsl_sort_uint.h 
+    gsl_sort_ulong.h 
+    gsl_sort_ushort.h 
+    gsl_sort_vector.h 
+    gsl_sort_vector_char.h 
+    gsl_sort_vector_double.h
+    gsl_sort_vector_float.h 
+    gsl_sort_vector_int.h
+    gsl_sort_vector_long.h 
+    gsl_sort_vector_long_double.h 
+    gsl_sort_vector_short.h 
+    gsl_sort_vector_uchar.h 
+    gsl_sort_vector_uint.h
+    gsl_sort_vector_ulong.h
+    gsl_sort_vector_ushort.h
+    ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) sort : 
+    sort.c sortind.c sortvec.c sortvecind.c subset.c subsetind.c ;
+BuildGslTest $(srcdir_e) sort : test.c ;
+
+#----------------------------------------------------------
+# specfunc subdir
+#----------------------------------------------------------
+
+AddToGslHeaders specfunc :
+    gsl_sf.h
+    gsl_sf_airy.h
+    gsl_sf_bessel.h
+    gsl_sf_clausen.h
+    gsl_sf_coulomb.h
+    gsl_sf_coupling.h
+    gsl_sf_dawson.h
+    gsl_sf_debye.h
+    gsl_sf_dilog.h
+    gsl_sf_elementary.h
+    gsl_sf_ellint.h
+    gsl_sf_elljac.h
+    gsl_sf_erf.h
+    gsl_sf_exp.h
+    gsl_sf_expint.h
+    gsl_sf_fermi_dirac.h
+    gsl_sf_gamma.h
+    gsl_sf_gegenbauer.h
+    gsl_sf_hyperg.h
+    gsl_sf_laguerre.h
+    gsl_sf_lambert.h
+    gsl_sf_legendre.h
+    gsl_sf_log.h
+    gsl_sf_pow_int.h
+    gsl_sf_psi.h
+    gsl_sf_result.h
+    gsl_sf_synchrotron.h
+    gsl_sf_transport.h
+    gsl_sf_trig.h
+    gsl_sf_zeta.h
+    gsl_specfunc.h
+    ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) specfunc :
+    airy.c
+    airy_der.c
+    airy_zero.c
+    atanint.c
+    bessel.c
+    bessel_I0.c
+    bessel_I1.c
+    bessel_In.c
+    bessel_Inu.c
+    bessel_J0.c
+    bessel_J1.c
+    bessel_Jn.c
+    bessel_Jnu.c
+    bessel_K0.c
+    bessel_K1.c
+    bessel_Kn.c
+    bessel_Knu.c
+    bessel_Y0.c
+    bessel_Y1.c
+    bessel_Yn.c
+    bessel_Ynu.c
+    bessel_amp_phase.c
+    bessel_i.c
+    bessel_j.c
+    bessel_k.c
+    bessel_olver.c
+    bessel_temme.c
+    bessel_y.c
+    bessel_zero.c
+    bessel_sequence.c
+    beta.c
+    beta_inc.c
+    clausen.c
+    coulomb.c
+    coupling.c
+    coulomb_bound.c
+    dawson.c
+    debye.c
+    dilog.c
+    elementary.c
+    ellint.c
+    elljac.c
+    erfc.c
+    exp.c
+    expint.c
+    expint3.c
+    fermi_dirac.c
+    gegenbauer.c
+    gamma.c
+    gamma_inc.c
+    hyperg_0F1.c
+    hyperg_2F0.c
+    hyperg_1F1.c
+    hyperg_2F1.c
+    hyperg_U.c
+    hyperg.c
+    laguerre.c
+    lambert.c
+    legendre_H3d.c
+    legendre_Qn.c
+    legendre_con.c
+    legendre_poly.c
+    log.c
+    poch.c
+    pow_int.c
+    psi.c
+    result.c
+    shint.c
+    sinint.c
+    synchrotron.c
+    transport.c
+    trig.c
+    zeta.c
+    ;
+BuildGslTest $(srcdir_e) specfunc :
+    test_sf.c
+    test_airy.c
+    test_bessel.c
+    test_coulomb.c
+    test_dilog.c
+    test_gamma.c
+    test_hyperg.c
+    test_legendre.c
+    ;
+
+#----------------------------------------------------------
+# statistics subdir
+#----------------------------------------------------------
+
+AddToGslHeaders statistics :
+    gsl_statistics.h
+    gsl_statistics_char.h
+    gsl_statistics_double.h
+    gsl_statistics_float.h 
+    gsl_statistics_int.h 
+    gsl_statistics_long.h 
+    gsl_statistics_long_double.h
+    gsl_statistics_short.h
+    gsl_statistics_uchar.h
+    gsl_statistics_uint.h
+    gsl_statistics_ulong.h 
+    gsl_statistics_ushort.h
+    ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) statistics :
+    mean.c
+    variance.c
+    absdev.c
+    skew.c
+    kurtosis.c 
+    lag1.c 
+    p_variance.c 
+    minmax.c
+    ttest.c 
+    median.c 
+    covariance.c 
+    quantiles.c 
+    wmean.c 
+    wvariance.c 
+    wabsdev.c 
+    wskew.c
+    wkurtosis.c
+    ;
+BuildGslTest $(srcdir_e) statistics : test.c test_nist.c ;
+
+#----------------------------------------------------------
+# sum subdir
+#----------------------------------------------------------
+
+AddToGslHeaders sum : gsl_sum.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) sum :
+    levin_u.c 
+    levin_utrunc.c 
+    work_u.c 
+    work_utrunc.c 
+    ;
+BuildGslTest $(srcdir_e) sum : test.c ;
+
+#----------------------------------------------------------
+# sys subdir
+#----------------------------------------------------------
+
+AddToGslHeaders sys : gsl_sys.h ;
+
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) sys :
+    minmax.c
+    prec.c
+    hypot.c
+    log1p.c
+    expm1.c
+    coerce.c
+    invhyp.c
+    pow_int.c
+    infnan.c
+    fdiv.c
+    fcmp.c
+    ldfrexp.c
+    ;
+
+BuildGslTest $(srcdir_e) sys : test.c ;
+
+#----------------------------------------------------------
+# test subdir
+#----------------------------------------------------------
+
+AddToGslHeaders test : gsl_test.h ;
+
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) test : results.c ;
+
+#----------------------------------------------------------
+# utils subdir
+#----------------------------------------------------------
+#AddToGslHeaders  :
+#AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e)  :
+#BuildGslTest $(srcdir_e)  :
+
+#----------------------------------------------------------
+# vector subdir
+#----------------------------------------------------------
+
+AddToGslHeaders vector :
+    gsl_vector.h
+    gsl_vector_char.h
+    gsl_vector_complex.h
+    gsl_vector_complex_double.h
+    gsl_vector_complex_float.h
+    gsl_vector_complex_long_double.h
+    gsl_vector_double.h
+    gsl_vector_float.h
+    gsl_vector_int.h
+    gsl_vector_long.h
+    gsl_vector_long_double.h 
+    gsl_vector_short.h
+    gsl_vector_uchar.h 
+    gsl_vector_uint.h
+    gsl_vector_ulong.h 
+    gsl_vector_ushort.h
+    ;
+
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) vector :
+    init.c
+    file.c
+    vector.c
+    copy.c
+    swap.c 
+    prop.c 
+    minmax.c
+    oper.c
+    reim.c
+    subvector.c
+    view.c
+    ;
+
+BuildGslTest $(srcdir_e) vector : test.c ;
+
+#----------------------------------------------------------
+# wavelet subdir
+#----------------------------------------------------------
+
+AddToGslHeaders wavelet : gsl_wavelet.h gsl_wavelet2d.h ;
+AddToLibrary $(GSL_LIB_NAME) : $(srcdir_e) wavelet :
+    dwt.c 
+    wavelet.c 
+    bspline.c 
+    daubechies.c 
+    haar.c 
+    ;
+BuildGslTest $(srcdir_e) wavelet : test.c ;
+
+#----------------------------------------------------------
+# doc subdir
+#----------------------------------------------------------
+
+#----------------------------------------------------------
+# Collect public headers
+#
+# Although the gsl public headers are distributed
+# among the various source subdirectories, compilation
+# of gsl requires that they all be in a subdirectory
+# of ./gsl off the include path.  To facilitate this,
+# all public headers are copied to ./../gsl before
+# any compilation is performed.
+#----------------------------------------------------------
+Bulk $(srcdir)$(SLASH)gsl : $(GSL_HEADERS) ;
+Clean clean : $(GSL_HEADERS:D=$(srcdir)$(SLASH)gsl) ;
+
+#----------------------------------------------------------
+# Build the gsl-randist executable
+#----------------------------------------------------------
+Main gsl-randist : gsl-randist.c ;
+NEEDLIBS on gsl-randist$(SUFEXE) = 
+  $(GSL_LIB_NAME)$(SUFLIB) 
+  $(CBLAS_LIB_NAME)$(SUFLIB) 
+  ;
+SEARCH on gsl-randist.c = $(srcdir) ;
+MakeLocate gsl-randist$(SUFEXE) : $(BUILD_DIR) ;
+MakeLocate gsl-randist$(SUFOBJ) : $(TMP_DIR) ;
+
+#----------------------------------------------------------
+# Build the gsl-histogram executable
+#----------------------------------------------------------
+Main gsl-histogram : gsl-histogram.c ;
+NEEDLIBS on gsl-histogram$(SUFEXE) = 
+  $(GSL_LIB_NAME)$(SUFLIB) 
+  $(CBLAS_LIB_NAME)$(SUFLIB) 
+  ;
+SEARCH on gsl-histogram.c = $(srcdir) ;
+MakeLocate gsl-histogram$(SUFEXE) : $(BUILD_DIR) ;
+MakeLocate gsl-histogram$(SUFOBJ) : $(TMP_DIR) ;
+
+#----------------------------------------------------------
+# Build the libgsl dynamic library
+#
+# At present, this is limited to MinGW on NT.  It
+# should be relatively easy to extend this to other
+# compilers and linux/unix.  The dynamic library is
+# built from the libgsl static library, and an
+# import library libgsl_dll$(SUFLIB) is also
+# generated.
+#----------------------------------------------------------
+if $(BUILD_GSL_DLL)
+{
+  if $(NT) && ($(MINGW) || $(TOOLSET) = MINGW)
+  {
+    MainFromObjects $(GSL_LIB_NAME)$(SUFSHR) ;
+    LinkLibraries $(GSL_LIB_NAME)$(SUFSHR) : $(GSL_LIB_NAME)$(SUFLIB) ;
+    MakeLocate $(GSL_LIB_NAME)$(SUFSHR) : $(BUILD_DIR) ;
+    DEPENDS $(GSL_LIB_NAME)$(SUFSHR) : $(CBLAS_LIB_NAME)$(SUFSHR) ;
+    LINKFLAGS on $(GSL_LIB_NAME)$(SUFSHR) +=
+        -shared
+        libgsl.def
+        -Wl,--out-implib,$(BUILD_DIR)$(SLASH)$(GSL_IMPLIB_NAME)$(SUFLIB)
+        $(BUILD_DIR)$(SLASH)$(CBLAS_LIB_NAME)$(SUFSHR)
+        ;
+    MakeImportLibrary $(GSL_LIB_NAME)$(SUFSHR) : $(GSL_IMPLIB_NAME)$(SUFLIB) ;
+  }
+  else
+  {
+    Echo Building of dynamic gsl library not supported. ;
+  }
+}
+#----------------------------------------------------------
+# Installation
+#
+# Modify the prefix in Jamrules to specify the install
+# location.  If the default subdirs of prefix don't
+# suit you, modify the directory variables also.
+#
+# The static and dynamic libraries are installed, along
+# with the public headers, import libraries, and docs.
+# At present the test programs are not installed.
+#----------------------------------------------------------
+
+InstallFile $(INSTALL_BIN_DIR) :
+    $(GSL_LIB_NAME)$(SUFSHR)
+    $(CBLAS_LIB_NAME)$(SUFSHR)
+    gsl-randist$(SUFEXE)
+    gsl-histogram$(SUFEXE)
+#    gsl-config
+    ;
+SEARCH on gsl-config = $(srcdir) ;
+
+InstallFile $(INSTALL_LIB_DIR) :
+    $(GSL_LIB_NAME)$(SUFLIB)
+    $(CBLAS_LIB_NAME)$(SUFLIB)
+    $(GSL_IMPLIB_NAME)$(SUFLIB)
+    $(CBLAS_IMPLIB_NAME)$(SUFLIB)
+    libgsl.def
+    libgslcblas.def
+    ;
+
+#InstallFile $(INSTALL_LIB_DIR)$(SLASH)pkgconfig : gsl.pc ;
+#SEARCH on gsl.pc = $(srcdir) ;
+
+InstallFile $(INSTALL_INCLUDE_DIR)$(SLASH)gsl : 
+    $(GSL_HEADERS_COPY) 
+    config.h
+    ;
+
+#InstallFile $(INSTALL_ROOT)$(SLASH)share$(SLASH)aclocal : gsl.m4 ;
+#SEARCH on gsl.m4 = $(srcdir) ;
+
+InstallFile $(INSTALL_ROOT)$(SLASH)contrib$(SLASH)gsl-1.7 :
+    $(srcdir)$(SLASH)Readme_GnuWin32.txt
+    $(srcdir)$(SLASH)AUTHORS
+    $(srcdir)$(SLASH)BUGS
+    $(srcdir)$(SLASH)ChangeLog
+    $(srcdir)$(SLASH)COPYING
+    $(srcdir)$(SLASH)INSTALL
+    $(srcdir)$(SLASH)NEWS
+    $(srcdir)$(SLASH)README
+    $(srcdir)$(SLASH)SUPPORT
+    $(srcdir)$(SLASH)THANKS
+    $(srcdir)$(SLASH)TODO
+    ;
+
+GSL_DOC_INFO_FILES =
+    gsl-ref.info
+    gsl-ref.info-1
+    gsl-ref.info-2
+    gsl-ref.info-3
+    gsl-ref.info-4
+    ;
+
+InstallFile $(INSTALL_ROOT)$(SLASH)info : $(GSL_DOC_INFO_FILES) ;
+SEARCH on $(GSL_DOC_INFO_FILES) = $(srcdir)$(SLASH)doc ;
+
+GSL_DOC_MAN_FILES =
+    gsl.3
+    gsl-config.1
+    gsl-histogram.1
+    gsl-randist.1
+    ;
+
+InstallMan $(INSTALL_ROOT) : $(GSL_DOC_MAN_FILES) ;
+SEARCH on $(GSL_DOC_MAN_FILES) = $(srcdir)$(SLASH)doc ;
+
+GSL_EXAMPLES =
+    blas.c
+    blas.out
+    block.c
+    block.out
+    cblas.c
+    cblas.out
+    cdf.c
+    cdf.out
+    cheb.c
+    combination.c
+    combination.out
+    const.c
+    const.out
+    demo_fn.c
+    demo_fn.h
+    diff.c
+    diff.out
+    dwt.c
+    dwt.dat
+    ecg.dat
+    eigen.c
+    expfit.c
+    fft.c
+    fftmr.c
+    fftreal.c
+    fitting.c
+    fitting2.c
+    fitting3.c
+    histogram.c
+    histogram2d.c
+    ieee.c
+    ieeeround.c
+    integration.c
+    integration.out
+    interp.c
+    interpp.c
+    intro.c
+    intro.out
+    linalglu.c
+    linalglu.out
+    matrix.c
+    matrixw.c
+    min.c
+    min.out
+    monte.c
+    nlfit.c
+    ntupler.c
+    ntuplew.c
+    odefixed.c
+    ode-initval.c
+    permseq.c
+    permshuffle.c
+    polyroots.c
+    polyroots.out
+    qrng.c
+    randpoisson.2.out
+    randpoisson.c
+    randpoisson.out
+    randwalk.c
+    rng.c
+    rng.out
+    rngunif.2.out
+    rngunif.c
+    rngunif.out
+    rootnewt.c
+    roots.c
+    siman.c
+    sortsmall.c
+    sortsmall.out
+    specfun.c
+    specfun.out
+    specfun_e.c
+    specfun_e.out
+    stat.c
+    stat.out
+    statsort.c
+    statsort.out
+    sum.c
+    sum.out
+    vector.c
+    vectorr.c
+    vectorview.c
+    vectorview.out
+    vectorw.c
+    ;
+
+#InstallFile $(INSTALL_EXAMPLES_DIR) : $(GSL_EXAMPLES) ;
+#SEARCH on $(GSL_EXAMPLES) = $(srcdir)$(SLASH)doc$(SLASH)examples ;
+

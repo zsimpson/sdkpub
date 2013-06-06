@@ -1,0 +1,13 @@
+***********Sampling params************
+WindowWidth  12
+WindowHeight 12
+DeltaX 2
+DeltaY 2
+DCTcoeffX 3
+DCTcoeffY 3
+***************HMM params*************
+SuperStates 5
+States 3 6 6 6 3
+NumMixtures 3
+***************Misc. params*************
+FIXED_WIDTH 100

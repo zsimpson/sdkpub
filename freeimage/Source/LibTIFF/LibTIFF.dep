@@ -1,0 +1,327 @@
+# Microsoft Developer Studio Generated Dependency File, included by LibTIFF.mak
+
+.\tif_aux.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tif_predict.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_close.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_codec.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_color.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_compress.c : \
+ 	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_dir.c : \
+	
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_dirinfo.c : \
+
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_dirread.c : \
+
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_dirwrite.c : \
+
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_dumpmode.c : \
+
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_error.c : \
+
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_extension.c : \
+
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_fax3.c : \
+
+	".\t4.h"\
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tif_fax3.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_fax3sm.c : \
+	".\tif_fax3.h"\
+	".\tiff.h"\
+	
+
+.\tif_flush.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_getimage.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_jpeg.c : \
+	"..\LibJPEG\jconfig.h"\
+	"..\LibJPEG\jerror.h"\
+	"..\LibJPEG\jmorecfg.h"\
+	"..\LibJPEG\jpeglib.h"\
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_luv.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	".\uvcode.h"\
+	
+
+.\tif_lzw.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tif_predict.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_next.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_open.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_packbits.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_pixarlog.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tif_predict.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_predict.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tif_predict.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_print.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_read.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_strip.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_swab.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_thunder.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_tile.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_version.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_warning.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_write.c : \
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	
+
+.\tif_zip.c : \
+	"..\ZLib\zconf.h"\
+	"..\ZLib\zlib.h"\
+	".\tif_config.h"\
+	".\tif_dir.h"\
+	".\tif_predict.h"\
+	".\tiff.h"\
+	".\tiffio.h"\
+	".\tiffiop.h"\
+	".\tiffvers.h"\
+	

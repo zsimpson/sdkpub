@@ -1,0 +1,26 @@
+# Microsoft Developer Studio Generated Dependency File, included by FreeImagePlus.mak
+
+.\src\fipImage.cpp : \
+	"..\..\Source\FreeImage.h"\
+	".\FreeImagePlus.h"\
+	
+
+.\src\fipMemoryIO.cpp : \
+	"..\..\Source\FreeImage.h"\
+	".\FreeImagePlus.h"\
+	
+
+.\src\fipMultiPage.cpp : \
+	"..\..\Source\FreeImage.h"\
+	".\FreeImagePlus.h"\
+	
+
+.\src\fipWinImage.cpp : \
+	"..\..\Source\FreeImage.h"\
+	".\FreeImagePlus.h"\
+	
+
+.\src\FreeImagePlus.cpp : \
+	"..\..\Source\FreeImage.h"\
+	".\FreeImagePlus.h"\
+	

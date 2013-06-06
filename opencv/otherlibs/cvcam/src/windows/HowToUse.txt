@@ -1,0 +1,30 @@
+#include <conio.h>
+#include <stdio.h>
+#include "cvcam.h"
+#include "..\\highgui\\highgui.h"
+#include "cv.h"
+
+void __cdecl callback(void* _image)
+{
+	IplImage* image = (IplImage*)_image;
+	cvLine(image, cvPoint(0, 0), cvPoint(image->width, image->height), CV_RGB(255, 0, 0), 1);
+}
+
+int main()
+{
+	int cameras = cvcamGetCamerasCount();
+	if(cameras == -1)
+	{
+		printf("\nNo cameras available on the system. Exiting...");
+		return -1;
+	}
+
+	cvcamSetProperty(0, CVCAM_PROP_CALLBACK, &callback);
+	cvcamInit();
+	cvcamStart();
+	wait_key(0);
+	cvcamStop();
+	cvcamExit();
+
+	return 0;
+}

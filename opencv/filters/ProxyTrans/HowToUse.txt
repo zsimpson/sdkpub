@@ -1,0 +1,48 @@
+ProxyTrans transform filter would call your function as a callback
+on every frame instead of processing the image itself. If you
+create a filter graph with your application, insert the proxy
+filter before renderer (or at any other place you like) and set a
+callback function defined in the application; the proxy implements
+the special interface for such case -- IProxyTrans. Then start the
+DS and every frame will be processed with your function. You can
+find the binary of ProxyTrans in Bin folder of your OpenCV
+installation. Here is the example of using ProxyTrans. Also refer
+to Apps\Hawk\MainFrm.cpp and Apps\Hawk\AviSource.cpp.
+
+#include <iProxyTrans.h>
+#include <ProxyTransuids.h>
+
+void callback(void*);
+
+int Initialize()
+{
+/* Initialize the source filter, filter graph.
+Find the samples of those in Apps\Hawk\MainFrm.cpp, functions
+CMainFrame::CreateCamera and CMainFrame::CreateFilterGraph */
+
+    IProxyTransform* pProxyTrans = NULL;
+    // Create a proxy transform filter
+    if(FAILED(CoCreateInstance(CLSID_ProxyTransform, NULL,
+CLSCTX_INPROC_SERVER,
+                IID_IProxyTransform, (void**)&pProxyTrans))
+|| !pProxyTrans)
+    {
+        return -1;
+    }
+    IBaseFilter* pProxyFilter = NULL;
+    pProxyTrans->QueryInterface(IID_IBaseFilter, (void**)&pProxyFilter);
+
+    // Set the proxy callback
+    pProxyTrans->set_transform((void(*)(void*))callback, 0);
+
+    /* Connect the filters together and run DS, see the samples mentioned above */
+}
+
+void callback(void* _image)
+{
+    IplImage* image = (IplImage*)_image;
+    /* process the frame as usual IplImage.
+    No image data is copied by ProxyTrans, it just creates an
+    IplImage structure that points to the data. Right now the data
+    format is restricted to 24 bits bmp which is a common case. */
+}

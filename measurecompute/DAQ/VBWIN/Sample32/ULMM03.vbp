@@ -1,0 +1,7 @@
+ULMM03.FRM
+..\CBW.BAS
+ProjWinSize=80,424,216,281
+ProjWinShow=2
+IconForm="frmDataDisplay"
+Title="ULMM03"
+ExeName="ULMM03.EXE"

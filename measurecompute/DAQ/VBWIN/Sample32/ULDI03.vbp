@@ -1,0 +1,7 @@
+ULDI03.FRM
+..\CBW.BAS
+ProjWinSize=77,425,216,336
+ProjWinShow=2
+IconForm="frmDScan"
+Title="ULDI03"
+ExeName="ULDI03.EXE"

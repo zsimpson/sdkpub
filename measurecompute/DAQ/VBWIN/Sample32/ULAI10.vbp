@@ -1,0 +1,7 @@
+ULAI10.FRM
+..\CBW.BAS
+ProjWinSize=80,424,216,336
+ProjWinShow=2
+IconForm="frmDataDisplay"
+Title="ULAI10"
+ExeName="ULAI10.EXE"

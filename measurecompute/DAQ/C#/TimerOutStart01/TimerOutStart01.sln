@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimerOutStart01", "TimerOutStart01.csproj", "{0831CD25-5B7C-4218-A144-F671B2C5D63D}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{0831CD25-5B7C-4218-A144-F671B2C5D63D}.Debug.ActiveCfg = Debug|.NET
+		{0831CD25-5B7C-4218-A144-F671B2C5D63D}.Debug.Build.0 = Debug|.NET
+		{0831CD25-5B7C-4218-A144-F671B2C5D63D}.Release.ActiveCfg = Release|.NET
+		{0831CD25-5B7C-4218-A144-F671B2C5D63D}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

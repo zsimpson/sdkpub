@@ -1,0 +1,23 @@
+Congiguration options are available from 0.4.12 onwards.
+Configuration files must reside in /usr/local/lib or /usr/lib - the configuration
+file must be called ftd2xx.cfg. An example is provided in the library package.
+
+Sections
+
+[Global] - settings within this section apply to all devices.
+
+[VID_0403&PID_6001] - settings apply to devices of this VID and PID - note this does
+NOT replace the FT_SetVIDPID or config table features for adding additional VIDs 
+and PIDS - you must still add these for custom VIDs and PIDs
+
+[SerialNumber] - SerialNumber is the unique serial number for a specific device -
+this will only apply the settings to individual devices.
+
+ConfigFlags=0x80000000 - this will supress the reset occuring on every open on 2.6
+kernel trees - related to incorrect data toggle. 
+Some systems a usb reset is required between an open/close pair to allow
+furhter open/close pairs. The reset has the effect of breaking communication
+in currently open devices. It can also toggle some of the modem control lines which 
+can disturb some user hardware. Use this setting if you require to remidy the above
+behaviour. However note there may be issues when opening/closing devices in a 2.6 tree.
+

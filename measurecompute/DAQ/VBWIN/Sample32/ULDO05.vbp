@@ -1,0 +1,7 @@
+ULDO05.FRM
+..\CBW.BAS
+ProjWinSize=119,455,216,336
+ProjWinShow=2
+IconForm="frmSetBitOut"
+Title="ULDO05"
+ExeName="ULDO05.EXE"

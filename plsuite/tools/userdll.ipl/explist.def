@@ -1,0 +1,9 @@
+VERSION 0.1
+DESCRIPTION "User defined DLL"
+
+EXPORTS
+
+   iplGetLibVersion
+   iplCreateImageJaehne
+   iplAddS
+   iplDeallocate

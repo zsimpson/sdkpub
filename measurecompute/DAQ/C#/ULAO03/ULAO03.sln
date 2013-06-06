@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ULAO03", "ULAO03.csproj", "{427A44EC-C4E8-4FF5-B353-1011CFA76DA1}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{427A44EC-C4E8-4FF5-B353-1011CFA76DA1}.Debug.ActiveCfg = Debug|.NET
+		{427A44EC-C4E8-4FF5-B353-1011CFA76DA1}.Debug.Build.0 = Debug|.NET
+		{427A44EC-C4E8-4FF5-B353-1011CFA76DA1}.Release.ActiveCfg = Release|.NET
+		{427A44EC-C4E8-4FF5-B353-1011CFA76DA1}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

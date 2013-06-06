@@ -1,0 +1,596 @@
+EMPTY SOCKET,Teradyne Inc,000
+64K CC MEM  ,Teradyne Inc,800
+VP          ,Teradyne Inc,801
+CC1  64 CHAN,Teradyne Inc,802
+CC1 128 CHAN,Teradyne Inc,803
+CC2  64 CHAN,Teradyne Inc,804
+CC2 128 CHAN,Teradyne Inc,805
+PRISM       ,Teradyne Inc,806
+PRISM HI VLT,Teradyne Inc,807
+ADSL LOAD   ,Teradyne Inc,808
+LIGHT FLASH ,Teradyne Inc,809
+VP EXTENSION,Teradyne Inc,80a
+1M LIGHT MEM,Teradyne Inc,80b
+CC2A  64 CHN,Teradyne Inc,80c
+CC2A 128 CHN,Teradyne Inc,80d
+CC3  64 CHAN,Teradyne Inc,80e
+CC3 128 CHAN,Teradyne Inc,80f
+XDSL LOAD   ,Teradyne Inc,810
+RF DWNCONVRT,Teradyne Inc,811
+CCH  64 CHAN,Teradyne Inc,812
+CCH 128 CHAN,Teradyne Inc,813
+CC5         ,Teradyne Inc,880
+CC5         ,Teradyne Inc,881
+M-917-01    ,Teradyne Inc,890
+M-917-02    ,Teradyne Inc,8a0
+M-92x-SERIES,Teradyne Inc,8b0
+M-967-01    ,Teradyne Inc,8c0
+AI7-SERIES  ,Teradyne Inc,900
+BI4-SERIES  ,Teradyne Inc,a00
+CRB         ,Teradyne Inc,cc0
+M-918-01    ,Teradyne Inc,cd0
+M-918-02    ,Teradyne Inc,ce0
+M-918-03    ,Teradyne Inc,cf0
+M-918-04    ,Teradyne Inc,cf1
+64K  CRB MEM,Teradyne Inc,ff0
+128K CRB MEM,Teradyne Inc,ff1
+256K CRB MEM,Teradyne Inc,ff2
+CENCO TAC8  ,Cenco       ,100
+BANCOMM 350 ,Bancomm     ,350
+PAC-629C    ,Pac Avionics,aab
+AXM429-8    ,AIM GmbH    ,df7
+AXM429-16   ,AIM GmbH    ,ef7
+AXM1553S    ,AIM GmbH    ,efc
+AXM-PSI-12+2,AIM GmbH    ,ff4
+AXM429-32   ,AIM GmbH    ,ff7
+AXM1553T    ,AIM GmbH    ,ffc
+TL-DVS-350  ,GSIL        ,350
+TL-AMM-351  ,GSIL        ,351
+TL-MUX-352  ,GSIL        ,352
+TL-MTX-357  ,GSIL        ,357
+VM1548      ,VXI Tech    ,102
+VM3616      ,VXI Tech    ,103
+VM2616      ,VXI Tech    ,104
+VM6068      ,VXI Tech    ,105
+VM1602      ,VXI Tech    ,109
+VM4016      ,VXI Tech    ,10b
+VM7004      ,VXI Tech    ,10e
+VM3618      ,VXI Tech    ,10f
+VM2716      ,VXI Tech    ,110
+EIP 1140A   ,EIP Microwav,474
+EIP 1141A   ,EIP Microwav,475
+EIP 1142A   ,EIP Microwav,476
+EIP 1230A   ,EIP Microwav,4ce
+EIP 1231A   ,EIP Microwav,4cf
+EIP 1313A   ,EIP Microwav,521
+EIP 1911A   ,EIP Microwav,777
+VX4792      ,Sony-Tek    ,1ff
+3000-501    ,ASCOR       ,d00
+3000-502    ,ASCOR       ,d01
+3000-510    ,ASCOR       ,d02
+3000-504    ,ASCOR       ,d03
+3000-503    ,ASCOR       ,d04
+3000-505    ,ASCOR       ,d05
+3000-530    ,ASCOR       ,d06
+3000-580    ,ASCOR       ,d07
+3000-531    ,ASCOR       ,d08
+3000-53     ,ASCOR       ,d09
+3000-521    ,ASCOR       ,d0a
+3000-522    ,ASCOR       ,d0b
+3000-54     ,ASCOR       ,d10
+3000-506    ,ASCOR       ,d11
+3000-507    ,ASCOR       ,d12
+3000-28     ,ASCOR       ,d13
+3000-4      ,ASCOR       ,d14
+3000-7      ,ASCOR       ,d15
+3000-508    ,ASCOR       ,d16
+3000-509    ,ASCOR       ,d17
+3000-64     ,ASCOR       ,d19
+3000-523    ,ASCOR       ,d23
+3000-1      ,ASCOR       ,f01
+3000-5      ,ASCOR       ,f05
+3000-16     ,ASCOR       ,f06
+3000-6      ,ASCOR       ,f07
+3000-12     ,ASCOR       ,f11
+3000-34     ,ASCOR       ,f13
+3000-8      ,ASCOR       ,f15
+3000-3      ,ASCOR       ,f16
+3000-9      ,ASCOR       ,f17
+3000-27     ,ASCOR       ,f19
+3000-30     ,ASCOR       ,f1e
+3000-31     ,ASCOR       ,f1f
+3000-32     ,ASCOR       ,f20
+3000-33     ,ASCOR       ,f21
+3000-2      ,ASCOR       ,f24
+3000-39     ,ASCOR       ,f27
+3000-41     ,ASCOR       ,f29
+3000-42     ,ASCOR       ,f2a
+3000-44     ,ASCOR       ,f2c
+3000-45     ,ASCOR       ,f2d
+3000-46     ,ASCOR       ,f2e
+3000-48     ,ASCOR       ,f30
+3000-49     ,ASCOR       ,f31
+3000-2XX    ,ASCOR       ,fcc
+VX405C MMCar,C&H Tech Inc,ff2
+VX403C IPCar,C&H Tech Inc,ff5
+VX464C Freq ,C&H Tech Inc,ff6
+VX403B IPCar,C&H Tech Inc,ff7
+VX481B ARINC,C&H Tech Inc,ffb
+VX480B MIL  ,C&H Tech Inc,ffc
+VX482B ARINC,C&H Tech Inc,f100
+VX501B Motor,C&H Tech Inc,ff92
+VX413C DPDT ,C&H Tech Inc,ffed
+VX416C 96Ch ,C&H Tech Inc,ffee
+VX415C 24Ch ,C&H Tech Inc,ffef
+VX491C Clock,C&H Tech Inc,fff0
+VX502B Brake,C&H Tech Inc,fff4
+VX461C 16Ch ,C&H Tech Inc,fff8
+VX431C 8Bit ,C&H Tech Inc,fff9
+VX441C 96Bit,C&H Tech Inc,fffa
+VX462B Pulse,C&H Tech Inc,fffd
+VX414C 16/48,C&H Tech Inc,fffe
+VX412C SPDT ,C&H Tech Inc,ffff
+TASCO 429   ,TASCO Elec  ,111
+DDCC-37001  ,ILC Data Dev,136
+DDCC-1553   ,ILC Data Dev,200
+EPC-1       ,RadiSys Corp,5f
+SZM         ,RadiSys Corp,7f
+EPC-8 S0    ,RadiSys Corp,c4
+EPC-7 S0    ,RadiSys Corp,ef
+EPC-2 S0    ,RadiSys Corp,ff
+EPC-8       ,RadiSys Corp,1c4
+EPC-7       ,RadiSys Corp,1ef
+EPC-2       ,RadiSys Corp,1ff
+EPC-5       ,RadiSys Corp,fc4
+EPC-6       ,RadiSys Corp,fcc
+EPC-4       ,RadiSys Corp,fe4
+EPC-3       ,RadiSys Corp,fec
+EPC-1       ,RadiSys Corp,fff
+3152 DSP    ,Bruel&Kjaer ,10f
+DVX-2502    ,Analogic    ,100
+VMEpc-650   ,Nat'l Insts ,11
+VXIpc-650   ,Nat'l Insts ,12
+VXIpc-770   ,Nat'l Insts ,5c
+VXIpc-870B  ,Nat'l Insts ,5d
+VXIpc-486599,Nat'l Insts ,6d
+VXIpc-486240,Nat'l Insts ,6e
+VXIpc-486566,Nat'l Insts ,6f
+VXIcpu-030  ,Nat'l Insts ,77
+VXIpc-386   ,Nat'l Insts ,79
+VXIpc-486200,Nat'l Insts ,7a
+VXIpc-486500,Nat'l Insts ,7b
+VXIpc-030   ,Nat'l Insts ,7d
+VXI-MXI     ,Nat'l Insts ,7e
+GPIB-VXI    ,Nat'l Insts ,7f
+VXI-834x    ,Nat'l Insts ,d1
+VXI-834x    ,Nat'l Insts ,fd1
+VXIpc-870   ,Nat'l Insts ,e0
+VXI-1394    ,Nat'l Insts ,e2
+VXIpc-860   ,Nat'l Insts ,e4
+VXIpc-740   ,Nat'l Insts ,e5
+VXIpc-850   ,Nat'l Insts ,e6
+VXI-MXI-2/B ,Nat'l Insts ,e8
+VXI-MXI-2   ,Nat'l Insts ,ea
+VXIpc-486599,Nat'l Insts ,ed
+VXIpc-486240,Nat'l Insts ,ee
+VXIpc-486566,Nat'l Insts ,ef
+VXI-MXI     ,Nat'l Insts ,f1
+VXIcpu-030  ,Nat'l Insts ,f7
+VXIpc-386   ,Nat'l Insts ,f9
+VXIpc-486200,Nat'l Insts ,fa
+VXIpc-486500,Nat'l Insts ,fb
+VXIpc-030   ,Nat'l Insts ,fd
+VXI-MXI     ,Nat'l Insts ,fe
+GPIB-VXI    ,Nat'l Insts ,ff
+SC-1102     ,Nat'l Insts ,32a
+SC-1102B    ,Nat'l Insts ,32b
+SC-1150     ,Nat'l Insts ,32c
+SC-1102C    ,Nat'l Insts ,33f
+VXI-MXI     ,Nat'l Insts ,87e
+GPIB-VXI    ,Nat'l Insts ,87f
+VXI-MXI     ,Nat'l Insts ,8f1
+VXI-MXI     ,Nat'l Insts ,8fe
+GPIB-VXI    ,Nat'l Insts ,8ff
+MIO-64XE-10 ,Nat'l Insts ,f10
+VMEpc-650   ,Nat'l Insts ,f11
+VXIpc-650   ,Nat'l Insts ,f12
+MIO-64E-1   ,Nat'l Insts ,f20
+DIO-128     ,Nat'l Insts ,f30
+AO-48XDC    ,Nat'l Insts ,f40
+SC-1000     ,Nat'l Insts ,f50
+VXIpc-770   ,Nat'l Insts ,f5c
+VXIpc-870B  ,Nat'l Insts ,f5d
+PCI-MXI-2   ,Nat'l Insts ,f5e
+VXIpc-486599,Nat'l Insts ,f6d
+VXIpc-486240,Nat'l Insts ,f6e
+VXIpc-486566,Nat'l Insts ,f6f
+VXIcpu-030  ,Nat'l Insts ,f77
+VXIpc-386   ,Nat'l Insts ,f79
+VXIpc-486200,Nat'l Insts ,f7a
+VXIpc-486500,Nat'l Insts ,f7b
+VXIpc-030   ,Nat'l Insts ,f7d
+VXIpc-870   ,Nat'l Insts ,fe0
+PXI-8320    ,Nat'l Insts ,fe1
+VXI-1394    ,Nat'l Insts ,fe2
+VXIpc-860   ,Nat'l Insts ,fe4
+VXIpc-740   ,Nat'l Insts ,fe5
+VXIpc-850   ,Nat'l Insts ,fe6
+VXI-MXI-2/B ,Nat'l Insts ,fe8
+VME-MXI-2   ,Nat'l Insts ,fe9
+VXI-MXI-2   ,Nat'l Insts ,fea
+AT-MXI-2    ,Nat'l Insts ,feb
+PCI-MXI-2   ,Nat'l Insts ,fec
+VXIpc-486599,Nat'l Insts ,fed
+VXIpc-486240,Nat'l Insts ,fee
+VXIpc-486566,Nat'l Insts ,fef
+SB-MXI      ,Nat'l Insts ,ff0
+VME-MXI     ,Nat'l Insts ,ff1
+AT-MXI      ,Nat'l Insts ,ff3
+NB-MXI      ,Nat'l Insts ,ff4
+MC-MXI      ,Nat'l Insts ,ff5
+TC-MXI      ,Nat'l Insts ,ff6
+VXIcpu-030  ,Nat'l Insts ,ff7
+VXIpc-386   ,Nat'l Insts ,ff9
+VXIpc-486200,Nat'l Insts ,ffa
+VXIpc-486500,Nat'l Insts ,ffb
+VXIpc-030   ,Nat'l Insts ,ffd
+VXI-MXI     ,Nat'l Insts ,f07e
+VXI-MXI     ,Nat'l Insts ,f0fe
+VXI-MXI     ,Nat'l Insts ,f87e
+VXI-MXI     ,Nat'l Insts ,f8fe
+VME-MXI     ,Nat'l Insts ,fff1
+7052        ,Racal Insts ,ff
+1265        ,Racal Insts ,1ff
+2051        ,Racal Insts ,803
+2251        ,Racal Insts ,8cb
+2351        ,Racal Insts ,92f
+7065        ,Racal Insts ,b99
+6453        ,Racal Insts ,fd0
+6459        ,Racal Insts ,fd1
+6056        ,Racal Insts ,fd7
+1260-40     ,Racal Insts ,ff0
+1260-01T    ,Racal Insts ,ff1
+7065        ,Racal Insts ,1b99
+2151        ,Racal Insts ,f867
+2251        ,Racal Insts ,f8cb
+7064        ,Racal Insts ,fc7b
+3351        ,Racal Insts ,fd17
+6451        ,Racal Insts ,ffcf
+1260        ,Racal Insts ,fff0
+73A-453     ,Tek-CDS     ,e3a
+73A-357     ,Tek-CDS     ,e9a
+73A-353     ,Tek-CDS     ,e9e
+73A-342     ,Tek-CDS     ,ea9
+73A-270     ,Tek-CDS     ,ef1
+73A-256     ,Tek-CDS     ,eff
+VX4802      ,Tek-CDS     ,f4dd
+VX4801      ,Tek-CDS     ,f4de
+VX4790A     ,Tek-CDS     ,f4e9
+VX4750      ,Tek-CDS     ,f511
+VX4730      ,Tek-CDS     ,f525
+VX4469      ,Tek-CDS     ,f62a
+VX4457      ,Tek-CDS     ,f636
+VX4428      ,Tek-CDS     ,f653
+VX4386      ,Tek-CDS     ,f67d
+VX4385      ,Tek-CDS     ,f67e
+VX4380      ,Tek-CDS     ,f683
+VX4367      ,Tek-CDS     ,f690
+VX4366      ,Tek-CDS     ,f691
+VX4365      ,Tek-CDS     ,f692
+VX4363      ,Tek-CDS     ,f694
+VX4357      ,Tek-CDS     ,f69a
+VX4356      ,Tek-CDS     ,f69b
+VX4355      ,Tek-CDS     ,f69c
+VX4353      ,Tek-CDS     ,f69e
+VX4334      ,Tek-CDS     ,f6b1
+VX4332      ,Tek-CDS     ,f6b3
+VX4342      ,Tek-CDS     ,f6b9
+VX4287      ,Tek-CDS     ,f6e0
+VX4286      ,Tek-CDS     ,f6e1
+VX4281      ,Tek-CDS     ,f6e6
+VX4234      ,Tek-CDS     ,f715
+73A-853     ,Tek-CDS     ,fcaa
+73A-576     ,Tek-CDS     ,fdbf
+73A-575     ,Tek-CDS     ,fdc0
+73A-541     ,Tek-CDS     ,fde2
+73A-456     ,Tek-CDS     ,fe37
+73A-455     ,Tek-CDS     ,fe38
+73A-453     ,Tek-CDS     ,fe3a
+73A-452     ,Tek-CDS     ,fe3b
+73A-451     ,Tek-CDS     ,fe3c
+73A-426     ,Tek-CDS     ,fe55
+73A-425     ,Tek-CDS     ,fe56
+73A-412     ,Tek-CDS     ,fe63
+73A-411     ,Tek-CDS     ,fe64
+73A-374     ,Tek-CDS     ,fe89
+73A-372     ,Tek-CDS     ,fe8b
+73A-357     ,Tek-CDS     ,fe9a
+73A-356     ,Tek-CDS     ,fe9b
+73A-355     ,Tek-CDS     ,fe9c
+73A-353     ,Tek-CDS     ,fe9e
+73A-342     ,Tek-CDS     ,fea9
+73A-334     ,Tek-CDS     ,feb1
+73A-332     ,Tek-CDS     ,feb3
+73A-308     ,Tek-CDS     ,fecb
+73A-270     ,Tek-CDS     ,fef1
+73A-256     ,Tek-CDS     ,feff
+73A-243     ,Tek-CDS     ,ff0c
+73A-161     ,Tek-CDS     ,ff5e
+73A-160     ,Tek-CDS     ,ff5f
+73A-156     ,Tek-CDS     ,ff63
+73A-155     ,Tek-CDS     ,ff64
+73A-152     ,Tek-CDS     ,ff67
+73A-151     ,Tek-CDS     ,ff68
+VX4520      ,Tektronix   ,97
+VX4535 S0   ,Tektronix   ,e9
+VX4530 S0   ,Tektronix   ,ed
+VX5535 S0   ,Tektronix   ,f9
+VX5530 S0   ,Tektronix   ,fd
+VX5520 S0   ,Tektronix   ,ff
+VX4535      ,Tektronix   ,1e9
+VX4530      ,Tektronix   ,1ed
+VX5535      ,Tektronix   ,1f9
+VX5530      ,Tektronix   ,1fd
+VX4570      ,Tektronix   ,5c5
+VX4244      ,Tektronix   ,70b
+VX4491      ,Tektronix   ,b6e
+VX1410      ,Tektronix   ,d21
+TVS621/621A ,Tektronix   ,d22
+TVS625/625A ,Tektronix   ,d23
+TVS641/641A ,Tektronix   ,d25
+TVS645/645A ,Tektronix   ,d26
+VX5520      ,Tektronix   ,d2c
+VX4250      ,Tektronix   ,ff5
+VX4820      ,Tektronix   ,ff6
+VX4440      ,Tektronix   ,ffa
+VX1321      ,Tektronix   ,ffb
+VX1421      ,Tektronix   ,ffc
+VX1521      ,Tektronix   ,ffd
+VX5790      ,Tektronix   ,ffe
+VX5260      ,Tektronix   ,fff
+VX4101      ,Tektronix   ,779a
+VX4240      ,Tektronix   ,ef6f
+VX4780      ,Tektronix   ,f4f3
+VX4381      ,Tektronix   ,f682
+VX4380      ,Tektronix   ,f683
+VX4351      ,Tektronix   ,f6a0
+VX4350      ,Tektronix   ,f6a1
+VX4330      ,Tektronix   ,f6b5
+VX4320      ,Tektronix   ,f6bf
+VX4224      ,Tektronix   ,f71f
+VX4240      ,Tektronix   ,fdf7
+VX4237      ,Tektronix   ,fff6
+VX4236      ,Tektronix   ,fff7
+VX4223      ,Tektronix   ,fff8
+WVTK 1326   ,Wavetek     ,2e
+WVTK 1326   ,Wavetek     ,52e
+WVTK 1361   ,Wavetek     ,551
+WVTK 1362   ,Wavetek     ,552
+WVTK 1370   ,Wavetek     ,55a
+WVTK 1375   ,Wavetek     ,55f
+WVTK 1395   ,Wavetek     ,573
+WVTK 4820   ,Wavetek     ,7ff6
+WVTK 4236   ,Wavetek     ,fff7
+HP 37778A   ,Hewlett-Pack,1
+HP E1404 S0 ,Hewlett-Pack,10
+HP E1405 S0 ,Hewlett-Pack,12
+HP E1480 S0 ,Hewlett-Pack,13
+HP E1406 S0 ,Hewlett-Pack,14
+HP E1497 S0 ,Hewlett-Pack,16
+HP E623x S0 ,Hewlett-Pack,17
+HP E8491 S0 ,Hewlett-Pack,18
+HP E1383 S0 ,Hewlett-Pack,fc
+HP E1483 S0 ,Hewlett-Pack,fd
+HP E1482 S0 ,Hewlett-Pack,fe
+HP E1460    ,Hewlett-Pack,100
+HP 37778A   ,Hewlett-Pack,101
+HP E1404    ,Hewlett-Pack,110
+HP E1404    ,Hewlett-Pack,111
+HP E1405    ,Hewlett-Pack,112
+HP E1480    ,Hewlett-Pack,113
+HP E1406    ,Hewlett-Pack,114
+HP E4208    ,Hewlett-Pack,115
+HP E1497    ,Hewlett-Pack,116
+HP E623x    ,Hewlett-Pack,117
+HP E8491    ,Hewlett-Pack,118
+HP E1463    ,Hewlett-Pack,121
+HP E1466    ,Hewlett-Pack,122
+HP Z2417A   ,Hewlett-Pack,123
+HP Z2466A   ,Hewlett-Pack,125
+HP Z2467A   ,Hewlett-Pack,126
+HP Z2468A   ,Hewlett-Pack,127
+HP Z2469A   ,Hewlett-Pack,128
+HP Z2436A   ,Hewlett-Pack,129
+HP Z2437A   ,Hewlett-Pack,12a
+HP Z2438A   ,Hewlett-Pack,12b
+HP Z2403    ,Hewlett-Pack,132
+HP E1410    ,Hewlett-Pack,140
+HP E1416    ,Hewlett-Pack,142
+HP E1451    ,Hewlett-Pack,151
+HP E1450    ,Hewlett-Pack,152
+HP E1452    ,Hewlett-Pack,153
+HP Z2404    ,Hewlett-Pack,154
+HP E1458    ,Hewlett-Pack,155
+HP Z2902A   ,Hewlett-Pack,156
+HP Z2901    ,Hewlett-Pack,157
+HP E1420    ,Hewlett-Pack,160
+HP E1740    ,Hewlett-Pack,161
+HP E1750    ,Hewlett-Pack,16a
+HP E1752    ,Hewlett-Pack,16c
+HP E1472    ,Hewlett-Pack,180
+HP E1339    ,Hewlett-Pack,181
+HP E1551A   ,Hewlett-Pack,182
+HP E1550A   ,Hewlett-Pack,183
+HP E1552A   ,Hewlett-Pack,184
+HP E1553A   ,Hewlett-Pack,185
+HP E1554A   ,Hewlett-Pack,188
+HP E1673    ,Hewlett-Pack,190
+HP E1674    ,Hewlett-Pack,191
+HP E1679A   ,Hewlett-Pack,192
+HP E1664A   ,Hewlett-Pack,193
+HP E1665A   ,Hewlett-Pack,194
+HP E1666A   ,Hewlett-Pack,195
+HP E1667A   ,Hewlett-Pack,196
+HP E1664B   ,Hewlett-Pack,197
+HP E1685A   ,Hewlett-Pack,198
+HP E1685B   ,Hewlett-Pack,199
+HP E1663A   ,Hewlett-Pack,19a
+HP E1686A   ,Hewlett-Pack,19b
+HP E1686B   ,Hewlett-Pack,19c
+HP E1660B   ,Hewlett-Pack,19d
+HP E1440    ,Hewlett-Pack,1a0
+HP E1435    ,Hewlett-Pack,1a1
+HP E1445    ,Hewlett-Pack,1a2
+HP E1446    ,Hewlett-Pack,1a3
+HP E1438A   ,Hewlett-Pack,1a4
+HP Z2422A   ,Hewlett-Pack,1a5
+HP E1445A   ,Hewlett-Pack,1a7
+HP E1660A   ,Hewlett-Pack,1b0
+HP E1661    ,Hewlett-Pack,1b1
+HP E1663    ,Hewlett-Pack,1b2
+HP E1671    ,Hewlett-Pack,1b3
+HP E1672    ,Hewlett-Pack,1b4
+HP E1681    ,Hewlett-Pack,1b5
+HP E1682    ,Hewlett-Pack,1b6
+HP E1662    ,Hewlett-Pack,1b7
+HP E1485A   ,Hewlett-Pack,1b8
+HP E1683    ,Hewlett-Pack,1b9
+HP E1684    ,Hewlett-Pack,1ba
+HP E1675    ,Hewlett-Pack,1bb
+HP E1601    ,Hewlett-Pack,1bc
+HP E1691    ,Hewlett-Pack,1bd
+HP E1692    ,Hewlett-Pack,1be
+HP E1429    ,Hewlett-Pack,1c0
+HP E1426    ,Hewlett-Pack,1c1
+HP E1427    ,Hewlett-Pack,1c2
+HP E1428    ,Hewlett-Pack,1c3
+HP E1413    ,Hewlett-Pack,1c4
+HP E1414    ,Hewlett-Pack,1c5
+HP E1430    ,Hewlett-Pack,1c6
+HP E1488    ,Hewlett-Pack,1c7
+HP E1431    ,Hewlett-Pack,1c8
+HP Z2428A   ,Hewlett-Pack,1c9
+HP E1095A   ,Hewlett-Pack,1ca
+E4209A      ,Hewlett-Pack,1e0
+E4203A      ,Hewlett-Pack,1e1
+E1613A      ,Hewlett-Pack,1e2
+E1693A      ,Hewlett-Pack,1e3
+HP E1694    ,Hewlett-Pack,1e4
+HP E1695    ,Hewlett-Pack,1e5
+HP E1696    ,Hewlett-Pack,1e6
+HP E1697    ,Hewlett-Pack,1e7
+HP E1698    ,Hewlett-Pack,1e8
+E1610A      ,Hewlett-Pack,1e9
+E1611A      ,Hewlett-Pack,1ea
+E4204A      ,Hewlett-Pack,1eb
+E1612A      ,Hewlett-Pack,1ec
+E1614A      ,Hewlett-Pack,1ed
+E1619A      ,Hewlett-Pack,1ee
+E1616A      ,Hewlett-Pack,1ef
+E143x  ET   ,Hewlett-Pack,200
+E1432A ET   ,Hewlett-Pack,201
+E1433A      ,Hewlett-Pack,202
+E1434A      ,Hewlett-Pack,203
+E1562A/B/C/D,Hewlett-Pack,210
+E1437A      ,Hewlett-Pack,216
+E1476       ,Hewlett-Pack,218
+Z2479A      ,Hewlett-Pack,21b
+Z2435A      ,Hewlett-Pack,21c
+E1668A      ,Hewlett-Pack,21d
+E1620A      ,Hewlett-Pack,21e
+E1676A      ,Hewlett-Pack,21f
+E1669A      ,Hewlett-Pack,220
+E1670A      ,Hewlett-Pack,221
+Z2471A      ,Hewlett-Pack,222
+E3751A      ,Hewlett-Pack,223
+E3750A/B    ,Hewlett-Pack,224
+Z2489       ,Hewlett-Pack,227
+E1442A      ,Hewlett-Pack,228
+E1615A      ,Hewlett-Pack,229
+E1486       ,Hewlett-Pack,22a
+E1487       ,Hewlett-Pack,22b
+Z4824A      ,Hewlett-Pack,22c
+E1676B      ,Hewlett-Pack,22d
+E3007-61052 ,Hewlett-Pack,22e
+E3008-6103x ,Hewlett-Pack,22f
+E1418A      ,Hewlett-Pack,230
+E1418       ,Hewlett-Pack,237
+E4206A      ,Hewlett-Pack,238
+E4207A      ,Hewlett-Pack,239
+E4201A      ,Hewlett-Pack,23a
+E4202A      ,Hewlett-Pack,23b
+E4205A      ,Hewlett-Pack,23c
+E4219A      ,Hewlett-Pack,23d
+E1617A      ,Hewlett-Pack,23e
+Z2480A      ,Hewlett-Pack,23f
+E2481A      ,Hewlett-Pack,240
+E4209B      ,Hewlett-Pack,242
+E1412A      ,Hewlett-Pack,243
+E4853/4A    ,Hewlett-Pack,245
+E4821A      ,Hewlett-Pack,246
+E4805A      ,Hewlett-Pack,247
+E4841A      ,Hewlett-Pack,248
+Z2484A      ,Hewlett-Pack,249
+Z2455A      ,Hewlett-Pack,24a
+Z2472A      ,Hewlett-Pack,24b
+Z2485A      ,Hewlett-Pack,24c
+E1669A      ,Hewlett-Pack,24e
+E1670A      ,Hewlett-Pack,24f
+E1578A      ,Hewlett-Pack,251
+E6270A      ,Hewlett-Pack,252
+E4831A      ,Hewlett-Pack,253
+E1470       ,Hewlett-Pack,255
+E2251A      ,Hewlett-Pack,257
+E2259A      ,Hewlett-Pack,258
+E2260       ,Hewlett-Pack,259
+E2261       ,Hewlett-Pack,25a
+E2270       ,Hewlett-Pack,25b
+E2271       ,Hewlett-Pack,25c
+E2272       ,Hewlett-Pack,25d
+E2273A      ,Hewlett-Pack,25e
+E2274A      ,Hewlett-Pack,25f
+E2290       ,Hewlett-Pack,260
+E1563A      ,Hewlett-Pack,266
+E1564A      ,Hewlett-Pack,267
+E1415A      ,Hewlett-Pack,3c4
+E1419A      ,Hewlett-Pack,3cc
+E1330A      ,Hewlett-Pack,514
+E1301A      ,Hewlett-Pack,515
+E1303A      ,Hewlett-Pack,517
+E1489       ,Hewlett-Pack,8fd
+HP E1482    ,Hewlett-Pack,8fe
+HP E1313    ,Hewlett-Pack,9c4
+HP E1490A   ,Hewlett-Pack,f40
+HP E1482B   ,Hewlett-Pack,f0fe
+E1482       ,Hewlett-Pack,f8fe
+HP E1345    ,Hewlett-Pack,ff00
+HP E1343    ,Hewlett-Pack,ff01
+HP E1347    ,Hewlett-Pack,ff02
+HP E1344    ,Hewlett-Pack,ff03
+HP E1355    ,Hewlett-Pack,ff04
+HP E1356    ,Hewlett-Pack,ff06
+HP E1346    ,Hewlett-Pack,ff08
+HP E1351    ,Hewlett-Pack,ff10
+HP E1353    ,Hewlett-Pack,ff12
+HP E1357    ,Hewlett-Pack,ff14
+HP E1358    ,Hewlett-Pack,ff16
+HP E1352    ,Hewlett-Pack,ff18
+HP E1364    ,Hewlett-Pack,ff20
+HP E1361    ,Hewlett-Pack,ff24
+E1368/69/70 ,Hewlett-Pack,ff28
+HP E1411    ,Hewlett-Pack,ff38
+HP E1326    ,Hewlett-Pack,ff40
+E1312       ,Hewlett-Pack,ff41
+HP E1330    ,Hewlett-Pack,ff50
+HP E1330B   ,Hewlett-Pack,ff51
+HP E1331    ,Hewlett-Pack,ff52
+HP E1332    ,Hewlett-Pack,ff60
+HP E1333    ,Hewlett-Pack,ff64
+HP E1328    ,Hewlett-Pack,ff7f
+HP E1366    ,Hewlett-Pack,ff80
+HP E1367    ,Hewlett-Pack,ff84
+HP E1324    ,Hewlett-Pack,ff90
+Z2335A      ,Hewlett-Pack,ff92
+HP E1340    ,Hewlett-Pack,ffa0
+HP Z2308    ,Hewlett-Pack,ffb1
+HP E1399    ,Hewlett-Pack,fff0

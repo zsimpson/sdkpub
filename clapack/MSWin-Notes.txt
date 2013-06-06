@@ -1,0 +1,51 @@
+28-Dec-2000 - Built from CLAPACK V3 from www.netlib.org
+
+Master workspace is clapack.dsw. Always start VC++ with this. 
+
+Files in this tree replace the corresponding files in the 
+CLAPACK V3 distribution. 
+
+Projects are set for Multithreaded DLL for the C Runtime
+
+Many many compiler warnings about ambiguous operator precedence 
+involving << and >> operators. However, amazingly, the package passes 
+all of the tests. I supressed some warnings with an edit to 
+f2c.h -- see the #pragma warning statement there.
+
+There are 3 files in which the compiler warning led to a 
+clear error -- in libf77: pow_hh.c, pow_ii.c, pow_qq.c
+have divide by 0:
+
+     return x == 0 ? 1/x : 0;
+
+should be
+
+     return x == 0 ? 0 : 1/x;
+
+Also, the code in slamch.c and dlamch.c is very fussy and needs to have
+compiler optimizations turned off.
+
+The timer filed dsecnd.c and second.c are modified to use the Win32
+timing facilities.
+
+I spent a ton of time making GUI project files for all of the
+parts. They are set for dependencies, however, this is the 
+suggested build order:
+
+(1)  libF77
+(2)  libI77
+(3)  BLAS
+(4)  The BLAS test drivers xblat?? (there are 8)
+(5)  Run BLAS tests via blastest.bat ("blas test files" project)
+
+Milestone 1 -- All of the CLAPACK support libraries are built
+               and tested.
+
+(6)  CLAPACK
+(7)  TMGLIB (used by tests)
+(8)  The LINear test progs xlintst? (there are 4)
+(9)  Run the LINear tests via testlin.btm (clapack test files proj.)
+(10) The EIGenvalue test progs xeigtst? (there are 4)
+(11) Run the EIGenvalue tests via testlin.btm (clapack test files proj.)
+
+Milestone 2 -- CLAPACK has been checked out and is ready for use.

@@ -1,0 +1,5 @@
+Form=SCXI_SCANsingleBuf.FRM
+Module=NIDAQ32; ..\..\..\Include\NIDAQ32.BAS
+Module=NIDEX32; ..\..\..\Include\NIDEX32.BAS
+Module=NIDAQcns1; ..\..\..\Include\NIDAQCNS.INC
+Module=NIDAQerr1; ..\..\..\Include\NIDAQERR.INC

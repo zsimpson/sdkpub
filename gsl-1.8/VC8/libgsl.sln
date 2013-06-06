@@ -1,0 +1,59 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libgsl", "libgsl\libgsl.vcproj", "{91EC13AF-6E6D-4138-9545-86E10A740CD5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F12C72B9-A7C8-4FE1-8CA7-00B06819033A} = {F12C72B9-A7C8-4FE1-8CA7-00B06819033A}
+		{69C1E5CD-84BC-40F0-B357-4F0E917E65B7} = {69C1E5CD-84BC-40F0-B357-4F0E917E65B7}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libgslcblas", "libgslcblas\libgslcblas.vcproj", "{F12C72B9-A7C8-4FE1-8CA7-00B06819033A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{69C1E5CD-84BC-40F0-B357-4F0E917E65B7} = {69C1E5CD-84BC-40F0-B357-4F0E917E65B7}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "copy_gsl_headers", "copy_gsl_headers\copy_gsl_headers.vcproj", "{69C1E5CD-84BC-40F0-B357-4F0E917E65B7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "install_libgsl", "install_libgsl\install_libgsl.vcproj", "{EC641BB5-4A35-462F-9295-B6B46FFBFE8E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{69C1E5CD-84BC-40F0-B357-4F0E917E65B7} = {69C1E5CD-84BC-40F0-B357-4F0E917E65B7}
+		{F12C72B9-A7C8-4FE1-8CA7-00B06819033A} = {F12C72B9-A7C8-4FE1-8CA7-00B06819033A}
+		{91EC13AF-6E6D-4138-9545-86E10A740CD5} = {91EC13AF-6E6D-4138-9545-86E10A740CD5}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug-DLL|Win32 = Debug-DLL|Win32
+		Debug-StaticLib|Win32 = Debug-StaticLib|Win32
+		Release-DLL|Win32 = Release-DLL|Win32
+		Release-StaticLib|Win32 = Release-StaticLib|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91EC13AF-6E6D-4138-9545-86E10A740CD5}.Debug-DLL|Win32.ActiveCfg = Debug-StaticLib|Win32
+		{91EC13AF-6E6D-4138-9545-86E10A740CD5}.Debug-DLL|Win32.Build.0 = Debug-StaticLib|Win32
+		{91EC13AF-6E6D-4138-9545-86E10A740CD5}.Debug-StaticLib|Win32.ActiveCfg = Debug-StaticLib|Win32
+		{91EC13AF-6E6D-4138-9545-86E10A740CD5}.Debug-StaticLib|Win32.Build.0 = Debug-StaticLib|Win32
+		{91EC13AF-6E6D-4138-9545-86E10A740CD5}.Release-DLL|Win32.ActiveCfg = Release-DLL|Win32
+		{91EC13AF-6E6D-4138-9545-86E10A740CD5}.Release-DLL|Win32.Build.0 = Release-DLL|Win32
+		{91EC13AF-6E6D-4138-9545-86E10A740CD5}.Release-StaticLib|Win32.ActiveCfg = Release-StaticLib|Win32
+		{91EC13AF-6E6D-4138-9545-86E10A740CD5}.Release-StaticLib|Win32.Build.0 = Release-StaticLib|Win32
+		{F12C72B9-A7C8-4FE1-8CA7-00B06819033A}.Debug-DLL|Win32.ActiveCfg = Debug-DLL|Win32
+		{F12C72B9-A7C8-4FE1-8CA7-00B06819033A}.Debug-StaticLib|Win32.ActiveCfg = Debug-StaticLib|Win32
+		{F12C72B9-A7C8-4FE1-8CA7-00B06819033A}.Debug-StaticLib|Win32.Build.0 = Debug-StaticLib|Win32
+		{F12C72B9-A7C8-4FE1-8CA7-00B06819033A}.Release-DLL|Win32.ActiveCfg = Release-DLL|Win32
+		{F12C72B9-A7C8-4FE1-8CA7-00B06819033A}.Release-DLL|Win32.Build.0 = Release-DLL|Win32
+		{F12C72B9-A7C8-4FE1-8CA7-00B06819033A}.Release-StaticLib|Win32.ActiveCfg = Release-StaticLib|Win32
+		{F12C72B9-A7C8-4FE1-8CA7-00B06819033A}.Release-StaticLib|Win32.Build.0 = Release-StaticLib|Win32
+		{69C1E5CD-84BC-40F0-B357-4F0E917E65B7}.Debug-DLL|Win32.ActiveCfg = Debug-DLL|Win32
+		{69C1E5CD-84BC-40F0-B357-4F0E917E65B7}.Debug-StaticLib|Win32.ActiveCfg = Debug-StaticLib|Win32
+		{69C1E5CD-84BC-40F0-B357-4F0E917E65B7}.Release-DLL|Win32.ActiveCfg = Release-DLL|Win32
+		{69C1E5CD-84BC-40F0-B357-4F0E917E65B7}.Release-DLL|Win32.Build.0 = Release-DLL|Win32
+		{69C1E5CD-84BC-40F0-B357-4F0E917E65B7}.Release-StaticLib|Win32.ActiveCfg = Release-StaticLib|Win32
+		{EC641BB5-4A35-462F-9295-B6B46FFBFE8E}.Debug-DLL|Win32.ActiveCfg = Debug-DLL|Win32
+		{EC641BB5-4A35-462F-9295-B6B46FFBFE8E}.Debug-StaticLib|Win32.ActiveCfg = Debug-DLL|Win32
+		{EC641BB5-4A35-462F-9295-B6B46FFBFE8E}.Release-DLL|Win32.ActiveCfg = Release-DLL|Win32
+		{EC641BB5-4A35-462F-9295-B6B46FFBFE8E}.Release-StaticLib|Win32.ActiveCfg = Release-StaticLib|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

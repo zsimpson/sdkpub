@@ -1,0 +1,3021 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<doc>
+	<assembly>
+		<name>Ivi.Visa.Interop</name>
+	</assembly>
+	<members>
+		<member name="T:Ivi.Visa.Interop.IVisaSession">
+			<summary>The base interface for VISA COM I/O Resources.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVisaSession.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVisaSession.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVisaSession.LockRsrc(Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method locks the resource.</summary>
+			<param name="type">The Lock type to attempt.</param>
+			<param name="lockTimeout">The lock timeout.</param>
+			<param name="requestedKey">The requested key.</param>
+			<returns>The access key.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVisaSession.UnlockRsrc">
+			<summary>This method unlocks the resource</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVisaSession.Init(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method opens the resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The lock type to attempt.</param>
+			<param name="initTimeout">The lock timeout.</param>
+			<param name="OptionString">The option string to apply to the resource.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVisaSession.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaSession.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaSession.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaSession.HardwareInterfaceName">
+			<summary>The Name of the Hardware Interface (GPIB, ASRL, etc)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaSession.HardwareInterfaceNumber">
+			<summary>The Board Number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaSession.HardwareInterfaceType">
+			<summary>The type number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaSession.LockState">
+			<summary>The current locking state of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaSession.OptionString">
+			<summary>The Option String corresponding to the current state of the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaSession.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaSession.ResourceName">
+			<summary>The VISA Resource name of the currently open resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaSession.SessionType">
+			<summary>The session type string, such as "INSTR" or "INTFC".</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaSession.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaSession.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaSession.Timeout">
+			<summary>The I/O timeout for the resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaSession.LastStatus">
+			<summary>The return value from the last method call on this interface.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IEventManager">
+			<summary>The interface for event management exported by all resource types that support events.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventManager.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventManager.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventManager.LockRsrc(Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method locks the resource.</summary>
+			<param name="type">The Lock type to attempt.</param>
+			<param name="lockTimeout">The lock timeout.</param>
+			<param name="requestedKey">The requested key.</param>
+			<returns>The access key.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventManager.UnlockRsrc">
+			<summary>This method unlocks the resource</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventManager.Init(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method opens the resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The lock type to attempt.</param>
+			<param name="initTimeout">The lock timeout.</param>
+			<param name="OptionString">The option string to apply to the resource.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventManager.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventManager.EnableEvent(Ivi.Visa.Interop.EventType,Ivi.Visa.Interop.EventMechanism,System.Int32)">
+			<summary>This method enables notification of an event identified by the eventType parameter for mechanisms specified in the mechanism parameter.</summary>
+			<param name="type">The type of event to enable.</param>
+			<param name="mech">The mechanism type for the event to enable.</param>
+			<param name="customEventType">If the event type property is CUSTOM_EVENT_TYPE, this argument contains the custom event type number, otherwise it is ignored.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventManager.DisableEvent(Ivi.Visa.Interop.EventType,Ivi.Visa.Interop.EventMechanism,System.Int32)">
+			<summary>This function disables servicing of an event identified by the eventType parameter for the mechanisms specified in the mechanism parameter.</summary>
+			<param name="type">The type of event to disable</param>
+			<param name="mech">The mechanism type of the event to disable.</param>
+			<param name="customEventType">If the event type property is CUSTOM_EVENT_TYPE, this argument contains the custom event type number, otherwise it is ignored.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventManager.DiscardEvents(Ivi.Visa.Interop.EventType,Ivi.Visa.Interop.EventMechanism,System.Int32)">
+			<summary>This function discards all pending occurrences of the specified event types for the mechanisms specified in a given session.</summary>
+			<param name="type">The type of event to discard.</param>
+			<param name="mech">The mechanism type for the event to discard</param>
+			<param name="customEventType">If the event type property is CUSTOM_EVENT_TYPE, this argument contains the custom event type number, otherwise it is ignored.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventManager.WaitOnEvent(System.Int32,Ivi.Visa.Interop.EventType,System.Int32)">
+			<summary>This method waits for an occurrence of the specified event for a given session.</summary>
+			<param name="waitTimeout">The minimum time to wait for an event.</param>
+			<param name="type">The type of event to wait for.</param>
+			<param name="customEventType">If the event type property is CUSTOM_EVENT_TYPE, this argument contains the custom event type number, otherwise it is ignored.</param>
+			<returns>If the method is successful, IEvent interface of the received event.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventManager.InstallHandler(Ivi.Visa.Interop.EventType,Ivi.Visa.Interop.IEventHandler*,System.Int32,System.Int32)">
+			<summary>This function allows applications to install handlers on sessions for event callbacks.</summary>
+			<param name="type">The type of event for the handler to receive.</param>
+			<param name="handler">The IEventHandler interface pointer of the client-implemented callback object.</param>
+			<param name="userHandle">A client provided value that uniquely identifies the handler.</param>
+			<param name="customEventType">If the event type property is CUSTOM_EVENT_TYPE, this argument contains the custom event type number, otherwise it is ignored.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventManager.UninstallHandler(Ivi.Visa.Interop.EventType,System.Int32,System.Int32)">
+			<summary>This function allows applications to uninstall handlers for events on sessions.</summary>
+			<param name="type">The type of event for which to uninstall the handler.</param>
+			<param name="userHandle">A client provided value that uniquely identifies the handler.</param>
+			<param name="customEventType">If the event type property is CUSTOM_EVENT_TYPE, this argument contains the custom event type number, otherwise it is ignored.</param>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventManager.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventManager.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventManager.HardwareInterfaceName">
+			<summary>The Name of the Hardware Interface (GPIB, ASRL, etc)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventManager.HardwareInterfaceNumber">
+			<summary>The Board Number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventManager.HardwareInterfaceType">
+			<summary>The type number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventManager.LockState">
+			<summary>The current locking state of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventManager.OptionString">
+			<summary>The Option String corresponding to the current state of the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventManager.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventManager.ResourceName">
+			<summary>The VISA Resource name of the currently open resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventManager.SessionType">
+			<summary>The session type string, such as "INSTR" or "INTFC".</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventManager.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventManager.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventManager.Timeout">
+			<summary>The I/O timeout for the resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventManager.LastStatus">
+			<summary>The return value from the last method call on this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventManager.MaximumQueueLength">
+			<summary>This property modifies the maximum size of the event queue.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IEvent">
+			<summary>This interface is exported by all Event objects.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEvent.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEvent.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEvent.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEvent.type">
+			<summary>The type of the event.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEvent.CustomEventTypeNumber">
+			<summary>If the type parameter's value is CUSTOM_EVENT_TYPE, this value contains the custom event type.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IEventHandler">
+			<summary>Clients of VISA COM I/O implement the interface to receive asynchronous events.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventHandler.HandleEvent(Ivi.Visa.Interop.IEventManager*,Ivi.Visa.Interop.IEvent*,System.Int32)">
+			<summary>This method is called by VISA with an Event Object </summary>
+			<param name="vi">The resource that generated the event.</param>
+			<param name="event">A reference to the event object.</param>
+			<param name="userHandle">The userhandle passed to InstallHandler.</param>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IResourceManager">
+			<summary>This is the primary interface for finding, enumerating, and creating VISA COM I/O resources.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IResourceManager.FindRsrc(System.String)">
+			<summary>This method uses VISA search strings to find visa resources.</summary>
+			<param name="expr">The Search String.</param>
+			<returns>The list of resources matching the search string.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IResourceManager.Open(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This is the method for creating a VISA COM I/O resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The type of lock to attain.</param>
+			<param name="openTimeout">The lock timeout.</param>
+			<param name="OptionString">The Option String to apply to the resource.</param>
+			<returns>The new resource session.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IResourceManager.ParseRsrc(System.String,System.Int16@,System.Int16@,System.String@)">
+			<summary>This operation parses a resource string to verify its validity.</summary>
+			<param name="ResourceName">The VISA address string.</param>
+			<param name="pInterfaceType">The interface type number of the resource.</param>
+			<param name="pInterfaceNumber">The interface number of the resource.</param>
+			<param name="pSessionType">The session type of the resource.</param>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IResourceManager.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IResourceManager.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IResourceManager.Description">
+			<summary>A string description of this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IResourceManager.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IResourceManager.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IResourceManager.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IBaseMessage">
+			<summary>This interface provides the I/O functionality set found on the most common messaging resource types.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IBaseMessage.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IBaseMessage.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IBaseMessage.LockRsrc(Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method locks the resource.</summary>
+			<param name="type">The Lock type to attempt.</param>
+			<param name="lockTimeout">The lock timeout.</param>
+			<param name="requestedKey">The requested key.</param>
+			<returns>The access key.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IBaseMessage.UnlockRsrc">
+			<summary>This method unlocks the resource</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IBaseMessage.Init(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method opens the resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The lock type to attempt.</param>
+			<param name="initTimeout">The lock timeout.</param>
+			<param name="OptionString">The option string to apply to the resource.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IBaseMessage.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IBaseMessage.AssertTrigger(Ivi.Visa.Interop.TriggerProtocol)">
+			<summary>This function asserts a software or hardware trigger dependent on the interface type.</summary>
+			<param name="protocol">The protocol to use.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IBaseMessage.Clear">
+			<summary>This function performs an IEEE 488.2-style clear.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IBaseMessage.ReadSTB">
+			<summary>This function reads a status byte of the service request from a service requester (the message-based device).</summary>
+			<returns>The Status Byte.</returns>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.HardwareInterfaceName">
+			<summary>The Name of the Hardware Interface (GPIB, ASRL, etc)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.HardwareInterfaceNumber">
+			<summary>The Board Number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.HardwareInterfaceType">
+			<summary>The type number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.LockState">
+			<summary>The current locking state of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.OptionString">
+			<summary>The Option String corresponding to the current state of the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.ResourceName">
+			<summary>The VISA Resource name of the currently open resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.SessionType">
+			<summary>The session type string, such as "INSTR" or "INTFC".</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.Timeout">
+			<summary>The I/O timeout for the resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.LastStatus">
+			<summary>The return value from the last method call on this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.IOProtocol">
+			<summary>This property sets the protocol type for I/O communication with the physical resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.SendEndEnabled">
+			<summary>This property enables/disables sending the END signal on the last byte of a write.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.TerminationCharacter">
+			<summary>This property sets/gets the ASCII character used to end reading.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IBaseMessage.TerminationCharacterEnabled">
+			<summary>This property enables/disables ending reads upon reception of the termination character.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IMessage">
+			<summary>This is the synchronous messaging interface exported by most resources, including all INSTR and SOCKET resources.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IMessage.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IMessage.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IMessage.LockRsrc(Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method locks the resource.</summary>
+			<param name="type">The Lock type to attempt.</param>
+			<param name="lockTimeout">The lock timeout.</param>
+			<param name="requestedKey">The requested key.</param>
+			<returns>The access key.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IMessage.UnlockRsrc">
+			<summary>This method unlocks the resource</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IMessage.Init(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method opens the resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The lock type to attempt.</param>
+			<param name="initTimeout">The lock timeout.</param>
+			<param name="OptionString">The option string to apply to the resource.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IMessage.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IMessage.AssertTrigger(Ivi.Visa.Interop.TriggerProtocol)">
+			<summary>This function asserts a software or hardware trigger dependent on the interface type.</summary>
+			<param name="protocol">The protocol to use.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IMessage.Clear">
+			<summary>This function performs an IEEE 488.2-style clear.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IMessage.ReadSTB">
+			<summary>This function reads a status byte of the service request from a service requester (the message-based device).</summary>
+			<returns>The Status Byte.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IMessage.Read(System.Int32)">
+			<summary>This function synchronously transfers data from a device.</summary>
+			<param name="count">Number of bytes to read.</param>
+			<returns>The data that was read.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IMessage.ReadString(System.Int32)">
+			<summary>This function synchronously transfers data from a device.</summary>
+			<param name="count">Number of bytes to read.</param>
+			<returns>The data that was read.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IMessage.Write(System.Byte[],System.Int32)">
+			<summary>This function synchronously transfers data to a device.</summary>
+			<param name="buffer">Data to be written.</param>
+			<param name="count">Specifies number of bytes to be written.</param>
+			<returns>The number of bytes written</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IMessage.WriteString(System.String)">
+			<summary>This function synchronously transfers data to a device.</summary>
+			<param name="buffer">Data to be written.</param>
+			<returns>Number of bytes written.</returns>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.HardwareInterfaceName">
+			<summary>The Name of the Hardware Interface (GPIB, ASRL, etc)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.HardwareInterfaceNumber">
+			<summary>The Board Number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.HardwareInterfaceType">
+			<summary>The type number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.LockState">
+			<summary>The current locking state of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.OptionString">
+			<summary>The Option String corresponding to the current state of the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.ResourceName">
+			<summary>The VISA Resource name of the currently open resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.SessionType">
+			<summary>The session type string, such as "INSTR" or "INTFC".</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.Timeout">
+			<summary>The I/O timeout for the resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.LastStatus">
+			<summary>The return value from the last method call on this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.IOProtocol">
+			<summary>This property sets the protocol type for I/O communication with the physical resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.SendEndEnabled">
+			<summary>This property enables/disables sending the END signal on the last byte of a write.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.TerminationCharacter">
+			<summary>This property sets/gets the ASCII character used to end reading.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IMessage.TerminationCharacterEnabled">
+			<summary>This property enables/disables ending reads upon reception of the termination character.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IAsyncMessage">
+			<summary>This is the asynchronous messaging interface exported by most resources, including all INSTR and SOCKET resources.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IAsyncMessage.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IAsyncMessage.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IAsyncMessage.LockRsrc(Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method locks the resource.</summary>
+			<param name="type">The Lock type to attempt.</param>
+			<param name="lockTimeout">The lock timeout.</param>
+			<param name="requestedKey">The requested key.</param>
+			<returns>The access key.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IAsyncMessage.UnlockRsrc">
+			<summary>This method unlocks the resource</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IAsyncMessage.Init(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method opens the resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The lock type to attempt.</param>
+			<param name="initTimeout">The lock timeout.</param>
+			<param name="OptionString">The option string to apply to the resource.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IAsyncMessage.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IAsyncMessage.AssertTrigger(Ivi.Visa.Interop.TriggerProtocol)">
+			<summary>This function asserts a software or hardware trigger dependent on the interface type.</summary>
+			<param name="protocol">The protocol to use.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IAsyncMessage.Clear">
+			<summary>This function performs an IEEE 488.2-style clear.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IAsyncMessage.ReadSTB">
+			<summary>This function reads a status byte of the service request from a service requester (the message-based device).</summary>
+			<returns>The Status Byte.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IAsyncMessage.Read(System.Int32)">
+			<summary>Reads data from the resource asynchronously.</summary>
+			<param name="count">The number of bytes to read</param>
+			<returns>This job ID can be used to terminate the operation or to identify the event object resulting from this call.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IAsyncMessage.Write(System.Byte[],System.Int32)">
+			<summary>Write data to device asynchronously.</summary>
+			<param name="buffer">The I/O Data to write in a SAFEARRAY of bytes.</param>
+			<param name="count">The number of bytes to write.</param>
+			<returns>This job ID can be used to terminate the operation or to identify the event object resulting from this call.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IAsyncMessage.WriteString(System.String)">
+			<summary>Write data to device asynchronously.</summary>
+			<param name="buffer">The I/O data to write in the form of a BSTR.</param>
+			<returns>This job ID can be used to terminate the operation or to identify the event object resulting from this call.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IAsyncMessage.Terminate(System.Int32)">
+			<summary>Request the session to terminate normal execution of an asynchronous I/O operation.</summary>
+			<param name="jobId">The job id of the asynchronous I/O operation to terminate.</param>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.HardwareInterfaceName">
+			<summary>The Name of the Hardware Interface (GPIB, ASRL, etc)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.HardwareInterfaceNumber">
+			<summary>The Board Number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.HardwareInterfaceType">
+			<summary>The type number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.LockState">
+			<summary>The current locking state of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.OptionString">
+			<summary>The Option String corresponding to the current state of the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.ResourceName">
+			<summary>The VISA Resource name of the currently open resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.SessionType">
+			<summary>The session type string, such as "INSTR" or "INTFC".</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.Timeout">
+			<summary>The I/O timeout for the resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.LastStatus">
+			<summary>The return value from the last method call on this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.IOProtocol">
+			<summary>This property sets the protocol type for I/O communication with the physical resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.SendEndEnabled">
+			<summary>This property enables/disables sending the END signal on the last byte of a write.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.TerminationCharacter">
+			<summary>This property sets/gets the ASCII character used to end reading.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IAsyncMessage.TerminationCharacterEnabled">
+			<summary>This property enables/disables ending reads upon reception of the termination character.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IRegister">
+			<summary>The IRegister interface provides a means of register access for INSTR and MEMACC session types such as VXI.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.LockRsrc(Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method locks the resource.</summary>
+			<param name="type">The Lock type to attempt.</param>
+			<param name="lockTimeout">The lock timeout.</param>
+			<param name="requestedKey">The requested key.</param>
+			<returns>The access key.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.UnlockRsrc">
+			<summary>This method unlocks the resource</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.Init(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method opens the resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The lock type to attempt.</param>
+			<param name="initTimeout">The lock timeout.</param>
+			<param name="OptionString">The option string to apply to the resource.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.In8(System.Int16,System.Int32)">
+			<summary>This function reads in an 8-bit value from the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the address or register from which to read.</param>
+			<returns>Data read from bus</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.In16(System.Int16,System.Int32)">
+			<summary>This function reads in an 16-bit value from the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the address or register from which to read.</param>
+			<returns>Data read from bus</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.In32(System.Int16,System.Int32)">
+			<summary>This function reads in an 32-bit value from the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the address or register from which to read.</param>
+			<returns>Data read from bus</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.Out8(System.Int16,System.Int32,System.Byte)">
+			<summary>This function writes an 8-bit value to the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the starting address or register to which to write.</param>
+			<param name="val8">Data to write to bus.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.Out16(System.Int16,System.Int32,System.Int16)">
+			<summary>This function writes an 16-bit value to the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the starting address or register to which to write.</param>
+			<param name="val16">Data to write to bus.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.Out32(System.Int16,System.Int32,System.Int32)">
+			<summary>This function writes an 32-bit value to the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the starting address or register to which to write.</param>
+			<param name="val32">Data to write to bus.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.MoveIn8(System.Int16,System.Int32,System.Int32)">
+			<summary>This function moves an 8-bit block of data from the specified memory space (assigned memory base + offset) to local memory.</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the address or register from which to read.</param>
+			<param name="length">Number of elements to transfer, where the data width of the elements to transfer is identical to data width.</param>
+			<returns>Data read from bus</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.MoveIn16(System.Int16,System.Int32,System.Int32)">
+			<summary>This function moves an 16-bit block of data from the specified memory space (assigned memory base + offset) to local memory.</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the address or register from which to read.</param>
+			<param name="length">Number of elements to transfer, where the data width of the elements to transfer is identical to data width.</param>
+			<returns>Data read from bus</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.MoveIn32(System.Int16,System.Int32,System.Int32)">
+			<summary>This function moves an 32-bit block of data from the specified memory space (assigned memory base + offset) to local memory.</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the address or register from which to read.</param>
+			<param name="length">Number of elements to transfer, where the data width of the elements to transfer is identical to data width.</param>
+			<returns>Data read from bus</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.MoveOut8(System.Int16,System.Int32,System.Int32,System.Byte[])">
+			<summary>This function moves an 8-bit block of data from local memory to the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the starting address or register to which to write.</param>
+			<param name="length">Number of elements to transfer, where the data width of the elements to transfer is identical to data width.</param>
+			<param name="buf8">Data to write to bus.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.MoveOut16(System.Int16,System.Int32,System.Int32,System.Int16[])">
+			<summary>This function moves an 16-bit block of data from local memory to the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the starting address or register to which to write.</param>
+			<param name="length">Number of elements to transfer, where the data width of the elements to transfer is identical to data width.</param>
+			<param name="buf16">Data to write to bus.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.MoveOut32(System.Int16,System.Int32,System.Int32,System.Int32[])">
+			<summary>This function moves an 32-bit block of data from local memory to the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the starting address or register to which to write.</param>
+			<param name="length">Number of elements to transfer, where the data width of the elements to transfer is identical to data width.</param>
+			<param name="buf32">Data to write to bus.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IRegister.Move(System.Int16,System.Int32,Ivi.Visa.Interop.DataWidth,System.Int16,System.Int32,Ivi.Visa.Interop.DataWidth,System.Int32)">
+			<summary>This operation moves data from the specified source to the specified destination.</summary>
+			<param name="srcSpace">Specifies the address space of the source.</param>
+			<param name="srcOffset">Offset (in bytes) of the address or register from which to read.</param>
+			<param name="srcWidth">Specifies the data width of the source.</param>
+			<param name="destSpace">Specifies the address space of the destination.</param>
+			<param name="destOffset">Offset (in bytes) of the starting address or register to which to write.</param>
+			<param name="destWidth">Specifies the data width of the destination.</param>
+			<param name="length">Number of elements to transfer, where the data width of the elements to transfer is identical to the source data width.</param>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.HardwareInterfaceName">
+			<summary>The Name of the Hardware Interface (GPIB, ASRL, etc)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.HardwareInterfaceNumber">
+			<summary>The Board Number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.HardwareInterfaceType">
+			<summary>The type number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.LockState">
+			<summary>The current locking state of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.OptionString">
+			<summary>The Option String corresponding to the current state of the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.ResourceName">
+			<summary>The VISA Resource name of the currently open resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.SessionType">
+			<summary>The session type string, such as "INSTR" or "INTFC".</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.Timeout">
+			<summary>The I/O timeout for the resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.LastStatus">
+			<summary>The return value from the last method call on this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.DestinationBigEndian">
+			<summary>Indicates whether the destination address space uses Big Endian or Little Endian byte order.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.DestinationIncrement">
+			<summary>Used by the MoveOut functions to determine whether to do a block move or a FIFO read.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.SourceBigEndian">
+			<summary>Indicates whether the source address space uses Big Endian or Little Endian byte order.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IRegister.SourceIncrement">
+			<summary>Used by the MoveIn functions to determine whether to do a block move or a FIFO read.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.ISharedRegister">
+			<summary>The ISharedRegister Interface provides a means of allocating memory on remote buses on INSTR sessions on interface types such as VXI.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ISharedRegister.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ISharedRegister.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ISharedRegister.LockRsrc(Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method locks the resource.</summary>
+			<param name="type">The Lock type to attempt.</param>
+			<param name="lockTimeout">The lock timeout.</param>
+			<param name="requestedKey">The requested key.</param>
+			<returns>The access key.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ISharedRegister.UnlockRsrc">
+			<summary>This method unlocks the resource</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ISharedRegister.Init(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method opens the resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The lock type to attempt.</param>
+			<param name="initTimeout">The lock timeout.</param>
+			<param name="OptionString">The option string to apply to the resource.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ISharedRegister.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ISharedRegister.AllocateMemory(System.Int32)">
+			<summary>This method returns an offset into a device's memory region that has been allocated for use by this session.</summary>
+			<param name="size">Specifies the size of the allocation.</param>
+			<returns>Returns the offset of the allocated device memory.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ISharedRegister.FreeMemory(System.Int32)">
+			<summary>This function frees the memory previously allocated using AllocateMemory.</summary>
+			<param name="offset">Specifies the memory previously allocated with AllocateMemory</param>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISharedRegister.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISharedRegister.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISharedRegister.HardwareInterfaceName">
+			<summary>The Name of the Hardware Interface (GPIB, ASRL, etc)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISharedRegister.HardwareInterfaceNumber">
+			<summary>The Board Number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISharedRegister.HardwareInterfaceType">
+			<summary>The type number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISharedRegister.LockState">
+			<summary>The current locking state of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISharedRegister.OptionString">
+			<summary>The Option String corresponding to the current state of the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISharedRegister.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISharedRegister.ResourceName">
+			<summary>The VISA Resource name of the currently open resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISharedRegister.SessionType">
+			<summary>The session type string, such as "INSTR" or "INTFC".</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISharedRegister.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISharedRegister.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISharedRegister.Timeout">
+			<summary>The I/O timeout for the resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISharedRegister.LastStatus">
+			<summary>The return value from the last method call on this interface.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IGpib">
+			<summary>The IGpib Interface provides the INSTR attributes and methods specific to GPIB and GPIB-VXI INSTR sessions.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpib.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpib.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpib.LockRsrc(Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method locks the resource.</summary>
+			<param name="type">The Lock type to attempt.</param>
+			<param name="lockTimeout">The lock timeout.</param>
+			<param name="requestedKey">The requested key.</param>
+			<returns>The access key.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpib.UnlockRsrc">
+			<summary>This method unlocks the resource</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpib.Init(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method opens the resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The lock type to attempt.</param>
+			<param name="initTimeout">The lock timeout.</param>
+			<param name="OptionString">The option string to apply to the resource.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpib.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpib.ControlREN(Ivi.Visa.Interop.RENControlConst)">
+			<summary>Controls the state of the GPIB REN interface line and, optionally, the remote/local state of the device.</summary>
+			<param name="mode">Specifies the state of the REN line and optionally the device remote/local state.</param>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.HardwareInterfaceName">
+			<summary>The Name of the Hardware Interface (GPIB, ASRL, etc)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.HardwareInterfaceNumber">
+			<summary>The Board Number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.HardwareInterfaceType">
+			<summary>The type number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.LockState">
+			<summary>The current locking state of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.OptionString">
+			<summary>The Option String corresponding to the current state of the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.ResourceName">
+			<summary>The VISA Resource name of the currently open resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.SessionType">
+			<summary>The session type string, such as "INSTR" or "INTFC".</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.Timeout">
+			<summary>The I/O timeout for the resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.LastStatus">
+			<summary>The return value from the last method call on this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.PrimaryAddress">
+			<summary>Primary address of the GPIB device used by the given session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.RENState">
+			<summary>The current state of the GPIB RENinterface line.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.RepeatAddressingEnabled">
+			<summary>Specifies whether to use repeat addressing before each read or write operation.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.SecondaryAddress">
+			<summary>Secondary address of the GPIB device used by the given session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpib.UnaddressingEnabled">
+			<summary>Specifies whether to unaddress the device (UNT and UNL) after each read or write operation.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IGpibIntfc">
+			<summary>The IGpibIntfc interface provides the properties and methods specific to GPIB INTFC sessions, except for messaging capabilities.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfc.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfc.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfc.LockRsrc(Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method locks the resource.</summary>
+			<param name="type">The Lock type to attempt.</param>
+			<param name="lockTimeout">The lock timeout.</param>
+			<param name="requestedKey">The requested key.</param>
+			<returns>The access key.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfc.UnlockRsrc">
+			<summary>This method unlocks the resource</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfc.Init(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method opens the resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The lock type to attempt.</param>
+			<param name="initTimeout">The lock timeout.</param>
+			<param name="OptionString">The option string to apply to the resource.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfc.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfc.Command(System.Byte[],System.Int32)">
+			<summary>Write GPIB command bytes on the bus.</summary>
+			<param name="buffer">The command data bytes.</param>
+			<param name="count">The number of bytes to write from the buffer.</param>
+			<returns>The number of bytes written.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfc.ControlATN(Ivi.Visa.Interop.ATNControlConst)">
+			<summary>Controls the state of the GPIB ATN interface line, and optionally the active controller state of the local interface board.</summary>
+			<param name="mode">Specifies the state of the ATN line and optionally the local active controller state.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfc.ControlREN(Ivi.Visa.Interop.RENControlConst)">
+			<summary>Controls the state of the GPIB REN interface line and, optionally, the remote/local state of the device.</summary>
+			<param name="mode">Specifies the state of the REN line and optionally the device remote/local state.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfc.PassControl(System.Int16,System.Int16)">
+			<summary>Tell the GPIB device at the specified address to become controller in charge (CIC).</summary>
+			<param name="primAddr">Primary address of the GPIB device to which you want to pass control.</param>
+			<param name="secAddr">Secondary address of the targeted GPIB device.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfc.SendIFC">
+			<summary>Pulse the interface clear line (IFC) for at least 100 microseconds.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.HardwareInterfaceName">
+			<summary>The Name of the Hardware Interface (GPIB, ASRL, etc)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.HardwareInterfaceNumber">
+			<summary>The Board Number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.HardwareInterfaceType">
+			<summary>The type number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.LockState">
+			<summary>The current locking state of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.OptionString">
+			<summary>The Option String corresponding to the current state of the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.ResourceName">
+			<summary>The VISA Resource name of the currently open resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.SessionType">
+			<summary>The session type string, such as "INSTR" or "INTFC".</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.Timeout">
+			<summary>The I/O timeout for the resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.LastStatus">
+			<summary>The return value from the last method call on this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.AddressingState">
+			<summary>Shows whether the specified GPIB interface is currently addressed to talk or listen, or is not addressed.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.ATNState">
+			<summary>Shows the current state of the GPIB ATN (ATtentioN) interface line.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.DevStatusByte">
+			<summary>Specifies the 488-style status byte of the local controller associated with this session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.CICState">
+			<summary>Shows whether the specified GPIB interface is currently CIC (controller in charge).</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.HS488CBLLength">
+			<summary>Specifies the total number of meters of GPIB cable used in the specified GPIB interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.NDACState">
+			<summary>Shows the current state of the GPIB NDAC (Not Data ACcepted) interface line.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.PrimaryAddress">
+			<summary>Primary address of the local GPIB controller used by the given session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.RENState">
+			<summary>Shows the current state of the GPIB REN(Remote ENable) interface line.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.SecondaryAddress">
+			<summary>Secondary address of the local GPIB controller used by the given session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.SRQState">
+			<summary>Shows the current state of the GPIB SRQ(Service ReQuest) interface line.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfc.SysControlState">
+			<summary>Shows whether the specified GPIB interface is currently the system controller.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IGpibIntfcMessage">
+			<summary>The IGpibIntfcMessage interface provides the subset of text stream features present on a GPIB INTFC resource.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfcMessage.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfcMessage.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfcMessage.LockRsrc(Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method locks the resource.</summary>
+			<param name="type">The Lock type to attempt.</param>
+			<param name="lockTimeout">The lock timeout.</param>
+			<param name="requestedKey">The requested key.</param>
+			<returns>The access key.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfcMessage.UnlockRsrc">
+			<summary>This method unlocks the resource</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfcMessage.Init(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method opens the resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The lock type to attempt.</param>
+			<param name="initTimeout">The lock timeout.</param>
+			<param name="OptionString">The option string to apply to the resource.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfcMessage.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfcMessage.AssertTrigger(Ivi.Visa.Interop.TriggerProtocol)">
+			<summary>This function asserts a software or hardware trigger dependent on the interface type.</summary>
+			<param name="protocol">Trigger protocol to use during assertion.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfcMessage.Read(System.Int32)">
+			<summary>This function synchronously transfers data from a device.</summary>
+			<param name="count">The number of bytes to read.</param>
+			<returns>The read I/O data in an array of bytes.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfcMessage.ReadString(System.Int32)">
+			<summary>This function synchronously transfers data from a device.</summary>
+			<param name="count">The number of bytes to read.</param>
+			<returns>The read I/O data in a string.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfcMessage.Write(System.Byte[],System.Int32)">
+			<summary>This function synchronously transfers data to a device.</summary>
+			<param name="buffer">The I/O data to write in an array of bytes.</param>
+			<param name="count">The number of bytes to write.</param>
+			<returns>Returns the number of bytes written.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IGpibIntfcMessage.WriteString(System.String)">
+			<summary>This function synchronously transfers data to a device.</summary>
+			<param name="buffer">The data to write in a string.</param>
+			<returns>Returns the number of bytes written.</returns>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.HardwareInterfaceName">
+			<summary>The Name of the Hardware Interface (GPIB, ASRL, etc)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.HardwareInterfaceNumber">
+			<summary>The Board Number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.HardwareInterfaceType">
+			<summary>The type number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.LockState">
+			<summary>The current locking state of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.OptionString">
+			<summary>The Option String corresponding to the current state of the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.ResourceName">
+			<summary>The VISA Resource name of the currently open resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.SessionType">
+			<summary>The session type string, such as "INSTR" or "INTFC".</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.Timeout">
+			<summary>The I/O timeout for the resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.LastStatus">
+			<summary>The return value from the last method call on this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.SendEndEnabled">
+			<summary>This property enables/disables sending the END signal on the last byte of a write.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.TerminationCharacter">
+			<summary>This property sets/gets the ASCII character used to end reading.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IGpibIntfcMessage.TerminationCharacterEnabled">
+			<summary>This property enables/disables ending reads upon reception of the termination character.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.ISerial">
+			<summary>The ISerial interface provides the methods and properties specific to ASRL INSTR sessions.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ISerial.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ISerial.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ISerial.LockRsrc(Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method locks the resource.</summary>
+			<param name="type">The Lock type to attempt.</param>
+			<param name="lockTimeout">The lock timeout.</param>
+			<param name="requestedKey">The requested key.</param>
+			<returns>The access key.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ISerial.UnlockRsrc">
+			<summary>This method unlocks the resource</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ISerial.Init(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method opens the resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The lock type to attempt.</param>
+			<param name="initTimeout">The lock timeout.</param>
+			<param name="OptionString">The option string to apply to the resource.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ISerial.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ISerial.SetBufferSize(Ivi.Visa.Interop.BufferMask,System.Int32)">
+			<summary>This function sets the size of the read and/or write buffer for serial communication.</summary>
+			<param name="mask">Which serial buffer to resize, the in buffer, the out buffer, or both.</param>
+			<param name="size">The desired new size of the serial buffer to resize.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ISerial.Flush(Ivi.Visa.Interop.BufferMask,System.Boolean)">
+			<summary>This function manually flushes the read and write buffers associated with serial interfaces.</summary>
+			<param name="mask">Which serial buffer to resize, the in buffer, the out buffer, or both.</param>
+			<param name="discard">Specifies whether to due a discard of the data or perform I/O to the device.</param>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.HardwareInterfaceName">
+			<summary>The Name of the Hardware Interface (GPIB, ASRL, etc)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.HardwareInterfaceNumber">
+			<summary>The Board Number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.HardwareInterfaceType">
+			<summary>The type number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.LockState">
+			<summary>The current locking state of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.OptionString">
+			<summary>The Option String corresponding to the current state of the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.ResourceName">
+			<summary>The VISA Resource name of the currently open resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.SessionType">
+			<summary>The session type string, such as "INSTR" or "INTFC".</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.Timeout">
+			<summary>The I/O timeout for the resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.LastStatus">
+			<summary>The return value from the last method call on this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.BytesAvailable">
+			<summary>Shows the number of bytes available in the global receive buffer.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.BaudRate">
+			<summary>This is the baud rate of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.DataBits">
+			<summary>This is the number of data bits contained in each frame (from 5to 8).</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.ClearToSendState">
+			<summary>This attribute shows the current state of the Clear To Send (CTS) input signal.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.DataCarrierDetectState">
+			<summary>Shows the current state of the Data Carrier Detect (DCD) input signal.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.DataSetReadyState">
+			<summary>This attribute shows the current state of the Data Set Ready (DSR) input signal.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.DataTerminalReadyState">
+			<summary>This attribute is used to manually assert or unassert the DataTerminal Ready (DTR) output signal.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.EndIn">
+			<summary>Indicates the method used to terminate read operations.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.EndOut">
+			<summary>Indicates the method used to terminate write operations.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.FlowControl">
+			<summary>Sets/shows the ASRL flow control mechanism.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.Parity">
+			<summary>This is the parity used with every frame transmitted and received.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.RingIndicatorState">
+			<summary>This attribute shows the current state of the Ring Indicator (RI) input signal.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.RequestToSendState">
+			<summary>This attribute is used to manually assert or unassert the Request To Send (RTS) output signal.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.StopBits">
+			<summary>This is the number of stop bits used to indicate the end of a frame.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.ReplacementCharacter">
+			<summary>This attribute specifies the character to be used to replace incoming characters that arrive with errors (such as parity errors.)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.XONCharacter">
+			<summary>This attribute specifies the value of the XON character used for XON/XOFF flow control (both directions).</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ISerial.XOFFCharacter">
+			<summary>This attribute specifies the value of the XOFF character used for XON/XOFF flow control (both directions).</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.ITcpipInstr">
+			<summary>The interface for properties specific to TCPIP INSTR sessions.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ITcpipInstr.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ITcpipInstr.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ITcpipInstr.LockRsrc(Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method locks the resource.</summary>
+			<param name="type">The Lock type to attempt.</param>
+			<param name="lockTimeout">The lock timeout.</param>
+			<param name="requestedKey">The requested key.</param>
+			<returns>The access key.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ITcpipInstr.UnlockRsrc">
+			<summary>This method unlocks the resource</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ITcpipInstr.Init(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method opens the resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The lock type to attempt.</param>
+			<param name="initTimeout">The lock timeout.</param>
+			<param name="OptionString">The option string to apply to the resource.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ITcpipInstr.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.HardwareInterfaceName">
+			<summary>The Name of the Hardware Interface (GPIB, ASRL, etc)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.HardwareInterfaceNumber">
+			<summary>The Board Number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.HardwareInterfaceType">
+			<summary>The type number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.LockState">
+			<summary>The current locking state of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.OptionString">
+			<summary>The Option String corresponding to the current state of the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.ResourceName">
+			<summary>The VISA Resource name of the currently open resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.SessionType">
+			<summary>The session type string, such as "INSTR" or "INTFC".</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.Timeout">
+			<summary>The I/O timeout for the resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.LastStatus">
+			<summary>The return value from the last method call on this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.Address">
+			<summary>This is the TCPIP address of the device to which the session is connected.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.HostName">
+			<summary>This specifies the host name of the device.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipInstr.DeviceName">
+			<summary>This specifies the LAN device name used by the VXI-11 protocol during connection.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.ITcpipSocket">
+			<summary>The ITcpipSocket interface provides the VISA COM I/O properties and methods specific to TCPIP SOCKET resource sessions.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ITcpipSocket.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ITcpipSocket.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ITcpipSocket.LockRsrc(Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method locks the resource.</summary>
+			<param name="type">The Lock type to attempt.</param>
+			<param name="lockTimeout">The lock timeout.</param>
+			<param name="requestedKey">The requested key.</param>
+			<returns>The access key.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ITcpipSocket.UnlockRsrc">
+			<summary>This method unlocks the resource</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ITcpipSocket.Init(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method opens the resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The lock type to attempt.</param>
+			<param name="initTimeout">The lock timeout.</param>
+			<param name="OptionString">The option string to apply to the resource.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ITcpipSocket.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ITcpipSocket.SetBufferSize(Ivi.Visa.Interop.BufferMask,System.Int32)">
+			<summary>This function sets the size of the read and/or write buffer for TCPIP socket communication.</summary>
+			<param name="mask">Which serial buffer to resize, the in buffer, the out buffer, or both.</param>
+			<param name="size">The desired new size of the serial buffer to resize.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.ITcpipSocket.Flush(Ivi.Visa.Interop.BufferMask,System.Boolean)">
+			<summary>This function manually flushes the read and write buffers associated with TCPIP socket interfaces.</summary>
+			<param name="mask">Which serial buffer to resize, the in buffer, the out buffer, or both.</param>
+			<param name="discard">Specifies whether to due a discard of the data or perform I/O to the device.</param>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.HardwareInterfaceName">
+			<summary>The Name of the Hardware Interface (GPIB, ASRL, etc)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.HardwareInterfaceNumber">
+			<summary>The Board Number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.HardwareInterfaceType">
+			<summary>The type number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.LockState">
+			<summary>The current locking state of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.OptionString">
+			<summary>The Option String corresponding to the current state of the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.ResourceName">
+			<summary>The VISA Resource name of the currently open resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.SessionType">
+			<summary>The session type string, such as "INSTR" or "INTFC".</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.Timeout">
+			<summary>The I/O timeout for the resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.LastStatus">
+			<summary>The return value from the last method call on this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.Address">
+			<summary>This is the TCPIP address of the device to which the session is connected.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.HostName">
+			<summary>This specifies the host name of the device.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.KeepAlive">
+			<summary>An application can request that a TCP/IP provider enable the use of keep-alive packets on TCP connections by turning on this attribute.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.NoDelay">
+			<summary>The Nagle algorithm is disabled when this attribute is enabled (and vice versa).</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.ITcpipSocket.Port">
+			<summary>An application can request that a TCP/IP provider enable the use of keep-alive packets on TCP connections by turning on this attribute.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IVxi">
+			<summary>The IVxi interface defines the methods and COM properties specific to VXI and GPIB-VXI INSTR session VISA COM I/O components.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxi.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxi.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxi.LockRsrc(Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method locks the resource.</summary>
+			<param name="type">The Lock type to attempt.</param>
+			<param name="lockTimeout">The lock timeout.</param>
+			<param name="requestedKey">The requested key.</param>
+			<returns>The access key.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxi.UnlockRsrc">
+			<summary>This method unlocks the resource</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxi.Init(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method opens the resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The lock type to attempt.</param>
+			<param name="initTimeout">The lock timeout.</param>
+			<param name="OptionString">The option string to apply to the resource.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxi.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxi.AssertTrigger(Ivi.Visa.Interop.TriggerProtocol)">
+			<summary>This operation will source a software or hardware trigger dependent on the interface type.</summary>
+			<param name="protocol">Trigger protocol to use during assertion.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxi.CommandQuery(Ivi.Visa.Interop.VXICommandQuery,System.Int32)">
+			<summary>Send the device a miscellaneous command or query and/or retrieve the response to a previous query.</summary>
+			<param name="mode">Specifies whether to issue a command and/or retrieve a response.</param>
+			<param name="cmd">The miscellaneous command to send.</param>
+			<returns>The response retrieved from the device.</returns>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.HardwareInterfaceName">
+			<summary>The Name of the Hardware Interface (GPIB, ASRL, etc)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.HardwareInterfaceNumber">
+			<summary>The Board Number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.HardwareInterfaceType">
+			<summary>The type number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.LockState">
+			<summary>The current locking state of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.OptionString">
+			<summary>The Option String corresponding to the current state of the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.ResourceName">
+			<summary>The VISA Resource name of the currently open resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.SessionType">
+			<summary>The session type string, such as "INSTR" or "INTFC".</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.Timeout">
+			<summary>The I/O timeout for the resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.LastStatus">
+			<summary>The return value from the last method call on this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.CommanderLA">
+			<summary>Logical address of the commander of the VXI device used by the given session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.DestinationAccessPrivilege">
+			<summary>This attribute specifies the address modifier to be used in high-level access operations, such as OutXX() and MoveOutXX(), when writing to the destination.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.DeviceClass">
+			<summary>This attribute represents the VXI-defined device class to which the resource belongs, either message based(VXI_CLASS_MESSAGE), register based(VXI_CLASS_REGISTER), extended(VXI_CLASS_EXTENDED), or memory(VXI_CLASS_MEMORY).</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.FastDataChannel">
+			<summary>This attribute determines which FDC channel will be used to transfer the buffer.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.FastDataChannelMode">
+			<summary>This attribute determines which FDC mode to use (Normal mode or Stream mode).</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.FastDataChannelUsePair">
+			<summary>If set to true, a channel pair will be used for transferring data.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.ImmediateServant">
+			<summary>Specifies whether the given device is an immediate servant of the controller running VISA.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.LogicalAddress">
+			<summary>Logical address of the VXI or VME device used by the given session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.MainframeLogicalAddress">
+			<summary>This is the logical address of a given device in the mainframe, usually the device with the lowest logical address.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.ManufacturerID">
+			<summary>Manufacturer identification number of the VXIbus device.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.ManufacturerName">
+			<summary>This string property is the manufacturer's name.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.MemoryBase">
+			<summary>Base address of the device in VXIbus memory address space.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.MemorySize">
+			<summary>Size of memory requested by the device in VXIbus address space.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.MemorySpace">
+			<summary>VXIbus address space used by the device.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.ModelCode">
+			<summary>Model code for the device.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.ModelName">
+			<summary>This string property is the model name of the device.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.TriggerID">
+			<summary>Identifier for the current triggering mechanism.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.Slot">
+			<summary>Physical slot location of the VXIbus device.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.SourceAccessPrivilege">
+			<summary>This attribute specifies the address modifier to be used in high-level access operations, such as InXX() and MoveInXX(), when reading from the source.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxi.TriggerSupport">
+			<summary>This attribute shows which VXI trigger lines this implementation supports.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IVxiMemacc">
+			<summary>The IVxiMemacc Interface provides the properties specific to VXI Memory Access resources.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.LockRsrc(Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method locks the resource.</summary>
+			<param name="type">The Lock type to attempt.</param>
+			<param name="lockTimeout">The lock timeout.</param>
+			<param name="requestedKey">The requested key.</param>
+			<returns>The access key.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.UnlockRsrc">
+			<summary>This method unlocks the resource</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.Init(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method opens the resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The lock type to attempt.</param>
+			<param name="initTimeout">The lock timeout.</param>
+			<param name="OptionString">The option string to apply to the resource.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.In8(System.Int16,System.Int32)">
+			<summary>This function reads in an 8-bit value from the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the address or register from which to read.</param>
+			<returns>Data read from bus</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.In16(System.Int16,System.Int32)">
+			<summary>This function reads in an 16-bit value from the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the address or register from which to read.</param>
+			<returns>Data read from bus</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.In32(System.Int16,System.Int32)">
+			<summary>This function reads in an 32-bit value from the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the address or register from which to read.</param>
+			<returns>Data read from bus</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.Out8(System.Int16,System.Int32,System.Byte)">
+			<summary>This function writes an 8-bit value to the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the starting address or register to which to write.</param>
+			<param name="val8">Data to write to bus.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.Out16(System.Int16,System.Int32,System.Int16)">
+			<summary>This function writes an 16-bit value to the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the starting address or register to which to write.</param>
+			<param name="val16">Data to write to bus.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.Out32(System.Int16,System.Int32,System.Int32)">
+			<summary>This function writes an 32-bit value to the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the starting address or register to which to write.</param>
+			<param name="val32">Data to write to bus.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.MoveIn8(System.Int16,System.Int32,System.Int32)">
+			<summary>This function moves an 8-bit block of data from the specified memory space (assigned memory base + offset) to local memory.</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the address or register from which to read.</param>
+			<param name="length">Number of elements to transfer, where the data width of the elements to transfer is identical to data width.</param>
+			<returns>Data read from bus</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.MoveIn16(System.Int16,System.Int32,System.Int32)">
+			<summary>This function moves an 16-bit block of data from the specified memory space (assigned memory base + offset) to local memory.</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the address or register from which to read.</param>
+			<param name="length">Number of elements to transfer, where the data width of the elements to transfer is identical to data width.</param>
+			<returns>Data read from bus</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.MoveIn32(System.Int16,System.Int32,System.Int32)">
+			<summary>This function moves an 32-bit block of data from the specified memory space (assigned memory base + offset) to local memory.</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the address or register from which to read.</param>
+			<param name="length">Number of elements to transfer, where the data width of the elements to transfer is identical to data width.</param>
+			<returns>Data read from bus</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.MoveOut8(System.Int16,System.Int32,System.Int32,System.Byte[])">
+			<summary>This function moves an 8-bit block of data from local memory to the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the starting address or register to which to write.</param>
+			<param name="length">Number of elements to transfer, where the data width of the elements to transfer is identical to data width.</param>
+			<param name="buf8">Data to write to bus.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.MoveOut16(System.Int16,System.Int32,System.Int32,System.Int16[])">
+			<summary>This function moves an 16-bit block of data from local memory to the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the starting address or register to which to write.</param>
+			<param name="length">Number of elements to transfer, where the data width of the elements to transfer is identical to data width.</param>
+			<param name="buf16">Data to write to bus.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.MoveOut32(System.Int16,System.Int32,System.Int32,System.Int32[])">
+			<summary>This function moves an 32-bit block of data from local memory to the specified memory space (assigned memory base + offset).</summary>
+			<param name="space">Specifies the address space.</param>
+			<param name="offset">Offset (in bytes) of the starting address or register to which to write.</param>
+			<param name="length">Number of elements to transfer, where the data width of the elements to transfer is identical to data width.</param>
+			<param name="buf32">Data to write to bus.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiMemacc.Move(System.Int16,System.Int32,Ivi.Visa.Interop.DataWidth,System.Int16,System.Int32,Ivi.Visa.Interop.DataWidth,System.Int32)">
+			<summary>This operation moves data from the specified source to the specified destination.</summary>
+			<param name="srcSpace">Specifies the source address space.</param>
+			<param name="srcOffset">Offset (in bytes) of the address or register from which to read.</param>
+			<param name="srcWidth">Specifies the data width of the source.</param>
+			<param name="destSpace">Specifies the destination address space.</param>
+			<param name="destOffset">Offset (in bytes) of the starting address or register to which to write.</param>
+			<param name="destWidth">Specifies the data width of the destination.</param>
+			<param name="length">Number of elements to transfer, where the data width of the elements to transfer is identical to the source data width.</param>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.HardwareInterfaceName">
+			<summary>The Name of the Hardware Interface (GPIB, ASRL, etc)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.HardwareInterfaceNumber">
+			<summary>The Board Number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.HardwareInterfaceType">
+			<summary>The type number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.LockState">
+			<summary>The current locking state of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.OptionString">
+			<summary>The Option String corresponding to the current state of the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.ResourceName">
+			<summary>The VISA Resource name of the currently open resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.SessionType">
+			<summary>The session type string, such as "INSTR" or "INTFC".</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.Timeout">
+			<summary>The I/O timeout for the resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.LastStatus">
+			<summary>The return value from the last method call on this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.DestinationBigEndian">
+			<summary>Indicates whether the destination address space uses Big Endian or Little Endian byte order.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.DestinationIncrement">
+			<summary>Used by the MoveOut functions to determine whether to do a block move or a FIFO read.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.SourceBigEndian">
+			<summary>Indicates whether the source address space uses Big Endian or Little Endian byte order.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.SourceIncrement">
+			<summary>Used by the MoveIn functions to determine whether to do a block move or a FIFO read.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.DestinationAccessPrivilege">
+			<summary>This attribute specifies the address modifier to be used in high-level access operations, such as viOutXX() and viMoveOutXX(), when writing to the destination.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.SourceAccessPrivilege">
+			<summary>This attribute specifies the address modifier to be used in high-level access operations, such as viInXX() and viMoveInXX(), when reading from the source.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiMemacc.LogicalAddress">
+			<summary>Logical address of the VXI or VME device used by the given session.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IVxiBackplane">
+			<summary>The IVxiBackplane interface provides the properties and methods specific to the VXI BACKPLANE resource.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiBackplane.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiBackplane.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiBackplane.LockRsrc(Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method locks the resource.</summary>
+			<param name="type">The Lock type to attempt.</param>
+			<param name="lockTimeout">The lock timeout.</param>
+			<param name="requestedKey">The requested key.</param>
+			<returns>The access key.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiBackplane.UnlockRsrc">
+			<summary>This method unlocks the resource</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiBackplane.Init(System.String,Ivi.Visa.Interop.AccessMode,System.Int32,System.String)">
+			<summary>This method opens the resource.</summary>
+			<param name="ResourceName">The Resource Name string.</param>
+			<param name="mode">The lock type to attempt.</param>
+			<param name="initTimeout">The lock timeout.</param>
+			<param name="OptionString">The option string to apply to the resource.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiBackplane.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiBackplane.AssertInterruptSignal(Ivi.Visa.Interop.AssertInterruptConst,System.Int32)">
+			<summary>Asserts the specified device interrupt or signal.</summary>
+			<param name="mode">This specifies how to assert the interrupt.</param>
+			<param name="statusID">This is the status value to be presented during an interrupt acknowledge cycle.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiBackplane.AssertTrigger(Ivi.Visa.Interop.TriggerProtocol)">
+			<summary>This operation will source a software or hardware trigger dependent on the interface type.</summary>
+			<param name="protocol">Trigger protocol to use during assertion.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiBackplane.AssertUtilSignal(Ivi.Visa.Interop.AssertUtilityConst)">
+			<summary>Asserts the specified utility bus signal.</summary>
+			<param name="line">Specifies the utility bus signal to assert.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiBackplane.MapTrigger(Ivi.Visa.Interop.TriggerLine,Ivi.Visa.Interop.TriggerLine,System.Int16)">
+			<summary>Map the specified trigger source line to the specified destination line.</summary>
+			<param name="trigSrc">Source line from which to map.</param>
+			<param name="trigDest">Destination line to which to map.</param>
+			<param name="mode">Specifies the trigger mapping mode.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVxiBackplane.UnmapTrigger(Ivi.Visa.Interop.TriggerLine,Ivi.Visa.Interop.TriggerLine)">
+			<summary>Undo a previous map from the specified trigger source line to the specified destination line.</summary>
+			<param name="trigSrc">Source line used in previous map.</param>
+			<param name="trigDest">Destination line used in previous map.</param>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.ComponentVersion">
+			<summary>A numeric version for this component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.SpecVersion">
+			<summary>This property returns the VISA-defined version information for the specification version this component complies to.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.HardwareInterfaceName">
+			<summary>The Name of the Hardware Interface (GPIB, ASRL, etc)</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.HardwareInterfaceNumber">
+			<summary>The Board Number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.HardwareInterfaceType">
+			<summary>The type number of the Hardware Interface</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.LockState">
+			<summary>The current locking state of the interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.OptionString">
+			<summary>The Option String corresponding to the current state of the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.ProgID">
+			<summary>The Programmatic ID that can be used by COM to create this object.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.ResourceName">
+			<summary>The VISA Resource name of the currently open resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.SessionType">
+			<summary>The session type string, such as "INSTR" or "INTFC".</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.SoftwareManufacturerID">
+			<summary>The ID number of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.SoftwareManufacturerName">
+			<summary>The name of the vendor of this software component.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.Timeout">
+			<summary>The I/O timeout for the resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.LastStatus">
+			<summary>The return value from the last method call on this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.MainframeLA">
+			<summary>This is the logical address of a given device in the mainframe, usually the device with the lowest logical address.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.TriggerID">
+			<summary>Identifier for the current triggering mechanism.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.TriggerStatus">
+			<summary>This attribute shows the current state of the VXI trigger lines.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.TriggerSupport">
+			<summary>This attribute shows which VXI trigger lines this implementation supports.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.VxiVmeInterruptStatus">
+			<summary>This attribute shows the current state of the VXI/VME interrupt lines.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVxiBackplane.VxiVmeSysfailStatus">
+			<summary>This attribute shows the current state of the VXI/VME SYSFAIL (SYStem FAILure) backplane line.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IEventIOCompletion">
+			<summary>This interface is exported by I/O Completion event objects.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventIOCompletion.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventIOCompletion.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventIOCompletion.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventIOCompletion.type">
+			<summary>The type of the event.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventIOCompletion.CustomEventTypeNumber">
+			<summary>If the type parameter's value is CUSTOM_EVENT_TYPE, this value contains the custom event type.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventIOCompletion.IOStatus">
+			<summary>The HRESULT of the I/O operation.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventIOCompletion.jobId">
+			<summary>The Job ID of the I/O Operation</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventIOCompletion.ReturnCount">
+			<summary>If successful, the number of bytes written/read in the asynchronous I/O operation.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventIOCompletion.ReadBuffer">
+			<summary>The read/written data in the form of a SAFEARRAY of bytes.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventIOCompletion.ReadBufferAsString">
+			<summary>The read/written data in the form of a BSTR.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IEventTrigger">
+			<summary>This interface is exported by Trigger event objects.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventTrigger.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventTrigger.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventTrigger.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventTrigger.type">
+			<summary>The type of the event.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventTrigger.CustomEventTypeNumber">
+			<summary>If the type parameter's value is CUSTOM_EVENT_TYPE, this value contains the custom event type.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventTrigger.TriggerID">
+			<summary>The identifier of the triggering mechanism on which the specified trigger event was received.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IEventVxiSignal">
+			<summary>This interface is exported by Vxi Signal event objects.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventVxiSignal.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventVxiSignal.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventVxiSignal.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventVxiSignal.type">
+			<summary>The type of the event.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventVxiSignal.CustomEventTypeNumber">
+			<summary>If the type parameter's value is CUSTOM_EVENT_TYPE, this value contains the custom event type.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventVxiSignal.SignalStatusID">
+			<summary>The 16-bit Status/ID value retrieved during the IACK cycle or from the Signal register.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IEventVxiVmeInterrupt">
+			<summary>This interface is exported by Vxi Vme Interrupt event objects.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventVxiVmeInterrupt.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventVxiVmeInterrupt.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventVxiVmeInterrupt.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventVxiVmeInterrupt.type">
+			<summary>The type of the event.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventVxiVmeInterrupt.CustomEventTypeNumber">
+			<summary>If the type parameter's value is CUSTOM_EVENT_TYPE, this value contains the custom event type.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventVxiVmeInterrupt.InterruptStatusID">
+			<summary>This attribute value is the 32-bit status/ID retrieved during the IACK cycle.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventVxiVmeInterrupt.InterruptLevel">
+			<summary>This attribute value is the VXI interrupt level on which the interrupt was received.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IEventGpibCIC">
+			<summary>This interface is exported by Gpib CIC event objects.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventGpibCIC.GetAttribute(System.Int32)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to retrieve.</param>
+			<returns>The value of the attribute.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventGpibCIC.SetAttribute(System.Int32,System.Object)">
+			<summary>Use of this method is discouraged.</summary>
+			<param name="attribute">The attribute type to modify.</param>
+			<param name="attrState">The value of the attribute.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IEventGpibCIC.Close">
+			<summary>This method closes the resource.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventGpibCIC.type">
+			<summary>The type of the event.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventGpibCIC.CustomEventTypeNumber">
+			<summary>If the type parameter's value is CUSTOM_EVENT_TYPE, this value contains the custom event type.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IEventGpibCIC.CICState">
+			<summary>The CIC state.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IFormattedIO488">
+			<summary>The IFormattedIO488 interface provides basic formatted I/O functionality.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IFormattedIO488.WriteString(System.String,System.Boolean)">
+			<summary>This method appends a string to the formatted I/O object's write buffer.</summary>
+			<param name="data">The string data to write.</param>
+			<param name="flushAndEND">If this parameter is true, the formatted I/O object will flush the contents of the write buffer and send an end to the instrument.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IFormattedIO488.WriteNumber(System.Object,Ivi.Visa.Interop.IEEEASCIIType,System.Boolean)">
+			<summary>This method appends a number (in ASCII string format) to the write buffer.</summary>
+			<param name="data">The number to write to the instrument.</param>
+			<param name="type">The format to write the number in.</param>
+			<param name="flushAndEND">If this parameter is true, the formatted I/O object will flush the contents of the write buffer and send an end to the instrument.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IFormattedIO488.WriteList(System.Object,Ivi.Visa.Interop.IEEEASCIIType,System.String,System.Boolean)">
+			<summary>This method appends an array of arguments to the write buffer in an ASCII list format.</summary>
+			<param name="data">The array of elements to write.</param>
+			<param name="type">The format to write the number in.</param>
+			<param name="listSeperator">This parameter may only be a single character string.</param>
+			<param name="flushAndEND">If this parameter is true, the formatted I/O object will flush the contents of the write buffer and send an end to the instrument.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IFormattedIO488.WriteIEEEBlock(System.String,System.Object,System.Boolean)">
+			<summary>This method appends an ASCII string followed by an IEEE 488.2 Definite-length arbitrary data binary block.</summary>
+			<param name="Command">The string to prepend to the IEEE block data.</param>
+			<param name="data">The array of data to write to the instrument.</param>
+			<param name="flushAndEND">If this parameter is true, the formatted I/O object will flush the contents of the write buffer and send an end to the instrument.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IFormattedIO488.ReadString">
+			<summary>This method reads from the read buffer until an end condition is reached (termination character, END signal, etc) and returns the data in a string.</summary>
+			<returns>The string data retrieved from the read buffer.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IFormattedIO488.ReadNumber(Ivi.Visa.Interop.IEEEASCIIType,System.Boolean)">
+			<summary>This method reads from the read buffer, converting its contents into a numeric value, until an unparsable character is received or an end condition occurs.</summary>
+			<param name="type">The formatted I/O object will verify that the data is in this format.</param>
+			<param name="flushToEND">If this parameter is true, the formatted I/O object will flush the contents of the write buffer after the retrieved data.</param>
+			<returns>The number retrieved from the read buffer.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IFormattedIO488.ReadList(Ivi.Visa.Interop.IEEEASCIIType,System.String)">
+			<summary>This method reads from the read buffer until an end condition occurs, interpreting the data as an ASCII list of values.</summary>
+			<param name="type">The formatted I/O object will attempt to convert the data to this format.</param>
+			<param name="listSeperator">This string is interpreted as list of character separators.</param>
+			<returns>The returned array of data.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IFormattedIO488.ReadIEEEBlock(Ivi.Visa.Interop.IEEEBinaryType,System.Boolean,System.Boolean)">
+			<summary>This method reads an IEEE 488.2 definite-length arbitrary-data binary block.</summary>
+			<param name="type">The formatted I/O object will attempt to convert the data to this format.</param>
+			<param name="seekToBlock">The method will search for the hash if it is not the first character if this parameter is true.</param>
+			<param name="flushToEND">If this parameter is true, the formatted I/O object will flush the contents of the write buffer after the retrieved data.</param>
+			<returns>The returned array of data.</returns>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IFormattedIO488.FlushWrite(System.Boolean)">
+			<summary>This method flushes the contents of the write buffer.</summary>
+			<param name="sendEND">If this parameter is true, the formatted I/O object will send an end to the instrument on the last character in the buffer.</param>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IFormattedIO488.FlushRead">
+			<summary>This method flushes the contents of the Read buffer until an end condition is reached.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IFormattedIO488.SetBufferSize(Ivi.Visa.Interop.BufferMask,System.Int32)">
+			<summary>This method sets the size of the read, write, or both formatted I/O buffers.</summary>
+			<param name="mask">Which buffer to resize.</param>
+			<param name="size">The new buffer size.</param>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IFormattedIO488.IO">
+			<summary>This property gets/sets the VISA COM resource session.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IFormattedIO488.InstrumentBigEndian">
+			<summary>This property affects the behavior of the Read/WriteIEEEBlock methods.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IVisaConflictTableManager">
+			<summary>Do not use this interface.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVisaConflictTableManager.CreateHandler(System.Int16,System.Int16,System.String,System.String,Ivi.Visa.Interop.ConflictHandlerType,System.String)">
+			<summary>Do not use this interface.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVisaConflictTableManager.DeleteHandler(System.Int16,System.Int16,System.String,System.String)">
+			<summary>Do not use this interface.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVisaConflictTableManager.DeleteHandlerByGUID(System.String)">
+			<summary>Do not use this interface.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVisaConflictTableManager.DeleteResourceByIndex(System.Int32)">
+			<summary>Do not use this interface.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVisaConflictTableManager.FindChosenHandler(System.Int16,System.Int16,System.String,System.String@,Ivi.Visa.Interop.ConflictHandlerType*)">
+			<summary>Do not use this interface.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVisaConflictTableManager.QueryResource(System.Int32,System.Int16@,System.Int16@,System.String@,System.Int16@)">
+			<summary>Do not use this interface.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVisaConflictTableManager.QueryResourceHandler(System.Int32,System.Int16,System.String@,Ivi.Visa.Interop.ConflictHandlerType*,System.String@)">
+			<summary>Do not use this interface.</summary>
+		</member>
+		<member name="M:Ivi.Visa.Interop.IVisaConflictTableManager.FlushToFile">
+			<summary>Do not use this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaConflictTableManager.StoreConflictsOnly">
+			<summary>Do not use this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaConflictTableManager.ConflictTableFilename">
+			<summary>Do not use this interface.</summary>
+		</member>
+		<member name="P:Ivi.Visa.Interop.IVisaConflictTableManager.NumberOfResources">
+			<summary>Do not use this interface.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.VisaStatusCode">
+			<summary>An enumeration of the VISA-specific return values of the methods in VISA COM I/O.  Commands that start with S_ are success codes and commands that start with E_ are error codes.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_SUCCESS">
+			<summary>Success.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_EVENT_EN">
+			<summary>Success, but the event is already enabled.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_EVENT_DIS">
+			<summary>Success, but the event is already disabled.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_QUEUE_EMPTY">
+			<summary>Success, but the event queue was empty.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_TERM_CHAR">
+			<summary>Success, terminated due to the termination character.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_MAX_CNT">
+			<summary>Success, terminated due to reaching the maximum count.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_DEV_NPRESENT">
+			<summary>Success, but the device is not present.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_QUEUE_NEMPTY">
+			<summary>Success, but the event queue is not empty.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_TRIG_MAPPED">
+			<summary>Success, but the trigger was already mapped.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_NCHAIN">
+			<summary>Success, do not invoke any other handlers on this event chain.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_NESTED_SHARED">
+			<summary>Success, this session has nested shared locks.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_NESTED_EXCLUSIVE">
+			<summary>Success, this session has nested exclusive locks.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_SYNC">
+			<summary>Success, but the operation was performed synchronously.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_CONFIG_NLOADED">
+			<summary>Success, but the specified configuration either does not exist or could not be loaded; using VISA-specified defaults.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_NULL_OBJECT">
+			<summary>Success, but the specified object reference is uninitialized.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_NSUP_ATTR_STATE">
+			<summary>Success, but although the specified attribute state is valid, it is not supported by this implementation.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_UNKNOWN_STATUS">
+			<summary>Success, but The status code passed to the operation could not be interpreted.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.S_VISA_NSUP_BUF">
+			<summary>Success, but the specified buffer is not supported</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_SYSTEM_ERROR">
+			<summary>Unknown system error.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_OBJECT">
+			<summary>The session/object is invalid.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_RSRC_LOCKED">
+			<summary>The requested resource is locked.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_EXPR">
+			<summary>Invalid expression specified for search.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_RSRC_NFOUND">
+			<summary>Specified expression does not match any devices.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_RSRC_NAME">
+			<summary>Invalid resource reference specified. Parsing error.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_ACC_MODE">
+			<summary>Invalid access mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_TMO">
+			<summary>A session to the resource could not be obtained or the I/O operation could not be completed within the specified timeout period.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_CLOSING_FAILED">
+			<summary>Unable to deallocate the previously allocated data structures corresponding to this session or object reference.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_DEGREE">
+			<summary>Specified degree is invalid.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_JOB_ID">
+			<summary>Specified job identifier is invalid.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NSUP_ATTR">
+			<summary>The specified attribute is not defined by the referenced session, event, or find list.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NSUP_ATTR_STATE">
+			<summary>The specified state of the attribute is not valid, or is not supported as defined by the session, event, or find list.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_ATTR_READONLY">
+			<summary>The attribute's value is read-only.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_LOCK_TYPE">
+			<summary>The specified type of lock is not supported by this resource.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_ACCESS_KEY">
+			<summary>The requestedKey value passed in is not a valid access key to the specified resource.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_EVENT">
+			<summary>Specified event type is not supported by the resource.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_MECH">
+			<summary>Invalid mechanism specified.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_HNDLR_NINSTALLED">
+			<summary>A handler is not currently installed for the specified event.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_HNDLR_REF">
+			<summary>The given handler reference is invalid.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_CONTEXT">
+			<summary>Specified event context is invalid.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_QUEUE_OVERFLOW">
+			<summary>The event queue overflowed.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NENABLED">
+			<summary>The session must be enabled for events of the specified type in order to receive them.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_ABORT">
+			<summary>The asynchronous operation was already aborted.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_RAW_WR_PROT_VIOL">
+			<summary>Violation of raw write protocol occurred during transfer.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_RAW_RD_PROT_VIOL">
+			<summary>Violation of raw read protocol occurred during transfer.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_OUTP_PROT_VIOL">
+			<summary>Device reported an output protocol error during transfer.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INP_PROT_VIOL">
+			<summary>Device reported an input protocol error during transfer.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_BERR">
+			<summary>Bus error occurred during transfer.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_IN_PROGRESS">
+			<summary>The operation is in progress.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_SETUP">
+			<summary>Unable to start operation because setup is invalid (due to attributes being set to an inconsistent state).</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_QUEUE_ERROR">
+			<summary>Unable to queue operation.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_ALLOC">
+			<summary>The system could not allocate the buffer(s) of the specified size because of insufficient system resources.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_MASK">
+			<summary>The system cannot set the buffer for the given mask.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_IO">
+			<summary>Could not perform read/write operation because of I/O error.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_FMT">
+			<summary>A format specifier in the format string is invalid.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NSUP_FMT">
+			<summary>A format specifier in the format string is not supported.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_LINE_IN_USE">
+			<summary>One of the specified lines is currently in use.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NSUP_MODE">
+			<summary>The specified mode is not supported by this VISA implementation.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_SRQ_NOCCURRED">
+			<summary>Service request has not been received for the session.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_SPACE">
+			<summary>Invalid address space specified.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_OFFSET">
+			<summary>Invalid offset specified.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_WIDTH">
+			<summary>Invalid source or destination data width specified.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NSUP_OFFSET">
+			<summary>Specified offset is not accessible from this hardware.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NSUP_VAR_WIDTH">
+			<summary>Invalid source or destination width specified.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_WINDOW_NMAPPED">
+			<summary>The specified session is not currently mapped.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_RESP_PENDING">
+			<summary>A previous response is still pending, causing a multiple query error.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NLISTENERS">
+			<summary>No listeners condition is detected (both NRFD and NDAC are deasserted).</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NCIC">
+			<summary>The interface associated with the given vi is not currently the controller in charge.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NSYS_CNTLR">
+			<summary>The interface associated with this session is not the system controller.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NSUP_OPER">
+			<summary>The given session does not support this operation.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INTR_PENDING">
+			<summary>An interrupt is still pending from a previous call.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_ASRL_PARITY">
+			<summary>A parity error occurred during transfer.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_ASRL_FRAMING">
+			<summary>A framing error occurred during transfer.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_ASRL_OVERRUN">
+			<summary>An overrun error occurred during transfer. A character was not read from the hardware before the next character arrived.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_TRIG_NMAPPED">
+			<summary>The path from trigSrc to trigDest is not currently mapped.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NSUP_ALIGN_OFFSET">
+			<summary>The specified offset is not properly aligned for the access width of the operation.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_USER_BUF">
+			<summary>A specified user buffer is not valid or cannot be accessed for the required size.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_RSRC_BUSY">
+			<summary>The resource is valid, but VISA cannot currently access it.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NSUP_WIDTH">
+			<summary>Specified width is not supported by this hardware.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_PARAMETER">
+			<summary>The value of some parameter-which parameter is not known-is invalid.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_PROT">
+			<summary>The protocol specified is invalid.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_SIZE">
+			<summary>Invalid size of window specified.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_WINDOW_MAPPED">
+			<summary>The specified offset is currently in use by MapAddress().</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NIMPL_OPER">
+			<summary>The given session does not support this operation.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_LENGTH">
+			<summary>Invalid length specified.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_MODE">
+			<summary>The value specified by the mode parameter is invalid.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_SESN_NLOCKED">
+			<summary>The current session did not have any lock on the resource.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_MEM_NSHARED">
+			<summary>The device does not export any memory.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_LIBRARY_NFOUND">
+			<summary>A code library required by VISA could not be located or loaded.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NSUP_INTR">
+			<summary>The interface cannot generate an interrupt on the requested level or with the requested statusID value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INV_LINE">
+			<summary>The value specified by the line parameter is invalid.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_FILE_ACCESS">
+			<summary>An error occurred while trying to open the specified file. Possible reasons include an invalid path or lack of access rights.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_FILE_IO">
+			<summary>An error occurred while accessing the specified file.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NSUP_LINE">
+			<summary>One of the specified lines (trigSrc or trigDest) is not supported by this VISA implementation.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_NSUP_MECH">
+			<summary>The specified mechanism is not supported for the given event type.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_INTF_NUM_NCONFIG">
+			<summary>The interface type is valid but the specified interface number is not configured.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VisaStatusCode.E_VISA_CONN_LOST">
+			<summary>The I/O connection for the given session has been lost.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.EventType">
+			<summary>The enumeration of the predefined VISA event types.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventType.EVENT_IO_COMPLETION">
+			<summary>The I/O completion event.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventType.EVENT_TRIG">
+			<summary>The trigger event.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventType.EVENT_SERVICE_REQ">
+			<summary>The service request event.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventType.EVENT_CLEAR">
+			<summary>The device clear event.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventType.EVENT_EXCEPTION">
+			<summary>An exception event.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventType.EVENT_GPIB_CIC">
+			<summary>The event notifying that the GPIB controller has gained or lost CIC (controller in charge) status.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventType.EVENT_GPIB_TALK">
+			<summary>The event notifying that the GPIB controller has been addressed to talk.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventType.EVENT_GPIB_LISTEN">
+			<summary>The event notifying that the GPIB controller has been addressed to listen.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventType.EVENT_VXI_VME_SYSFAIL">
+			<summary>The event notifying that the VXI/VME SYSFAIL* line has been asserted.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventType.EVENT_VXI_VME_SYSRESET">
+			<summary>The event notifying that the VXI/VME SYSRESET* line has been reset.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventType.EVENT_VXI_SIGP">
+			<summary>The event notifying that a VXIbus signal or VXIbus interrupt was received from the device.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventType.EVENT_VXI_VME_INTR">
+			<summary>The event notifying that a VXIbus interrupt was received from the device.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventType.EVENT_TCPIP_CONNECT">
+			<summary>The event notifying that a TCP/IP connection has been made.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventType.ALL_ENABLED_EVENTS">
+			<summary>Causes Event operations to operate on all the currently enabled events.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventType.CUSTOM_EVENT_TYPE">
+			<summary>An event type not defined in the VISA COM Event type enumeration.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.HardwareInterfaceType">
+			<summary>The enumeration of hardware interface types (GPIB, VXI, etc.)</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.HardwareInterfaceType.INTF_GPIB">
+			<summary>The GPIB hardware interface type.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.HardwareInterfaceType.INTF_VXI">
+			<summary>The VXI hardware interface type.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.HardwareInterfaceType.INTF_GPIB_VXI">
+			<summary>The VXI-GPIB hardware interface type.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.HardwareInterfaceType.INTF_ASRL">
+			<summary>The ASRL (serial) hardware interface type.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.HardwareInterfaceType.INTF_TCPIP">
+			<summary>The TCPIP hardware interface type.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IOProtocol">
+			<summary>The enumeration of the 488.2 I/O protocols available.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.IOProtocol.PROT_NORMAL">
+			<summary>The normal protocol, interfaces that do not support some 488.2 operations will not attempt to simulate them.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.IOProtocol.PROT_FDC">
+			<summary>Fast Data Channel protocol</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.IOProtocol.PROT_HS488">
+			<summary>The High-Speed 488.2 protocol</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.IOProtocol.PROT_4882_STRS">
+			<summary>The 488.2 strings protocol, where interfaces not supporting some asynchronous 488.2 operations will simulate them with synchronous string transfers.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.FDCMode">
+			<summary>The enumeration of available FDC modes (Normal mode or Stream mode).</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.FDCMode.FDC_NORMAL">
+			<summary>Normal FDC mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.FDCMode.FDC_STREAM">
+			<summary>Stream FDC mode.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.AddressSpace">
+			<summary>The address space mapping type enumeration.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AddressSpace.LOCAL_SPACE">
+			<summary>Addresses process-local memory (using a virtual address).</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AddressSpace.VXI_A16_SPACE">
+			<summary>Addresses the A16 address space of the VXI/MXI bus.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AddressSpace.VXI_A24_SPACE">
+			<summary>Addresses the A24 address space of the VXI/MXI bus.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AddressSpace.VXI_A32_SPACE">
+			<summary>Addresses the A32 address space of the VXI/MXI bus.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.EventMechanism">
+			<summary>The enumeration of event delivery mechanisms.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventMechanism.EVENT_QUEUE">
+			<summary>The delivery of events by queuing them for retrieval.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventMechanism.EVENT_HNDLR">
+			<summary>The delivery of events through asynchronous handler callbacks.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventMechanism.EVENT_SUSPEND_HNDLR">
+			<summary>The delivery of events through queuing handler callbacks for later delivery.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.EventMechanism.EVENT_ALL_MECH">
+			<summary>Causes the event operation to act on all event mechanisms.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.TriggerLine">
+			<summary>The enumeration of available trigger lines.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerLine.TRIG_ALL">
+			<summary>Act on all trigger lines.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerLine.TRIG_SW">
+			<summary>Software triggers.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerLine.TRIG_TTL0">
+			<summary>The VXI TTL0 trigger line.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerLine.TRIG_TTL1">
+			<summary>The VXI TTL1 trigger line.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerLine.TRIG_TTL2">
+			<summary>The VXI TTL2 trigger line.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerLine.TRIG_TTL3">
+			<summary>The VXI TTL3 trigger line.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerLine.TRIG_TTL4">
+			<summary>The VXI TTL4 trigger line.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerLine.TRIG_TTL5">
+			<summary>The VXI TTL5 trigger line.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerLine.TRIG_TTL6">
+			<summary>The VXI TTL6 trigger line.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerLine.TRIG_TTL7">
+			<summary>The VXI TTL7 trigger line.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerLine.TRIG_ECL0">
+			<summary>The VXI ECL0 trigger line.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerLine.TRIG_ECL1">
+			<summary>The VXI ECL1 trigger line.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerLine.TRIG_PANEL_IN">
+			<summary>The VXI controller's front panel trigger in line.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerLine.TRIG_PANEL_OUT">
+			<summary>The VXI controller's front panel trigger out line.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.TriggerProtocol">
+			<summary>The enumeration of trigger types.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerProtocol.TRIG_PROT_DEFAULT">
+			<summary>The default trigger type, the only legal value for software triggers.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerProtocol.TRIG_PROT_ON">
+			<summary>The trigger assertion protocol.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerProtocol.TRIG_PROT_OFF">
+			<summary>The trigger deassertion protocol.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.TriggerProtocol.TRIG_PROT_SYNC">
+			<summary>The synchronous trigger protocol: Pulse the trigger (assert followed by deassert)</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.BufferMask">
+			<summary>The enumeration of buffer mask types.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.BufferMask.IO_IN_BUF">
+			<summary>The in I/O buffer.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.BufferMask.IO_OUT_BUF">
+			<summary>The out I/O buffer.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.BufferMask.IO_IN_AND_OUT_BUFS">
+			<summary>Both the in and out I/O buffers.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.Timeout">
+			<summary>The enumeration of special timeout values.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.Timeout.TMO_IMMEDIATE">
+			<summary>The immediate timeout type.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.Timeout.TMO_INFINITE">
+			<summary>The infinite timeout type.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.AccessMode">
+			<summary>The enumeration of locking access modes.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AccessMode.NO_LOCK">
+			<summary>The no lock access mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AccessMode.EXCLUSIVE_LOCK">
+			<summary>The exclusive lock access mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AccessMode.SHARED_LOCK">
+			<summary>The shared lock access mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AccessMode.LOAD_CONFIG">
+			<summary>The load vendor-specific configuration lock access mode.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.SerialParity">
+			<summary>The enumeration of serial parity values.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialParity.ASRL_PAR_NONE">
+			<summary>The no parity bit parity value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialParity.ASRL_PAR_ODD">
+			<summary>The odd parity value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialParity.ASRL_PAR_EVEN">
+			<summary>The even parity value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialParity.ASRL_PAR_MARK">
+			<summary>The mark parity value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialParity.ASRL_PAR_SPACE">
+			<summary>The space parity value.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.SerialStopBits">
+			<summary>The enumeration of the number of serial stop bits.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialStopBits.ASRL_STOP_ONE">
+			<summary>The one stop bit value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialStopBits.ASRL_STOP_ONE5">
+			<summary>The 1.5 stop bit value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialStopBits.ASRL_STOP_TWO">
+			<summary>The two stop bit value.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.SerialFlowControl">
+			<summary>The enumeration of serial flow control values.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialFlowControl.ASRL_FLOW_NONE">
+			<summary>The no serial flow control value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialFlowControl.ASRL_FLOW_XON_XOFF">
+			<summary>The XON/XOFF serial flow control value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialFlowControl.ASRL_FLOW_RTS_CTS">
+			<summary>The RTS/CTS serial flow control value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialFlowControl.ASRL_FLOW_DTR_DSR">
+			<summary>The DTR/DSR serial flow control value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialFlowControl.ASRL_FLOW_RTS_CTS_AND_XON_XOFF">
+			<summary>The RTS/CTS and XON/XOFF serial flow control value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialFlowControl.ASRL_FLOW_DTR_DSR_AND_XON_XOFF">
+			<summary>The DTR/DSR and XON/XOFF serial flow control value.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.SerialEndConst">
+			<summary>The enumeration of serial end read condition control modes.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialEndConst.ASRL_END_NONE">
+			<summary>The no end read condition.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialEndConst.ASRL_END_LAST_BIT">
+			<summary>The last bit high end read condition.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialEndConst.ASRL_END_TERMCHAR">
+			<summary>The termination character end read condition.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.SerialEndConst.ASRL_END_BREAK">
+			<summary>The BREAK end read condition.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.LineState">
+			<summary>The enumeration of binary line state values.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.LineState.STATE_ASSERTED">
+			<summary>The asserted line condition.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.LineState.STATE_UNASSERTED">
+			<summary>The unasserted line condition.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.LineState.STATE_UNKNOWN">
+			<summary>The unknown line condition.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.VXIMemoryAccessPrivilege">
+			<summary>The enumeration of VXI memory access privileges.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXIMemoryAccessPrivilege.DATA_PRIV">
+			<summary>The memory access privilege value indicating to access VXI memory in Privileged Data mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXIMemoryAccessPrivilege.DATA_NPRIV">
+			<summary>The memory access privilege value indicating to access VXI memory in Non-privileged Data mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXIMemoryAccessPrivilege.PROG_PRIV">
+			<summary>The memory access privilege value indicating to access VXI memory in Privileged Program mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXIMemoryAccessPrivilege.PROG_NPRIV">
+			<summary>The memory access privilege value indicating to access VXI memory in Non-privileged Program mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXIMemoryAccessPrivilege.BLCK_PRIV">
+			<summary>The memory access privilege value indicating to access VXI memory in Privileged Block mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXIMemoryAccessPrivilege.BLCK_NPRIV">
+			<summary>The memory access privilege value indicating to access VXI memory in Non-privileged Block mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXIMemoryAccessPrivilege.D64_PRIV">
+			<summary>The memory access privilege value indicating to access VXI memory in Privileged D64 mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXIMemoryAccessPrivilege.D64_NPRIV">
+			<summary>The memory access privilege value indicating to access VXI memory in Non-privileged D64 mode.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.DataWidth">
+			<summary>The enumeration of data bit widths.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.DataWidth.WIDTH_8">
+			<summary>The 8 bit data width value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.DataWidth.WIDTH_16">
+			<summary>The 16 bit data width value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.DataWidth.WIDTH_32">
+			<summary>The 32 bit data width value.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.RENControlConst">
+			<summary>The enumeration of Remote ENable control values.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.RENControlConst.GPIB_REN_DEASSERT">
+			<summary>The REN deassert control value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.RENControlConst.GPIB_REN_ASSERT">
+			<summary>The REN assert control value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.RENControlConst.GPIB_REN_GTL_AND_DEASSERT">
+			<summary>The REN Go To Live and deassert control value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.RENControlConst.GPIB_REN_ASSERT_AND_ADDRESS">
+			<summary>The REN assert and address control value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.RENControlConst.GPIB_REN_LLO">
+			<summary>The REN Local Lock-Out control value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.RENControlConst.GPIB_REN_ADDRESS_AND_LLO">
+			<summary>The REN address and Local Lock-Out control value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.RENControlConst.GPIB_REN_GTL">
+			<summary>The REN Go To Live control value.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.ATNControlConst">
+			<summary>The enumeration of ATentioN control modes.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.ATNControlConst.GPIB_ATN_DEASSERT">
+			<summary>The GPIB ATN deassert mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.ATNControlConst.GPIB_ATN_ASSERT">
+			<summary>The Assert ATN line synchronously (in 488 terminology). If a data handshake is in progress, ATN will not be asserted until the handshake is complete.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.ATNControlConst.GPIB_ATN_DEASSERT_HANDSHAKE">
+			<summary>The Deassert ATN line, and enter shadow handshake mode.  The local board will participate in data handshakes as an Acceptor without actually reading the data.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.ATNControlConst.GPIB_ATN_ASSERT_IMMEDIATE">
+			<summary>The Assert ATN line asynchronously (in 488 terminology) mode.  This should generally be used only under error conditions.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.GPIBAddressState">
+			<summary>The enumeration of GPIB addressing states, whether the GPIB device is addressed to talk, listen, or is not addressed.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.GPIBAddressState.GPIB_UNADDRESSED">
+			<summary>The unaddressed GPIB addressing state.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.GPIBAddressState.GPIB_TALKER">
+			<summary>The addressed to talk GPIB addressing state.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.GPIBAddressState.GPIB_LISTENER">
+			<summary>The addressed to listen GPIB addressing state.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.VXICommandQuery">
+			<summary>The enumeration of VXI query command modes.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXICommandQuery.VXI_CMD16">
+			<summary>The send a 16-bit word serial command mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXICommandQuery.VXI_CMD16_RESP16">
+			<summary>The send a 16-bit word serial query and receive a 16-bit response mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXICommandQuery.VXI_RESP16">
+			<summary>The receive a 16-bit word response mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXICommandQuery.VXI_CMD32">
+			<summary>The send a 32-bit word serial command mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXICommandQuery.VXI_CMD32_RESP16">
+			<summary>The send a 32-bit word serial query and receive a 16-bit response mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXICommandQuery.VXI_CMD32_RESP32">
+			<summary>The send a 32-bit word serial query and receive a 32-bit response mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXICommandQuery.VXI_RESP32">
+			<summary>The receive a 32-bit word response mode.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.AssertInterruptConst">
+			<summary>The enumeration of interrupt assertion control modes.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AssertInterruptConst.ASSERT_SIGNAL">
+			<summary>The VXI signal interrupt assertion mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AssertInterruptConst.ASSERT_USE_ASSIGNED">
+			<summary>The use whatever notification method that has been assigned to the local device interrupt assertion mode.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AssertInterruptConst.ASSERT_IRQ1">
+			<summary>The VXI/VME IRQ1 line interrupt assertion mode. This uses the standard VXI/VME ROAK (release on acknowledge) interrupt mechanism rather than the older VME RORA (release on register access) mechanism.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AssertInterruptConst.ASSERT_IRQ2">
+			<summary>The VXI/VME IRQ2 line interrupt assertion mode. This uses the standard VXI/VME ROAK (release on acknowledge) interrupt mechanism rather than the older VME RORA (release on register access) mechanism.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AssertInterruptConst.ASSERT_IRQ3">
+			<summary>The VXI/VME IRQ3 line interrupt assertion mode. This uses the standard VXI/VME ROAK (release on acknowledge) interrupt mechanism rather than the older VME RORA (release on register access) mechanism.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AssertInterruptConst.ASSERT_IRQ4">
+			<summary>The VXI/VME IRQ4 line interrupt assertion mode. This uses the standard VXI/VME ROAK (release on acknowledge) interrupt mechanism rather than the older VME RORA (release on register access) mechanism.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AssertInterruptConst.ASSERT_IRQ5">
+			<summary>The VXI/VME IRQ5 line interrupt assertion mode. This uses the standard VXI/VME ROAK (release on acknowledge) interrupt mechanism rather than the older VME RORA (release on register access) mechanism.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AssertInterruptConst.ASSERT_IRQ6">
+			<summary>The VXI/VME IRQ6 line interrupt assertion mode. This uses the standard VXI/VME ROAK (release on acknowledge) interrupt mechanism rather than the older VME RORA (release on register access) mechanism.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AssertInterruptConst.ASSERT_IRQ7">
+			<summary>The VXI/VME IRQ7 line interrupt assertion mode. This uses the standard VXI/VME ROAK (release on acknowledge) interrupt mechanism rather than the older VME RORA (release on register access) mechanism.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.AssertUtilityConst">
+			<summary>The utility signal assertion line values.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AssertUtilityConst.ASSERT_SYSRESET">
+			<summary>The SYSRESET utility line assertion value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AssertUtilityConst.ASSERT_SYSFAIL">
+			<summary>The SYSFAIL utility line assertion value.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.AssertUtilityConst.DEASSERT_SYSFAIL">
+			<summary>The SYSFAIL utility line deassertion value.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.VXIDevClass">
+			<summary>The enumeration VXI device class types (message-based, register-based, etc.)</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXIDevClass.VXI_CLASS_MEMORY">
+			<summary>The memory VXI device class.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXIDevClass.VXI_CLASS_EXTENDED">
+			<summary>The extended VXI device class.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXIDevClass.VXI_CLASS_MESSAGE">
+			<summary>The message-based VXI device class.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXIDevClass.VXI_CLASS_REGISTER">
+			<summary>The register-based VXI device class.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.VXIDevClass.VXI_CLASS_OTHER">
+			<summary>The other VXI device class, a class not defined in the enumeration.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IEEEASCIIType">
+			<summary>The enumeration of data format types to read/write with the IFormattedIO488 formatted I/O class's methods.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.IEEEASCIIType.ASCIIType_I2">
+			<summary>The 16-bit signed integer in IEEE 488.2 NR1 format.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.IEEEASCIIType.ASCIIType_I4">
+			<summary>The 32-bit signed integer in IEEE 488.2 NR1 format.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.IEEEASCIIType.ASCIIType_R4">
+			<summary>The 32-bit floating-point number in IEEE 488.2 NR2 format.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.IEEEASCIIType.ASCIIType_R8">
+			<summary>The 64-bit floating-point number in IEEE 488.2 NR2 format.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.IEEEASCIIType.ASCIIType_BSTR">
+			<summary>The raw ASCII string format.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.IEEEASCIIType.ASCIIType_Any">
+			<summary>Any appropriate ASCII/NR1/NR2 format.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.IEEEASCIIType.ASCIIType_UI1">
+			<summary>The 8-bit unsigned integer (BYTE) in IEEE 488.2 NR1 format.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.IEEEBinaryType">
+			<summary>The enumeration of data format types to read/write to/from IEEE 488.2 definite-length arbitrary data binary blocks.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.IEEEBinaryType.BinaryType_I2">
+			<summary>The 16-bit signed integer 488.2 definite-length binary block format.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.IEEEBinaryType.BinaryType_I4">
+			<summary>The 32-bit signed integer 488.2 definite-length binary block format.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.IEEEBinaryType.BinaryType_R4">
+			<summary>The 32-bit floating point 488.2 definite-length binary block format.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.IEEEBinaryType.BinaryType_R8">
+			<summary>The 64-bit floating point 488.2 definite-length binary block format.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.IEEEBinaryType.BinaryType_UI1">
+			<summary>The 8-bit unsigned integer (BYTE) 488.2 definite-length binary block format.</summary>
+		</member>
+		<member name="T:Ivi.Visa.Interop.ConflictHandlerType">
+			<summary>Not to be used.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.ConflictHandlerType.NotChosen">
+			<summary>Not to be used.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.ConflictHandlerType.ChosenByResourceManager">
+			<summary>Not to be used.</summary>
+		</member>
+		<member name="F:Ivi.Visa.Interop.ConflictHandlerType.ChosenByUser">
+			<summary>Not to be used.</summary>
+		</member>
+	</members>
+</doc>

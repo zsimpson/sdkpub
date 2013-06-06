@@ -1,0 +1,155 @@
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+    <META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+    <TITLE>Face Recognition Tool</TITLE>
+    <!-- Changed by: Ara V. Nefian, May 31-2000 -->
+    <!-- Formatted and proofed in GNU Emacs by: Michael Chu, 00.06.03 -->
+  </HEAD>
+  <BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000CC" VLINK="#0000FF" ALINK="#FF0000">
+    <a name="top">
+      <!-- <CENTER>
+    <BLOCKQUOTE>
+    <table border = 3 WIDTH="70%" >
+    <TR><TD>
+      -->
+    <CENTER><TABLE CELLSPACING=0 CELLPADDING=5 WIDTH="90%" BGCOLOR="#6A9BED" NOSAVE >
+    <TR NOSAVE>
+      <TD NOSAVE>
+        <CENTER><I><FONT COLOR="#000000"><FONT SIZE=+4>Face Recognition Tool</FONT></FONT></I></CENTER>
+      </TD>
+    </TR>
+      </TABLE></CENTER>
+    <!--
+  </TD></TR>
+  </table>
+    </BLOCKQUOTE>
+  </center>
+    -->
+    <BR><BR>
+    <CENTER><IMG SRC="face_reco_app.gif" ALT="tool_image" width="747" height="404" ></CENTER>
+    
+    <H1>
+      Description</H1>
+
+
+    <P>It is an overview of HMMDemo application. See also <a href="./hmmdemo.htm">hypertext manual</a> on it.
+
+
+    <P>This face recognition tool gives the computer the ability to
+      recognize a face from image files (BMP format) or directly from an USB
+    camera. The system requirements for this application are a Pentium&reg
+      processor-based computer and Microsoft* Windows* NT 4.0, 98, or 2000.  The face
+      recognition uses the </a>
+      <a href="../functPage/functPage.htm#RECOGNITION" target="function window">
+    embedded hidden Markov model</A> and implements the method described in 
+      <A HREF="avbpa99.ps">"Face recognition using an embedded HMM" </A>.
+      <BR>
+    <H2>
+      Controls</H2>
+    <IMG SRC="FaceRec_labled_toolbar.JPG" BORDER=0 HEIGHT=119 WIDTH=864>
+
+    <P><B><FONT SIZE=+2>[1] </FONT></B>
+      Opens a new document.
+      <BR><B><FONT SIZE=+2>[2]</FONT></B>
+      Opens an existing database or an image file in BMP format.
+      <BR><B><FONT SIZE=+2>[3]</FONT></B>
+      Creates a new database. It gives the user the ability to specifty the
+      file location where the information is to be stored.
+      <BR><B><FONT SIZE=+2>[4]</FONT></B>
+      Adds a face to the training set. The rectangle in the right panel
+      should bound the user's face. If the rectangle is misplaced or does
+      not exist, create one by left-click and dragging a rectangle. If the
+      left panel is not focused on a particular user, a dialog box will
+      appear. In this box enter the name of the captured face. If the left
+      panel is focused (by double-clicking a face) on a person, the captured
+      face will automatically be added to the current set.
+
+      <BR><B><FONT SIZE=+2>[5]</FONT></B>
+      Deletes an image from the training set or an entire set of images.
+      <BR><B><FONT SIZE=+2>[6]</FONT></B>
+      Zooms in the images in the database (left panel). 
+      <BR><B><FONT SIZE=+2>[7]</FONT></B>
+      Zooms out the images in the database (left panel).
+      <BR><B><FONT SIZE=+2>[8]</FONT></B>
+      Toggles video capture.
+      <BR><B><FONT SIZE=+2>[9]</FONT></B>
+      Specifies the parameters of the video, the resolution of the image, the depth and size of 
+      the video frames.
+      <BR><B><FONT SIZE=+2>[10]</FONT></B>
+      Launches the capture device properties for your USB camera.
+      <BR><B><FONT SIZE=+2>[11]</FONT></B> 
+      Train the face model. If the left panel is not focused on a set, all
+      sets will be trained. If the left panel is focused on a set, the
+      current set is trained.
+      <BR><B><FONT SIZE=+2>[12]</FONT></B>
+      Run recognition algorithm on image area within bounding box in the
+      right panel. If there is no bounding box, create one by left-click and
+      dragging a rectangle.
+      <BR><B><FONT SIZE=+2>[13]</FONT></B>
+      Display about box.
+      <BR><B><FONT SIZE=+2>[14]</FONT></B>
+      Not enabled
+    <H2>
+      How to...</H2>
+
+    <H3>
+      Create a new face database</H3>
+
+    Click button [3] on the toolbar to create the file where the database
+    information is stored. Specify the filename and database description
+    in the dialog box.
+    <BR>
+    To add images from camera or file to the face database, specify the
+    rectanglular area bounding the face by left-click and dragging. Then
+    click button [4] to add the face to the database. In the dialog box,
+    enter the name of the captured face. The left panel will automatically
+    focus on the set for this particular person. Incorrect images can be
+    removed by cselecting the image and clicking button [5]. To restart
+    the video after a face image was added to the database, click button
+    [8]. Use the File menu, option Save to save the database file.  
+
+    <H3>
+      Open an existing face database</H3>
+
+    Click button [2] on the toolbar to specify the file where the database
+    information is stored. One image for each person in the database will
+    be displayed on the left panel. To view all the images of a particular
+    person, double-click the specific face. All the images in the database
+    representing the specified person are displayed in the left panel. To
+    return to the previous screen, double-click on any white space in the
+    left panel.
+
+    <H3>
+      Train a face model</H3>
+
+    <P>After capturing several instances for a person, train the face
+      model for that person by clicking button [10]. The models can be
+      trained one by one or all at a once. To train one person, double-click
+      the person to be trained and click button [10]. To train everyone,
+      make sure the left panel is not focused by double-clicking any
+      whitespace in the left panel and click button [10]. Note that when an
+      image is added or deleted from a particular set, that set needs to be
+      retrained.  
+
+    <H3>
+      Recognize from live video or from file on disk</H3>
+
+    If all the people in the database are trained, faces can be
+    recognized.  To recognize a face from a camera view or from a file,
+    first create a bounding box in the right panel by left-click and
+    dragging. Then click button [12] to run the recognition algorithm.
+    The recognition results box will list in order of likelihood the three
+    people most likely to match the image. The image in the left panel
+    corresponding to the most likely person will also be shown in a with a
+    colored border. The test image can also be added to the database by
+    clicking button [4].  In this case, the corresponding model must be
+    retrained.
+
+    <br><br>
+    <hr noshade size=2 width=100%>
+    <H3>
+      <A NAME="Bottom"></A><A HREF="#Top">Back to Top<IMG SRC="up.gif" BORDER=0 HEIGHT=26 WIDTH=30></A></H3>
+
+  </BODY>
+</HTML>

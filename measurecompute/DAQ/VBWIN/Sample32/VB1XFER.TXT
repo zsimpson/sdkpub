@@ -1,0 +1,66 @@
+To create a project in VB1 using text saved in VB2, 3 or 4.
+
+1) Determine which project you wish to create in VB1 and read
+   the .MAK file with a text editor to determine which files
+   are associated with that project.  There is likely to be
+   only two files involved, a .BAS file and a .FRM file.
+
+2) Start VB1 and open a new project.
+
+3) In the project box, select Form1.frm and click on 'View Code'.
+
+4) From the Code menu, select 'Load Text'.
+
+5) In the 'Load Text' dialog box, change the File Name extension
+   from '.TXT' to '.FRM'.
+
+6) Select the form file you wish to add to your project (determined
+   in step 1) and select 'Replace'.
+
+7) The General Declarations section of Form1 should now appear on
+   the screen with a text description of the original form properties.
+   Comment out each line from 'VERSION 2.00' down to the last 'End'
+   statement.  (These commented lines will be helpful in creating
+   objects on the form later.)
+
+8) Click on the 'Proc:' combo box.  You will notice several procedures
+   with names like 'cmdStartConvert_Click' or 'tmrCheckStatus_Timer'.
+   These procedures are intended to be associated with objects such as
+   Buttons and Timers.  The next step is to create these objects with
+   the same names as the procedures that exist for them.  For example,
+   to create an object for the 'cmdStartConvert_Click' procedure:
+
+   a) click on Form1 to set the focus to Form1
+   b) double-click on the Button icon in the Toolbox. (A Button 
+      will appear on Form1 labeled 'Command 1')
+   c) select the Button (click on it once to set the focus)
+   d) click on the properties combo box for the Button and find
+      the 'CtlName' property
+   e) change it from 'Command1' to 'cmdStartConvert'
+   f) check that when you double click the Button, the procedure
+      code cmdStartConvert_Click appears on the screen
+   g) check the property values listed in the 'general declarations'
+      section against the rest of the properties listed in the
+      properties combo box
+
+9) Repeat this procedure for all the procedure names listed in the 
+   'general declarations' section of Form1 (the lines that were
+   commented out at the beginning of this procedure).  Note: Do not
+   create objects for stand-alone procedures not associated with 
+   events such as Click, Timer, LostFocus, Load, etc.  These are 
+   most easily identified from the lack of an underscore in the 
+   procedure name and the first three letters of the procedure 
+   name do not suggest a control name (cmd, tmr, frm, chk, opt, 
+   txt, lbl, pic, hsb, vsb, cmb or fra). These are standard pro-
+   cedures that are not associated with events.
+
+10)After all event procedures have an assciated object, build the
+   Global module by selecting Global.bas in the Project window and
+   clicking 'View Code'.  From the Code menu, click on 'Load Text'.
+
+11)In the 'Load Text' dialog box, change the File Name extension
+   from '.TXT' to '.BAS'.  Select 'CBW.BAS' to complete the procedure.
+
+12)If any other forms or modules are required (as determined in
+   step 1) create the new form or module and repeat the steps above
+   for each form or module.

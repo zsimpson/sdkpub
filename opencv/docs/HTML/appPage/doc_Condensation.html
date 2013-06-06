@@ -1,0 +1,122 @@
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+  <HEAD>
+    <TITLE>Condensation Tracker</TITLE>
+    <!-- Changed by: Jean-Yves Bouguet, 31-Dec-1999 -->
+    <!-- Formatted and proofed in GNU Emacs by: Michael Chu, 00.06.05 -->
+    <META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+  </HEAD>
+  <BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000CC" VLINK="#0000FF" ALINK="#FF0000">
+    <a name="top">
+
+    <CENTER>
+      <TABLE CELLSPACING=0 CELLPADDING=5 WIDTH="90%" BGCOLOR="#6A9BED" NOSAVE >
+	<TR NOSAVE>
+	  <TD NOSAVE>
+        <p align="center"><I><FONT SIZE=+4>Condensation Tracker
+		  </FONT></I></p>
+	  </TD>
+	</TR>
+      </TABLE>
+    </CENTER>
+
+
+    <p align="center">
+
+
+    <BR>
+
+    </a><img border="0" src="CondensationDemo.jpg" width="712" height="279">
+    <a name="top">
+
+    <BR><BR>
+
+    <H1>Description</H1>
+
+    </a>The library provides a Condensation engine for tracking purposes.&nbsp; In the
+    application described below, the CAMSHIFT color tracking algorithm is used
+    to provide measurements for the X-Y tracking of a face (or other colored
+    object). The CAMSHIFT algorithm implemented here just uses a simple 1-D Hue
+    histogram sampled from the object using an HSV color space.&nbsp; Therefore,
+    the color tracker may need some tuning as described below (see CAMSHIFT demo
+    description page for more details).
+    <br><br>
+    Note that this filter requires that you have DirectShow 6.0 or greater installed
+    with <B>graphedt.exe&nbsp; </B>(DirectShow 6.0 for NT4.0, DirectShow 7.0 for
+    Win 98 or Win2000) 
+    (<A HREF="http://www.microsoft.com/downloads/release.asp?ReleaseID=16927">http://www.microsoft.com/downloads/release.asp?ReleaseID=16927</A> ~128MB[!]). 
+    You will also need a video camera source filter which should
+    be supplied by your USB camera vendor. <!-- except most don't support NT4.0. -->
+<!-- %%Some friendly advice from Uncle Gary?? -->
+<!--    Win2000 is your best bet for development, for just running the filter graph, Win98 will do.. An example filter graph is shown below (with the calibration filter processing a video source from a Matrox Meteor II card that we wrote ourselves) and then passing the output to a video renderer. -->
+
+    Microsoft* Windows* 2000 may be the most suitable operating system
+    for development since many vendors do not supply filters for
+    Windows NT 4.0. However, Windows 98 will be adequate for just
+    running the filter graph.
+    <h1>Condensation Color Tracker Demo</h1>
+    You should setup or launch the following DirectShow filtergraph (of
+    course, your capture source will depend on your USB camera):<br><br>
+    <center><img border="0" src="CondensationGraph.jpg" width="655" height="91"></center>
+    <h2>Controls</h2>
+    The control panel (obtained by right-clicking) for the
+    Condensation filter in the filter graph above looks like:<br><br>
+
+    <center><img border="0" src="CondensationDialog.jpg" width="386" height="280"></center>
+    <br>
+    <b><font size=+2>[1]</font></b> This control moves and
+    sizes the
+    sample window when you are not tracking.
+
+    <br><b><font size=+2>[2]</font></b> This is the minimum saturation for a
+    Hue pixel to be accepted threshold.
+
+    <br><b><font size=+2>[3]</font></b> This is the minimum brightness for a
+    Hue pixel to be accepted threshold.
+
+    <br><b><font size=+2>[4]</font></b> This allows you to toggle between the
+    raw video image and the Hue histogram backprojected image.
+
+    <br><b><font size=+2>[5]</font></b> Samples color under box [1] and starts Condensation
+    tracking.
+
+    <br><b><font size=+2>[6]</font></b> Stop Condensation tracking.
+
+
+    <h2>How to...</h2>
+    <h3>Start Tracking</h3>
+    1. Select Normal view [4].<br>
+    2. Set the thresholds to zero [2] &amp; [3].<br>
+    3. Move the sample box using [1] so that it covers the colored object to be tracked.<br>
+    4. Press &quot;Start Track&quot; [5].<br>
+
+    <h3>Tuning the tracking:</h3>
+    1.Select Back Project view [4]. The goal is to have
+        the image such as on the left below to look like the cleaner image on
+        right below.<br>
+    <br>
+    <center><img border="0" src="kalmanbackNClean.jpg" width="649" height="240"></center>
+    <br>
+    2. Increase minimum saturation threshold [2] to clean up
+    the image without diminishing the object of interest too much.<br>
+    3. Increase minimum brightness threshold [3] to finish the
+    &quot;clean up&quot; job.&nbsp; Don't turn too high or else bright spots
+    on the tracked object will become &quot;holes&quot;.<br>
+    4. Turn normal view back on [4].<br>
+    <h2>Display</h2>
+    The meaning of the normal view display is as follows with
+    reference to the figure below:<br><br>
+    <center><img border="0" src="kalmanTrackShot.jpg" width="320" height="240"></center>
+    <font size=+2><b>[A]</b></font> Velocity direction and
+    magnitude estimation.<br>
+    <font size=+2><b>[B]</b></font> Sample window if not
+    tracking, tracking window if tracking.<br>
+    <font size=+2><b>[C]</b></font> Estimated location of&nbsp;
+    the object.
+    <br>
+    <br>
+    <hr noshade size=2 width=100%>
+    <H3>
+      <A NAME="Bottom"></A><A HREF="#Top">Back to Top<IMG SRC="up.gif" BORDER=0 HEIGHT=26 WIDTH=30></A></H3>
+
+  </BODY> </HTML>

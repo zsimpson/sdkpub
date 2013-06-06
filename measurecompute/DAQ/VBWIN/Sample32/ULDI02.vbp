@@ -1,0 +1,7 @@
+ULDI02.FRM
+..\CBW.BAS
+ProjWinSize=77,425,216,336
+ProjWinShow=2
+IconForm="frmDigIn"
+Title="ULDI02"
+ExeName="ULDI02.EXE"

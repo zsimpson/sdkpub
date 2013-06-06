@@ -1,0 +1,63 @@
+; 1394CMDR.INF -- 1394 Camera device inf
+
+[Version]
+signature="$CHICAGO$"
+Class=Image
+ClassGuid={6BDD1FC6-810F-11D0-BEC7-08002BE2092F}
+Provider=%Msft%
+DriverVer=3/31/2004,6.3.0.0
+
+[Manufacturer]
+%CMUMfg%=CMU
+
+[DestinationDirs]
+CMU.1394DCam.CopyDriver=12
+CMU.1394DCam.CopyDll=11
+
+[CMU]
+%1394\A02D&100.DeviceDesc%=CMU.1394DCam,1394\A02D&100
+%1394\A02D&100.DeviceDesc%=CMU.1394DCam,1394\A02D&101
+%1394\A02D&100.DeviceDesc%=CMU.1394DCam,1394\A02D&102
+%1394\A02D&100.DeviceDesc%=CMU.1394DCam,1394\SONY&CCM-DS250_1.08
+%1394\A02D&100.DeviceDesc%=CMU.1394DCam,1394\SONY&CCM-DS250_1.07
+%1394\A02D&100.DeviceDesc%=CMU.1394DCam,1394\SONY&DFW-SX900_v1.02B
+%1394\A02D&100.DeviceDesc%=CMU.1394DCam,1394\SONY&DFW-X700_v1.02B
+%1394\A02D&100.DeviceDesc%=CMU.1394DCam,1394\SONY&DFW-VL500_v1.00_
+%1394\A02D&100.DeviceDesc%=CMU.1394DCam,1394\SONY&DFW-VL500_2.22
+%1394\A02D&100.DeviceDesc%=CMU.1394DCam,1394\PYRO_WEBCAM&API-200
+%1394\A02D&100.DeviceDesc%=CMU.1394DCam,1394\ORANGE_MICRO&IBOT
+
+[CMU.1394DCam]
+AddReg = CMU.1394DCam.AddReg
+CopyFiles = CMU.1394DCam.CopyDriver, CMU.1394DCam.CopyDll
+
+[CMU.1394DCam.NT]
+AddReg = CMU.1394DCam.AddReg
+CopyFiles = CMU.1394DCam.CopyDriver, CMU.1394DCam.CopyDll
+
+[CMU.1394DCam.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,1394cmdr.sys
+
+[CMU.1394DCam.CopyDriver]
+1394cmdr.sys
+
+[CMU.1394DCam.CopyDll]
+1394camera.dll
+
+[CMU.1394DCam.NT.Services]
+AddService=1394CMDR,0x00000002,CMU.1394DCam.ServiceInstall
+
+[CMU.1394DCam.ServiceInstall]
+DisplayName=%1394\A02D&100.DeviceDesc%
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\1394cmdr.sys
+
+[Strings]
+Msft="Carnegie Mellon University"
+CMUMfg="CMU"
+1394\A02D&100.DeviceDesc="CMU 1394 Digital Camera Device"
+
+

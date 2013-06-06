@@ -1,0 +1,5 @@
+ÆCounter 0 is wired to an internal counter and 
+will count without an external connection. 
+The count value will not reset until an event 
+is counted (the previous counter value is 
+displayed).

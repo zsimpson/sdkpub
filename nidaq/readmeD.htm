@@ -1,0 +1,1992 @@
+<html>
+
+
+<head>
+<meta name=Generator content="Microsoft FrontPage 4.0">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Originator content="Microsoft Word 9">
+<title>NI-DAQ 6.9.2 Readme Datei</title>
+<style>
+<!--
+ 
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	layout-grid-mode:line;}
+h1
+	{
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:Arial;
+	layout-grid-mode:line;
+	font-weight:bold;}
+h2
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:20.0pt;
+	font-family:Arial;
+	layout-grid-mode:line;
+	font-weight:bold;}
+h3
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:14.0pt;
+	font-family:Arial;
+	layout-grid-mode:line;
+	font-weight:bold;}
+h4
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:Arial;
+	layout-grid-mode:line;
+	font-weight:bold;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	layout-grid-mode:line;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	layout-grid-mode:line;}
+span.tw4winMark
+	{
+	color:purple;
+	display:none;
+	vertical-align:sub;}
+p.Indent1, li.Indent1, div.Indent1
+	{
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	layout-grid-mode:line;}
+p.Indent2, li.Indent2, div.Indent2
+	{
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:1.0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	layout-grid-mode:line;}
+p.BulletedTOC, li.BulletedTOC, div.BulletedTOC
+	{
+	margin-right:0in;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:Arial;
+	layout-grid-mode:line;
+	font-weight:bold;}
+p.Note, li.Note, div.Note
+	{
+	margin-right:0in;
+	margin-left:.5in;
+	text-indent:-.5in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	layout-grid-mode:line;}
+span.tw4winError
+	{
+	color:lime;}
+span.tw4winTerm
+	{
+	color:blue;}
+span.tw4winPopup
+	{
+	color:green;}
+span.tw4winJump
+	{
+	color:teal;}
+span.tw4winExternal
+	{
+	color:gray;}
+span.tw4winInternal
+	{
+	color:red;}
+span.DONOTTRANSLATE
+	{
+	color:maroon;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+
+<body lang=EN-US link=blue vlink=blue>
+
+
+<div class=Section1>
+
+
+<h2><span lang=DE>NI-DAQ 6.9.2 Readme-Datei</span></h2>
+
+
+<p class=MsoNormal style='text-autospace:none'><span
+lang=DE>&copy; Copyright 2001 <a href="http://ni.com/"><span
+style='color:windowtext'>National Instruments</span></a>. Alle Rechte vorbehalten. </span></p>
+
+
+<p class=MsoNormal style='text-autospace:none'><span
+lang=DE style='color:black;'>NI-DAQ Software ist durch ein oder mehrere der folgenden Patente rechtlich gesch&uuml;tzt:</span></p>
+
+
+<p class=MsoNormal style='text-autospace:none'><span
+lang=DE>U.S. Patent Nummer(n):&nbsp; 5,619,702; 6,067,584; 6,096,094; 6,052,743; 6,148,438; 5,926,775; 5,987,530; 6,073,205</span></p>
+
+
+<p><span lang=DE>Vielen Dank, dass Sie sich f&uuml;r National Instruments NI-DAQ 6.9.2 f&uuml;r Windows 2000/NT/XP/Me/9x entschieden haben.</span></p>
+
+
+<p><span lang=DE>Diese Datei enth&auml;lt wichtige Informationen zu dieser Version von NI-DAQ. Bitte lesen Sie diese Datei sorgf&auml;ltig durch, damit Sie &uuml;ber alle bekannten Probleme oder Inkompatibilit&auml;ten informiert sind.</span></p>
+
+
+<p><span lang=DE>Die Informationen in dieser Datei sind in den folgenden Abschnitten angeordnet:</span></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE><a href="#Anderungen in NI-DAQ 6.9.2">&Auml;nderungen in NI-DAQ 6.9.2 zu NI-DAQ 6.9.1</a></span></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE><a href="#Anderungen in NI-DAQ 6.9.1">&Auml;nderungen in NI-DAQ 6.9.1 zu NI-DAQ 6.9</a></span></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE><a href="#Neue Funktionen und Produkte">Neue Funktionen und Produkte in NI-DAQ 6.9 und h&ouml;her</a></span></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Produkte die in fruheren"> </a></span></span><a href="#Produkte die in fruheren"><span lang=DE>Produkte, die in fr&uuml;heren Versionen von NI-DAQ, in dieser Version jedoch nicht mehr unterst&uuml;tzt werden.</span></a></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE><a href="#Updates der Datenerfassungsbibliothek">Updates der Datenerfassungsbibliothek f&uuml;r LabVIEW-Version 4.<i>x</i> , die in NI-DAQ 6.7 und sp&auml;ter nicht vorhanden sind.</a></span></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><a href="#Anderungen an den LLBs"><span lang=DE>&Auml;nderungen an den LLBs der LabVIEW f&uuml;r Windows-Datenerfassungsbibliotheken f&uuml;r NI-DAQ 6.7 und h&ouml;her</span></a></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><a href="#Neue umbenannte und"><span lang=DE>Neue, umbenannte und nicht mehr vorhandene DAQ-Beispiele</span></a></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE><a href="#Das Kompilieren und">Das Kompilieren und Ausf&uuml;hren von NI-DAQ-Beispielen in Microsoft Visual C++</a></span></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE><a href="#Was kann ich tun">Was kann ich tun, wenn mein Ger&auml;t nicht im Measurement and Automation Explorer (MAX) aufgef&uuml;hrt wird?</a></span></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE><a href="#DSA Gerate">DSA-Ger&auml;te (44<i>XX</i>, 45<i>XX</i>)</a></span></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE><a href="#Hinweise zu DAQPad 6020E">Hinweise zu DAQPad-6020E</a></span></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><a href="#Hinweise zu DAQPad 6070E"><span lang=DE>Hinweise zu DAQPad-6070E/DAQPad-6052E</span></a></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Informationen zu NI 6527"> </a></span></span><a href="#Informationen zu NI 6527"><span lang=DE>Informationen zu NI 6527</span></a></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><a href="#Informationen zu NI 6534"><span lang=DE>Informationen zu NI 6534</span></a></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE><a href="#Gultige Wertebereiche">G&uuml;ltige Wertebereiche f&uuml;r NI 660X</a></span></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE><a href="#Aktualisieren des PXI Controllers">Aktualisieren des PXI-Controllers der RT-Serie f&uuml;r LabVIEW 5.1.2-Benutzer</a></span></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE><a href="#Interrupt Leistung und">Interrupt-Leistung und -Probleme zwischen PCI-Ger&auml;ten und Windows 98</a></span></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE><a href="#USB und IEEE 1394">USB- und IEEE 1394-Unterst&uuml;tzungsanforderungen und Beschr&auml;nkungen</a></span></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE><a href="#Hinweis zu SCXI Calibrate">Hinweis zu SCXI_Calibrate</a></span></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE><a href="#SCXI RDA Gerate">SCXI RDA-Ger&auml;te</a></span></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE><a href="#Geratezugriff uber Netzwerk">Ger&auml;tezugriff &uuml;ber Netzwerk (RDA)</a></span></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Andern der DAQ Konfigurationsdateien">&nbsp; </a></span></span><a href="#Andern der DAQ Konfigurationsdateien"><span lang=DE>&Auml;ndern der DAQ-Konfigurationsdateien in MAX</span></a></p>
+
+
+<p class=BulletedTOC><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;font-weight:normal'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Anderungen in der NI-DAQ">&nbsp; </a></span></span><a href="#Anderungen in der NI-DAQ"><span lang=DE>&Auml;nderungen in der NI-DAQ Dokumentation</span></a></p>
+
+
+<h3><span lang=DE><a name="Anderungen in NI-DAQ 6.9.2"></a>&Auml;nderungen in NI-DAQ 6.9.2 zu NI-DAQ 6.9.1</span></h3>
+
+
+<p><span lang=DE>Wesentlicher Bestandteil dieses Updates ist die Unterst&uuml;tzung neuer Karten und Ger&auml;te, sowie Windows XP.
+Au&szlig;erdem enth&auml;lt diese Version eine aktualisierte Version von NI-PAL mit der einige Probleme aus 6.9.1 behoben werden.</span></p>
+
+
+<h4><span lang=DE>Durch NI-PAL behobene Fehler</span></h4>
+
+
+<p class=MsoNormal style='line-height:12.0pt;text-autospace:none'><span lang=DE style='color:
+black;'>NI-PAL bietet jetzt folgende Funktionalit&auml;t: </span></p>
+
+
+<p class=MsoNormal style='line-height:12.0pt;text-autospace:none'><span lang=DE style='color:
+black;'>&nbsp;</span></p>
+
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;line-height:
+12.0pt;text-autospace:none'><span lang=DE style='font-family:
+Symbol;color:black;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE style='color:black;'>Zwei identische PCMCIA DAQCards k&ouml;nnen jetzt unter Windows 2000 installiert und konfiguriert werden.</span></p>
+
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;line-height:
+12.0pt;text-autospace:none'><span lang=DE style='font-family:
+Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>CardWizard Card- und Socket Services-Unterst&uuml;tzung f&uuml;r PCMCIA DAQCards unter Windows NT.
+Dadurch wird sichergestellt, dass nur eine National Instruments DAQCard zur Zeit installiert werden kann.</span></p>
+
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;line-height:
+12.0pt;text-autospace:none'><span lang=DE style='font-family:
+Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>DLL-Konflikte, die zur Folge hatten, dass die </span><span lang=DE style='font-size:10.0pt;
+font-family:"Courier New";'>nipalu.dll</span><span lang=DE> nach der ersten Verwendung nicht erneut geladen werden konnte, werden vermieden. Die bevorzugte Ladeadresse der</span><span lang=DE style='font-size:10.0pt;
+font-family:"Courier New";color:black;'>nipalu.dll</span><span
+lang=DE style='color:black;'> wurde ge&auml;ndert, so dass Konflikte mit allen derzeit bekannten DLLs anderer Hersteller ausgeschlossen sind.</span></p>
+
+
+<h4><span lang=DE>Neue Funktionen</span></h4>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>Windows XP Unterst&uuml;tzung</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>CardWizard-Unterst&uuml;tzung f&uuml;r Windows NT</span></p>
+
+
+<h4><span lang=DE>Unterst&uuml;tzung neuer Ger&auml;te</span></h4>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>NI 4472 f&uuml;r IEEE 1394 (FireWire)</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>DAQPad-6020E f&uuml;r IEEE 1394 (FireWire)</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>NI 6731 f&uuml;r PCI und PXI/Compact PCI</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>NI 6733 f&uuml;r PCI und PXI/Compact PCI</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>DAQCard-6036E</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>DAQPad-6024E
+</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>PCI/PXI-6120</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>SCC-CO20</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>SCC-RLY-01</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>SCC-TC03</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>SCC-TC13</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>SCC-TC16</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>SCC-AI16</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>SCC-AI00</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>SCC-AO03</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>SCC-SG24</span></p>
+
+
+<p><b><span lang=DE>Hinweis:</span></b><span
+lang=DE> Das DAQPad 16XE-50 wird unter Windows XP nicht unterst&uuml;tzt. </span></p>
+
+
+<h4><span lang=DE>Konfigurieren der &Uuml;bertragungsbedingungen mit der NI 4451</span></h4>
+
+
+<p><span lang=DE>Bei Ger&auml;ten der NI 4451-Serie k&ouml;nnen Sie jetzt mit der Funktion </span><kbd><span lang=DE style='font-size:
+10.0pt;font-family:"Courier New";'>AO_Change_Parameter</span></kbd><span
+lang=DE> die AO FIFO-&Uuml;bertragungsbedingungen konfigurieren. Bei jeder w&auml;hlbaren &Uuml;bertragungsbedingung wird die Standard-FIFO Berechnung verwendet, das hei&szlig;t die FIFO-Z&auml;hlweise selbst kann nicht ver&auml;ndert werden. Weitere Informationen zu diesem Thema finden Sie im Handbuch <i>NI-DAQ Function Reference Help</i>.</span></p>
+
+
+<h4><span lang=DE>Mehrere DSA-Ger&auml;te synchronisieren</span></h4>
+
+
+<p><span lang=DE>Beim Synchronisieren von DSA-Ger&auml;ten ist folgendes zu beachten: </span></p>
+
+
+<p style='margin-left:.25in;text-indent:-.25in;'><span lang=DE style='font-family:
+Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>DSA-Ger&auml;te k&ouml;nnen nur mit anderen DSA-Ger&auml;ten des selben Typs synchronisiert werden. Sie m&uuml;ssen also beispielsweise zum Synchronisieren eines NI 4472 andere NI 4472 Ger&auml;te verwenden. </span></p>
+
+
+<p style='margin-left:.25in;text-indent:-.25in;'><span lang=DE style='font-family:
+Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>Bei einem NI 4472 f&uuml;r IEEE 1394 (FireWire), verwenden Sie RTSI 0, RTSI 1 oder RTSI 2 um das Triggersignal f&uuml;r die abh&auml;ngigen Ger&auml;te zu auszul&ouml;sen. Das weitere Vorgehen beim Synchronisieren von NI 4472 f&uuml;r IEEE 1394 Ger&auml;ten &auml;hnelt dem bei PCI-DSA Ger&auml;ten.&nbsp; Weitere Informationen zu diesem Thema finden sie im Abschnitt <i>Synchronizing Multiple PCI-DSA Devices</i> der </span><kbd><i><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>NI-DAQ Function Reference Help</span></i></kbd><span
+lang=DE> oder in der <i>LabVIEW Hilfe</i>.</span></p>
+
+
+<p style='margin-left:.25in;text-indent:-.25in;'><span lang=DE style='font-family:
+Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>Im Abschnitt<i> PCI-DSA Ger&auml;te synchronisieren</i> der <i>LabVIEW Hilfe</i> gibt es ein inkorrektes Beispieldiagramm. Bei dem Slave-Ger&auml;t ist die Trigger-Quelle f&uuml;r das VI AI Start RTSI 0 anstatt RTSI 1. Der Master steuert den AI Start-Trigger RTSI 1 an. Daher muss der Slave den AI Start-Trigger ebenfalls auf RTSI 1 empfangen.</span></p>
+
+
+<h4><span lang=DE>Gast-Zugriff unter Windows 2000</span></h4>
+
+
+<p><span lang=DE>Unter Windows 2000 k&ouml;nnen Benutzer, die sich als Gast anmelden, NI-DAQ nicht betreiben.&nbsp; </span></p>
+
+
+<h3><span lang=DE><a name="Anderungen in NI-DAQ 6.9.1"></a>&Auml;nderungen in NI-DAQ 6.9.1 zu NI-DAQ 6.9</span></h3>
+
+
+<p><span lang=DE>Wesentlicher Bestandteil von NI-DAQ 6.9.1 ist die Aktualisierung des Measurement &amp; Automation Explorer (MAX) auf Version 2.1, die LabVIEW RT 6.0.3. unterst&uuml;tzt.</span></p>
+
+
+<p><span lang=DE>Au&szlig;erdem wird NI-PAL auf Version 1.4.4 aktualisiert. In dieser Version wurde das Ausf&uuml;hren von Analogausgabe-Operationen mit Ger&auml;ten der E-Serie verbessert.</span></p>
+
+
+<p><span lang=DE>Diese Version unterst&uuml;tzt zwei neue Ger&auml;te:</span></p>
+
+
+<p class=Note style='text-indent:-.25in;'><span lang=DE style='font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>SCXI -1581</span></p>
+
+
+<ul style='margin-top:0in' type=disc>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>NI 6036E f&uuml;r PCI</span></li>
+</ul>
+
+
+<p><span lang=DE>NI-DAQ 6.9.1 unterst&uuml;tzt bis zu 64 Ger&auml;te und/oder Ger&auml;tenummern. In der <a href="http://www.ni.com/public"><span
+style='color:windowtext'>Knowledge Base</span></a> finden Sie im Eintrag <b>27C9QJQI</b> weitere Hinweise zu diesem Thema.</span></p>
+
+
+<p><span lang=DE style='color:black;'>Verwenden Sie NI_SCOPE 1.6.2 oder h&ouml;her, um NI 5112 f&uuml;r PXI/CompactPCI mit NI-DAQ 6.9.1 zu betreiben. Mehr zu diesem Thema finden Sie in der </span><u><span lang=DE><a href="http://www.ni.com/public"><span
+style='color:windowtext'>Knowledge Base</span></a></span></u><span lang=DE
+style='color:black;'> unter dem Eintrag <b>27CCBKV2</b>.</span></p>
+
+
+<p><span lang=DE>Alle weiteren Informationen in dieser Readme-Datei beziehen sich auf NI-DAQ 6.9, NI-DAQ 6.9.1 und NI-DAQ 6.9.2.</span></p>
+
+
+<h3><span lang=DE><a name="Neue Funktionen und Produkte"></a>Neue Funktionen und Produkte in NI-DAQ 6.9 und h&ouml;her</span></h3>
+
+
+<h4><span lang=DE>Von dieser Version unterst&uuml;tzte neue Funktionen</span></h4>
+
+
+<ul style='margin-top:0in' type=disc>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>&Uuml;ber den Measurement &amp; Automation Explorer (MAX) werden jetzt Dehnungsmessungen unterst&uuml;tzt.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>&Uuml;ber virtuelle Kan&auml;le werden jetzt die Messergebnisse von SCC-SG-Dehnungsmessstreifen (SCC-SG01, SG02, SG03, and SG04) unterst&uuml;tzt.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Passwortsicherheit f&uuml;r RDA &ndash; Weitere Informationen zu dieser Funktion finden Sie im Abschnitt <b>Informationen zu Remote Device Access (RDA)</b>.</span></li>
+</ul>
+
+
+<p class=Note style='text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>Synchronisierung vernetzter Messungen mit GPS &uuml;ber PXI -6608 </span></p>
+
+
+<ul style='margin-top:0in' type=disc>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Windows Me Unterst&uuml;tzung. </span></li>
+</ul>
+
+
+<h4><span lang=DE>Von dieser Version unterst&uuml;tzte neue Produkte</span></h4>
+
+
+<p><span lang=DE>Alle folgenden, neuen Produkte werden von NI-DAQ 6.9 unterst&uuml;tzt:</span></p>
+
+
+<ul style='margin-top:0in' type=disc>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>DAQCard-6024E</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>DAQCard-6601
+
+    </span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>DAQCard-6533 CardBus</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>NI 4472 f&uuml;r PXI/Compact PCI</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>NI 6534 f&uuml;r PCI und PXI/Compact PCI</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>PCI/PXI-6115</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>SCC-FV01</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>SCC-LP04</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>SCC-ICP01</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>SCC-RTD01</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>SCXI-1128</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>SCXI-1190</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>SCXI-1191</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>SCXI-1192</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>SCXI -1313</span></li>
+</ul>
+
+
+<p class=Note style='text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span lang=DE>SCXI-1314</span></p>
+
+
+<ul style='margin-top:0in' type=disc>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>TBX-1316</span></li>
+</ul>
+
+
+<h3><span lang=DE><a name="Produkte die in fruheren"></a>Produkte, die in fr&uuml;heren Versionen von NI-DAQ, in dieser Version jedoch nicht mehr unterst&uuml;tzt werden.</span></h3>
+
+
+<p><span lang=DE>Dies ist eine Liste der Produkte, die von NI-DAQ 6.5 oder aktuelleren Versionen nicht mehr unterst&uuml;tzt werden. In Klammern angegeben ist die letzte NI-DAQ-Version, die diese Produkte noch unterst&uuml;tzt:</span></p>
+
+
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0in;margin-bottom:5.0pt;
+margin-left:.5in;text-indent:-.5in;'><span
+lang=DE style='font-size:10.0pt;font-family:Symbol;'>&middot;<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>AT-MIO-16 (NI-DAQ 6.1)</span></p>
+
+
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0in;margin-bottom:5.0pt;
+margin-left:.5in;text-indent:-.5in;'><span
+lang=DE style='font-size:10.0pt;font-family:Symbol;'>&middot;<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>AT-MIO-16D (NI-DAQ 6.1)</span></p>
+
+
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0in;margin-bottom:5.0pt;
+margin-left:.5in;text-indent:-.5in;'><span
+lang=DE style='font-size:10.0pt;font-family:Symbol;'>&middot;<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>AT-MIO-16F-5 (NI-DAQ 6.1)</span></p>
+
+
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0in;margin-bottom:5.0pt;
+margin-left:.5in;text-indent:-.5in;'><span
+lang=DE style='font-size:10.0pt;font-family:Symbol;'>&middot;<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>AT-MIO-16X (NI-DAQ 6.1)</span></p>
+
+
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0in;margin-bottom:5.0pt;
+margin-left:.5in;text-indent:-.5in;'><span
+lang=DE style='font-size:10.0pt;font-family:Symbol;'>&middot;<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>AT-MIO-64F-5 (NI-DAQ 6.1)</span></p>
+
+
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0in;margin-bottom:5.0pt;
+margin-left:.5in;text-indent:-.5in;'><span
+lang=DE style='font-size:10.0pt;font-family:Symbol;'>&middot;<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>AT-A2150 (NI-DAQ 4.9.0)</span></p>
+
+
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0in;margin-bottom:5.0pt;
+margin-left:.5in;text-indent:-.5in;'><span
+lang=DE style='font-size:10.0pt;font-family:Symbol;'>&middot;<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>AT-DSP-2200 (NI-DAQ 4.9.0)</span></p>
+
+
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0in;margin-bottom:5.0pt;
+margin-left:.5in;text-indent:-.5in;'><span
+lang=DE style='font-size:10.0pt;font-family:Symbol;'>&middot;<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>EISA-A2000 (NI-DAQ 4.9.0)</span></p>
+
+
+<p><span lang=DE>Wenn Sie eines dieser Produkte verwenden m&ouml;chten, ben&ouml;tigen Sie die in Klammern aufgef&uuml;hrte NI-DAQ-Version oder eine fr&uuml;here Version.</span></p>
+
+
+<h3><span lang=DE><a name="Updates der Datenerfassungsbibliothek"></a>Updates der Datenerfassungsbibliothek f&uuml;r LabVIEW-Version 4.<i>x</i>, die in NI-DAQ 6.7 und sp&auml;ter nicht vorhanden sind.</span></h3>
+
+
+<p><span lang=DE>Das NI-DAQ-Setup-Dienstprogramm wurde mit NI-DAQ 6.7 f&uuml;r Windows eingef&uuml;hrt und bietet keine Option mehr zum Installieren der Unterst&uuml;tzungsdateien zur Datenerfassung f&uuml;r LabVIEW f&uuml;r Windows Version 4.<i>x&nbsp; </i>(Englisch und Japanisch).</span></p>
+
+
+<p><span lang=DE>Wenn Sie die Unterst&uuml;tzungsdateien zur Datenerfassung f&uuml;r LabVIEW f&uuml;r Windows Version 4.<i>x</i> neu installieren m&uuml;ssen und dazu die Treiber f&uuml;r NI-DAQ f&uuml;r Windows Version 6.7 ben&ouml;tigen, k&ouml;nnen Sie die wichtigsten Treiberkomponenten und die LabVIEW 4.<i>x</i> DAQ-Unterst&uuml;tzung von einer &auml;lteren Version von NI-DAQ f&uuml;r Windows installieren (empfohlen: NI-DAQ 6.6 f&uuml;r Englisch, NI-DAQ 6.1 f&uuml;r Japanisch) und anschlie&szlig;end die wichtigsten NI-DAQ f&uuml;r Windows Version 6.7-Treiberkomponenten dar&uuml;ber installieren.</span></p>
+
+
+<h3><span lang=DE><a name="Anderungen an den LLBs"></a>&Auml;nderungen an den LLBs der LabVIEW f&uuml;r Windows-Datenerfassungsbibliotheken f&uuml;r NI-DAQ 6.7 und h&ouml;her</span></h3>
+
+
+<p><span lang=DE>Ab NI-DAQ 6.7 enthalten die LLBs der LabVIEW f&uuml;r Windows Datenerfassungs-bibliothek in der folgenden Liste (installiert unter </span><kbd><span lang=DE style='font-size:10.0pt;
+font-family:"Courier New";'>&lt;LabVIEW&gt;\vi.lib\daq</span></kbd><span
+lang=DE>) Funktionsaufrufe zu einer Dynamic Link Library (DLL) mit der Bezeichnung LVDAQ.DLL. Diese DLL befindet sich in demselben Verzeichnis wie die LLBs und ersetzt die Code Interface Nodes (CINs), die zuvor in jedes VI eingebettet waren.</span></p>
+
+
+<ul style='margin-top:0in' type=disc>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>_daq301.llb</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>_nidaq32.llb</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>dqchnutl.llb</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>misc.llb</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>zadvd.llb</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>zadvdctr.llb</span></kbd></li>
+</ul>
+
+
+<p><span lang=DE>Diese LLBs und die DLL sind mit LabVIEW f&uuml;r Windows 5.<i>x</i>, LabVIEW RT Version 5.1.2 oder h&ouml;her, BridgeVIEW 2.<i>x</i> und der LabVIEW Student Edition Version 5.<i>x</i> f&uuml;r Windows kompatibel. Diese LLBs sind abw&auml;rtskompatibel, das hei&szlig;t, sie k&ouml;nnen mit NI-DAQ f&uuml;r Windows Version 5.0 oder sp&auml;ter ausgef&uuml;hrt werden. Wenn ein bestimmter Vorgang oder eine bestimmte Funktion nicht unterst&uuml;tzt wird, geben einige VIs beim Ausf&uuml;hren den DAQ-Fehlercode </span><kbd><b><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>&ndash;10242</span></b></kbd><span
+lang=DE> (</span><kbd><b><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>functionNotFoundError</span></b></kbd><span
+lang=DE>) aus.</span></p>
+
+
+<p><span lang=DE>Ein Vorteil der &Auml;nderung der VIs zum Aufrufen von DLL-Funktionen anstatt CINs ist, dass die VI-Ladezeit erheblich verringert wird. Unsere Bewertungstests haben bei Ausf&uuml;hrung auf einem Pentium III 500 MHz Dell Precision 610 unter Windows NT 4.0 SP4 eine durchschnittliche Reduzierung der Ladezeit von mindestens 75 Prozent ergeben, nachdem die NIDAQ32.DLL beim Laden des ersten DAQ-VIs in LabVIEW in den Speicher geladen wurde.</span></p>
+
+
+<p><span lang=DE>Die folgenden LabVIEW-Dateien werden bei LabVIEW f&uuml;r Windows nicht mehr ben&ouml;tigt, wenn sie mit den Datenerfassungs-LLBs verwendet werden, die mit NI-DAQ 6.7 oder sp&auml;ter installiert wurden:</span></p>
+
+
+<ul style='margin-top:0in' type=disc>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>&lt;LabVIEW&gt;\vi.lib\</span></kbd><span
+     lang=DE>flatten.lsb (jetzt in LVDAQ.DLL enthalten)</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>&lt;LabVIEW&gt;\daqdrv</span></kbd><span
+     lang=DE> (dieselben Funktionen sind jetzt in LVDAQ.DLL enthalten)</span></li>
+</ul>
+
+
+<p class=Note style='margin-left:.75in;text-indent:-.75in'><strong><span
+lang=DE>Hinweis:</span></strong><span lang=DE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Wenn Sie den LabVIEW Application Builder zum Erstellen einer Programmdatei verwenden, die DAQ Library-VIs aufruft, m&uuml;ssen Sie unter Umst&auml;nden manuell einen Verweis auf die LVDAQ.DLL in das Build-Script einf&uuml;gen.</span></p>
+
+
+<h3><span lang=DE><a name="Neue umbenannte und"></a>Neue, umbenannte und nicht mehr vorhandene DAQ-Beispiele</span></h3>
+
+
+<p><span lang=DE>Es folgen Listen von neuen LabVIEW Datenerfassungsbeispielen in NI-DAQ 6.9, angeordnet nach den Standard-Installationsverzeichnissen der Dateien.</span></p>
+
+
+<p><span lang=DE>Folgendes Beispiel wurde dem Ordner </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>vi.lib</span></kbd><span lang=DE> hinzugef&uuml;gt:</span></p>
+
+
+<ul style='margin-top:0in' type=disc>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>Daq\misc.llb\DSA AI Get Overloaded Channels.vi</span></kbd></li>
+</ul>
+
+
+<p><span lang=DE>Folgende Beispiele wurden dem Ordner </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>examples</span></kbd><span lang=DE> hinzugef&uuml;gt:</span></p>
+
+
+<ul style='margin-top:0in' type=disc>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\counter\ni-tio.llb\GPS - Time 1 Hardware Event (NI-TIO).vi</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\counter\ni-tio.llb\GPS - Time N Software Events (NI-TIO).vi</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\counter\ni-tio.llb\Measure Position - non-TTL (NI-TIO).vi</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\counter\ni-tio.llb\Measure Pulse - non-TTL (NI-TIO).vi</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\daqcan\DAQCAN.llb\CAN-DAQ RTSI Clear.vi</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\daqcan\DAQCAN.llb\CAN-DAQ RTSI Config.vi</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\daqcan\DAQCAN.llb\Compute Waveform.vi</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\daqcan\DAQCAN.llb\DAQ-AI CAN-Receive Example.vi</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\daqcan\DAQCAN.llb\DAQ-AI CAN-Transmit Example.vi</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\daqcan\DAQCAN.llb\DAQ-AO CAN-Receive Example.vi</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\daqcan\DAQCAN.llb\DAQ-AO CAN-Transmit Example.vi</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\digital\653x.llb\Dig Read backlog.vi</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\digital\E-series.llb\Continuous CDI with AI (E).vi (nur Ger&auml;te 6115/6120)</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\digital\E-series.llb\Continuous CDO with AO (E).vi (nur Ger&auml;te 6115/6120)</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\digital\E-series.llb\Continuous CDIO with AIO (E).vi (nur Ger&auml;te 6115/6120)</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\digital\E-series.llb\Continuous CDIO with external clock (E).vi (nur Ger&auml;te 6115/6120)</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\digital\E-series.llb\CDI Single Point clocked by Counter (E).vi (nur Ger&auml;te 6115/6120)</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\digital\E-series.llb\CDO Single Point clocked by Counter (E).vi (nur Ger&auml;te 6115/6120)</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\digital\E-series.llb\Immediate CDI Single Point (E).vi (nur Ger&auml;te 6115/6120)</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\digital\E-series.llb\Immediate CDO Single Point (E).vi (nur Ger&auml;te 6115/6120)</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\digital\E-series.llb\Channel String to Channel List und Number.vi </span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\digital\E-series.llb\compute digital waveform.vi</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\digital\E-series.llb\Logical to Physical Data Filter.vi</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>daq\digital\E-series.llb\Physical to Logical Data Filter.vi</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>Daq\scxi\scxi1520.llb\SCXI-1520 Strain.vi</span></kbd></li>
+</ul>
+
+
+<p><span lang=DE>Die folgenden, in Visual Basic, Visual C++, CVI oder Borland C++ geschriebenen NI-DAQ-C-API-Beispiele werden hinzugef&uuml;gt&nbsp; zu </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>&lt;Beispielverzeichnis&gt;\daq\CDIO\:</span></kbd></p>
+
+
+<ul style='margin-top:0in' type=disc>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>CDISinglePointClockedByCounter</span></kbd><span
+     lang=DE> (nur Ger&auml;te 6115/6120)</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE style='font-family:"Courier New";'>CDOSinglePointClockedByCounter (nur Ger&auml;te 6115/6120)</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE style='font-family:"Courier New";'>DoubleBufferedCDIOusingExternalClock (nur Ger&auml;te 6115/6120)</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE style='font-family:"Courier New";'>DoubleBufferedCDIOwithAIO (nur Ger&auml;te 6115/6120)</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>DoubleBufferedCDIwithAI (nur Ger&auml;te 6115/6120)</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>DoubleBufferedCDOwithAO (nur Ger&auml;te 6115/6120)</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>ImmediateCDISinglePoint (nur Ger&auml;te 6115/6120)</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>ImmediateCDOSinglePoint (nur Ger&auml;te 6115/6120)</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>SingleBufferedCDIusingExternalClock (nur Ger&auml;te 6115/6120)</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>SingleBufferedCDIwithAI (nur Ger&auml;te 6115/6120)</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>SingleBufferedCDOusingExternalClock (nur Ger&auml;te 6115/6120)</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>SingleBufferedCDOwithAO (nur Ger&auml;te 6115/6120)</span></li>
+</ul>
+
+
+<h3><span lang=DE><a name="Das Kompilieren und"></a>Das Kompilieren und Ausf&uuml;hren von NI-DAQ-Beispielen in Microsoft Visual C++</span></h3>
+
+
+<p><span lang=DE>Zum Kompilieren und Ausf&uuml;hren der Beispiele f&uuml;hren Sie folgende Schritte aus:</span></p>
+
+
+<ol style='margin-top:0in' start=1 type=1>
+
+<li class=MsoNormal><span
+     lang=DE>&Ouml;ffnen Sie unter <b>Datei&raquo;Neu</b> ein neues Projekt. Es erscheint die Registerkarte <b>Projekte</b> (Standardeinstellung). </span></li>
+
+<li class=MsoNormal><span
+     lang=DE>W&auml;hlen Sie <b>Win32-Konsolenanwendung</b> als Projekttyp und geben Sie den gew&uuml;nschten Projektnamen ein. </span></li>
+
+<li class=MsoNormal><span
+     lang=DE>W&auml;hlen Sie <b>Ein leeres Projekt</b>.
+
+    Nachdem Sie ein das neue Projekt angelegt haben, sehen Sie im linken Fenster das Datei-Men&uuml; und rechts das Datei-Fenster. Klicken Sie auf eine beliebige Datei Ihres Projekts, um diese im rechten Fenster anzeigen zu lassen. Zur besseren Orientierung k&ouml;nnen Sie die Ansicht wechseln, indem Sie von der Ansicht <b>Klassen</b> auf die <b>Dateien</b> Ansicht umschalten</span></li>
+
+<li class=MsoNormal><span
+     lang=DE>W&auml;hlen Sie <b>Projekt&raquo;Dem Projekt hinzuf&uuml;gen&raquo;Dateien</b>. </span></li>
+
+<li class=MsoNormal><span
+     lang=DE>F&uuml;gen Sie Ihrem Projekt aus dem Verzeichnis </span><kbd><span lang=DE style='font-size:10.0pt;font-family:
+     "Courier New";'>NI-DAQ\LIB</span></kbd><span lang=DE> die Dateien </span><kbd><span lang=DE
+     style='font-size:10.0pt;font-family:"Courier New";'>nidaq32.lib</span></kbd><span
+     lang=DE> und </span><kbd><span lang=DE
+     style='font-size:10.0pt;font-family:"Courier New";'>nidex32.lib</span></kbd><span
+     lang=DE> hinzu. Au&szlig;erdem sind die Dateien </span><kbd><span
+     lang=DE style='font-size:10.0pt;font-family:"Courier New";'>nidaqex.h</span></kbd><span lang=DE> und </span><kbd><span
+     lang=DE style='font-size:10.0pt;font-family:"Courier New";'>nidaq.h</span></kbd><span lang=DE> aus dem Verzeichnis </span><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>NI-DAQ\Include</span></kbd><span
+     lang=DE> dem Projekt hinzuzuf&uuml;gen. Diese Bibliothek- und Header-Dateien integrieren den Sourcecode f&uuml;r fast alle Beispiele zur Datenerfassung. </span></li>
+
+<li class=MsoNormal><span
+     lang=DE>W&auml;hlen Sie aus dem Men&uuml; <b>Extras&raquo;Optionen</b> die Registerkarte <b>Verzeichnisse</b>. </span></li>
+</ol>
+
+
+<p class=Indent2 style='margin-left:.75in;text-indent:0in;'><span lang=DE>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>W&auml;hlen Sie die Option <b>Include-Dateien</b>. Sie m&uuml;ssen auf das gleiche Verzeichnis verweisen wie in </span><kbd><span lang=DE style='font-size:10.0pt;font-family:
+"Courier New";'>NI-DAQ\Include</span></kbd><span lang=DE>. </span></p>
+
+
+<p class=Indent2 style='margin-left:.75in;text-indent:0in;'><span lang=DE>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>W&auml;hlen Sie die Option <b>Bibliothekdateien</b> und verweisen Sie auf den Pfad </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>NI-DAQ\LIB</span></kbd><span lang=DE>.</span></p>
+
+
+<ol style='margin-top:0in' start=7 type=1>
+
+<li class=MsoNormal><span
+     lang=DE>Wenn Sie Anwendungen mit Easy-I/O Funktionen benutzen, m&uuml;ssen Sie zus&auml;tzliche Dateien einbeziehen, da Easy-I/O Funktionen einige Funktionen aus den CVI Run-Time Bibliotheken ben&ouml;tigen. Es handelt sich dabei um die Bibliotheken </span><kbd><span
+     lang=DE style='font-size:10.0pt;font-family:"Courier New";'>easyio.lib</span></kbd><span lang=DE>, </span><kbd><span
+     lang=DE style='font-size:10.0pt;font-family:"Courier New";'>cvisupp.lib</span></kbd><span lang=DE>, </span><kbd><span
+     lang=DE style='font-size:10.0pt;font-family:"Courier New";'>cvirt.lib</span></kbd><span lang=DE> und </span><kbd><span
+     lang=DE style='font-size:10.0pt;font-family:"Courier New";'>cviwmain.lib</span></kbd><span lang=DE>, die sich im Verzeichnis </span><kbd><span lang=DE style='font-size:10.0pt;
+     font-family:"Courier New";'>CVI\EXTLIB </span></kbd><span
+     lang=DE>befinden. </span></li>
+</ol>
+
+
+<p class=Indent2 style='margin-left:.7in;text-indent:0in;'><span lang=DE>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>W&auml;hlen Sie aus dem Men&uuml; <b>Extras&raquo;Optionen</b> die Registerkarte <b>Verzeichnisse</b>. </span></p>
+
+
+<p class=Indent2 style='margin-left:.7in;text-indent:0in;'><span lang=DE>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>W&auml;hlen Sie die Option <b>Include-Dateien</b>. Verweisen Sie auf das Verzeichnis </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>CVI\INCLUDE</span></kbd><span lang=DE>. </span></p>
+
+
+<p class=Indent2 style='margin-left:.7in;text-indent:0in;'><span lang=DE>c.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>W&auml;hlen Sie die Option <b>Bibliothekdateien</b> und verweisen Sie auf den Pfad </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>CVI\EXTLIB</span></kbd><span lang=DE>.</span></p>
+
+
+<ol style='margin-top:0in' start=8 type=1>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Sie k&ouml;nnen dem gew&uuml;nschten Projekt bei Bedarf die Sourcecode- und Header-Dateien hinzuf&uuml;gen. </span></li>
+</ol>
+
+
+<p><span lang=DE>Sie k&ouml;nnen jetzt aus dem Projekt eine Programmdatei erstellen.</span></p>
+
+
+<h3><span lang=DE><a name="Was kann ich tun"></a>Was kann ich tun, wenn mein Ger&auml;t nicht im Measurement and Automation Explorer (MAX) aufgef&uuml;hrt wird?</span></h3>
+
+
+<p><span lang=DE>Sollte ein Ger&auml;t das Sie benutzen nicht im MAX aufgef&uuml;hrt sein, dr&uuml;cken Sie <b>Ansicht&raquo;Aktualisieren</b>.</span></p>
+
+
+<p>Wenn Sie Windows XP verwenden und Ihre Hardware nicht in der Liste erscheint, w&auml;hlen Sie  <b>Systemsteuerung&raquo;Leistung und Wartung&raquo;System</b> (oder <b>Systemsteuerung&raquo;System</b>).
+W&auml;hlen Sie dann die Registerkarte <b>Hardware</b>. Klicken Sie auf die Schaltfl&auml;che <b>Ger&auml;te-Manager</b> und erweitern Sie den Abschnitt <b>Andere Ger&auml;te</b> in der Baumstruktur &uuml;ber das Plus-Symbol. F&uuml;hren Sie einen Rechtsklick auf die Ger&auml;te in <b>Andere Ger&auml;te</b> aus und w&auml;hlen Sie die Option <b>Treiber aktualisieren...</b>. Es erscheint der  <b>Hardwareupdate-Assistent</b>, &uuml;ber den Sie nun den neuen Treiber detektieren lassen k&ouml;nnen. Nachdem der Treiber geladen wurde, gehen Sie in den MAX und dr&uuml;cken die Taste F5 oder w&auml;hlen Sie <b>Ansicht&raquo;Aktualisieren</b>, um den MAX zu aktualisieren.</p>
+
+
+<h3><span lang=DE><a name="DSA Gerate"></a>DSA-Ger&auml;te (44<i>XX</i>, 45<i>XX</i>)</span></h3>
+
+
+<h4><span lang=DE>Nicht unterst&uuml;tzte Funktionen</span></h4>
+
+
+<p><span lang=DE>DSA-Ger&auml;te unterst&uuml;tzen keine ungepufferten, analogen Eingabe-/Ausgabevorg&auml;nge. In LabVIEW werden AI SingleScan- und AO Single Update-VIs nicht unterst&uuml;tzt.</span></p>
+
+
+<h4><span lang=DE>Neuer Instrumententreiber erforderlich.</span></h4>
+
+
+<p><span lang=DE>Wenn Sie bereits eine Version des DSA-Instrumententreibers installiert haben, m&uuml;ssen Sie die neueste Version installieren, um sie mit NI-DAQ 6.9 verwenden zu k&ouml;nnen.</span></p>
+
+
+<h3><span lang=DE><a name="Hinweise zu DAQPad 6020E"></a>Hinweise zu DAQPad-6020E</span></h3>
+
+
+<p><b><span lang=DE>Extern zeitgesteuertes A/D</span></b><span
+lang=DE>: Der DAQPad-6020E unterst&uuml;tzt bei geringen Geschwindigkeiten die externe Zeitsteuerung des Abtast- und Scanintervalls (bis zu ca. 90 Hz). Bei schnellerer externer Abtastung f&uuml;hren Sie &quot;DAQ-Ger&auml;teinformation einstellen&quot; (oder einen &auml;hnlichen Vorgang) mit folgenden Einstellungen aus: <b>Informationstyp</b> = Interrupt-Mode und <b>Informationseinstellung</b> = Nach jedem halben FIFO Interrupt generieren.</span></p>
+
+
+<p><b><span lang=DE>Analoges Software-Triggering</span></b><span
+lang=DE>: Das DAQPad-6020E unterst&uuml;tzt analoge Software-Triggerung nur bei Erfassungen mit geringer Geschwindigkeit (bis zu etwa. 75 Abtastungen/s). Diese Beschr&auml;nkung gilt nicht f&uuml;r andere Trigger-Arten.
+Weitere Informationen zu analogem Triggern finden Sie unter dem Thema <i>Config_DAQ_Event_Message</i> in der <strong><i><span style='font-weight:normal'>NI-DAQ Function Reference Help</span></i></strong> oder im VI </span><kbd><span lang=DE style='font-size:
+10.0pt;font-family:"Courier New";'>AI Trigger Config</span></kbd><span
+lang=DE> der<i> LabVIEW DAQ Hilfe</i>.</span></p>
+
+
+<p><b><span lang=DE>Fortlaufende AI-&Uuml;bertragungen mit geringer Geschwindigkeit</span></b><span lang=DE>: Bei dem DAQPad-6020E gibt es beim Starten einer fortlaufenden AI-&Uuml;bertragung mit geringer Geschwindigkeit (von 80 bis zu etwa. 400 Abtastungen/Sek.) eine erhebliche Verz&ouml;gerung, bevor Daten im Erfassungspuffer eintreffen. Der Grund daf&uuml;r ist, dass, auch wenn A/D-Wandlungen generiert werden, das Ger&auml;t erst dann mit der &Uuml;bertragung von Daten an den PC beginnt, wenn sein AI-FIFO mindestens halb voll ist.</span></p>
+
+
+<p><b><span lang=DE>Zeitgesteuertes, nicht gepuffertes AI</span></b><span lang=DE>: Auf dem DAQPad-6020E sind zeitgesteuerte, nicht gepufferte AI-Vorg&auml;nge, wie im LabVIEW-Beispiel Cont Acq&amp;Chart (hw timed) VI dargestellt, auf etwa. 50 Hz beschr&auml;nkt. Bei gr&ouml;&szlig;eren &Uuml;bertragungsraten reagiert LabVIEW m&ouml;glicherweise nicht mehr, da NI-DAQ versucht, den AI-FIFO des Ger&auml;tes durch Lesen eines Scans pro Zeit zu entleeren.</span></p>
+
+
+<h3><span lang=DE><a name="Hinweise zu DAQPad 6070E"></a>Hinweise zu DAQPad-6070E/DAQPad-6052E</span></h3>
+
+
+<p><span lang=DE>Einige IEEE 1394-Adapterkarten geben fehlerhafte FIFO-Gr&ouml;&szlig;en aus. Aus diesem Grund verwendet NI den kleinsten gemeinsamen Nenner f&uuml;r die FIFO-Gr&ouml;&szlig;e. Wenn Ihre IEEE 1394-Adapterkarte &uuml;ber eine gr&ouml;&szlig;ere FIFO-Tiefe als 456 Byte verf&uuml;gt oder die falsche Geschwindigkeit ausgibt, laden Sie die Dateien </span><kbd><span lang=DE style='font-size:10.0pt;
+font-family:"Courier New";'>fwctl.exe</span></kbd><span
+lang=DE> und </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>readme.txt</span></kbd><span
+lang=DE> von der Website </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'><a href="ftp://ftp.natinst.com/support/daq/pc/ieee1394">ftp://ftp.natinst.com/support/daq/pc/ieee1394</a></span></kbd><span
+lang=DE> herunter, um die Leistung zu verbessern.</span></p>
+
+
+<p><span lang=DE>&Uuml;blicherweise k&ouml;nnen die Karten- und mini-MITE FIFOs in den Steueranwendungen deaktiviert werden, um die Geschwindigkeit zu erh&ouml;hen. Diese Aktion beeinflusst jedoch alle DMA-Kanal&uuml;bertragungen auf dem DAQPad-6070E. Au&szlig;erdem k&ouml;nnen Sie die FIFO-Gr&ouml;&szlig;en nur &auml;ndern, bevor Sie DMA-&Uuml;bertragungen durchf&uuml;hren.</span></p>
+
+
+<h3><span lang=DE><a name="Informationen zu NI 6527"></a>Informationen zu NI 6527</span></h3>
+
+
+<p><span lang=DE>Wenn ein 6527-Ger&auml;t einen Interrupt-Level (IRQL) verwendet, der mit dem IRQL entweder eines USB-Host-Controllers oder eines IEEE 1394-Host-Controllers identisch ist, funktioniert die &Auml;nderung der Erkennung m&ouml;glicherweise nicht. Weitere Informationen zu diesem Problem und L&ouml;sungen finden Sie im Abschnitt <i>Probleme mit der Interrupt-Leistung zwischen PCI-Ger&auml;ten und Windows 98</i>.</span></p>
+
+
+<h3><span lang=DE><a name="Informationen zu NI 6534"></a>Informationen zu NI 6534</span></h3>
+
+
+<h4><span lang=DE>Unterst&uuml;tzte neue Funktionen</span></h4>
+
+
+<p><b><span lang=DE>Verbesserte gepufferte Ausgabevorg&auml;nge</span></b><span lang=DE>: Die 6534-Ger&auml;te verf&uuml;gen &uuml;ber zwei integrierte Speichermodule, eines f&uuml;r jede Gruppe. Standardm&auml;&szlig;ig l&auml;dt NI DAQ vor dem Starten der Ausgabe die SCARABs bereits entweder mit dem gesamten Datenpuffer oder dem gesamten Speichermodul, je nachdem was kleiner ist. Auf diese Weise werden die Beschr&auml;nkungen der Busbandbreite aufgehoben. Sie k&ouml;nnen den Standard-Ladevorgang aber auch &uuml;bergehen: </span></p>
+
+
+<ul style='margin-top:0in' type=disc>
+
+<li class=MsoNormal><span
+     lang=DE>F&uuml;hren Sie in LabVIEW das VI &quot;DIO-Parameter&quot; mit den Einstellungen <b>Parametername</b> = SCARABs Preload Enable und <b>Eingangs-Wert</b> = Aus aus.</span></li>
+
+<li class=MsoNormal><span
+     lang=DE>Wenn Sie in C programmieren, rufen Sie </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>Set_DAQ_Device_Info</span></kbd><span lang=DE> (NI-DAQ API) mit <b>infoType</b> = ND_FIFO_TRANSFER_COUNT und <b>infoValue</b> = ND_NONE auf.</span></li>
+</ul>
+
+
+<p><b><span lang=DE>Fortlaufende Hochgeschwindigkeitsausgabe mit sich wiederholenden Daten</span></b><span
+lang=DE>: Die 6534-Ger&auml;te unterst&uuml;tzen den Schleifenmodus des Ausgabespeichers, bei dem die Ausgabedaten nur einmal in den SCARAB geladen werden und der gesamte Puffer st&auml;ndig wiederholt wird, vorausgesetzt, die Puffergr&ouml;&szlig;e ist kleiner oder gleich der integrierten Speichergr&ouml;&szlig;e:</span></p>
+
+
+<ul style='margin-top:0in' type=disc>
+
+<li class=MsoNormal><span
+     lang=DE>F&uuml;hren Sie dazu in LabVIEW das VI &quot;DIO-Parameter&quot; mit der Einstellung <b>Parametername</b> = <b>Pattern Generation Loop Enable </b>aus und f&uuml;hren Sie dann die normale DIO-Konfiguration f&uuml;r fortlaufende Ausgabevorg&auml;nge mit aktiviertem Modus f&uuml;r kontinuierliche Erzeugung durch. </span></li>
+
+<li class=MsoNormal><span
+     lang=DE>Wenn Sie in C programmieren, rufen Sie </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>Set_DAQ_Device_Info </span></kbd><span lang=DE>mit <b>infoType</b> = ND_PATTERN_GENERATION_LOOP_ENABLE und <b>infoValue</b> = ND_ON auf.</span></li>
+</ul>
+
+
+<p><b><span lang=DE>Gr&ouml;&szlig;e des integrierten Speichers</span></b><span lang=DE>: Die 6534-Ger&auml;te bieten Speichermodule in verschiedenen Gr&ouml;&szlig;en. So k&ouml;nnen Sie die Speicherkapazit&auml;t Ihres 6534 Ger&auml;tes abfragen:</span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-family:
+Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>F&uuml;hren Sie in LabVIEW das VI Ger&auml;teinformation lesen [Get DAQ Device Information] mit <b>Informationstyp</b> = SCARAB A Memory Size (f&uuml;r Gruppe 1) oder Scarab B Memory Size (f&uuml;r Gruppe 2) aus. </span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE style='font-family:
+Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>Wenn Sie eine andere Entwicklungsumgebung verwenden, rufen Sie </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>Get_DAQ_Device_Info</span></kbd><span lang=DE> (in NI-DAQ API) mit <b>info Type</b> = ND_SCARAB_A_MEMORY_SIZE (f&uuml;r Gruppe 1) oder ND_SCARAB_B_MEMORY_SIZE (f&uuml;r Gruppe 2) auf. </span></p>
+
+
+<p><span lang=DE>Die Speichergr&ouml;&szlig;e wird in Byte ausgegeben. </span></p>
+
+
+<p><b><span lang=DE>20 MHz Muster I/O</span></b><span
+lang=DE>: Sie k&ouml;nnen die Taktfrequenz auf 20 MHz einstellen, indem Sie das VI Konfiguration Digital-Takt [Digital Clock Config.vi]oder DIO konfigurieren [DIO Config.vi] ausf&uuml;hren. Wenn Sie in C programmieren, rufen Sie </span><kbd><span lang=DE style='font-size:10.0pt;
+font-family:"Courier New";'>DIG_Block_PG_Config</span></kbd><span
+lang=DE> mit <b>Zeitbasis</b> = -3 und <b>Intervall</b> = 1 auf.</span></p>
+
+
+<h3><span lang=DE><a name="Gultige Wertebereiche"></a>G&uuml;ltige Wertebereiche f&uuml;r NI 660X</span></h3>
+
+
+<p><span lang=DE>Der g&uuml;ltige Wertebereich f&uuml;r NI 660X Ger&auml;te ist f&uuml;r die folgenden Funktionen 0: </span></p>
+
+
+<p style='margin-left:.5in;text-indent:-.5in;'><kbd><span lang=DE style='font-size:
+10.0pt;font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></kbd><kbd><span lang=DE style='font-size:10.0pt;
+font-family:"Courier New";'>DIG_In_Line </span></kbd></p>
+
+
+<p style='margin-left:.5in;text-indent:-.5in;'><kbd><span lang=DE style='font-size:
+10.0pt;font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></kbd><kbd><span lang=DE style='font-size:10.0pt;
+font-family:"Courier New";'>DIG_In_Prt </span></kbd></p>
+
+
+<p style='margin-left:.5in;text-indent:-.5in;'><kbd><span lang=DE style='font-size:
+10.0pt;font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></kbd><kbd><span lang=DE style='font-size:10.0pt;
+font-family:"Courier New";'>DIG_Line_Config </span></kbd></p>
+
+
+<p style='margin-left:.5in;text-indent:-.5in;'><kbd><span lang=DE style='font-size:
+10.0pt;font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></kbd><kbd><span lang=DE style='font-size:10.0pt;
+font-family:"Courier New";'>DIG_Out_Line </span></kbd></p>
+
+
+<p style='margin-left:.5in;text-indent:-.5in;'><kbd><span lang=DE style='font-size:
+10.0pt;font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></kbd><kbd><span lang=DE style='font-size:10.0pt;
+font-family:"Courier New";'>DIG_Out_Prt </span></kbd></p>
+
+
+<p style='margin-left:.5in;text-indent:-.5in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><kbd><span lang=DE style='font-size:10.0pt;font-family:
+"Courier New";'>DIG_Prt_Config</span></kbd></p>
+
+
+<p><span lang=DE>Dieser Wertebereich wird &uuml;ber den Parameter <b>Port</b> eingestellt. </span></p>
+
+
+<h3><span lang=DE><a name="Aktualisieren des PXI Controllers"></a>Aktualisieren des PXI-Controllers der RT-Serie f&uuml;r LabVIEW 5.1.2-Benutzer</span></h3>
+
+
+<p><span lang=DE>Wenn Sie LabVIEW 5.1.2 mit einem PXI-Controller der RT-Serie verwenden, erkennt NI-DAQ 6.9 den Remote System Explorer, wenn dieser auf dem System installiert ist, und aktualisiert die Datenerfassungsdateien automatisch. Nachdem die Installation von NI-DAQ abgeschlossen ist, folgen Sie diesen Anweisungen, um den PXI-Controller zu aktualisieren:</span></p>
+
+
+<ol style='margin-top:0in' start=1 type=1>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Starten Sie den Remote System Explorer:</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>W&auml;hlen Sie das PXI-System, das Sie aktualisieren m&ouml;chten, und klicken Sie auf <b>Werkzeuge&raquo;Software installieren/aktualisieren</b>, um das Dialogfeld <b>Software installieren/aktualisieren </b>zu &ouml;ffnen.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>W&auml;hlen Sie
+
+    </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>install.rts </span></kbd><span lang=DE>im ~Remote System Explorer\</span><kbd><span
+     lang=DE style='font-size:10.0pt;font-family:"Courier New";'>install\pxi</span></kbd><span lang=DE>
+
+    als Installations-Datei aus.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie auf <b>Installieren</b>.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Pr&uuml;fen Sie die Liste der zu installierenden Software und klicken Sie auf <b>Fortfahren</b>, um mit der Installation fortzufahren</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Wenn die Installation abgeschlossen ist, klicken Sie auf <b>Schlie&szlig;en</b> und klicken Sie auf <b>Ja</b>, wenn Sie aufgefordert werden, das System neu zu starten.</span></li>
+</ol>
+
+
+<h3><span lang=DE><a name="Interrupt Leistung und"></a>Interrupt-Leistung und -Probleme zwischen PCI-Ger&auml;ten und Windows 98</span></h3>
+
+
+<p><span lang=DE>Auf Systemen, die alle nachfolgenden Bedingungen erf&uuml;llen, erfolgt die Interrupt-Verarbeitung m&ouml;glicherweise langsamer:</span></p>
+
+
+<ul style='margin-top:0in' type=disc>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Der Computer verf&uuml;gt &uuml;ber USB-Anschl&uuml;sse.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Der Computer l&auml;uft unter Windows 98.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Sie verwenden ein PCI-Datenerfassungsger&auml;t.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Die Datenerfassungsanwendung f&uuml;hrt eine Interrupt-intensive Operation aus, beispielsweise Handshaking oder Nachrichten&uuml;bermittlung.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Der Interrupt Level (IRQL) des PCI-Ger&auml;ts stimmt mit dem IRQL des USB-Host-Controllers &uuml;berein (siehe nachfolgenden Abschnitt <b>Ermitteln des IRQL Ihres PCI DAQ-Ger&auml;ts und USB-/IEEE 1394-Host-Controllers</b>).</span></li>
+</ul>
+
+
+<p><span lang=DE>Extreme Langsamkeit, Timeouts oder Blockierungen k&ouml;nnen auf Systemen auftreten, auf die exakt alle folgenden Bedingungen zutreffen:</span></p>
+
+
+<ul style='margin-top:0in' type=disc>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Der Computer verf&uuml;gt &uuml;ber einen IEEE 1394-Adapteranschluss.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Der Computer l&auml;uft unter Windows 98.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Sie verwenden ein PCI-Datenerfassungsger&auml;t.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Die Datenerfassungsanwendung f&uuml;hrt eine Interrupt-intensive Operation aus, beispielsweise Analoges SW-Triggering, asynchrone Occurences oder andere Nachrichten&uuml;bermittlungsbeispiele.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Der Interrupt-Level (IRQL) des PCI-Ger&auml;ts stimmt mit dem IRQL des IEEE 1394-Host-Controllers &uuml;berein (siehe nachfolgenden Abschnitt <b>Ermitteln des IRQL Ihres PCI DAQ-Ger&auml;ts und USB-/IEEE 1394-Host-Controllers</b>).</span></li>
+</ul>
+
+
+<h4><span lang=DE>Ermitteln des IRQL Ihres PCI DAQ-Ger&auml;ts und USB-/IEEE 1394-Host-Controllers</span></h4>
+
+
+<p><span lang=DE>Gehen Sie folgenderma&szlig;en vor, um zu ermitteln, ob der IRQL Ihres PCI DAQ-Ger&auml;ts und USB-/IEEE 1394-Host-Controllers &uuml;bereinstimmen:</span></p>
+
+
+<ol style='margin-top:0in' start=1 type=1>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie mit der rechten Maustaste auf das Symbol <b>Arbeitsplatz</b>. Es befindet sich meist oben links auf dem Bildschirm.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>W&auml;hlen Sie im Popup-Men&uuml; die Option <b>Eigenschaften</b>, um das Fenster <b>Eigenschaften von System </b>zu &ouml;ffnen.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie auf das Register <b>Ger&auml;te-Manager</b>.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Doppelklicken Sie auf <b>Computer</b>, um das Fenster <b>Eigenschaften von Computer </b>zu &ouml;ffnen.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Vergewissern Sie sich, dass die Option <b>Interrupt (IRQ) </b>aktiviert ist.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Bl&auml;ttern Sie durch das Auswahlfeld bis zum PCI DAQ-Ger&auml;t und notieren Sie die Nummer in der Spalte <b>Einstellung </b>(den IRQ f&uuml;r das Ger&auml;t).</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Bl&auml;ttern Sie durch das Auswahlfeld bis zum USB-/IEEE 1394-Host-Controller und notieren Sie den IRQ in der Spalte <b>Einstellung</b>.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Vergleichen Sie die Nummer, die Sie f&uuml;r Ihr PCI DAQ-Ger&auml;t notiert haben, mit der Nummer, die Sie f&uuml;r den USB-/IEEE 1394-Controller notiert haben.</span></li>
+</ol>
+
+
+<p><span lang=DE>Wenn die Einstellungsnummer des PCI-Datenerfassungsger&auml;t mit dem USB-/IEEE 1394-Host-Controller &uuml;bereinstimmt, gehen Sie entsprechend den nachfolgenden Anweisungen vor, um die Interrupt-Verarbeitungsleistung zu verbessern.</span></p>
+
+
+<p class=Note><strong><span lang=DE>Hinweis:</span></strong><span
+lang=DE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Die gemeinsame Nutzung eines IRQL zwischen dem USB-/IEEE 1394-Host-Controller und dem PCI-Datenerfassungsger&auml;t betrifft nur die Geschwindigkeit der Verarbeitung von Interrupt-Transaktionen. DMA oder andere I/O-Vorg&auml;nge sind nicht betroffen.
+Ebenso sollte die gemeinsame Nutzung eines IRQL zwischen einer beliebigen Anzahl von PCI-Datenerfassungsger&auml;ten oder anderen PCI-Ger&auml;ten, beispielsweise einem Video- oder Netzwerkadapter, die Geschwindigkeit der Interrupt-Verarbeitung nicht beeintr&auml;chtigen.</span></p>
+
+
+<h4><span lang=DE>Einfache Verfahren zum Erh&ouml;hen der Interrupt-Verarbeitungsgeschwindigkeit</span></h4>
+
+
+<p><span lang=DE>Wenn Sie kein USB-/IEEE 1394-Ger&auml;t verwenden und auch in absehbarer Zeit nicht verwenden m&ouml;chten, tun Sie Folgendes:</span></p>
+
+
+<ol style='margin-top:0in' start=1 type=1>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie mit der rechten Maustaste auf das Symbol <b>Arbeitsplatz</b>. Es befindet sich meist oben links auf dem Bildschirm.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>W&auml;hlen Sie im Popup-Men&uuml; die Option <b>Eigenschaften</b>, um das Fenster <b>Eigenschaften von System </b>zu &ouml;ffnen.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie auf das Register <b>Ger&auml;te-Manager</b>.</span></li>
+</ol>
+
+
+<p style='margin-left:.75in;text-indent:-.25in;'><span lang=DE style='font-family:
+Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>USB:</span></p>
+
+
+<ol style='margin-top:0in' start=3 type=1>
+
+<ol style='margin-top:0in' start=1 type=a>
+
+ <li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Doppelklicken Sie auf <b>Universal Serial Bus Controller</b>.</span></li>
+
+ <li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Doppelklicken Sie auf <b>USB Host Controller</b>.</span></li>
+
+</ol>
+</ol>
+
+
+<p style='margin-left:.75in;text-indent:-.25in;'><span lang=DE style='font-family:
+Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>1394:</span></p>
+
+
+<ol style='margin-top:0in' start=3 type=1>
+
+<ol style='margin-top:0in' start=3 type=a>
+
+ <li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Doppelklicken Sie auf <b>1394 Bus Controller</b> (dieser Name kann variieren).</span></li>
+
+ <li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Doppelklicken Sie auf das IEEE 1394-Ger&auml;t.</span></li>
+
+</ol>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie auf das Register <b>Allgemein</b>.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Aktivieren Sie die Option <b>In diesem Hardware-Profil deaktivieren</b>.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie auf <b>OK</b>, um die Einstellungen zu speichern und das Fenster <b>Eigenschaften von System </b>zu schlie&szlig;en.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Starten Sie Ihr System neu.</span></li>
+</ol>
+
+
+<p><span lang=DE>Wenn Sie ein USB-/IEEE 1394-Ger&auml;t verwenden oder demn&auml;chst verwenden m&ouml;chten, <i>k&ouml;nnten</i> die folgenden Anweisungen funktionieren:</span></p>
+
+
+<ol style='margin-top:0in' start=1 type=1>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Fahren Sie den Computer herunter und ziehen Sie den Netzstecker ab.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Schlie&szlig;en Sie das PCI DAQ-Ger&auml;t an einem anderen PCI-Steckplatz an.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Starten Sie Ihr System neu. </span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Folgen Sie den Anweisungen im Abschnitt <b>Ermitteln des IRQL Ihres PCI DAQ-Ger&auml;ts und USB-/IEEE 1394-Host-Controllers</b>, um zu ermitteln, ob die IRQ Levels immer noch identisch sind.</span></li>
+</ol>
+
+
+<h4><span lang=DE>Erweiterte Methoden zum Erh&ouml;hen der Interrupt-Verarbeitungsgeschwindigkeit</span></h4>
+
+
+<p><span lang=DE>Wenn Sie kein USB-/IEEE 1394-Ger&auml;t verwenden und auch in absehbarer Zeit nicht verwenden m&ouml;chten, tun Sie Folgendes:</span></p>
+
+
+<ol style='margin-top:0in' start=1 type=1>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Starten Sie den Computer neu und &ouml;ffnen Sie den Bildschirm mit den BIOS-Einstellungen (folgen Sie den mit dem Computer gelieferten Anweisungen).</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Deaktivieren Sie den USB-/IEEE 1394-Anschluss, wenn das BIOS dies zul&auml;sst.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Wenn Ihr BIOS-Controller die Aktivierung/Deaktivierung von PCI IRQ Levels zul&auml;sst, aktivieren Sie m&ouml;glichst viele IRQ Level, um die Wahrscheinlichkeit eines gemeinsam genutzten IRQL zu verringern.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Deaktivieren Sie alle ungenutzten Ger&auml;te, beispielsweise eine integrierte Soundkarte, einen LPT2-Anschluss oder einen COM2-Anschluss, um weitere Ressourcen freizugeben.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Speichern Sie die Einstellungen im BIOS. </span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Starten Sie Ihren Rechner neu.</span></li>
+</ol>
+
+
+<p class=Note><strong><span lang=DE>Hinweis:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></strong><span lang=DE>Einige Ger&auml;te k&ouml;nnen nicht &uuml;ber die BIOS-Einstellungen deaktiviert werden. Versuchen Sie in diesem Fall, die Ger&auml;te &uuml;ber den Ger&auml;te-Manager in Windows zu deaktivieren.</span></p>
+
+
+<h4><span lang=DE>Letzte M&ouml;glichkeit zum Erh&ouml;hen der Interrupt-Verarbeitungsgeschwindigkeit</span></h4>
+
+
+<p><span lang=DE>Wenn die oben erl&auml;uterten Methoden nicht funktionieren, versuchen Sie es mit folgender Vorgehensweise:</span></p>
+
+
+<p class=Note><strong><span lang=DE>Hinweis:</span></strong><span
+lang=DE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Diese Methode sollte nur als letzte M&ouml;glichkeit verwendet werden, da Sie daf&uuml;r manuell Computer-Ressourcen &auml;ndern m&uuml;ssen.</span></p>
+
+
+<ol style='margin-top:0in' start=1 type=1>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Starten Sie den Computer neu und &ouml;ffnen Sie den Bildschirm mit den BIOS-Einstellungen (folgen Sie den mit dem Computer gelieferten Anweisungen).</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Schalten Sie die Plug and Play-Funktion aus oder deaktivieren Sie sie.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Speichern Sie die Einstellungen im BIOS. </span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Starten Sie Ihren Rechner neu.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie mit der rechten Maustaste auf das Symbol <b>Arbeitsplatz</b>. Es befindet sich meist oben links auf dem Bildschirm.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>W&auml;hlen Sie im Popup-Men&uuml; die Option <b>Eigenschaften</b>, um das Fenster <b>Eigenschaften von System </b>zu &ouml;ffnen.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie auf das Register <b>Ger&auml;te-Manager</b>.</span></li>
+</ol>
+
+
+<p style='margin-left:.75in;text-indent:-.25in;'><span lang=DE style='font-family:
+Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>USB:</span></p>
+
+
+<ol style='margin-top:0in' start=7 type=1>
+
+<ol style='margin-top:0in' start=1 type=a>
+
+ <li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Doppelklicken Sie auf <b>Universal Serial Bus Controller</b>.</span></li>
+
+ <li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Doppelklicken Sie auf <b>USB Host Controller</b>.</span></li>
+
+</ol>
+</ol>
+
+
+<p style='margin-left:.75in;text-indent:-.25in;'><span lang=DE style='font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>1394:</span></p>
+
+
+<ol style='margin-top:0in' start=7 type=1>
+
+<ol style='margin-top:0in' start=3 type=a>
+
+ <li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Doppelklicken Sie auf <b>1394 Bus Controller</b> (dieser Name kann variieren).</span></li>
+
+ <li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Doppelklicken Sie auf das IEEE 1394-Ger&auml;t.</span></li>
+
+</ol>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie auf das Register <b>Ressourcen</b>.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Deaktivieren Sie die Option <b>Automatisch einstellen</b>.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Doppelklicken Sie auf <b>Interrupt (IRQ)</b> und w&auml;hlen Sie ein Einstellungs-Level, das sich von dem des PCI DAQ-Ger&auml;ts unterscheidet.</span></li>
+</ol>
+
+
+<h3><span lang=DE><a name="USB und IEEE 1394"></a>USB- und IEEE 1394-Unterst&uuml;tzungsanforderungen und Beschr&auml;nkungen</span></h3>
+
+
+<h4><span lang=DE>Betriebssystemunterst&uuml;tzung f&uuml;r USB und IEEE 1394</span></h4>
+
+
+<p><span lang=DE>Ab NI-DAQ Version 6.7 und sp&auml;ter wird die Software-Unterst&uuml;tzung f&uuml;r USB und IEEE 1394 nur noch f&uuml;r die Einzelprozessorsysteme Windows 2000, XP, Me und 98 erm&ouml;glicht. Wenn Sie eine andere Windows-Version verwenden, m&uuml;ssen Sie Ihr Betriebssystem f&uuml;r die Verwendung von USB- oder IEEE 1394-Ger&auml;ten aktualisieren.</span></p>
+
+
+<h4><span lang=DE>National Instruments Software-Unterst&uuml;tzung f&uuml;r USB und IEEE 1394</span></h4>
+
+
+<p style='margin-left:.75in;text-indent:-.25in;'><span lang=DE style='font-family:
+Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>F&uuml;r die Verwendung von USB-DAQ-Ger&auml;ten ist NI-DAQ-Version 6.5 oder sp&auml;ter erforderlich.</span></p>
+
+
+<p style='margin-left:.75in;text-indent:-.25in;'><span lang=DE style='font-family:
+Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>F&uuml;r die Verwendung von IEEE 1394 DAQ-Ger&auml;ten ist NI-DAQ Version 6.6 oder sp&auml;ter erforderlich.</span></p>
+
+
+<p style='margin-left:.75in;text-indent:-.25in;'><span lang=DE style='font-family:
+Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>F&uuml;r die Verwendung von USB oder IEEE 1394 ist LabVIEW Version 4.0 oder sp&auml;ter erforderlich.</span></p>
+
+
+<h4><span lang=DE>M&ouml;gliche Probleme</span></h4>
+
+
+<p><span lang=DE>Es wird empfohlen, das USB- oder IEEE 1394-DAQPad an Ihren PC anzuschlie&szlig;en und diesen einzuschalten, bevor Sie die DAQ-Anwendung oder den Measurement &amp; Automation Explorer starten. Wenn Sie das DAQPad einschalten, nachdem die DAQ-Anwendung geladen wurde, setzen Sie das Ger&auml;t in der Software zur&uuml;ck, bevor Sie versuchen, es durch Ausf&uuml;hren von Device Reset.vi (in LabVIEW) oder durch Aufrufen von </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>Init_DA_Brds()</span></kbd><span
+lang=DE> im NI-DAQ API zu starten.</span></p>
+
+
+<p><span lang=DE>Wenn Sie eine DAQ-Anwendung verwenden, die keine manuellen R&uuml;cksetzungen unterst&uuml;tzt, beispielsweise VirtualBench, m&uuml;ssen Sie das USB- oder IEEE 1394-DAQPad anschlie&szlig;en und Einschalten, bevor Sie die Anwendung ausf&uuml;hren.</span></p>
+
+
+<p><span lang=DE>In seltenen F&auml;llen werden USB- oder IEEE 1394-Ger&auml;te nicht in der Ger&auml;te-Baumstruktur des Measurement &amp; Automation Explorer angezeigt, wenn Fenster des Windows Explorer (auch Internet Explorer) ge&ouml;ffnet sind. Wenn dieses Problem auftritt, schlie&szlig;en Sie alle Explorer-Fenster und aktualisieren Sie die Ansicht des Measurement &amp; Automation-Fensters durch Dr&uuml;cken von &lt;F5&gt;. Bleibt das Problem weiter bestehen, so starten Sie das System neu.</span></p>
+
+
+<p><span lang=DE>USB- und IEEE 1394-DAQPads unterst&uuml;tzen den Windows 2000/XP/Me/98-Unterdr&uuml;ckungsmodus nicht.</span></p>
+
+
+<h4><span lang=DE>Konfiguration und Energieverwaltung</span></h4>
+
+
+<p><span lang=DE>USB- und IEEE 1394-Ger&auml;te unterst&uuml;tzen Plug and Play-Konfigurationen und den Ger&auml;teaustausch bei laufendem Computer und Windows Me/98 bietet eine Betriebssystemunterst&uuml;tzung f&uuml;r die Energieverwaltung. Auch wenn diese Funktionen die Ger&auml;tekonfiguration im Allgemeinen vereinfachen, folgen Sie bitte den Anweisungen in diesem Abschnitt, um Konfigurationsprobleme zu vermeiden.</span></p>
+
+
+<p><span lang=DE>Unter bestimmten Bedingungen k&ouml;nnen beim gleichzeitigen Entfernen mehrerer IEEE 1394-Ger&auml;te Probleme w&auml;hrend der Datenerfassung auftreten. Es ist <i>unbedingt</i> erforderlich, dass Sie Ger&auml;te anschlie&szlig;en oder entfernen, bevor Sie die Datenerfassungs-Software laden.</span></p>
+
+
+<p><span lang=DE>Nachdem Sie ein Ger&auml;t entfernt oder ausgeschaltet haben, sollten Sie 5-10 Sekunden warten (oder bis das Sanduhr-Symbol ausgeblendet wird), bevor Sie das Ger&auml;t wieder einschalten.</span></p>
+
+
+<p><span lang=DE>Auf einigen Computern kann die Energieverwaltung aktive DAQ-Anwendungen beeinflussen, die USB- oder IEEE 1394-Ger&auml;te verwenden. Wenn Ihre DAQ-Anwendung aktiv sein muss, w&auml;hrend der Computer unbeaufsichtigt ist, deaktivieren Sie die Energieverwaltungsfunktionen im Betriebssystem und im BIOS und den Bildschirmschoner.</span></p>
+
+
+<p><span lang=DE>Gehen Sie folgenderma&szlig;en vor, um die Energieverwaltung in Windows XP/Me/98 zu deaktivieren:</span></p>
+
+
+<ol style='margin-top:0in' start=1 type=1>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>&Ouml;ffnen Sie die Systemsteuerung (<b>Start&raquo;Einstellungen&raquo;Systemsteuerung</b>).</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Doppelklicken Sie auf das Symbol <b>Energieverwaltung</b>, um die Energieverwaltungsanwendung zu starten, und klicken Sie dann auf das Register <b>Energieschemas</b>.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>W&auml;hlen Sie im Listenfeld <b>Energieschemas </b>die Option <b>Immer an</b>.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Legen Sie unter <b>Einstellungen f&uuml;r Energieschema Immer an </b>die folgenden Parameter fest:</span></li>
+
+<ol style='margin-top:0in' start=1 type=a>
+
+ <li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Standbymodus: <b>Nie </b>(unter Windows XP klicken Sie auf die Registerkarte <b>Ruhezustand</b> und w&auml;hlen Sie <b>Ruhezustand deaktivieren</b>)</span></li>
+
+ <li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Monitor ausschalten: Hier k&ouml;nnen Sie einen beliebigen Wert ausw&auml;hlen.</span></li>
+
+ <li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Festplatten ausschalten: <b>Nie</b></span></li>
+
+</ol>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie auf&nbsp; <b>OK</b>, um die Einstellungen zu speichern und die Energieverwaltungsanwendung zu schlie&szlig;en.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Schlie&szlig;en Sie die Systemsteuerung.</span></li>
+</ol>
+
+
+<p><span lang=DE>Wenn Sie ermitteln m&ouml;chten, ob Ihr System &uuml;ber eine in das BIOS integrierte Energieverwaltung verf&uuml;gt und Anweisungen zum Deaktivieren der BIOS-Energieverwaltungsfunktionen ben&ouml;tigen, schlagen Sie in der Dokumentation f&uuml;r Ihr System nach.</span></p>
+
+
+<p><span lang=DE>Gehen Sie folgenderma&szlig;en vor, um den Bildschirmschoner zu deaktivieren:</span></p>
+
+
+<ol style='margin-top:0in' start=1 type=1>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie mit der rechten Maustaste in den Windows-Desktop und w&auml;hlen Sie im Popup-Men&uuml; die Option <b>Eigenschaften</b>, um das Fenster <b>Eigenschaften von Anzeige </b>zu &ouml;ffnen.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie auf das Register <b>Bildschirmschoner</b>.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>W&auml;hlen Sie im Listenfeld <b>Bildschirmschoner </b>die Option <b>Kein</b>.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie auf&nbsp; <b>OK</b>, um die Einstellungen zu speichern und das Fenster <b>Eigenschaften von Anzeige </b>zu schlie&szlig;en.</span></li>
+</ol>
+
+
+<h4><span lang=DE>Leistung</span></h4>
+
+
+<p><span lang=DE>Die Leistung von USB/IEEE 1394 h&auml;ngt stark von systemspezifischen Faktoren wie der CPU-Geschwindigkeit, der Speicherarchitektur und den System-Chipsatzeigenschaften ab. USB- und IEEE 1394-Vorg&auml;nge sind Software-intensiv. Aus diesem Grund kann das Ausf&uuml;hren anderer Anwendungen w&auml;hrend der Datenerfassung die Leistung beeintr&auml;chtigen.
+Hochgeschwindigkeits-USB- und IEEE 1394-Vorg&auml;nge k&ouml;nnen auch die Leistung anderer Anwendungen beeintr&auml;chtigen.</span></p>
+
+
+<p><span lang=DE>Alle an Ihren PC angeschlossenen USB- und IEEE 1394-Ger&auml;te nutzen eine gemeinsame Bandbreite. Die gleichzeitige Verwendung mehrerer USB- und IEEE 1394-Ger&auml;te kann die Leistung von DAQ-Anwendungen beeintr&auml;chtigen. Seitdem sich die USB- und IEEE 1394-Host-Controller des PCs auf dem PCI-Bus befinden, kann auch die Verwendung anderer, bandbreitenintensiver PCI-Ger&auml;te die Leistung beeintr&auml;chtigen.</span></p>
+
+
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0in;margin-bottom:5.0pt;
+margin-left:0in'><span lang=DE>Da Daten paketweise &uuml;ber die USB- und IEEE 1394-Busse &uuml;bertragen werden, ist die Zeitplanung bei &Uuml;bertragungen kleiner oder pr&auml;ziser Datenmengen weniger bestimmt als bei Plug-In-DAQ-Ger&auml;ten. So ist die Abweichung im Timing m&ouml;glicherweise bei Nachrichten&uuml;bermittlungen und Interrupt-intensiven Vorg&auml;ngen f&uuml;r USB- und IEEE 1394-Ger&auml;te gr&ouml;&szlig;er.</span></p>
+
+
+<h3><span lang=DE><a name="Hinweis zu SCXI Calibrate"></a>Hinweis zu SCXI_Calibrate</span></h3>
+
+
+<p><span lang=DE>Wenn Sie einen Scan durchf&uuml;hren, bevor Sie mit </span><kbd><span lang=DE style='font-size:10.0pt;font-family:
+"Courier New";'>SCXI_Calibrate</span></kbd><span lang=DE> eine interne Kalibrierung durchf&uuml;hren, kann eventuell ein Fehlercode</span><kbd><b><span lang=DE style='font-size:10.0pt;
+font-family:"Courier New";'> &ndash;10636 </span></b></kbd><span
+lang=DE>auftreten (sie k&ouml;nnen keine fortlaufende (doppelt gepufferte) Operation mit einem synchronen Funktionsaufruf starten).
+Wenn Sie in C programmieren, rufen Sie die Funktion </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>DAQ_DB_Config</span></kbd><span
+lang=DE> mit der Ger&auml;tenummer des DAQ-Ger&auml;ts, mit dem Sie kalibrieren und <b>Dbmode</b> = 0 auf. Wenn Sie LabVIEW verwenden, f&uuml;hren Sie den Befehl Ger&auml;t zur&uuml;cksetzen auf dem DAQ-Ger&auml;t aus. Sie k&ouml;nnen die Entwicklungsumgebung auch schlie&szlig;en und neu starten.</span></p>
+
+
+<h3><span lang=DE><a name="SCXI RDA Gerate"></a>SCXI RDA-Ger&auml;te</span></h3>
+
+
+<p><span lang=DE>Wenn Sie ein SCXI-1104 oder SCXI-1125 mit einer Remote SCXI-Konfiguration verwenden m&ouml;chten, m&uuml;ssen Sie die Firmware auf dem SCXI-2000-Chassis oder dem SCXI-2400-Modul &auml;ndern. Wenn Sie &uuml;ber Remote SCXI verf&uuml;gen und kein SCXI-1104 oder SCXI-1125 verwenden m&ouml;chten, ist kein Update erforderlich.</span></p>
+
+
+<p><span lang=DE>Zum aktualisieren der Firmware gehen Sie folgenderma&szlig;en vor:</span></p>
+
+
+<ol style='margin-top:0in' start=1 type=1>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Stellen Sie sicher dass das Remote SCXI ordnungsgem&auml;&szlig; funktioniert und eingeschaltet ist.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Doppelklicken Sie auf das Symbol f&uuml;r <b>Measurement &amp; Automation</b>, um den MAX zu &ouml;ffnen.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie auf <b>Ger&auml;te und Schnittstellen</b>, um die Ger&auml;te-Baumstruktur anzuzeigen.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>W&auml;hlen Sie <b>Eigenschaften</b>. Wenn Sie &uuml;ber ein SCXI-2000-Chassis verf&uuml;gen, klicken Sie mit der rechten Maustaste auf den entsprechenden Ordner und w&auml;hlen Sie <b>Eigenschaften</b>. Wenn Sie &uuml;ber ein SCXI-2400-Modul verf&uuml;gen, doppelklicken Sie auf den Ordner des Chassis, in dem es sich befindet, klicken Sie mit der rechten Maustaste auf den SCXI-2400-Ordner und w&auml;hlen Sie <b>Eigenschaften.</b></span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie auf&nbsp; <b>Neu programmieren</b>.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Geben Sie den Pfad zur aktualisierten Remote SCXI-Installationsdatei (Image-Datei) ein und klicken Sie auf <b>OK</b>.</span></li>
+</ol>
+
+
+<p><span lang=DE>Die neue Firmware wird auf Ihr Remote SCXI-Chassis oder -Modul heruntergeladen. Ziehen Sie das Kabel nicht ab und unterbrechen Sie diesen Vorgang nicht.</span></p>
+
+
+<h3><span lang=DE><a name="Geratezugriff uber Netzwerk"></a>Ger&auml;tezugriff &uuml;ber Netzwerk (RDA)</span></h3>
+
+
+<p><span lang=DE>Wenn Sie NI-DAQ 6.9 in einer RDA-Anwendung verwenden m&ouml;chten, stellen Sie sicher, dass Sie NI-DAQ 6.9 sowohl auf dem Client (lokal) als auch auf dem RDA-Server (remote) ausf&uuml;hren. Diese Anforderung besteht aufgrund der neuen RDA-Sicherheitsfunktionen, die zu dieser Version hinzugef&uuml;gt wurden.</span></p>
+
+
+<p><span lang=DE>Mit der Sicherheitsfunktionen k&ouml;nnen Sie f&uuml;r jedes auf dem Server konfigurierte Ger&auml;t ein Passwort festlegen, um RDA auf dieses Ger&auml;t auf solche Clients zu beschr&auml;nken, die das richtige Passwort kennen. Gehen Sie folgenderma&szlig;en vor, um das Passwort f&uuml;r ein Ger&auml;t festzulegen:</span></p>
+
+
+<ol style='margin-top:0in' start=1 type=1>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>&Ouml;ffnen Sie auf dem Server den MAX (doppelklicken Sie auf dem Desktop auf das Symbol f&uuml;r Measurement &amp; Automation).</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Doppelklicken Sie auf <b>Ger&auml;te und Schnittstellen</b>, um die Ger&auml;te-Baumstruktur zu erweitern.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie mit der rechten Maustaste auf das Ger&auml;t, auf das Sie den Zugriff einschr&auml;nken m&ouml;chten, und w&auml;hlen Sie im Popup-Men&uuml; die Option <b>Eigenschaften</b>, um das Ger&auml;tekonfigurationsfenster zu &ouml;ffnen.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie auf das Register <b>Netzwerkzugriff</b>.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie auf <b>Passwort setzen</b>, um das Dialogfeld f&uuml;r die Passworteinstellungen zu &ouml;ffnen, und geben Sie ein Passwort ein.</span></li>
+</ol>
+
+
+<p><span lang=DE>Nachdem Sie in Passwort f&uuml;r das Ger&auml;t festgelegt haben, m&uuml;ssen RDA-Clients das richtige Passwort eingeben, wenn Sie das Ger&auml;t &uuml;ber RDA verwenden m&ouml;chten. Standardm&auml;&szlig;ig ist kein Passwort definiert. Das Ger&auml;t ist also nicht passwortgesch&uuml;tzt. Wenn ein Client beim &Auml;ndern des Passworts bereits ein RDA-Ger&auml;t verwendet, wird auf dem Client ein Fehler </span><kbd><b><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>&ndash;10340</span></b></kbd><span lang=DE> ausgegeben, bis das richtige Passwort angegeben wird. Gehen Sie folgenderma&szlig;en vor, um das richtige Passwort festzulegen:</span></p>
+
+
+<ol style='margin-top:0in' start=1 type=1>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>&Ouml;ffnen Sie MAX auf dem Client (doppelklicken Sie auf dem Desktop auf das Symbol f&uuml;r Measurement &amp; Automation).</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Doppelklicken Sie auf <b>Ger&auml;te und Schnittstellen</b>, um die Ger&auml;te-Baumstruktur zu erweitern.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Klicken Sie mit der rechten Maustaste auf das Ger&auml;t, auf das Sie den Zugriff einschr&auml;nken m&ouml;chten, und w&auml;hlen Sie im Popup-Men&uuml; die Option <b>Eigenschaften</b>, um das Ger&auml;tekonfigurationsfenster zu &ouml;ffnen. </span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Geben Sie das Passwort f&uuml;r das Ger&auml;t ein.</span></li>
+</ol>
+
+
+<p><span lang=DE>Zus&auml;tzlich zu den einzelnen Passw&ouml;rtern auf Ger&auml;teebene, die auf dem Server festgelegt werden k&ouml;nnen, gibt es ein Stamm-Passwort, das verhindert, dass unbefugte Benutzer eine Remote-Konfiguration des RDA-Servers ausf&uuml;hren. &Ouml;ffnen Sie zum Festlegen des Passworts auf dem Server MAX auf dem Server und w&auml;hlen Sie die Optionen <b>Werkzeuge&raquo;NI-DAQ-Konfiguration&raquo;Legen Sie das Passwort f&uuml;r die Netzwerk-Konfiguration fest</b>. Nachdem Sie dieses Passwort festgelegt haben, m&uuml;ssen Clients, die eine Remote-Konfiguration des Servers &uuml;ber den MAX durchf&uuml;hren m&ouml;chten (durch Klicken auf die Optionen <b>Werkzeuge&raquo;NI-DAQ-Konfiguration&raquo;RDA-DAQ-Konfiguration</b>), zun&auml;chst das richtige Passwort eingeben. Clients, denen das richtige Root-Passwort bekannt ist, haben die M&ouml;glichkeit, &uuml;ber die Remote DAQ-Konfiguration sowohl das Root-Passwort des Servers, als auch alle einzelnen Ger&auml;te-Passw&ouml;rter zu &auml;ndern.</span></p>
+
+
+<p><span lang=DE>Bei NI-DAQ 6.7 und h&ouml;heren Versionen kann RDA jetzt auch eine Zeit&uuml;berschreitung erfassen. Dies ist dann n&uuml;tzlich, wenn die Netzwerkverbindung verloren geht, w&auml;hrend der RDA-Client auf eine Antwort vom RDA-Server wartet. Ohne ein Timeout wartet der RDA-Client ohne Zeitbeschr&auml;nkung, so dass das LabVIEW-Programm scheinbar nicht mehr reagiert.
+Mit der Timeout-Funktion gibt das LabVIEW-Programm stattdessen den Fehler </span><kbd><b><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>-10340 noConnectError</span></b></kbd><span lang=DE> aus.</span></p>
+
+
+<p><span lang=DE>Der Standardwert f&uuml;r dieses Timeout ist 240.000 Millisekunden (4 Minuten). Wenn Sie diesen Wert &auml;ndern m&ouml;chten, m&uuml;ssen Sie einen Wert zum vorhandenen Registrierungsschl&uuml;ssel hinzuf&uuml;gen. Gehen Sie dazu folgenderma&szlig;en vor:</span></p>
+
+
+<ol style='margin-top:0in' start=1 type=1>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>F&uuml;hren Sie das Programm </span><kbd><span lang=DE style='font-size:10.0pt;font-family:
+     "Courier New";'>regedit.exe</span></kbd><span lang=DE> oder </span><kbd><span lang=DE
+     style='font-size:10.0pt;font-family:"Courier New";'>regedt32.exe</span></kbd><span
+     lang=DE> aus.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>&Ouml;ffnen Sie
+
+    </span><kbd><b><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>HKEY_LOCAL_MACHINE&raquo;SOFTWARE&raquo;National Instruments&raquo;NI-DAQ&raquo;CurrentVersion&raquo;Configuration Manager</span></b></kbd><kbd><span
+     lang=DE style='font-size:10.0pt;font-family:"Courier New";'>.</span></kbd></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>W&auml;hlen Sie im Bearbeitungsmen&uuml; die Optionen </span><kbd><b><span lang=DE
+     style='font-size:10.0pt;font-family:"Courier New";'>New&raquo;DWORD Value</span></b></kbd><span lang=DE>.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Geben Sie dem neuen Wert den Namen <b>ReceiveTimeoutValue</b>.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Doppelklicken Sie auf <b>ReceiveTimeoutValue</b>, um ein Dialogfeld zu &ouml;ffnen, in das Sie die Daten des Werts eingeben . Geben Sie das gew&uuml;nschte Timeout in Millisekunden ein. Stellen Sie sicher, dass die Basis auf Dezimal eingestellt ist. Die Angabe eines Timeout-Werts von 0 bedeutet ein unendliches Timeout, was zu demselben Verhalten wie bei den NI-DAQ-Versionen vor Version 6.7 f&uuml;hrt.</span></li>
+
+<li class=MsoNormal style='margin-top:5.0pt;margin-bottom:5.0pt;'><span lang=DE>Schlie&szlig;en Sie </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>regedit.exe</span></kbd><span lang=DE> oder </span><kbd><span lang=DE
+     style='font-size:10.0pt;font-family:"Courier New";'>regedt32.exe</span></kbd><span
+     lang=DE>.</span></li>
+</ol>
+
+
+<p><span lang=DE>Beachten Sie, dass NI-DAQ-Aufrufe, die Daten lesen oder schreiben, je nach den &Uuml;bertragungsraten und der Datenmenge lange Zeit in Anspruch nehmen k&ouml;nnen. Das Aufrufen des VIs </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AI-Puffer lesen</span></kbd><span lang=DE> [AI Read Buffer.vi] und das Lesen von 100 Scans bei einer Erfassung von 10 Scans/sek. dauert 10 Sekunden. Wenn Ihr Wert f&uuml;r ReceiveTimeoutValue unter 10.000 Millisekunden liegt, erhalten Sie den Fehler </span><kbd><b><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>&ndash;10340</span></b></kbd><span lang=DE> auch dann, wenn Ihre Netzwerkverbindung in Ordnung ist.</span></p>
+
+
+<h3><span lang=DE><a name="Andern der DAQ Konfigurationsdateien"></a>&Auml;ndern der DAQ-Konfigurationsdateien in MAX</span></h3>
+
+
+<p><span lang=DE>In den MAX Versionen 2.0 bis 2.2 k&ouml;nnen Sie unter <b>Werkzeuge&raquo;NI-DAQ-Konfiguration</b> die DAQ-Konfigurationsdateien bearbeiten. Mit der Option <b>Aktive Konfiguration einstellen</b> kann jede beliebige Konfigurationsdatei als die aktive Datei bestimmt werden. Mit der Option <b>Konfiguration speichern unter</b> speichern Sie die aktuelle Konfiguration in einer neuen Datei. Mit der Option <b>Neue Konfiguration erstellen</b> erstellen Sie eine neue Konfigurationsdatei.</span></p>
+
+
+<h3><span lang=DE><a name="Anderungen in der NI-DAQ"></a>&Auml;nderungen in der NI-DAQ Dokumentation</span></h3>
+
+
+<h4><span lang=DE>DAQ Hardware Overview Guide</span></h4>
+
+
+<p><span lang=DE>Der g&uuml;ltige Wertebereich f&uuml;r Analogeing&auml;nge bei PCI-6110E und PCI-6111E liegt bei +/- 42 V. </span></p>
+
+
+<h4><span lang=DE>Data Acquisition VI Help</span></h4>
+
+
+<p><span lang=DE>In der Hilfe zum VI </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AI konfigurieren</span></kbd><span lang=DE>
+[AI Config.vi] wird angegeben, dass Sie mit PCI-5911 und VXI-5912 mehr als einen Puffer zuweisen k&ouml;nnen. Diese Information ist nicht korrekt. Verwenden Sie NI-SCOPE zum Programmieren von PCI-5911.</span></p>
+
+
+<p><span lang=DE>In der Hilfe f&uuml;r das VI </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AI Steuerung </span></kbd><span lang=DE>[AI Control.vi] wird die Anzahl der Nachtrigger-Scans einer Messung als die dem Puffer zugewiesene Anzahl von Scans abz&uuml;glich der Mindestanzahl der Vortrigger-Scans definiert. Diese Information ist nicht korrekt. Die Anzahl der Nachtrigger-Scans entspricht der Anzahl <b>aller</b> Scans abz&uuml;glich der Mindestanzahl an Vortrigger-Scans.</span></p>
+
+
+<p><span lang=DE>Beim Verwenden der VIs </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO Schreiben</span></kbd><span lang=DE>, </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO Signalverlauferzeugung</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO kontinuierlich erzeugen</span></kbd><span lang=DE>, sowie den AO Puffer VIs mit den Ger&auml;ten 61<i>XX</i> oder 671<i>X</i> muss die Anzahl der Abtastwerte in Parametern skalierter Daten und Signalverlaufsdaten gerade sein. Ansonsten wird ein negativer Z&auml;hlfehler ausgegeben und es werden keine Daten geschrieben. Zum Beispiel w&uuml;rde die Angabe von 101 Werten pro Kanal, bei 3 Kan&auml;len, zu einem Fehler f&uuml;hren (101*3 = 303 ist ungerade), w&auml;hrend 102 Werte pro Kanal, bei 3 Kan&auml;len (102*3 = 306 ist gerade) oder 101 Werte pro Kanal, bei 2 Kan&auml;len (101*2 = 202 ist gerade), funktionieren w&uuml;rden.</span></p>
+
+
+<p class=MsoNormal><span lang=DE>Die Hilfe zum VI </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>Signal verschalten</span></kbd><span lang=DE>
+[Route Signal.vi] gibt an, dass der PLL-Referenztakt im Parameter <b>Signalquelle</b> die Nummer 21 hat. Diese Information ist nicht korrekt. Der Ger&auml;tetakt hat die Nummer 21.</span></p>
+
+
+<p class=MsoNormal><span lang=DE>&nbsp;</span></p>
+
+
+<p class=MsoNormal><span lang=DE>Die Hilfe enth&auml;lt keine Angaben zu einem Parameter, der durch das AI Parameter VI gesetzt wird.
+Dieser Parameter, der <b>FIFO &Uuml;bertragungsz&auml;hler</b>, gibt an, wie viele Datenpunkte bei jedem Interrupt vom Puffer zu &uuml;bertragen sind.</span></p>
+
+
+<h4><span lang=DE>NI-DAQ Function Reference Help</span></h4>
+
+
+<p><span lang=DE>Funktion </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AI_Get_Overloaded_Channels</span></kbd><span lang=DE> wird mit Ausnahme der NI 4454 f&uuml;r PCI nur f&uuml;r DSA-Ger&auml;te unterst&uuml;tzt.</span></p>
+
+
+<p><span lang=DE>Bei der Funktion </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO_Configure </span></kbd><span lang=DE>sind f&uuml;r den Parameter <b>chan</b> folgende Einstellungen vorzunehmen:</span></p>
+
+
+<p class=Note style='text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>0 bis 15 f&uuml;r PCI-6073</span></p>
+
+
+<p class=Note style='text-indent:-.25in;'><span lang=DE style='font-size:10.0pt;
+font-family:Symbol;'>&middot;<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>0 bis 31 f&uuml;r PCI/PXI-6704</span></p>
+
+
+<p><span lang=DE>F&uuml;r die Funktion </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>GPCTR_Read_Buffer</span></kbd><span lang=DE>
+ist der korrekte Prototyp </span><kbd><span lang=DE style='font-size:10.0pt;
+font-family:"Courier New";'>GPCTR_Read_Buffer</span></kbd><span
+lang=DE> (<b>deviceNumber</b>, <b>gpctrNum</b>, <b>readMode</b>, <b>readOffset</b>, <b>numPtsToRead</b>, <b>timeOut</b>, <b>numPtsRead</b>, <b>buffer</b>).
+Setzen Sie folgende Parameter:</span></p>
+
+
+<ul style='margin-top:0in' type=disc>
+
+<li class=MsoNormal><b><span
+     lang=DE>numPtsToRead</span></b><span lang=DE> ist die zu empfangende Anzahl von Messpunkten aus dem verwendeten Puffer. Dieser Parameter wird per Referenz &uuml;bergeben.</span></li>
+
+<li class=MsoNormal><b><span
+     lang=DE>numPtsRead</span></b><span lang=DE> enth&auml;lt die Anzahl der tats&auml;chlich gelesenen Werte, nachdem die Funktion beendet wurde.</span></li>
+</ul>
+
+
+<p><span lang=DE>In der Funktion </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>SCAN_Start </span></kbd><span lang=DE>sind beim Parameter <b>sampTimebase</b> unter anderem -3 und 2 g&uuml;ltige Werte f&uuml;r Ger&auml;te der E-Serie.</span></p>
+
+
+<p><span lang=DE>Die Aussage, dass die Funktion </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>SCXI_Track_Hold_Setup </span></kbd><span lang=DE>nicht mit Ger&auml;ten der E-Serie verwendet werden kann, ist nicht korrekt. Die Funktion kann f&uuml;r Kanalabtastung in Multiplex-Modus genutzt werden, wenn Sie Track-and-Hold Module (SCXI-1530, SCXI-1531, SCXI-1140, SCXI-1520) mit Gr&auml;ten der E-Serie verwenden.</span></p>
+
+
+<p><span lang=DE>F&uuml;r die Funktion </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>DIG_Block_PG_Config</span></kbd><span lang=DE> liegt der g&uuml;ltige Wertebereich f&uuml;r den Parameter <b>reqInterval</b> zwischen 1 und 65535.&nbsp; </span></p>
+
+
+<p><span lang=DE>Die folgenden Funktionen werden von AT-AO-6/10, DAQ-AO-2DC und NI 671<i>X</i> unterst&uuml;tzt:</span></p>
+
+
+<p><span lang=DE>AT-AO-6/10: </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO_Calibrate</span></kbd><span lang=DE>, </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO_Configure</span></kbd><span lang=DE>, </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO_Update</span></kbd><span lang=DE>, </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO_VScale</span></kbd><span lang=DE>, </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO_VWrite</span></kbd><span lang=DE>, </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO_Write</span></kbd><span lang=DE>, </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>Config_DAQ_Event_Message</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>DIG_In_Line</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>DIG_In_Prt</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>DIG_Out_Line</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>DIG_Out_Prt</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>DIG_Prt_Config</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;
+font-family:"Courier New";'>Get_NI_DAQ_Version</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>Init_DA_Brds</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>RTSI_Clear</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>RTSI_Clock</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>RTSI_Conn</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>RTSI_DisConn</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>Timeout_Config</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_Chan_Control</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_Check</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_ClockRate</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_DB_Config</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_DB_HalfReady</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_DB_Transfer</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_from_Disk</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_Group_Control</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_Group_Setup</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_Load</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_Op</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_Rate</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_Scale</span></kbd></p>
+
+
+<p><span lang=DE>DAQ-AO-2DC: </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO_Change_Parameter</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO_Configure</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO_VWrite</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>DIG_In_Line</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>DIG_In_Prt</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>DIG_Out_Line</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>DIG_Out_Prt</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>DIG_Prt_Config</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;
+font-family:"Courier New";'>Get_DAQ_Device_Info</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>Get_NI_DAQ_Version</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>Init_DA_Brds</span></kbd></p>
+
+
+<p><span lang=DE>NI 671<i>X</i>: </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO_Change_Parameter</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO_Configure</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO_Update</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO_VScale</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO_VWrite</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>AO_Write</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>Calibrate_E_Series</span></kbd><span lang=DE>, </span><kbd><span lang=DE style='font-size:10.0pt;
+font-family:"Courier New";'>Config_DAQ_Event_Message</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>DIG_In_Line</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>DIG_In_Prt</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>DIG_Line_Config</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>DIG_Out_Line</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>DIG_Out_Prt</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>DIG_Prt_Config</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>Get_DAQ_Device_Info</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>Get_NI_DAQ_Version</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>GPCTR_Change_Parameter</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>GPCTR_Config_Buffer</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>GPCTR_Control</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>GPCTR_Set_Application</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>GPCTR_Watch</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>Init_DA_Brds</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>Select_Signal</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>Set_DAQ_Device_Info</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>Timeout_Config</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_Check</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_ClockRate</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_DB_Config</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_DB_HalfReady</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_DB_Transfer</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_from_Disk</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_Group_Control</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_Group_Setup</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_Load</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_Op</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_Rate</span></kbd><span
+lang=DE>, </span><kbd><span lang=DE
+style='font-size:10.0pt;font-family:"Courier New";'>WFM_Scale</span></kbd></p>
+
+
+<h4><span lang=DE>NI-DAQ Function Reference Manual</span></h4>
+
+
+<p><span lang=DE>National Instruments erstellt kein Funktionen-Referenzhandbuch f&uuml;r NI-DAQ mehr. Die NI-DAQ-Funktionen werden jetzt nur noch in der Online-Hilfedatei der <i>NI-DAQ Function Reference</i> beschrieben. Klicken Sie zum Anzeigen der Online-Hilfe der <i>NI-DAQ Function Reference Help</i> auf die Optionen <b>Start&raquo;Programme&raquo;National Instruments&raquo;NI-DAQ&raquo;NI-DAQ Help</b>.</span></p>
+
+
+<h4><span lang=DE>NI-DAQ User Manual</span></h4>
+
+
+<p><span lang=DE>Die Informationen zu </span><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>SCXI_Strain_Null</span></kbd><span lang=DE>
+fehlen. Diese Funktion setzt den Offset des angegeben Dehnungsmessstreifens bei SCXI-1520 Modulen auf Null indem das interne Potentiometer eingestellt wird.</span></p>
+
+
+<h4><span lang=DE>Das Weitergeben von Unsigned 16- und 32-Bit Integer-Parametern in Visual Basic</span></h4>
+
+
+<p><span lang=DE>Unsigned 16-Bit Parameter: Visual Basic INTEGERS sind vorzeichenbehaftete Werte. Alle Werte &uuml;ber 32767 werden als negative Werte interpretiert. Dieses Problem l&auml;sst sich wie folgt umgehen:</span></p>
+
+
+<ol style='margin-top:0in' start=1 type=1>
+
+<li class=MsoNormal><span
+     lang=DE>Wenn die Funktion ein Unsigned 16-Bit Integer ausgeben soll und ein negativer Wert zur&uuml;ckgegeben wird, addieren Sie 65536 zu diesem Wert. </span></li>
+</ol>
+
+
+<p class=Indent1><span lang=DE>Beispiel:</span></p>
+
+
+<p class=Indent1 style='margin-bottom:0in;margin-bottom:.0001pt'><kbd><span
+lang=DE style='font-size:10.0pt;font-family:"Courier New";'>Dim myUnsignedCnt As Long&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>Dim retCnt</span></kbd><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>As Integer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>&lsquo;(retCnt ist der Wert, der von der aufgerufenen Funktion ausgegeben wird)</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>&lsquo;Sie k&ouml;nnen eine DAQ-Funktion aufrufen, die einen vorzeichenlosen 16-Bit Wert zur&uuml;ckgibt und diesen in retCnt speichert.</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>if retCnt &lt; 0 then</span></kbd></p>
+
+
+<p class=Indent2><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>myUnsignedCnt = CInt(retCnt) + 65536</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>else</span></kbd></p>
+
+
+<p class=Indent2><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>myUnsignedCnt = retCnt</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>end if</span></kbd></p>
+
+
+<ol style='margin-top:0in' start=2 type=1>
+
+<li class=MsoNormal><span
+     lang=DE>Um einen vorzeichenlosen 16-Bit-Wert an eine Funktion mit einem vorzeichenlosen 16-Bit Typparameter weiterzugeben, m&uuml;ssen Sie den Wert zun&auml;chst berechnen.</span></li>
+</ol>
+
+
+<p class=Indent1><span lang=DE>Beispiel:</span></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>Dim myUnsignedCnt As Long</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>Dim ToPassVal</span></kbd><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>As Integer</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>&lsquo;Sie berechnen den weiterzugebenden Wert und speichern ihn in myUnsignedCnt.</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>if myUnsignedCnt &gt; 32767 then</span></kbd></p>
+
+
+<p class=Indent2><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>ToPassVal = CInt(myUnsignedCnt - 65536)</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>else</span></kbd></p>
+
+
+<p class=Indent2><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>ToPassVal = CInt(myUnsignedCnt)</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>end if</span></kbd></p>
+
+
+<p><span lang=DE>Unsigned 32-Bit Parameter: Visual Basic LONG Integertypen sind vorzeichenbehaftete 32-Bit-Typen. Alle Werte &uuml;ber 2.147.483.647 werden als negative Werte interpretiert. Dieses Problem l&auml;sst sich wie folgt umgehen:</span></p>
+
+
+<ol style='margin-top:0in' start=1 type=1>
+
+<li class=MsoNormal><span
+     lang=DE>Wenn die Funktion einen vorzeichenlosen 32-Bit Integer ausgeben soll und ein negativer Wert zur&uuml;ckgegeben wird, addieren Sie 4.294.967.296 zu diesem Wert. </span></li>
+</ol>
+
+
+<p class=Indent1><span lang=DE>Beispiel: </span></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>Dim myUnsignedCnt As Double</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>Dim retCnt</span></kbd><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>As Long</span></kbd><span lang=DE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>&lsquo;(retCnt ist der Wert, der von der aufgerufenen Funktion ausgegeben wird)</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>&lsquo;Sie k&ouml;nnen eine DAQ-Funktion aufrufen, die einen vorzeichenlosen 16-Bit Wert zur&uuml;ckgibt und diesen in retCnt speichert.</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>if retCnt &lt; 0 then</span></kbd></p>
+
+
+<p class=Indent2><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>myUnsignedCnt = CInt(retCnt) + 4294967296</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>else</span></kbd></p>
+
+
+<p class=Indent2><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>myUnsignedCnt = retCnt</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>end if</span></kbd></p>
+
+
+<p style='margin-left:.5in;text-indent:-.25in;'><span lang=DE>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=DE>Um einen vorzeichenlosen 32-Bit-Wert an eine Funktion mit einem vorzeichenlosen 32-Bit Typparameter weiterzugeben, m&uuml;ssen Sie den Wert zun&auml;chst berechnen.</span></p>
+
+
+<p class=Indent1><span lang=DE>Beispiel:</span></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>Dim myUnsignedCnt As Double</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>Dim ToPassVal As Long</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>&lsquo;Sie berechnen den weiterzugebenden Wert und speichern ihn in myUnsignedCnt.</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>if myUnsignedCnt &gt; 2147483647 then</span></kbd></p>
+
+
+<p class=Indent2><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>ToPassVal = CLng(myUnsignedCnt - 4294967296)</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>else</span></kbd></p>
+
+
+<p class=Indent2><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>ToPassVal = CLng(myUnsignedCnt)</span></kbd></p>
+
+
+<p class=Indent1><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>end if</span></kbd></p>
+
+
+<p class=MsoNormal><span lang=DE>&nbsp;</span></p>
+
+
+<h3><span lang=DE style='font-size:12.0pt;'>Veraltete Normen</span></h3>
+
+
+<p class=MsoNormal><span lang=DE>Die DIN 43760 ist eine veraltete Temperaturkurvennorm f&uuml;r RTDs. Die aktuelle Norm ist <br> DIN EN 60751.</span></p>
+
+
+<p class=MsoNormal><kbd><span lang=DE style='font-size:10.0pt;font-family:"Courier New";'>&nbsp;</span></kbd></p>
+
+
+</div>
+
+
+</body>
+
+
+</html>

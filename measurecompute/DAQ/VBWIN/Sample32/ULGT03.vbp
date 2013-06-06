@@ -1,0 +1,7 @@
+ULGT03.FRM
+..\CBW.BAS
+ProjWinSize=83,445,216,336
+ProjWinShow=2
+IconForm="frmInfoDisplay"
+Title="ULGT03"
+ExeName="ULGT03.EXE"

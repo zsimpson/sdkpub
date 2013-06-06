@@ -1,0 +1,349 @@
+# Makefile for GNU C/C++ 2.95.3
+
+CXX = g++
+LINK = g++
+
+ifdef debug
+
+SUFFIX = d
+DR = _Dbg
+
+else
+
+SUFFIX =
+DR = _Rls
+
+endif    
+
+OUTDLL = ..\..\bin\CV$(SUFFIX).dll
+OUTLIB = ..\..\lib\libCV$(SUFFIX).a
+OBJS = ..\..\_temp\CV$(DR)\cvConvHull.o ..\..\_temp\CV$(DR)\cvEllipseFit.o \
+..\..\_temp\CV$(DR)\cvGeometry.o ..\..\_temp\CV$(DR)\cvGeometryWrap.o \
+..\..\_temp\CV$(DR)\CvLineFit.o ..\..\_temp\CV$(DR)\CvProject.o \
+..\..\_temp\CV$(DR)\cvRotCalipers.o ..\..\_temp\CV$(DR)\cvSubdivision2D.o \
+..\..\_temp\CV$(DR)\cvImage.o ..\..\_temp\CV$(DR)\camshift.o \
+..\..\_temp\CV$(DR)\cvConDens.o ..\..\_temp\CV$(DR)\cvKalman.o \
+..\..\_temp\CV$(DR)\cvAdapThresh.o ..\..\_temp\CV$(DR)\cvThresh.o \
+..\..\_temp\CV$(DR)\cvCalcCovarMatrix.o ..\..\_temp\CV$(DR)\cvJacobiEigens.o \
+..\..\_temp\CV$(DR)\cvmathfuncs.o ..\..\_temp\CV$(DR)\cvmatmul.o \
+..\..\_temp\CV$(DR)\cvMatrix.o ..\..\_temp\CV$(DR)\cvMatrix64d.o \
+..\..\_temp\CV$(DR)\cvSvd.o ..\..\_temp\CV$(DR)\cvMean.o \
+..\..\_temp\CV$(DR)\cvMeanSdv.o ..\..\_temp\CV$(DR)\cvMinMaxLoc.o \
+..\..\_temp\CV$(DR)\cvMoments.o ..\..\_temp\CV$(DR)\cvNorm.o \
+..\..\_temp\CV$(DR)\cvSumPixels.o ..\..\_temp\CV$(DR)\cvCamShift.o \
+..\..\_temp\CV$(DR)\cvCalcContrastHistogram.o ..\..\_temp\CV$(DR)\cvEMD.o \
+..\..\_temp\CV$(DR)\cvHistogram.o ..\..\_temp\CV$(DR)\cvApprox.o \
+..\..\_temp\CV$(DR)\cvContourArea.o ..\..\_temp\CV$(DR)\cvContours.o \
+..\..\_temp\CV$(DR)\cvContoursMoments.o ..\..\_temp\CV$(DR)\cvContourTree.o \
+..\..\_temp\CV$(DR)\cvDominants.o ..\..\_temp\CV$(DR)\cvMatchContours.o \
+..\..\_temp\CV$(DR)\cvPGH.o ..\..\_temp\CV$(DR)\cvShapeDescr.o \
+..\..\_temp\CV$(DR)\cvMoTempl.o ..\..\_temp\CV$(DR)\cvMotSeg.o \
+..\..\_temp\CV$(DR)\cvDrawing.o ..\..\_temp\CV$(DR)\cvOutText.o \
+..\..\_temp\CV$(DR)\cvAlloc.o ..\..\_temp\CV$(DR)\cverror.o \
+..\..\_temp\CV$(DR)\cvprecomp.o ..\..\_temp\CV$(DR)\cvSamplers.o \
+..\..\_temp\CV$(DR)\cvtables.o ..\..\_temp\CV$(DR)\cvTemplMatch.o \
+..\..\_temp\CV$(DR)\cvUtilitiesWrap.o ..\..\_temp\CV$(DR)\cvutils.o \
+..\..\_temp\CV$(DR)\cvDisTransform.o ..\..\_temp\CV$(DR)\cvHough.o \
+..\..\_temp\CV$(DR)\cvHoughDiv.o ..\..\_temp\CV$(DR)\cvHoughP.o \
+..\..\_temp\CV$(DR)\cvHoughWrap.o ..\..\_temp\CV$(DR)\cvPOSIT.o \
+..\..\_temp\CV$(DR)\cvSnakes.o ..\..\_temp\CV$(DR)\cvLkPyramid.o \
+..\..\_temp\CV$(DR)\cvOptFlowBM.o ..\..\_temp\CV$(DR)\cvOptFlowHS.o \
+..\..\_temp\CV$(DR)\cvOptFlowLK.o ..\..\_temp\CV$(DR)\cvDataStructs.o \
+..\..\_temp\CV$(DR)\cvCalcCovarMatrixEx.o ..\..\_temp\CV$(DR)\cvCalcEigenObjects.o \
+..\..\_temp\CV$(DR)\cvEigenDecomposite.o ..\..\_temp\CV$(DR)\cvEigenObjectsWrap.o \
+..\..\_temp\CV$(DR)\cvEigenProjection.o ..\..\_temp\CV$(DR)\cvMorph.o \
+..\..\_temp\CV$(DR)\cvMorphWrap.o ..\..\_temp\CV$(DR)\cvpyramids.o \
+..\..\_temp\CV$(DR)\cvPyrSegmentation.o ..\..\_temp\CV$(DR)\cvFloodFill.o \
+..\..\_temp\CV$(DR)\cvCalcImageHomography.o ..\..\_temp\CV$(DR)\cvCalcProbDensity.o \
+..\..\_temp\CV$(DR)\cvCreateHandMask.o ..\..\_temp\CV$(DR)\cvFindHandRegion.o \
+..\..\_temp\CV$(DR)\cvGestureRecognition.o ..\..\_temp\CV$(DR)\cvMaxRect.o \
+..\..\_temp\CV$(DR)\cvCorrespond.o ..\..\_temp\CV$(DR)\cvFundam.o \
+..\..\_temp\CV$(DR)\cvLines.o ..\..\_temp\CV$(DR)\cvLMedS.o \
+..\..\_temp\CV$(DR)\cvMorphing.o ..\..\_temp\CV$(DR)\cvPrewarp.o \
+..\..\_temp\CV$(DR)\cvScanlines.o ..\..\_temp\CV$(DR)\cvBlur.o \
+..\..\_temp\CV$(DR)\cvConvGen.o ..\..\_temp\CV$(DR)\cvFilterWr.o \
+..\..\_temp\CV$(DR)\cvInitConvol.o ..\..\_temp\CV$(DR)\cvLaplace.o \
+..\..\_temp\CV$(DR)\cvScharr.o ..\..\_temp\CV$(DR)\cvAbsDiff.o \
+..\..\_temp\CV$(DR)\cvAccum.o ..\..\_temp\CV$(DR)\cvCanny.o \
+..\..\_temp\CV$(DR)\cvCorner.o ..\..\_temp\CV$(DR)\cvCornerSubPix.o \
+..\..\_temp\CV$(DR)\cvDetectWr.o ..\..\_temp\CV$(DR)\cvfeatureselect.o \
+..\..\_temp\CV$(DR)\cvMinEVal.o ..\..\_temp\CV$(DR)\cvPreCorner.o \
+..\..\_temp\CV$(DR)\cvCalibInit.o ..\..\_temp\CV$(DR)\cvCalibration.o \
+..\..\_temp\CV$(DR)\cvUnDistort.o ..\..\_temp\CV$(DR)\cvHMM.o \
+..\..\_temp\CV$(DR)\cvHMMObs.o ..\..\_temp\CV$(DR)\cvHMMWrap.o \
+..\..\_temp\CV$(DR)\cvSwitcher.o ..\..\_temp\CV$(DR)\cvaffine.o \
+..\..\_temp\CV$(DR)\cvarithm.o ..\..\_temp\CV$(DR)\cvarray.o \
+..\..\_temp\CV$(DR)\cvcolor.o ..\..\_temp\CV$(DR)\cvconvert.o \
+..\..\_temp\CV$(DR)\cvcopy.o ..\..\_temp\CV$(DR)\cvlogic.o \
+..\..\_temp\CV$(DR)\cvrand.o 
+
+
+INC = ../Include/CV.h ../Include/CV.hpp ../include/cvcompat.h ../include/Cverror.h \
+../Include/CvPixelAccess.h ../Include/CvStorage.hpp ../Include/CVTypes.h \
+../include/ipl.h ../include/iplerror.h ../include/iplmisc.h ../src/_CV.h \
+../src/_cvarr.h ../src/_cvDataStructs.h ../src/_CvError.h ../src/_cvfuncn.h \
+../src/_cvGeom.h ../src/_cvList.h ../src/_cvmatrix.h ../src/_cvMorphology.h \
+../src/_cvoptions.h ../src/_cvtables.h ../src/_cvUtils.h ../src/_cvVM.h \
+../src/_cvWrap.h ../src/_ipcv.h ../src/_optcv.h 
+
+CXXFLAGS2 = -I"../include" -I"../src"  -I"$(GCCHOME)/include" -Wall -c -o
+LINKFLAGS2 = -L..\..\lib -o$(OUTDLL) -shared -Wl,-call_shared,--out-implib,$(OUTLIB)  
+
+ifdef debug
+
+CXXFLAGS = -D"CV_DLL" -D"WIN32" -D"_WINDOWS" -D"_DEBUG"  -O0 -ggdb3 $(CXXFLAGS2)
+LIBS = -lkernel32 -luser32 -lgdi32 
+LINKFLAGS = $(LINKFLAGS2)  
+
+else
+
+CXXFLAGS = -D"NDEBUG" -D"CV_DLL" -D"WIN32" -D"_WINDOWS"  -O2 $(CXXFLAGS2)
+LIBS = -lkernel32 -luser32 -lgdi32 
+LINKFLAGS = $(LINKFLAGS2)  
+
+endif
+
+
+$(OUTDLL): $(OBJS)
+	-mkdir ..\..\bin 2>nul
+	-mkdir ..\..\lib 2>nul
+	$(LINK)  $(LINKFLAGS) $(OBJS) $(LIBS) 
+	
+
+all: $(OUTDLL)
+
+..\..\_temp\CV$(DR)\cvConvHull.o: ..\src\cvConvHull.cpp $(INC)
+	@-mkdir ..\..\_temp\CV$(DR) 2>nul
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvConvHull.o ..\src\cvConvHull.cpp
+..\..\_temp\CV$(DR)\cvEllipseFit.o: ..\src\cvEllipseFit.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvEllipseFit.o ..\src\cvEllipseFit.cpp
+..\..\_temp\CV$(DR)\cvGeometry.o: ..\src\cvGeometry.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvGeometry.o ..\src\cvGeometry.cpp
+..\..\_temp\CV$(DR)\cvGeometryWrap.o: ..\src\cvGeometryWrap.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvGeometryWrap.o ..\src\cvGeometryWrap.cpp
+..\..\_temp\CV$(DR)\CvLineFit.o: ..\src\CvLineFit.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\CvLineFit.o ..\src\CvLineFit.cpp
+..\..\_temp\CV$(DR)\CvProject.o: ..\src\CvProject.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\CvProject.o ..\src\CvProject.cpp
+..\..\_temp\CV$(DR)\cvRotCalipers.o: ..\src\cvRotCalipers.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvRotCalipers.o ..\src\cvRotCalipers.cpp
+..\..\_temp\CV$(DR)\cvSubdivision2D.o: ..\src\cvSubdivision2D.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvSubdivision2D.o ..\src\cvSubdivision2D.cpp
+..\..\_temp\CV$(DR)\cvImage.o: ..\src\cvImage.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvImage.o ..\src\cvImage.cpp
+..\..\_temp\CV$(DR)\camshift.o: ..\src\camshift.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\camshift.o ..\src\camshift.cpp
+..\..\_temp\CV$(DR)\cvConDens.o: ..\src\cvConDens.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvConDens.o ..\src\cvConDens.cpp
+..\..\_temp\CV$(DR)\cvKalman.o: ..\src\cvKalman.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvKalman.o ..\src\cvKalman.cpp
+..\..\_temp\CV$(DR)\cvAdapThresh.o: ..\src\cvAdapThresh.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvAdapThresh.o ..\src\cvAdapThresh.cpp
+..\..\_temp\CV$(DR)\cvThresh.o: ..\src\cvThresh.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvThresh.o ..\src\cvThresh.cpp
+..\..\_temp\CV$(DR)\cvCalcCovarMatrix.o: ..\src\cvCalcCovarMatrix.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvCalcCovarMatrix.o ..\src\cvCalcCovarMatrix.cpp
+..\..\_temp\CV$(DR)\cvJacobiEigens.o: ..\src\cvJacobiEigens.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvJacobiEigens.o ..\src\cvJacobiEigens.cpp
+..\..\_temp\CV$(DR)\cvmathfuncs.o: ..\src\cvmathfuncs.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvmathfuncs.o ..\src\cvmathfuncs.cpp
+..\..\_temp\CV$(DR)\cvmatmul.o: ..\src\cvmatmul.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvmatmul.o ..\src\cvmatmul.cpp
+..\..\_temp\CV$(DR)\cvMatrix.o: ..\src\cvMatrix.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvMatrix.o ..\src\cvMatrix.cpp
+..\..\_temp\CV$(DR)\cvMatrix64d.o: ..\src\cvMatrix64d.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvMatrix64d.o ..\src\cvMatrix64d.cpp
+..\..\_temp\CV$(DR)\cvSvd.o: ..\src\cvSvd.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvSvd.o ..\src\cvSvd.cpp
+..\..\_temp\CV$(DR)\cvMean.o: ..\src\cvMean.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvMean.o ..\src\cvMean.cpp
+..\..\_temp\CV$(DR)\cvMeanSdv.o: ..\src\cvMeanSdv.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvMeanSdv.o ..\src\cvMeanSdv.cpp
+..\..\_temp\CV$(DR)\cvMinMaxLoc.o: ..\src\cvMinMaxLoc.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvMinMaxLoc.o ..\src\cvMinMaxLoc.cpp
+..\..\_temp\CV$(DR)\cvMoments.o: ..\src\cvMoments.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvMoments.o ..\src\cvMoments.cpp
+..\..\_temp\CV$(DR)\cvNorm.o: ..\src\cvNorm.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvNorm.o ..\src\cvNorm.cpp
+..\..\_temp\CV$(DR)\cvSumPixels.o: ..\src\cvSumPixels.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvSumPixels.o ..\src\cvSumPixels.cpp
+..\..\_temp\CV$(DR)\cvCamShift.o: ..\src\cvCamShift.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvCamShift.o ..\src\cvCamShift.cpp
+..\..\_temp\CV$(DR)\cvCalcContrastHistogram.o: ..\src\cvCalcContrastHistogram.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvCalcContrastHistogram.o ..\src\cvCalcContrastHistogram.cpp
+..\..\_temp\CV$(DR)\cvEMD.o: ..\src\cvEMD.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvEMD.o ..\src\cvEMD.cpp
+..\..\_temp\CV$(DR)\cvHistogram.o: ..\src\cvHistogram.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvHistogram.o ..\src\cvHistogram.cpp
+..\..\_temp\CV$(DR)\cvApprox.o: ..\src\cvApprox.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvApprox.o ..\src\cvApprox.cpp
+..\..\_temp\CV$(DR)\cvContourArea.o: ..\src\cvContourArea.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvContourArea.o ..\src\cvContourArea.cpp
+..\..\_temp\CV$(DR)\cvContours.o: ..\src\cvContours.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvContours.o ..\src\cvContours.cpp
+..\..\_temp\CV$(DR)\cvContoursMoments.o: ..\src\cvContoursMoments.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvContoursMoments.o ..\src\cvContoursMoments.cpp
+..\..\_temp\CV$(DR)\cvContourTree.o: ..\src\cvContourTree.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvContourTree.o ..\src\cvContourTree.cpp
+..\..\_temp\CV$(DR)\cvDominants.o: ..\src\cvDominants.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvDominants.o ..\src\cvDominants.cpp
+..\..\_temp\CV$(DR)\cvMatchContours.o: ..\src\cvMatchContours.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvMatchContours.o ..\src\cvMatchContours.cpp
+..\..\_temp\CV$(DR)\cvPGH.o: ..\src\cvPGH.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvPGH.o ..\src\cvPGH.cpp
+..\..\_temp\CV$(DR)\cvShapeDescr.o: ..\src\cvShapeDescr.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvShapeDescr.o ..\src\cvShapeDescr.cpp
+..\..\_temp\CV$(DR)\cvMoTempl.o: ..\src\cvMoTempl.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvMoTempl.o ..\src\cvMoTempl.cpp
+..\..\_temp\CV$(DR)\cvMotSeg.o: ..\src\cvMotSeg.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvMotSeg.o ..\src\cvMotSeg.cpp
+..\..\_temp\CV$(DR)\cvDrawing.o: ..\src\cvDrawing.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvDrawing.o ..\src\cvDrawing.cpp
+..\..\_temp\CV$(DR)\cvOutText.o: ..\src\cvOutText.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvOutText.o ..\src\cvOutText.cpp
+..\..\_temp\CV$(DR)\cvAlloc.o: ..\src\cvAlloc.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvAlloc.o ..\src\cvAlloc.cpp
+..\..\_temp\CV$(DR)\cverror.o: ..\src\cverror.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cverror.o ..\src\cverror.cpp
+..\..\_temp\CV$(DR)\cvprecomp.o: ..\src\cvprecomp.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvprecomp.o ..\src\cvprecomp.cpp
+..\..\_temp\CV$(DR)\cvSamplers.o: ..\src\cvSamplers.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvSamplers.o ..\src\cvSamplers.cpp
+..\..\_temp\CV$(DR)\cvtables.o: ..\src\cvtables.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvtables.o ..\src\cvtables.cpp
+..\..\_temp\CV$(DR)\cvTemplMatch.o: ..\src\cvTemplMatch.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvTemplMatch.o ..\src\cvTemplMatch.cpp
+..\..\_temp\CV$(DR)\cvUtilitiesWrap.o: ..\src\cvUtilitiesWrap.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvUtilitiesWrap.o ..\src\cvUtilitiesWrap.cpp
+..\..\_temp\CV$(DR)\cvutils.o: ..\src\cvutils.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvutils.o ..\src\cvutils.cpp
+..\..\_temp\CV$(DR)\cvDisTransform.o: ..\src\cvDisTransform.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvDisTransform.o ..\src\cvDisTransform.cpp
+..\..\_temp\CV$(DR)\cvHough.o: ..\src\cvHough.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvHough.o ..\src\cvHough.cpp
+..\..\_temp\CV$(DR)\cvHoughDiv.o: ..\src\cvHoughDiv.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvHoughDiv.o ..\src\cvHoughDiv.cpp
+..\..\_temp\CV$(DR)\cvHoughP.o: ..\src\cvHoughP.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvHoughP.o ..\src\cvHoughP.cpp
+..\..\_temp\CV$(DR)\cvHoughWrap.o: ..\src\cvHoughWrap.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvHoughWrap.o ..\src\cvHoughWrap.cpp
+..\..\_temp\CV$(DR)\cvPOSIT.o: ..\src\cvPOSIT.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvPOSIT.o ..\src\cvPOSIT.cpp
+..\..\_temp\CV$(DR)\cvSnakes.o: ..\src\cvSnakes.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvSnakes.o ..\src\cvSnakes.cpp
+..\..\_temp\CV$(DR)\cvLkPyramid.o: ..\src\cvLkPyramid.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvLkPyramid.o ..\src\cvLkPyramid.cpp
+..\..\_temp\CV$(DR)\cvOptFlowBM.o: ..\src\cvOptFlowBM.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvOptFlowBM.o ..\src\cvOptFlowBM.cpp
+..\..\_temp\CV$(DR)\cvOptFlowHS.o: ..\src\cvOptFlowHS.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvOptFlowHS.o ..\src\cvOptFlowHS.cpp
+..\..\_temp\CV$(DR)\cvOptFlowLK.o: ..\src\cvOptFlowLK.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvOptFlowLK.o ..\src\cvOptFlowLK.cpp
+..\..\_temp\CV$(DR)\cvDataStructs.o: ..\src\cvDataStructs.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvDataStructs.o ..\src\cvDataStructs.cpp
+..\..\_temp\CV$(DR)\cvCalcCovarMatrixEx.o: ..\src\cvCalcCovarMatrixEx.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvCalcCovarMatrixEx.o ..\src\cvCalcCovarMatrixEx.cpp
+..\..\_temp\CV$(DR)\cvCalcEigenObjects.o: ..\src\cvCalcEigenObjects.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvCalcEigenObjects.o ..\src\cvCalcEigenObjects.cpp
+..\..\_temp\CV$(DR)\cvEigenDecomposite.o: ..\src\cvEigenDecomposite.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvEigenDecomposite.o ..\src\cvEigenDecomposite.cpp
+..\..\_temp\CV$(DR)\cvEigenObjectsWrap.o: ..\src\cvEigenObjectsWrap.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvEigenObjectsWrap.o ..\src\cvEigenObjectsWrap.cpp
+..\..\_temp\CV$(DR)\cvEigenProjection.o: ..\src\cvEigenProjection.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvEigenProjection.o ..\src\cvEigenProjection.cpp
+..\..\_temp\CV$(DR)\cvMorph.o: ..\src\cvMorph.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvMorph.o ..\src\cvMorph.cpp
+..\..\_temp\CV$(DR)\cvMorphWrap.o: ..\src\cvMorphWrap.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvMorphWrap.o ..\src\cvMorphWrap.cpp
+..\..\_temp\CV$(DR)\cvpyramids.o: ..\src\cvpyramids.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvpyramids.o ..\src\cvpyramids.cpp
+..\..\_temp\CV$(DR)\cvPyrSegmentation.o: ..\src\cvPyrSegmentation.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvPyrSegmentation.o ..\src\cvPyrSegmentation.cpp
+..\..\_temp\CV$(DR)\cvFloodFill.o: ..\src\cvFloodFill.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvFloodFill.o ..\src\cvFloodFill.cpp
+..\..\_temp\CV$(DR)\cvCalcImageHomography.o: ..\src\cvCalcImageHomography.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvCalcImageHomography.o ..\src\cvCalcImageHomography.cpp
+..\..\_temp\CV$(DR)\cvCalcProbDensity.o: ..\src\cvCalcProbDensity.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvCalcProbDensity.o ..\src\cvCalcProbDensity.cpp
+..\..\_temp\CV$(DR)\cvCreateHandMask.o: ..\src\cvCreateHandMask.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvCreateHandMask.o ..\src\cvCreateHandMask.cpp
+..\..\_temp\CV$(DR)\cvFindHandRegion.o: ..\src\cvFindHandRegion.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvFindHandRegion.o ..\src\cvFindHandRegion.cpp
+..\..\_temp\CV$(DR)\cvGestureRecognition.o: ..\src\cvGestureRecognition.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvGestureRecognition.o ..\src\cvGestureRecognition.cpp
+..\..\_temp\CV$(DR)\cvMaxRect.o: ..\src\cvMaxRect.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvMaxRect.o ..\src\cvMaxRect.cpp
+..\..\_temp\CV$(DR)\cvCorrespond.o: ..\src\cvCorrespond.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvCorrespond.o ..\src\cvCorrespond.cpp
+..\..\_temp\CV$(DR)\cvFundam.o: ..\src\cvFundam.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvFundam.o ..\src\cvFundam.cpp
+..\..\_temp\CV$(DR)\cvLines.o: ..\src\cvLines.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvLines.o ..\src\cvLines.cpp
+..\..\_temp\CV$(DR)\cvLMedS.o: ..\src\cvLMedS.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvLMedS.o ..\src\cvLMedS.cpp
+..\..\_temp\CV$(DR)\cvMorphing.o: ..\src\cvMorphing.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvMorphing.o ..\src\cvMorphing.cpp
+..\..\_temp\CV$(DR)\cvPrewarp.o: ..\src\cvPrewarp.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvPrewarp.o ..\src\cvPrewarp.cpp
+..\..\_temp\CV$(DR)\cvScanlines.o: ..\src\cvScanlines.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvScanlines.o ..\src\cvScanlines.cpp
+..\..\_temp\CV$(DR)\cvBlur.o: ..\src\cvBlur.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvBlur.o ..\src\cvBlur.cpp
+..\..\_temp\CV$(DR)\cvConvGen.o: ..\src\cvConvGen.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvConvGen.o ..\src\cvConvGen.cpp
+..\..\_temp\CV$(DR)\cvFilterWr.o: ..\src\cvFilterWr.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvFilterWr.o ..\src\cvFilterWr.cpp
+..\..\_temp\CV$(DR)\cvInitConvol.o: ..\src\cvInitConvol.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvInitConvol.o ..\src\cvInitConvol.cpp
+..\..\_temp\CV$(DR)\cvLaplace.o: ..\src\cvLaplace.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvLaplace.o ..\src\cvLaplace.cpp
+..\..\_temp\CV$(DR)\cvScharr.o: ..\src\cvScharr.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvScharr.o ..\src\cvScharr.cpp
+..\..\_temp\CV$(DR)\cvAbsDiff.o: ..\src\cvAbsDiff.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvAbsDiff.o ..\src\cvAbsDiff.cpp
+..\..\_temp\CV$(DR)\cvAccum.o: ..\src\cvAccum.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvAccum.o ..\src\cvAccum.cpp
+..\..\_temp\CV$(DR)\cvCanny.o: ..\src\cvCanny.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvCanny.o ..\src\cvCanny.cpp
+..\..\_temp\CV$(DR)\cvCorner.o: ..\src\cvCorner.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvCorner.o ..\src\cvCorner.cpp
+..\..\_temp\CV$(DR)\cvCornerSubPix.o: ..\src\cvCornerSubPix.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvCornerSubPix.o ..\src\cvCornerSubPix.cpp
+..\..\_temp\CV$(DR)\cvDetectWr.o: ..\src\cvDetectWr.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvDetectWr.o ..\src\cvDetectWr.cpp
+..\..\_temp\CV$(DR)\cvfeatureselect.o: ..\src\cvfeatureselect.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvfeatureselect.o ..\src\cvfeatureselect.cpp
+..\..\_temp\CV$(DR)\cvMinEVal.o: ..\src\cvMinEVal.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvMinEVal.o ..\src\cvMinEVal.cpp
+..\..\_temp\CV$(DR)\cvPreCorner.o: ..\src\cvPreCorner.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvPreCorner.o ..\src\cvPreCorner.cpp
+..\..\_temp\CV$(DR)\cvCalibInit.o: ..\src\cvCalibInit.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvCalibInit.o ..\src\cvCalibInit.cpp
+..\..\_temp\CV$(DR)\cvCalibration.o: ..\src\cvCalibration.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvCalibration.o ..\src\cvCalibration.cpp
+..\..\_temp\CV$(DR)\cvUnDistort.o: ..\src\cvUnDistort.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvUnDistort.o ..\src\cvUnDistort.cpp
+..\..\_temp\CV$(DR)\cvHMM.o: ..\src\cvHMM.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvHMM.o ..\src\cvHMM.cpp
+..\..\_temp\CV$(DR)\cvHMMObs.o: ..\src\cvHMMObs.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvHMMObs.o ..\src\cvHMMObs.cpp
+..\..\_temp\CV$(DR)\cvHMMWrap.o: ..\src\cvHMMWrap.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvHMMWrap.o ..\src\cvHMMWrap.cpp
+..\..\_temp\CV$(DR)\cvSwitcher.o: ..\src\cvSwitcher.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvSwitcher.o ..\src\cvSwitcher.cpp
+..\..\_temp\CV$(DR)\cvaffine.o: ..\src\cvaffine.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvaffine.o ..\src\cvaffine.cpp
+..\..\_temp\CV$(DR)\cvarithm.o: ..\src\cvarithm.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvarithm.o ..\src\cvarithm.cpp
+..\..\_temp\CV$(DR)\cvarray.o: ..\src\cvarray.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvarray.o ..\src\cvarray.cpp
+..\..\_temp\CV$(DR)\cvcolor.o: ..\src\cvcolor.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvcolor.o ..\src\cvcolor.cpp
+..\..\_temp\CV$(DR)\cvconvert.o: ..\src\cvconvert.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvconvert.o ..\src\cvconvert.cpp
+..\..\_temp\CV$(DR)\cvcopy.o: ..\src\cvcopy.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvcopy.o ..\src\cvcopy.cpp
+..\..\_temp\CV$(DR)\cvlogic.o: ..\src\cvlogic.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvlogic.o ..\src\cvlogic.cpp
+..\..\_temp\CV$(DR)\cvrand.o: ..\src\cvrand.cpp $(INC)
+	-$(CXX) $(CXXFLAGS)..\..\_temp\CV$(DR)\cvrand.o ..\src\cvrand.cpp

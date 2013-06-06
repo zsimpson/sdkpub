@@ -1,0 +1,643 @@
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+    <META NAME="GENERATOR" CONTENT="Mozilla/4.03 [en] (WinNT; U) [Netscape]">
+    <TITLE>Camera Calibration Tool - Camera Model</TITLE>
+    <!-- Changed by: Ara V. Nefian, May 31-2000 -->
+    <!-- Formatted and proofed in GNU Emacs by: Michael Chu, 00.06.03 -->
+  </HEAD>
+  <BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000CC" VLINK="#0000FF" ALINK="#FF0000">
+    <a name="top">
+      <!-- <CENTER>
+    <BLOCKQUOTE>
+    <table border = 3 WIDTH="70%" >
+    <TR><TD>
+      -->
+    <CENTER><TABLE CELLSPACING=0 CELLPADDING=5 WIDTH="90%" BGCOLOR="#6A9BED" NOSAVE >
+	<TR NOSAVE>
+	  <TD NOSAVE>
+	    <CENTER><I><FONT COLOR="#000000"><FONT SIZE=+4>Camera Calibration Tool - Camera Model</FONT></FONT></I></CENTER>
+	  </TD>
+	</TR>
+      </TABLE></CENTER>
+    <!--
+  </TD></TR>
+  </table>
+    </BLOCKQUOTE>
+  </center>
+    -->
+    <H1>Description of the intrinsic camera model</H1>
+
+
+    <P>After calibration, the intrinsic camera model may be saved into a text file by clicking on the "Save" button in the <a href="doc_calib.html#properties" target="application window">property control window</a>. An example of such a file is <a href="CalibResult.txt">CalibResult.txt</a>:
+
+<BR><BR>
+
+<tt>
+Camera Matrix:<BR>
+M[0,0]= 286.2791138       M[0,1]= 0.0000000          M[0,2]= 156.6844177<BR>
+M[1,0]= 0.0000000         M[1,1]= 287.7630615        M[1,2]= 130.9805145<BR>
+M[2,0]= 0.0000000         M[2,1]= 0.0000000          M[2,2]= 1.0000000<BR>
+<BR>
+<BR>
+Distortion:<BR>
+D[0]= -0.416691<BR>
+D[1]= 0.250142<BR>
+D[2]= -0.000386<BR>
+D[3]= -0.001894<BR>
+</tt>
+
+<BR>
+This complete intrinsic camera model is encoded with the matrix <b>M</b> (also known as camera matrix) and the vector <b>D</b> (distortion vector). 
+
+<p><br><font size=+1>Definition of the intrinsic parameters:</font>
+<BR><BR>
+Let us make slight changes in notation: (numerical values are included for clarity purposes only - when running calibration on your camera, you will naturally obtain a different set of numerics)<BR>
+
+<ul>
+<li>
+<b><font size=+0>Focal length:</font></b> The focal length in pixels is the 2x1 vector <b>fc = [ M[0,0] ; M[1,1] ] = [286.3 ; 287.8]</b>.
+<!-- The quantities <b>fc(1)</b> and <b>fc(2)</b> are the horizontal and vertical focal length (in x and y) in pixels. --></li>
+
+<li>
+<b><font size=+0>Principal point:</font></b> The principal point in pixels is the 2x1 vector <b>cc = [ M[0,2] ; M[1,2] ] = [156.7 ; 131]</b>.</li>
+
+<li>
+<b><font size=+0>Skew coefficient:</font></b> The skew coefficient related to the angle between the x and y pixel axes is the scalar <b>s = M[0,1] = 0</b>.</li>
+
+<li>
+<b><font size=+0>Distortion:</font></b> The image distortion coefficients
+ are <b>k1 = D[0] = -0.416691</b>, <b>k2 = D[1] = 0.250142</b>, <b>p1 = D[2] = -0.000386</b> and <b>p2 = D[3] = -0.001894</b>. The coefficients <b>k1</b> and <b>k2</b> are associated to radial distortions (up to the fourth order), and <b>p1</b> and <b>p2</b> are associated to tangential distortions.</li>
+</ul>
+
+
+A zero skew (<b>s=0</b>) means that the pixels are rectangular on the
+sensor. In that present release of the calibration software, the
+camera model will always assume rectangular pixels (or zero
+skew). This assumption is valid for most current imaging sensors. In future
+releases, a complete estimation of the skew coefficient will be included.
+
+<br><br>
+The next section provides detailed definitions of the entire set of intrinsic parameters.
+
+
+
+<p><br><font size=+1>Description of the pixel projection operator:</font>
+<BR><BR>
+Let us make slight changes in notation: (numerical values are included for clarity purposes only - when running calibration on your camera, you will naturally obtain a different set of numerics)<BR>
+
+<p>Let <b>P</b> be a point in space of coordinate vector <b>XX<sub>c</sub>
+= [X<sub>c</sub>;Y<sub>c</sub>;Z<sub>c</sub>]</b> in the camera reference
+frame.
+<br>Let us project now that point on the image plane according to the intrinsic
+parameters (<b>fc</b>,<b>cc</b>,<b>s</b>,<b>k1</b>,<b>k2</b>,<b>p1</b>,<b>p2</b>).
+<br>Let <b>x<sub>n</sub></b> be the normalized (pinehole) image projection:
+<br>&nbsp;
+<center><table>
+<tr>
+<td><b>x<sub>n</sub></b></td>
+<td><b> = </b></td>
+
+<td>
+<center><table>
+<tr>
+<td><b>[</b></td>
+</tr>
+
+<tr>
+<td><b>[</b></td>
+</tr>
+<tr>
+<td><b>[</b></td>
+</tr>
+</table></center>
+</td>
+
+<td>
+<center><table>
+<tr>
+<td>
+<center><table><tr><td>
+<b>X<sub>c</sub>/Z<sub>c</sub></b>
+</td></tr></table></center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><table><tr><td>
+<b>Y<sub>c</sub>/Z<sub>c</sub></b>
+</td></tr></table></center>
+</td>
+</tr>
+</table></center>
+</td>
+
+<td>
+<center><table>
+<tr>
+<td><b>]</b></td>
+</tr>
+
+<tr>
+<td><b>]</b></td>
+</tr>
+<tr>
+<td><b>]</b></td>
+</tr>
+</table></center>
+</td>
+
+<td><b>=&nbsp;</b></td>
+
+<td>
+<center><table>
+<tr>
+<td><b>[</b></td>
+</tr>
+
+<tr>
+<td><b>[</b></td>
+</tr>
+<tr>
+<td><b>[</b></td>
+</tr>
+</table></center>
+</td>
+
+<td>
+<center><table>
+<tr>
+<td>
+<center><table><tr><td>
+<b>x</b>
+</td></tr></table></center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><table><tr><td><center><table><tr><td>
+<b>y</b>
+</td></tr></table></center></td></tr></table></center>
+</td>
+</tr>
+</table></center>
+</td>
+
+<td>
+<center><table>
+<tr>
+<td><b>]</b></td>
+</tr>
+
+<tr>
+<td><b>]</b></td>
+</tr>
+<tr>
+<td><b>]</b></td>
+</tr>
+</table></center>
+</td>
+</tr>
+</table></center>
+
+<p>Let <b>r<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup></b>.
+<br>After including lens distortion, the new normalized point coordinate
+<b>x<sub>d</sub></b>
+is defined as follows:
+
+<center>
+<table>
+<tr>
+
+<td>
+<b>x<sub>d</sub> 
+</td>
+
+<td>
+<b> = </b>
+</td>
+
+<td>
+<center><table>
+<tr>
+<td><b>[</b></td>
+</tr>
+<tr>
+<td><b>[</b></td>
+</tr>
+<tr>
+<td><b>[</b></td>
+</tr>
+</table></center>
+</td>
+
+
+<td>
+<center><table>
+<tr>
+<td><center><b>x<sub>d</sub>(1)</b></center></td>
+</tr>
+<tr>
+<td><center><b>x<sub>d</sub>(2)</b></center></td>
+</tr>
+</table></center>
+</td>
+
+
+<td>
+<center><table>
+<tr>
+<td><b>]</b></td>
+</tr>
+<tr>
+<td><b>]</b></td>
+</tr>
+<tr>
+<td><b>]</b></td>
+</tr>
+</table></center>
+</td>
+
+<td>
+<b>=</b>
+</td>
+
+<td>
+<b>(1 + k1*r<sup>2</sup> + k2*r<sup>4</sup>) * x<sub>n</sub> + dx</b>
+</td>
+
+</tr>
+</table>
+</center>
+
+
+<p>where <b>dx</b> is the tangential distortion vector:
+<br>&nbsp;
+<center><table>
+<tr>
+<td><b>dx</b></td>
+<td><b> = </b></td>
+
+<td>
+<center><table>
+<tr>
+<td><b>[</b></td>
+</tr>
+
+<tr>
+<td><b>[</b></td>
+</tr>
+<tr>
+<td><b>[</b></td>
+</tr>
+</table></center>
+</td>
+
+<td>
+<center><table>
+<tr>
+<td>
+<center><table><tr><td>
+<b>2*p1*x*y + p2*(r<sup>2</sup> + 2*x<sup>2</sup>)</b>
+</td></tr></table></center>
+</td>
+</tr>
+
+<tr>
+<td>
+<center><table><tr><td>
+<b>p1*(r<sup>2</sup> + 2*y<sup>2</sup>) + 2*p2*x*y</b>
+</td></tr></table></center>
+</td>
+</tr>
+</table></center>
+</td>
+
+<td>
+<center><table>
+<tr>
+<td><b>]</b></td>
+</tr>
+
+<tr>
+<td><b>]</b></td>
+</tr>
+<tr>
+<td><b>]</b></td>
+</tr>
+</table></center>
+</td>
+</tr>
+</table></center>
+
+
+It is worth noticing that this distortion model was first introduced
+by Brown in 1966 and called "Plumb Bob" model (radial polynomial +
+"thin prism" ). The tangential distortion is due to "decentering", or imperfect centering of the lens components and other manufacturing defects in a compound lens.
+
+<p>Once distortion is applied, the final pixel coordinates <b>x_pixel = [x<sub>p</sub>;y<sub>p</sub>]</b>
+of the projection of <b>P</b> on the image plane is:
+<br>&nbsp;
+<center><table>
+<tr>
+<td>
+<align="left"><b>x<sub>p</sub> = fc(1)*x<sub>d</sub>(1) + s*x<sub>d</sub>(2) + cc(1)</b></align>
+</td>
+</tr>
+
+<tr>
+<td>
+<align="left"><b>y<sub>p</sub> = fc(2)*x<sub>d</sub>(2) + cc(2)</b></align>
+</td>
+</tr>
+</table></center>
+
+<BR>
+
+Therefore, the pixel coordinate vector <b>x_pixel</b> and the normalized (distorted) coordinate vector <b>x<sub>d</sub></b> are related to each other through the linear equation:
+<BR>
+<center>
+<table>
+<tr>
+<td>
+<center><table>
+<tr>
+<td><b>[</b></td>
+</tr>
+<tr>
+<td><b>[</b></td>
+</tr>
+<tr>
+<td><b>[</b></td>
+</tr>
+<tr>
+<td><b>[</b></td>
+</tr>
+</table></center>
+</td>
+
+
+<td>
+<center><table>
+<tr>
+<td><center><b>x<sub>p</sub></b></center></td>
+</tr>
+<tr>
+<td><center><b>y<sub>p</sub></b></center></td>
+</tr>
+<tr>
+<td><center><b>1</b></td>
+</tr>
+</table></center>
+</td>
+
+
+<td>
+<center><table>
+<tr>
+<td><b>]</b></td>
+</tr>
+<tr>
+<td><b>]</b></td>
+</tr>
+<tr>
+<td><b>]</b></td>
+</tr>
+<tr>
+<td><b>]</b></td>
+</tr>
+</table></center>
+</td>
+
+
+<td>
+<center><b>=</b></center>
+</td>
+
+
+<td>
+<center><b>M</b></center>
+</td>
+<td>
+<center><b>.</b></center>
+</td>
+
+<td>
+<center><table>
+<tr>
+<td><b>[</b></td>
+</tr>
+<tr>
+<td><b>[</b></td>
+</tr>
+<tr>
+<td><b>[</b></td>
+</tr>
+<tr>
+<td><b>[</b></td>
+</tr>
+</table></center>
+</td>
+
+
+<td>
+<center><table>
+<tr>
+<td><center><b>x<sub>d</sub>(1)</b></center></td>
+</tr>
+<tr>
+<td><center><b>x<sub>d</sub>(2)</b></center></td>
+</tr>
+<tr>
+<td><center><b>1</b></center></td>
+</tr>
+</table></center>
+</td>
+
+
+<td>
+<center><table>
+<tr>
+<td><b>]</b></td>
+</tr>
+<tr>
+<td><b>]</b></td>
+</tr>
+<tr>
+<td><b>]</b></td>
+</tr>
+<tr>
+<td><b>]</b></td>
+</tr>
+</table></center>
+</td>
+
+
+</tr>
+</table>
+</center>
+<BR>
+where <b>M</b> is known as the camera matrix, and defined as follows:
+
+<BR>
+
+
+<center>
+<table>
+
+<tr>
+
+<td>
+<center><b>M</b></center>
+</td>
+
+<td>
+<center><b>=</b></center>
+</td>
+
+
+<td>
+<center><table>
+<tr>
+<td><b>[</b></td>
+</tr>
+<tr>
+<td><b>[</b></td>
+</tr>
+<tr>
+<td><b>[</b></td>
+</tr>
+<tr>
+<td><b>[</b></td>
+</tr>
+<tr>
+<td><b>[</b></td>
+</tr>
+</table></center>
+</td>
+
+
+<td>
+<center>
+<table>
+
+<tr>
+<td>
+<center><table><tr><td><center><table><tr><td>
+<center><b>fc(1)</b></center>
+</td></tr></table></center></td></tr></table></center>
+</td>
+<td>
+<center><table><tr><td><center><table><tr><td>
+<center><b>s</b><center>
+</td></tr></table></center></td></tr></table></center>
+</td>
+<td>
+<center><table><tr><td><center><table><tr><td>
+<center><b>cc(1)</b><center>
+</td></tr></table></center></td></tr></table></center>
+</td>
+</tr>
+<tr>
+<td>
+<center><table><tr><td><center><table><tr><td>
+<center><b>0</b><center>
+</td></tr></table></center></td></tr></table></center>
+</td>
+<td>
+<center><table><tr><td><center><table><tr><td>
+<center><b>fc(2)</b><center>
+</td></tr></table></center></td></tr></table></center>
+</td>
+<td>
+<center><table><tr><td><center><table><tr><td>
+<center><b>cc(2)</b><center>
+</td></tr></table></center></td></tr></table></center>
+</td>
+</tr>
+<tr>
+<td>
+<center><table><tr><td><center><table><tr><td>
+<center><b>0</b><center>
+</td></tr></table></center></td></tr></table></center>
+</td>
+<td>
+<center><table><tr><td><center><table><tr><td>
+<center><b>0</b><center>
+</td></tr></table></center></td></tr></table></center>
+</td>
+<td>
+<center><table><tr><td><center><table><tr><td>
+<center><b>1</b><center>
+</td></tr></table></center></td></tr></table></center>
+</td>
+</tr>
+</table>
+</center>
+</td>
+
+
+<td>
+<center><table>
+<tr>
+<td><b>]</b></td>
+</tr>
+<tr>
+<td><b>]</b></td>
+</tr>
+<tr>
+<td><b>]</b></td>
+</tr>
+<tr>
+<td><b>]</b></td>
+</tr>
+<tr>
+<td><b>]</b></td>
+</tr>
+</table></center>
+</td>
+
+</tr>
+
+</table>
+</center>
+
+<BR>Observe that this matrix is exactly the same as the one appearing in the original text file generated by the calibration tool 
+Notice that <b>fc(1)</b> and <b>fc(2)</b> are the focal
+distance (a unique value if expressed in mm) expressed in units of horizontal and vertical
+pixels. Therefore, the camera model naturally handles non-square
+pixels. In addition, the coefficient <b>s</b> encodes the angle
+between the x and y sensor axes. Consequently, this generic model allows for non-rectangular pixels (altough this release of the software does not explicitly estimate the skew coefficient - future ones will). Some authors refer to that generic type of model as
+"affine distortion" model. 
+
+<p><i>Convention: </i>The pixel coordinates are defined such that <b>[0;0]</b> is the
+upper left pixel of the image (the center of the pixel),
+<b>[nx-1;0]</b> is the upper right corner pixel, <b>[0;ny-1]</b> is
+the lower left corner pixel and <b>[nx-1;ny-1]</b> is the lower right
+corner pixel where <b>nx</b> and <b>ny</b> are the width and height of
+the image (for example <b>nx=640</b> and
+<b>ny=480</b>).
+<BR>
+<BR>
+
+For more information, refer to the <a href="calib_doc/index.html">tutorial page</a> on Camera Calibration and try the Matlab implementation provided with it.
+
+
+<BR><BR>
+
+<HR noshade>
+
+<br>
+<FONT SIZE=+3><a href="doc_calib.html" target="application window">Back to main camera calibration page</A></FONT>
+
+
+    <br><br>
+    <hr noshade size=2 width=100%>
+    <H3>
+      <A NAME="Bottom"></A><A HREF="#Top">Back to Top<IMG SRC="up.gif" BORDER=0 HEIGHT=26 WIDTH=30></A></H3>
+
+
+  </BODY>
+</HTML>

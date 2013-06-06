@@ -1,0 +1,34 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: wincai03 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\User\LOCALS~1\Temp\RSP9D.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /Fp"Debug/Wincai03.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /c 
+"C:\Program Files\Measurement Computing\DAQ\CWin\Sample32\Wincai03.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\User\LOCALS~1\Temp\RSP9D.tmp" 
+Creating temporary file "C:\DOCUME~1\User\LOCALS~1\Temp\RSP9E.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib ..\cbw32.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/Wincai03.pdb" /debug /machine:I386 /out:"Debug/Wincai03.exe" /pdbtype:sept 
+".\Debug\Wincai03.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\User\LOCALS~1\Temp\RSP9E.tmp"
+<h3>Output Window</h3>
+Compiling...
+Wincai03.c
+c:\program files\measurement computing\daq\cwin\sample32\wincai03.c(76) : warning C4028: formal parameter 1 different from declaration
+c:\program files\measurement computing\daq\cwin\sample32\wincai03.c(76) : warning C4028: formal parameter 2 different from declaration
+Linking...
+
+
+
+<h3>Results</h3>
+Wincai03.exe - 0 error(s), 2 warning(s)
+</pre>
+</body>
+</html>

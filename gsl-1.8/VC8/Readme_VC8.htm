@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+		<meta name="vs_showGrid" content="True">
+		<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+		<STYLE> .VSProject { FONT-WEIGHT: bold; COLOR: maroon; FONT-STYLE: italic; FONT-FAMILY: Arial, Sans-Serif }
+	BODY { FONT-SIZE: 10pt; COLOR: black; FONT-FAMILY: Arial, Sans-Serif }
+	H1 { FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: blue }
+	H2 { FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: blue; TEXT-DECORATION: underline }
+	TABLE { FONT-SIZE: 10pt; FONT-FAMILY: Arial, Sans-Serif }
+		</STYLE>
+	</head>
+	<body>
+		<P><H1 align="center">Building gsl 1.8 on Windows</H1>
+		<P></P>
+		<P>The Visual Studio projects in these subdirectories build static and dynamic
+			versions of the Gnu Scientific Library version 1.8.&nbsp; In addition, test
+			programs can be built for each of the gsl 1.8 modules providing test
+			code, and for the example programs distributed with gsl.&nbsp; The projects are 
+			collected in 3 Visual Studio 2005 solutions.&nbsp; Solution
+			<code class="VSProject">libgsl.sln</code> builds the libraries.&nbsp;
+			Solution <code class="VSProject">test_gsl.sln</code> builds the test programs.&nbsp; 
+			Solution <code class="VSProject">gsl_examples.sln</code> builds the example programs.
+			&nbsp; The test and example programs are built to test all versions of the gsl
+			libraries (DLL and static library, debug and release).</P>
+		<P>The VC8 projects included are:</P>
+		<P>
+			<TABLE id="Table1" cellSpacing="1" cellPadding="5" width="80%" border="1" style="MARGIN-LEFT: 5%">
+				<TBODY>
+					<TR>
+						<TD><STRONG>VC8 Project</STRONG></TD>
+						<TD><STRONG>Description</STRONG></TD>
+					</TR>
+					<TR>
+						<TD style="WIDTH: 140px" valign="top" class="VSProject">copy_gsl_headers</TD>
+						<TD>
+							<P>
+								Utility project to copy the public gsl headers from the individual 
+								subdirectories to the ./gsl subdirectory.&nbsp; This location is where all the 
+								library sources look for the headers, and must be performed before any 
+								compilation.&nbsp; To enforce this, all projects performing gsl compilation are 
+								dependent on this project.
+							</P>
+							<P>
+								The copying is performed in a custom build step if the target header is missing 
+								or older than the corresponding header in the gsl source tree.
+							</P>
+						</TD>
+					</TR>
+					<TR>
+						<TD class="VSProject" vAlign="top">install_libgsl</TD>
+						<TD>
+							<P>
+								Utility project providing simple installation using&nbsp;a build event.&nbsp; 
+								The event copies the dll's, libraries, documentation, and headers to a root 
+								directory specified in the build event.&nbsp; Modify the event code to change 
+								the target destination.</P>
+							<P>Note that this project is not dependent on any of the library-building 
+								projects.&nbsp; The installer will simply copy what it finds, so build all 
+								desired libraries before building this project.&nbsp; This project is not run
+								automatically by any of the solution configurations.&nbsp;  The user needs to
+								explicitly build it if desired.</P>
+						</TD>
+					</TR>
+					<TR>
+						<TD vAlign="top" class="VSProject">libgsl</TD>
+						<TD>
+								Builds the gsl libraries.  Target depends on the build configuration:<BR /><BR />
+								<table id="Table2" cellSpacing="1" cellPadding="3" border="1" style="MARGIN-LEFT: 5%">
+									<tr>
+										<td><b>Configuration</b></td>
+										<td><b>Build Targets</b></td>
+									</tr>
+									<tr>
+										<td>Release-StaticLib</td>
+										<td>libgsl.lib</td>
+									</tr>
+									<tr>
+										<td>Release-DLL</td>
+										<td>libgsl.dll<br />libgsl_dll.lib (import library)</td>
+									</tr>
+									<tr>
+										<td>Debug-StaticLib</td>
+										<td>libgsl_d.lib</td>
+									</tr>
+									<tr>
+										<td>Debug-DLL</td>
+										<td>libgsl_d.dll<br />libgsl_dll_d.lib (import library)</td>
+									</tr>
+								</table>
+						</TD>
+					</TR>
+					<TR>
+						<TD vAlign="top" class="VSProject">libgslcblas</TD>
+						<TD>
+								Builds the gsl cblas support libraries.  Target depends on the build configuration:<BR /><BR />
+								<table id="Table3" cellSpacing="1" cellPadding="3" border="1" style="MARGIN-LEFT: 5%">
+									<tr>
+										<td><b>Configuration</b></td>
+										<td><b>Build Targets</b></td>
+									</tr>
+									<tr>
+										<td>Release-StaticLib</td>
+										<td>libgslcblas.lib</td>
+									</tr>
+									<tr>
+										<td>Release-DLL</td>
+										<td>libgslcblas.dll<br />libgslcblas_dll.lib (import library)</td>
+									</tr>
+									<tr>
+										<td>Debug-StaticLib</td>
+										<td>libgslcblas_d.lib</td>
+									</tr>
+									<tr>
+										<td>Debug-DLL</td>
+										<td>libgslcblas_d.dll<br />libgslcblas_dll_d.lib (import library)</td>
+									</tr>
+								</table>
+						</TD>
+					</TR>
+					<TR>
+						<TD vAlign="top" class="VSProject">copy_dlls</TD>
+						<TD>
+							<P>
+								Utility project used by the <CODE class="VSProject">test_gsl.sln</CODE> and
+								<CODE class="VSProject">gsl_examples.sln</CODE> solutions to copy the prebuilt 
+								gsl dll's from their build directories to the target location for the test/example
+								executables.&nbsp; Files are only copied for DLL-related build configurations.&nbsp;
+								The dll's must already exist in the build directories created by the 
+								<CODE class="VSProject">libgsl.sln</CODE> and <CODE class="VSProject">libgslcblas.sln</CODE>
+								solutions.&nbsp; If the dll's are not properly located when running the test or example
+								programs requiring them, a runtime error will occur.</P>
+						</TD>
+					</TR>
+					<TR>
+						<TD vAlign="top" class="VSProject">test_xxx</TD>
+						<TD>
+							<P>
+								Builds the test program for gsl module <I>xxx</I> using the appropriate version 
+								of the gsl library.&nbsp; Whether the gsl static library or dll is used is based on
+								the build configuration chosen.</P>
+						</TD>
+					</TR>
+					<TR>
+						<TD vAlign="top" class="VSProject">ex_xxx</TD>
+						<TD>
+							<P>
+								Builds the example program for <I>xxx.c</I> (in the doc\examples directory) using
+								the appropriate version of  the gsl library.&nbsp; Whether the gsl static library 
+								or dll is used is based on the build configuration chosen.</P>
+						</TD>
+					</TR>
+				</TBODY>
+			</TABLE>
+		</P>
+		<P>The libraries have been tested using the standard gsl test programs, with all 
+			tests passing.&nbsp; All functional example programs were also executed successfully.</P>
+		<P><H2>Building &amp; Testing the Libraries</H2>
+		<P></P>
+		<P>The libraries were built using Visual C++ Express 2005 (Visual C++ 8).&nbsp;
+			To rebuild from the source, use the following steps:
+		</P>
+		<OL>
+			<LI>Load the <CODE class="VSProject">libgsl.sln</CODE> solution.</LI>
+			<LI>Modify config.h.msvc in the VC8 root directory for your preferences.</LI>
+			<LI>If you are using a custom blas implementation, modify the DLL linker 
+			    configurations in the <CODE class="VSProject">libgsl</CODE> project 
+					to use your library.</LI>
+			<LI>Build the desired library project(s) using the desired build 
+			    configuration(s).&nbsp; Copying of the gsl headers to the central ./gsl 
+					subdirectory will be performed automatically if necessary.</LI>
+			<LI>If collection of the essential library files in a single location is desired,
+					modify the pre-build event in the <CODE class="VSProject">install_libgsl</CODE>
+					project to point to the desired location.&nbsp; Then build the install project to
+					complete the installation.</LI>
+			<LI>To test the libraries, load the <CODE class="VSProject">test_gsl.sln</CODE> 
+					solution and build the tests.</LI>
+			<LI>From a command window, run the batchfile VC8\run_gsl_tests. This will run all
+			    the	tests in the VC8\test_gsl build directories and issue results to the console.</LI>
+			<LI>To rbuild the example programs, load the <CODE class="VSProject">gsl_examples.sln</CODE>
+					solution and build the examples.</LI>
+			<LI>From a command window, run the batchfile VC8\run_gsl_examples. This will run all
+			    the	example programs in the VC8\gsl_examples build directories and issue results 
+					to the console.</LI>
+		</OL>
+		<P><H2>Using the Libraries</H2>
+		<P>
+			<OL>
+				<LI>Include the location of the gsl headers in the compiler search path.</LI>
+				<LI><B><I>IMPORTANT!</I></B> If you will be using the gsl dynamic libraries, add 
+				    GSL_DLL to the list of predefined macros.</LI>
+				<LI>Configure your project to use the VC runtime library appropriate to the gsl 
+				    library version you will be using:
+						<table id="Table4" cellSpacing="1" cellPadding="3" border="1" style="MARGIN-LEFT: 5%">
+							<tr>
+								<td><b>Configuration</b></td>
+								<td><b>gsl Library</b></td>
+								<td><b>VC Runtime Library</b></td>
+							</tr>
+							<tr>
+								<td>Release-StaticLib</td>
+								<td>libgsl.lib</td>
+								<td>Multi-Threaded (/MT)</td>
+							</tr>
+							<tr>
+								<td>Release-DLL</td>
+								<td>libgsl.dll<br />libgsl_dll.lib</td>
+								<td>Multi-Threaded DLL (/MD)</td>
+							</tr>
+							<tr>
+								<td>Debug-StaticLib</td>
+								<td>libgsl_d.lib</td>
+								<td>Multi-Threaded Debug (/MTd)</td>
+							</tr>
+							<tr>
+								<td>Debug-DLL</td>
+								<td>libgsl_d.dll<br />libgsl_dll_d.lib</td>
+								<td>Multi-Threaded Debug DLL (/MDd)</td>
+							</tr>
+						</table>
+				</LI>
+				<LI>Link against the appropriate gsl static or import library.</LI>
+				<LI>If you are using a dynamic library, it must be available in the path.</LI>
+			</OL>
+		<P></P>
+		<P><H2>Source Modifications</H2>
+		<P></P>
+		<P>Only minor tweaks to the original gsl 1.8 release source code were necessary to
+			facilitate building the library using VC8 on Windows.&nbsp; Changes to the
+			source code were:</P>
+		<UL>
+			<LI>GSL_EXPORT modifiers were added to all public functions in each gsl header.</LI>
+			<LI>Macro definitions for GSL_EXPORT were added to gsl_types.h.</LI>
+			<LI>Added #include &lt;gsl/gsl_sys.h&gt; to all sys headers to make sure
+			    functions exported.</LI>
+			<LI>Added temporary <code>#undef complex</code> in ./templates_on.h to avoid
+			    clash with VC definition of complex in math.h. The macro is reset after use.</LI>
+		</UL>
+	</body>
+</html>

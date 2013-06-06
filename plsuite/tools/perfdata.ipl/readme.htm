@@ -1,0 +1,286 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft FrontPage 4.0">
+<TITLE>Intel® Image Processing Library Performance Measurement</TITLE>
+<META NAME="Template" CONTENT="D:\WIN32APP\msoffice97\Office\html.dot">
+<link rel="stylesheet" type="text/css" href="../../doc/css/plsuite.css">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<h1 ALIGN="left">Intel® Image Processing Library</h1>
+<h1 ALIGN="left">Performance Measurement</h1>
+<h2>Performance Measurement Tool</h2>
+<P>The performance measurement tool enables testing of the performance of
+Intel® Image Processing Library functions on your own platform.  The output is .csv, (Comma-Separated Value), a text-based format readable by Microsoft* Excel*.</P>
+<P>The following are the command-line parameters of this tool. Alternatively, a batch file is provided that will use the most common flags to produce a performance measurement.</P>
+<TABLE CELLSPACING=0 BORDER=1 CELLPADDING=4 WIDTH=798>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-A</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>only generates a file summary.csv, containing the information on presence of the tests</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-B string</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>batch mode, substitute all reads from CON by 'string'</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-B</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>accept default (simulate &lt;CR&gt;)</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-B";&gt;"</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>accept default and write to default sections</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-B";&gt;[.i486];&gt;[.p5]"-</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>accept default, write to extended sections&#9;</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-B";&gt;[nsp]"</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>accept default, write to absolute section&#9;</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-B -D"*&lt;"</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>data from file, if no data, simulate &lt;CR&gt;</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-B"!e" -D"*&lt;"</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>data from file, if no data, then exit</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-c name</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>class, apply command to tests of class 'name'</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-c ?</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>list all classes of tests</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-c Algorithm</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>run all tests with class 'Algorithm'</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-C name</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>name of .csv file for performance numbers</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-d</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>DEBUG mode, activate tstWrite(TW_DEBUG,...)</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-D string</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>define symbols through 'string'&#9;</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-D "a=1;b=4.3;c=abcd.ext"</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-D "?h;?l;!e"</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>print test help, listing and exit</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-D "*&lt;"</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>?Read from section [funcname.testclass.testbody]</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-D "*&lt;[]"</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>?Read from section [funcname.testclass.testbody]</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-D "*&lt;[.p5]"</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>?Read from ext section [funcname.testclass.testbody.p5]</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-D "*&lt;a.ini[nsp]"</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>?Read from a.ini, absolute section [nsp]</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-f name</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>apply command to function with name 'name'</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-f ?</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>show functions list</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-f nspsAdd</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>run all tests for function 'nspsAdd'</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-h</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>short help</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-H</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>full help (this message)</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-i name</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>set current ini file name</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-l name</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>listing(TW_LST), output to file 'name', default *.lst</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-L n</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>loop, repeat each test 'n' times</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-m n</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>more mode, n lines per page, if no 'n', more off,</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-R result</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>print to .sum (-s) only tests with result=OK/FAIL</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-r n</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>RERUN Mode</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-r</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>force RERUN mode, activate tstWrite(TW_RERUN,...)</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-r 2</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>if test FAIL repeat test 2 times in RERUN Mode</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-s name</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>summary (TW_SUM), only test results, default *.sum</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-S name</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>source, apply command to tests in file 'name'</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-S ?</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>show all source files in test system</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-S abcd.c</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>run all tests in source file 'abcd.c'</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-t name</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>testname, apply command to functions with testname 'name'</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-t ?</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>show testnames list</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-t Test1</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>run all tests with name 'Test1'</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-T name</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>testbody, apply command to testbody 'name'</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-T ?</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>show testbodies list</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-T tstbody</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>run all tests with bodyname 'tstbody'</TD>
+</TR>
+<TR><TD WIDTH="200" VALIGN="TOP">
+<pre>-- string</pre>
+  </TD>
+<TD WIDTH="558" VALIGN="TOP">
+<P>any user defined string, key -- is equiv to -Z</TD>
+</TR>
+</TABLE>
+
+<FONT FACE="Courier New" SIZE=2></FONT>
+<p>Copyright © 2000 Intel Corporation</p>
+</BODY>
+</HTML>

@@ -1,0 +1,654 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\Kinetics.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Kinetics.ico"
+IDR_KINETITYPE          ICON    DISCARDABLE     "res\\KineticsDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "E&xperiment"
+    BEGIN
+        MENUITEM "&Hardware Setup...",          ID_EXPERIMENT_HARDWARESETUP
+        MENUITEM "&Acquire Image...",           ID_EXPERIMENT_ACQUIREIMAGE
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Kinetics...",          ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 217, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Kinetics"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,21,20
+    LTEXT           "Kinetics Version 3.0",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright © 1997, 1999, 2001",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,32,14,WS_GROUP
+END
+
+IDD_HARDWARE DIALOG DISCARDABLE  0, 0, 258, 167
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hardware Setup"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,146,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,65,146,50,14
+    GROUPBOX        "Controller",IDC_STATIC,7,31,93,39
+    LTEXT           "CCD",IDC_STATIC,113,48,16,8
+    COMBOBOX        IDC_CCD,132,44,110,141,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    GROUPBOX        "Detector",IDC_STATIC,99,31,152,39
+    GROUPBOX        "ADC Type",IDC_STATIC,7,65,93,36
+    GROUPBOX        "Interface",IDC_STATIC,99,65,152,70
+    GROUPBOX        "ReadOut Mode",IDC_STATIC,7,96,93,39
+    CONTROL         "Slow",IDC_SLOW,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
+                    WS_TABSTOP,16,75,31,10
+    CONTROL         "Fast",IDC_FAST,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,
+                    16,85,29,10
+    COMBOBOX        IDC_INTERFACE,138,78,74,62,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_IOADD,164,94,48,53,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_INTERRUPT,164,110,48,51,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Type",IDC_STATIC,114,82,17,8
+    LTEXT           "I/O Address",IDC_STATIC,114,98,38,8
+    LTEXT           "Interrupt Level",IDC_STATIC,114,114,43,8
+    LTEXT           "ST133",IDC_STATIC,21,47,31,8
+    LTEXT           "Kinetics",IDC_STATIC,21,113,24,8
+    CONTROL         "Use NVRAM as default",IDC_NVRAM_CHK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,82,13,92,10
+END
+
+IDD_ACQUIRE DIALOGEX 0, 0, 181, 133
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Acquire Image"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Close",IDOK,124,31,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,124,51,50,14
+    LTEXT           "Exposure Time",IDC_STATIC,11,21,47,8
+    CONTROL         "Slider1",IDC_EXPOSSLIDE,"msctls_trackbar32",TBS_TOP | 
+                    WS_TABSTOP,11,35,100,15
+    EDITTEXT        IDC_EXPOSEDIT,64,17,40,12,ES_AUTOHSCROLL
+    GROUPBOX        "Static",IDC_STATIC,7,7,112,52
+    GROUPBOX        "Trigger Mode",IDC_STATIC,7,59,112,48
+    LTEXT           "Trigger Mode Selected:",IDC_STATIC,23,70,71,8
+    COMBOBOX        IDC_TRIGGERCOMBO,23,82,71,61,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "Acquire Image",IDC_RUN,124,11,50,14
+    LTEXT           "",IDC_TEMPSTATUS_TEXT,7,113,167,12,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,0,0,1
+ PRODUCTVERSION 2,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "KINETICS Example Application\0"
+            VALUE "FileVersion", "2, 0, 0, 1\0"
+            VALUE "InternalName", "KINETICS\0"
+            VALUE "LegalCopyright", "Copyright © 1997, 1999\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "KINETICS.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "KINETICS Application\0"
+            VALUE "ProductVersion", "2, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_HARDWARE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 251
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 160
+    END
+
+    IDD_ACQUIRE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 174
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 126
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_HARDWARE DLGINIT
+BEGIN
+    IDC_CCD, 0x403, 15, 0
+0x4545, 0x2056, 0x3120, 0x3030, 0x3178, 0x3433, 0x4230, "\000" 
+    IDC_CCD, 0x403, 15, 0
+0x4545, 0x2056, 0x3120, 0x3030, 0x3178, 0x3433, 0x4630, "\000" 
+    IDC_CCD, 0x403, 20, 0
+0x4545, 0x2056, 0x3220, 0x3635, 0x3178, 0x3230, 0x2034, 0x335b, 0x6870, 
+0x005d, 
+    IDC_CCD, 0x403, 20, 0
+0x4545, 0x2056, 0x3220, 0x3635, 0x3178, 0x3230, 0x2034, 0x365b, 0x6870, 
+0x005d, 
+    IDC_CCD, 0x403, 26, 0
+0x4545, 0x2056, 0x3220, 0x3635, 0x3178, 0x3230, 0x2034, 0x365b, 0x6870, 
+0x205d, 0x4343, 0x3344, 0x0030, 
+    IDC_CCD, 0x403, 20, 0
+0x4545, 0x2056, 0x3220, 0x3635, 0x3178, 0x3230, 0x2034, 0x385b, 0x6870, 
+0x005d, 
+    IDC_CCD, 0x403, 15, 0
+0x4545, 0x2056, 0x3420, 0x3030, 0x3178, 0x3433, 0x4230, "\000" 
+    IDC_CCD, 0x403, 18, 0
+0x4545, 0x2056, 0x3420, 0x3030, 0x3178, 0x3433, 0x4230, 0x4620, 0x0054, 
+
+    IDC_CCD, 0x403, 15, 0
+0x4545, 0x2056, 0x3420, 0x3030, 0x3178, 0x3433, 0x4630, "\000" 
+    IDC_CCD, 0x403, 16, 0
+0x4545, 0x2056, 0x3520, 0x3231, 0x2078, 0x3135, 0x4632, 0x0054, 
+    IDC_CCD, 0x403, 22, 0
+0x4545, 0x2056, 0x3520, 0x3231, 0x2078, 0x3135, 0x4632, 0x2054, 0x4343, 
+0x3544, 0x0037, 
+    IDC_CCD, 0x403, 23, 0
+0x4545, 0x2056, 0x3520, 0x3231, 0x3278, 0x3430, 0x2038, 0x4343, 0x3444, 
+0x5f32, 0x3031, "\000" 
+    IDC_CCD, 0x403, 20, 0
+0x4545, 0x2056, 0x3520, 0x3637, 0x2078, 0x3833, 0x2034, 0x335b, 0x6870, 
+0x005d, 
+    IDC_CCD, 0x403, 20, 0
+0x4545, 0x2056, 0x3520, 0x3637, 0x2078, 0x3833, 0x2034, 0x365b, 0x6870, 
+0x005d, 
+    IDC_CCD, 0x403, 15, 0
+0x4545, 0x2056, 0x3720, 0x3030, 0x3178, 0x3433, 0x4230, "\000" 
+    IDC_CCD, 0x403, 15, 0
+0x4545, 0x2056, 0x3720, 0x3030, 0x3178, 0x3433, 0x4630, "\000" 
+    IDC_CCD, 0x403, 14, 0
+0x4545, 0x2056, 0x3031, 0x3432, 0x3178, 0x3230, 0x0034, 
+    IDC_CCD, 0x403, 23, 0
+0x4545, 0x2056, 0x3031, 0x3432, 0x3178, 0x3230, 0x2034, 0x4343, 0x3444, 
+0x5f37, 0x3031, "\000" 
+    IDC_CCD, 0x403, 16, 0
+0x4545, 0x2056, 0x3031, 0x3432, 0x3178, 0x3230, 0x4634, 0x0054, 
+    IDC_CCD, 0x403, 25, 0
+0x4545, 0x2056, 0x3031, 0x3432, 0x3178, 0x3230, 0x4634, 0x2054, 0x4343, 
+0x3444, 0x5f37, 0x3032, "\000" 
+    IDC_CCD, 0x403, 14, 0
+0x4545, 0x2056, 0x3131, 0x3235, 0x2078, 0x3932, 0x0038, 
+    IDC_CCD, 0x403, 20, 0
+0x4545, 0x2056, 0x3131, 0x3235, 0x2078, 0x3932, 0x2038, 0x335b, 0x6870, 
+0x005d, 
+    IDC_CCD, 0x403, 20, 0
+0x4545, 0x2056, 0x3131, 0x3235, 0x2078, 0x3737, 0x2030, 0x335b, 0x6870, 
+0x005d, 
+    IDC_CCD, 0x403, 20, 0
+0x4545, 0x2056, 0x3131, 0x3235, 0x2078, 0x3737, 0x2030, 0x365b, 0x6870, 
+0x005d, 
+    IDC_CCD, 0x403, 20, 0
+0x4545, 0x2056, 0x3131, 0x3235, 0x3178, 0x3432, 0x2032, 0x335b, 0x6870, 
+0x005d, 
+    IDC_CCD, 0x403, 20, 0
+0x4545, 0x2056, 0x3131, 0x3235, 0x3178, 0x3432, 0x2032, 0x365b, 0x6870, 
+0x005d, 
+    IDC_CCD, 0x403, 15, 0
+0x4545, 0x2056, 0x3331, 0x3030, 0x3178, 0x3433, 0x4230, "\000" 
+    IDC_CCD, 0x403, 15, 0
+0x4545, 0x2056, 0x3331, 0x3030, 0x3178, 0x3433, 0x4630, "\000" 
+    IDC_CCD, 0x403, 14, 0
+0x4148, 0x204d, 0x2020, 0x3436, 0x3178, 0x3230, 0x0034, 
+    IDC_CCD, 0x403, 14, 0
+0x4148, 0x204d, 0x3120, 0x3832, 0x3178, 0x3230, 0x0034, 
+    IDC_CCD, 0x403, 14, 0
+0x4148, 0x204d, 0x3220, 0x3635, 0x3178, 0x3230, 0x0034, 
+    IDC_CCD, 0x403, 14, 0
+0x444b, 0x204b, 0x3520, 0x3231, 0x2078, 0x3637, 0x0038, 
+    IDC_CCD, 0x403, 14, 0
+0x444b, 0x204b, 0x3031, 0x3432, 0x3178, 0x3832, 0x0030, 
+    IDC_CCD, 0x403, 14, 0
+0x444b, 0x204b, 0x3031, 0x3432, 0x3178, 0x3335, 0x0036, 
+    IDC_CCD, 0x403, 14, 0
+0x444b, 0x204b, 0x3031, 0x3533, 0x3178, 0x3133, 0x0037, 
+    IDC_CCD, 0x403, 14, 0
+0x444b, 0x204b, 0x3032, 0x3434, 0x3278, 0x3330, 0x0033, 
+    IDC_CCD, 0x403, 14, 0
+0x444b, 0x204b, 0x3032, 0x3834, 0x3378, 0x3730, 0x0032, 
+    IDC_CCD, 0x403, 14, 0
+0x4950, 0x2044, 0x2020, 0x3436, 0x3178, 0x3230, 0x0034, 
+    IDC_CCD, 0x403, 14, 0
+0x4950, 0x2044, 0x3120, 0x3832, 0x3178, 0x3230, 0x0034, 
+    IDC_CCD, 0x403, 17, 0
+0x4950, 0x2044, 0x3220, 0x3034, 0x2078, 0x3333, 0x4d30, 0x5443, "\000" 
+    IDC_CCD, 0x403, 14, 0
+0x4950, 0x2044, 0x3220, 0x3635, 0x3178, 0x3230, 0x0034, 
+    IDC_CCD, 0x403, 20, 0
+0x4950, 0x2044, 0x3320, 0x3033, 0x3178, 0x3031, 0x2030, 0x365b, 0x6870, 
+0x005d, 
+    IDC_CCD, 0x403, 20, 0
+0x4950, 0x2044, 0x3320, 0x3033, 0x3178, 0x3031, 0x2030, 0x385b, 0x6870, 
+0x005d, 
+    IDC_CCD, 0x403, 14, 0
+0x4950, 0x2044, 0x3520, 0x3233, 0x3178, 0x3537, 0x0032, 
+    IDC_CCD, 0x403, 14, 0
+0x4950, 0x2044, 0x3520, 0x3238, 0x2078, 0x3837, 0x0032, 
+    IDC_CCD, 0x403, 15, 0
+0x4950, 0x2044, 0x3820, 0x3030, 0x3178, 0x3030, 0x4230, "\000" 
+    IDC_CCD, 0x403, 17, 0
+0x4950, 0x2044, 0x3031, 0x3432, 0x2078, 0x3135, 0x5332, 0x5446, "\000" 
+    IDC_CCD, 0x403, 14, 0
+0x4950, 0x2044, 0x3031, 0x3033, 0x3178, 0x3033, 0x0030, 
+    IDC_CCD, 0x403, 15, 0
+0x4950, 0x2044, 0x3532, 0x3030, 0x2078, 0x3036, 0x4230, "\000" 
+    IDC_CCD, 0x403, 15, 0
+0x4950, 0x2044, 0x3532, 0x3030, 0x2078, 0x3036, 0x4630, "\000" 
+    IDC_CCD, 0x403, 14, 0
+0x4552, 0x2054, 0x3420, 0x3030, 0x3178, 0x3032, 0x0030, 
+    IDC_CCD, 0x403, 14, 0
+0x4552, 0x2054, 0x3520, 0x3231, 0x2078, 0x3135, 0x0032, 
+    IDC_CCD, 0x403, 14, 0
+0x4552, 0x2054, 0x3031, 0x3432, 0x3178, 0x3230, 0x0034, 
+    IDC_CCD, 0x403, 14, 0
+0x4552, 0x2054, 0x3032, 0x3834, 0x3278, 0x3430, 0x0038, 
+    IDC_CCD, 0x403, 13, 0
+0x5352, 0x3120, 0x3230, 0x7834, 0x3031, 0x3432, "\000" 
+    IDC_CCD, 0x403, 16, 0
+0x4953, 0x4554, 0x2020, 0x3038, 0x7830, 0x3032, 0x3030, 0x0042, 
+    IDC_CCD, 0x403, 16, 0
+0x4953, 0x4554, 0x2020, 0x3038, 0x7830, 0x3032, 0x3030, 0x0046, 
+    IDC_CCD, 0x403, 16, 0
+0x4953, 0x4554, 0x3220, 0x3430, 0x7838, 0x3032, 0x3834, 0x0042, 
+    IDC_CCD, 0x403, 16, 0
+0x4953, 0x4554, 0x3220, 0x3430, 0x7838, 0x3032, 0x3834, 0x0046, 
+    IDC_CCD, 0x403, 23, 0
+0x4554, 0x204b, 0x3520, 0x3231, 0x2078, 0x3135, 0x4232, 0x5b20, 0x3031, 
+0x6e30, 0x5d73, "\000" 
+    IDC_CCD, 0x403, 23, 0
+0x4554, 0x204b, 0x3520, 0x3231, 0x2078, 0x3135, 0x4232, 0x5b20, 0x3032, 
+0x6e30, 0x5d73, "\000" 
+    IDC_CCD, 0x403, 16, 0
+0x4554, 0x204b, 0x3520, 0x3231, 0x2078, 0x3135, 0x4432, 0x0042, 
+    IDC_CCD, 0x403, 16, 0
+0x4554, 0x204b, 0x3520, 0x3231, 0x2078, 0x3135, 0x4432, 0x0046, 
+    IDC_CCD, 0x403, 23, 0
+0x4554, 0x204b, 0x3520, 0x3231, 0x2078, 0x3135, 0x4632, 0x5b20, 0x3031, 
+0x6e30, 0x5d73, "\000" 
+    IDC_CCD, 0x403, 23, 0
+0x4554, 0x204b, 0x3520, 0x3231, 0x2078, 0x3135, 0x4632, 0x5b20, 0x3032, 
+0x6e30, 0x5d73, "\000" 
+    IDC_CCD, 0x403, 23, 0
+0x4554, 0x204b, 0x3031, 0x3432, 0x3178, 0x3230, 0x4234, 0x5b20, 0x3031, 
+0x6e30, 0x5d73, "\000" 
+    IDC_CCD, 0x403, 23, 0
+0x4554, 0x204b, 0x3031, 0x3432, 0x3178, 0x3230, 0x4234, 0x5b20, 0x3032, 
+0x6e30, 0x5d73, "\000" 
+    IDC_CCD, 0x403, 21, 0
+0x4554, 0x204b, 0x3031, 0x3432, 0x3178, 0x3230, 0x4234, 0x3420, 0x7532, 
+0x5673, "\000" 
+    IDC_CCD, 0x403, 16, 0
+0x4554, 0x204b, 0x3031, 0x3432, 0x3178, 0x3230, 0x4434, 0x0042, 
+    IDC_CCD, 0x403, 19, 0
+0x4554, 0x204b, 0x3031, 0x3432, 0x3178, 0x3230, 0x4434, 0x2042, 0x3354, 
+"\000" 
+    IDC_CCD, 0x403, 16, 0
+0x4554, 0x204b, 0x3031, 0x3432, 0x3178, 0x3230, 0x4434, 0x0046, 
+    IDC_CCD, 0x403, 23, 0
+0x4554, 0x204b, 0x3031, 0x3432, 0x3178, 0x3230, 0x4634, 0x5b20, 0x3031, 
+0x6e30, 0x5d73, "\000" 
+    IDC_CCD, 0x403, 23, 0
+0x4554, 0x204b, 0x3031, 0x3432, 0x3178, 0x3230, 0x4634, 0x5b20, 0x3032, 
+0x6e30, 0x5d73, "\000" 
+    IDC_CCD, 0x403, 14, 0
+0x4554, 0x204b, 0x3032, 0x3834, 0x3278, 0x3430, 0x0038, 
+    IDC_CCD, 0x403, 14, 0
+0x4854, 0x204d, 0x3220, 0x3635, 0x3178, 0x3230, 0x0034, 
+    IDC_CCD, 0x403, 14, 0
+0x4854, 0x204d, 0x3520, 0x3231, 0x2078, 0x3135, 0x0032, 
+    IDC_CCD, 0x403, 14, 0
+0x4854, 0x204d, 0x3520, 0x3637, 0x2078, 0x3833, 0x0034, 
+    IDC_CCD, 0x403, 16, 0
+0x4854, 0x204d, 0x3031, 0x3432, 0x3178, 0x3230, 0x4634, 0x0054, 
+    IDC_CCD, 0x403, 14, 0
+0x4854, 0x204d, 0x3032, 0x3834, 0x3278, 0x3430, 0x0038, 
+    IDC_INTERFACE, 0x403, 5, 0
+0x4154, 0x4958, "\000" 
+    IDC_INTERFACE, 0x403, 12, 0
+0x4154, 0x4958, 0x5420, 0x7079, 0x2065, 0x0042, 
+    IDC_INTERFACE, 0x403, 15, 0
+0x6948, 0x6867, 0x5320, 0x6570, 0x6465, 0x5020, 0x4943, "\000" 
+    IDC_IOADD, 0x403, 6, 0
+0x7830, 0x3037, 0x0030, 
+    IDC_IOADD, 0x403, 6, 0
+0x7830, 0x3039, 0x0030, 
+    IDC_IOADD, 0x403, 6, 0
+0x7830, 0x3041, 0x0030, 
+    IDC_IOADD, 0x403, 6, 0
+0x7830, 0x3042, 0x0030, 
+    IDC_INTERRUPT, 0x403, 7, 0
+0x5249, 0x2051, 0x3031, "\000" 
+    IDC_INTERRUPT, 0x403, 7, 0
+0x5249, 0x2051, 0x3131, "\000" 
+    IDC_INTERRUPT, 0x403, 7, 0
+0x5249, 0x2051, 0x3231, "\000" 
+    IDC_INTERRUPT, 0x403, 7, 0
+0x5249, 0x2051, 0x3531, "\000" 
+    0
+END
+
+IDD_ACQUIRE DLGINIT
+BEGIN
+    IDC_TRIGGERCOMBO, 0x403, 9, 0
+0x7246, 0x6565, 0x5220, 0x6e75, "\000" 
+    IDC_TRIGGERCOMBO, 0x403, 15, 0
+0x6953, 0x676e, 0x656c, 0x5420, 0x6972, 0x6767, 0x7265, "\000" 
+    IDC_TRIGGERCOMBO, 0x403, 17, 0
+0x754d, 0x746c, 0x7069, 0x656c, 0x5420, 0x6972, 0x6767, 0x7265, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "Kinetics\n\nKineti\n\n\nKinetics.Document\nKineti Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Kinetics"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\Kinetics.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
