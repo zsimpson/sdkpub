@@ -429,6 +429,24 @@ sub sdkSetup {
 			test => \&sdkTest_openssl,
 		},
 
+		'postgres' => {
+			# Really I just wanted the libpq library to talk to a postgres database from C, but I
+			# couldn't find a distro for this -- so what we have (and build herein) is actually 
+			# the full postgresql package -- the database and all utils/libs.
+
+			macosxincludes => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq" ] ,
+			macosxlibs => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq/libpq.a" ],
+
+			linuxincludes => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq" ] ,
+			linuxlibs => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq/libpq.a" ],
+
+			# I did not mess with this for win32 -- though the source tree has makefiles for it.
+				
+			platforms => [ qw/linux macosx/ ],
+			test => \&sdkTest_postgres,
+		},
+
+
 		
 		
 		########################## SG unique SDKS, not found in zlab ###############################
@@ -2778,6 +2796,75 @@ sub sdkTest_openssl {
 		print "FAILURE. openssl_test directory NOT removed for debugging.\n";
 	}
 }
+
+sub sdkTest_postgres {
+	my $sdk = "postgresql-9.2.4";
+	if( $platform eq 'linux' ) {
+		pushCwd( "$sdkDir/$sdk" );
+			executeCmd( "sh ./configure no-shared", 1 );
+		popCwd();
+		pushCwd( "$sdkDir/$sdk" );
+			executeCmd( "make clean", 1 );
+			executeCmd( "make", 1 );
+		popCwd();
+	}
+	elsif( $platform eq 'macosx' ) {
+		pushCwd( "$sdkDir/$sdk" );
+			executeCmd( "sh ./configure no-shared", 1 );
+		popCwd();
+		pushCwd( "$sdkDir/$sdk" );
+			executeCmd( "make clean", 1 );
+			executeCmd( "make", 1 );
+		popCwd();
+	}
+	elsif( $platform eq 'win32' ) {
+		pushCwd( "$sdkDir/$sdk" );
+		# TODO
+		popCwd();
+	}
+
+	mkdir( "postgres_test" );
+	open( TEST, ">postgres_test/postgres_test.cpp" ) || die "Unable to create postgres test file";
+	print TEST '
+ 		#include "libpq-fe.h"
+        #include "stdio.h"
+        #include "string.h"
+
+        int main( int argc, char **argv ) {
+            int retval = 0;
+            if( retval == 0 ) {
+                    printf( "SUCCESS\n" );
+                    return 0;
+            }
+            printf( "FAILURE\n" );
+            return -1;
+        }	';
+	print TEST "\n\n";
+	close( TEST );
+
+	platform_compile(
+		includes => [ "$sdkDir/$sdk/src/interfaces/libpq", "." ],
+		file => "postgres_test/postgres_test.cpp",
+		outfile => "postgres_test/postgres_test.obj",
+	) || die "Compile error";
+
+	platform_link(
+		linuxlibs => [ "$sdkDir/$sdk/src/interfaces/libpq/libpq.a" ],
+		macosxlibs => [ "$sdkDir/$sdk/src/interfaces/libpq/libpq.a" ],
+		files => [ "postgres_test/postgres_test.obj" ],
+		outfile => "postgres_test/postgres_test.exe",
+	) || die "Linker error";
+
+	`postgres_test/postgres_test.exe`;
+	if( $? == 0 ) {
+		print "success\n";
+		recursiveUnlink( "postgres_test" );
+	}
+	else {
+		print "FAILURE. postgres_test directory NOT removed for debugging.\n";
+	}
+}
+
 
 
 true;
