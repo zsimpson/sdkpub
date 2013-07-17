@@ -434,6 +434,9 @@ sub sdkSetup {
 			# couldn't find a distro for this -- so what we have (and build herein) is actually 
 			# the full postgresql package -- the database and all utils/libs.
 
+			# To connect to Heroku, you have to use SSL.  So this lib is setup to build with OpenSSL
+			# To make use of this you'll need to link to the OpenSSL libs as well (see above)
+
 			macosxincludes => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq" ] ,
 			macosxlibs => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq/libpq.a" ],
 
@@ -2799,18 +2802,10 @@ sub sdkTest_openssl {
 
 sub sdkTest_postgres {
 	my $sdk = "postgresql-9.2.4";
-	if( $platform eq 'linux' ) {
+	if( $platform eq 'linux' || $platform eq 'macosx' ) {
 		pushCwd( "$sdkDir/$sdk" );
-			executeCmd( "sh ./configure no-shared", 1 );
-		popCwd();
-		pushCwd( "$sdkDir/$sdk" );
-			executeCmd( "make clean", 1 );
-			executeCmd( "make", 1 );
-		popCwd();
-	}
-	elsif( $platform eq 'macosx' ) {
-		pushCwd( "$sdkDir/$sdk" );
-			executeCmd( "sh ./configure no-shared", 1 );
+			executeCmd( "sh ./configure --with-openssl", 1 );
+				# I need SSL to connect to DBs on Heroku (tfb)
 		popCwd();
 		pushCwd( "$sdkDir/$sdk" );
 			executeCmd( "make clean", 1 );
@@ -2831,13 +2826,11 @@ sub sdkTest_postgres {
         #include "string.h"
 
         int main( int argc, char **argv ) {
-            int retval = 0;
-            if( retval == 0 ) {
-                    printf( "SUCCESS\n" );
-                    return 0;
-            }
-            printf( "FAILURE\n" );
-            return -1;
+            PGresult *result = PQexec( NULL, NULL );
+            	// we dont explect this call to succeed - we are just seeing that
+            	// we can link to it in this test.
+            printf( "SUCCESS\n" );
+            return 0;
         }	';
 	print TEST "\n\n";
 	close( TEST );
@@ -2849,8 +2842,9 @@ sub sdkTest_postgres {
 	) || die "Compile error";
 
 	platform_link(
-		linuxlibs => [ "$sdkDir/$sdk/src/interfaces/libpq/libpq.a" ],
-		macosxlibs => [ "$sdkDir/$sdk/src/interfaces/libpq/libpq.a" ],
+		# Note that I am linking in OpenSSL libs because I've built postgres --with-openssl 
+		linuxlibs => [ "$sdkDir/$sdk/src/interfaces/libpq/libpq.a", "$sdkDir/openssl-1.0.1e/libcrypto.a", "$sdkDir/openssl-1.0.1e/libssl.a"  ],
+		macosxlibs => [ "$sdkDir/$sdk/src/interfaces/libpq/libpq.a", "$sdkDir/openssl-1.0.1e/libcrypto.a", "$sdkDir/openssl-1.0.1e/libssl.a", "-ldl" ],
 		files => [ "postgres_test/postgres_test.obj" ],
 		outfile => "postgres_test/postgres_test.exe",
 	) || die "Linker error";
