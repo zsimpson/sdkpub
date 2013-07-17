@@ -3,7 +3,6 @@
 *.lo
 *.la
 *.dylib
-configure
 devil/lib/DevIL.lib
 devil/lib/DevIL_DBG.lib
 devil/src-IL/msvc/Debug/
