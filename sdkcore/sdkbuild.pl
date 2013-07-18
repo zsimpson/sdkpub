@@ -374,7 +374,7 @@ sub sdkSetup {
 			macosxlibs => [ "$sdkDir/mysql/mysql-connector-c-6.0.2-osx10.5-x86-64bit/lib/libmysqlclient.a" ],
 
 			linuxincludes => [ "$sdkDir/mysql/mysql-connector-c-6.0.2-linux-glibc2.3-x86-32bit/include" ],
-			linuxlibs => [ "-lpthread", "$sdkDir/mysql/mysql-connector-c-6.0.2-linux-glibc2.3-x86-64bit/lib/libmysqlclient.a" ],
+			linuxlibs => [ "$sdkDir/mysql/mysql-connector-c-6.0.2-linux-glibc2.3-x86-64bit/lib/libmysqlclient.a", "-lpthread" ],
 
 			test => \&sdkTest_mysql,
 			platforms => [ qw/win32 linux/ ],
@@ -437,11 +437,11 @@ sub sdkSetup {
 			# To connect to Heroku, you have to use SSL.  So this lib is setup to build with OpenSSL
 			# To make use of this you'll need to link to the OpenSSL libs as well (see above)
 
-			macosxincludes => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq" ] ,
-			macosxlibs => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq/libpq.a" ],
+			macosxincludes => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq", "$sdkDir/postgresql-9.2.4/src/include" ] ,
+			macosxlibs => [ "$sdkDir/$sdk/src/interfaces/libpq/libpq.a", "$sdkDir/openssl-1.0.1e/libcrypto.a", "$sdkDir/openssl-1.0.1e/libssl.a", "-ldl" ],
 
-			linuxincludes => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq" ] ,
-			linuxlibs => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq/libpq.a" ],
+			linuxincludes => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq", "$sdkDir/postgresql-9.2.4/src/include" ] ,
+			linuxlibs => [ "$sdkDir/$sdk/src/interfaces/libpq/libpq.a", "$sdkDir/openssl-1.0.1e/libssl.a", "$sdkDir/openssl-1.0.1e/libcrypto.a", "-lpthread", "-ldl"  ],
 
 			# I did not mess with this for win32 -- though the source tree has makefiles for it.
 				
@@ -2778,14 +2778,14 @@ sub sdkTest_openssl {
 	close( TEST );
 
 	platform_compile(
-		includes => [ "$sdkDir/$sdk/include/openssl", "." ],
+		includes => [ "$sdkDir/$sdk/include", "." ],
 		file => "openssl_test/openssl_test.cpp",
 		outfile => "openssl_test/openssl_test.obj",
 	) || die "Compile error";
 
 	platform_link(
-		linuxlibs => [ "$sdkDir/$sdk/libcrypto.a", "-ldl" ],
-		macosxlibs => [ "$sdkDir/$sdk/libcrypto.a" ],
+		linuxlibs => $sdkHash{$sdk}{linuxlibs},
+		macosxlibs => $sdkHash{$sdk}{linuxlibs},
 		files => [ "openssl_test/openssl_test.obj" ],
 		outfile => "openssl_test/openssl_test.exe",
 	) || die "Linker error";
@@ -2836,14 +2836,14 @@ sub sdkTest_postgres {
 	close( TEST );
 
 	platform_compile(
-		includes => [ "$sdkDir/$sdk/src/interfaces/libpq", "." ],
+		includes => [ "$sdkDir/$sdk/src/interfaces/libpq", "$sdkDir/$sdk/src/include", "." ],
 		file => "postgres_test/postgres_test.cpp",
 		outfile => "postgres_test/postgres_test.obj",
 	) || die "Compile error";
 
 	platform_link(
 		# Note that I am linking in OpenSSL libs because I've built postgres --with-openssl 
-		linuxlibs => [ "$sdkDir/$sdk/src/interfaces/libpq/libpq.a", "$sdkDir/openssl-1.0.1e/libcrypto.a", "$sdkDir/openssl-1.0.1e/libssl.a"  ],
+		linuxlibs => [ "$sdkDir/$sdk/src/interfaces/libpq/libpq.a", "$sdkDir/openssl-1.0.1e/libssl.a", "$sdkDir/openssl-1.0.1e/libcrypto.a", "-ldl"  ],
 		macosxlibs => [ "$sdkDir/$sdk/src/interfaces/libpq/libpq.a", "$sdkDir/openssl-1.0.1e/libcrypto.a", "$sdkDir/openssl-1.0.1e/libssl.a", "-ldl" ],
 		files => [ "postgres_test/postgres_test.obj" ],
 		outfile => "postgres_test/postgres_test.exe",
