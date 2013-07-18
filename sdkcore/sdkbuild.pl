@@ -438,10 +438,10 @@ sub sdkSetup {
 			# To make use of this you'll need to link to the OpenSSL libs as well (see above)
 
 			macosxincludes => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq", "$sdkDir/postgresql-9.2.4/src/include" ] ,
-			macosxlibs => [ "$sdkDir/$sdk/src/interfaces/libpq/libpq.a", "$sdkDir/openssl-1.0.1e/libcrypto.a", "$sdkDir/openssl-1.0.1e/libssl.a", "-ldl" ],
+			macosxlibs => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq/libpq.a", "$sdkDir/openssl-1.0.1e/libcrypto.a", "$sdkDir/openssl-1.0.1e/libssl.a", "-ldl" ],
 
 			linuxincludes => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq", "$sdkDir/postgresql-9.2.4/src/include" ] ,
-			linuxlibs => [ "$sdkDir/$sdk/src/interfaces/libpq/libpq.a", "$sdkDir/openssl-1.0.1e/libssl.a", "$sdkDir/openssl-1.0.1e/libcrypto.a", "-lpthread", "-ldl"  ],
+			linuxlibs => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq/libpq.a", "$sdkDir/openssl-1.0.1e/libssl.a", "$sdkDir/openssl-1.0.1e/libcrypto.a", "-lpthread", "-ldl"  ],
 
 			# I did not mess with this for win32 -- though the source tree has makefiles for it.
 				
