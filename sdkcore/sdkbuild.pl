@@ -2784,8 +2784,8 @@ sub sdkTest_openssl {
 	) || die "Compile error";
 
 	platform_link(
-		linuxlibs => $sdkHash{$sdk}{linuxlibs},
-		macosxlibs => $sdkHash{$sdk}{macosxlibs},
+		linuxlibs => $sdkHash{'openssl'}{linuxlibs},
+		macosxlibs => $sdkHash{'openssl'}{macosxlibs},
 		files => [ "openssl_test/openssl_test.obj" ],
 		outfile => "openssl_test/openssl_test.exe",
 	) || die "Linker error";
@@ -2843,8 +2843,8 @@ sub sdkTest_postgres {
 
 	platform_link(
 		# Note that I am linking in OpenSSL libs because I've built postgres --with-openssl 
-		linuxlibs => $sdkHash{$sdk}{linuxlibs},
-		macosxlibs => $sdkHash{$sdk}{macosxlibs},
+		linuxlibs => $sdkHash{'postgres'}{linuxlibs},
+		macosxlibs => $sdkHash{'postgres'}{macosxlibs},
 		files => [ "postgres_test/postgres_test.obj" ],
 		outfile => "postgres_test/postgres_test.exe",
 	) || die "Linker error";
