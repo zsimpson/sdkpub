@@ -372,7 +372,7 @@ sub sdkSetup {
 			macosxlibs => [ "$sdkDir/mysql/mysql-connector-c-6.0.2-osx10.5-x86-64bit/lib/libmysqlclient.a" ],
 
 			linuxincludes => [ "$sdkDir/mysql/mysql-connector-c-6.0.2-linux-glibc2.3-x86-32bit/include" ],
-			linuxlibs => [ "-lpthread", "$sdkDir/mysql/mysql-connector-c-6.0.2-linux-glibc2.3-x86-64bit/lib/libmysqlclient.a" ],
+			linuxlibs => [ "$sdkDir/mysql/mysql-connector-c-6.0.2-linux-glibc2.3-x86-64bit/lib/libmysqlclient.a", "-lpthread" ],
 
 			test => \&sdkTest_mysql,
 			platforms => [ qw/win32 linux/ ],
@@ -426,6 +426,27 @@ sub sdkSetup {
 			platforms => [ qw/linux macosx/ ],
 			test => \&sdkTest_openssl,
 		},
+
+		'postgres' => {
+			# Really I just wanted the libpq library to talk to a postgres database from C, but I
+			# couldn't find a distro for this -- so what we have (and build herein) is actually 
+			# the full postgresql package -- the database and all utils/libs.
+
+			# To connect to Heroku, you have to use SSL.  So this lib is setup to build with OpenSSL
+			# To make use of this you'll need to link to the OpenSSL libs as well (see above)
+
+			macosxincludes => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq", "$sdkDir/postgresql-9.2.4/src/include" ] ,
+			macosxlibs => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq/libpq.a", "$sdkDir/openssl-1.0.1e/libcrypto.a", "$sdkDir/openssl-1.0.1e/libssl.a", "-ldl" ],
+
+			linuxincludes => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq", "$sdkDir/postgresql-9.2.4/src/include" ] ,
+			linuxlibs => [ "$sdkDir/postgresql-9.2.4/src/interfaces/libpq/libpq.a", "$sdkDir/openssl-1.0.1e/libssl.a", "$sdkDir/openssl-1.0.1e/libcrypto.a", "-lpthread", "-ldl"  ],
+
+			# I did not mess with this for win32 -- though the source tree has makefiles for it.
+				
+			platforms => [ qw/linux macosx/ ],
+			test => \&sdkTest_postgres,
+		},
+
 
 		
 		
@@ -2755,14 +2776,14 @@ sub sdkTest_openssl {
 	close( TEST );
 
 	platform_compile(
-		includes => [ "$sdkDir/$sdk/include/openssl", "." ],
+		includes => [ "$sdkDir/$sdk/include", "." ],
 		file => "openssl_test/openssl_test.cpp",
 		outfile => "openssl_test/openssl_test.obj",
 	) || die "Compile error";
 
 	platform_link(
-		linuxlibs => [ "$sdkDir/$sdk/libcrypto.a", "-ldl" ],
-		macosxlibs => [ "$sdkDir/$sdk/libcrypto.a" ],
+		linuxlibs => $sdkHash{'openssl'}{linuxlibs},
+		macosxlibs => $sdkHash{'openssl'}{macosxlibs},
 		files => [ "openssl_test/openssl_test.obj" ],
 		outfile => "openssl_test/openssl_test.exe",
 	) || die "Linker error";
@@ -2776,6 +2797,66 @@ sub sdkTest_openssl {
 		print "FAILURE. openssl_test directory NOT removed for debugging.\n";
 	}
 }
+
+sub sdkTest_postgres {
+	my $sdk = "postgresql-9.2.4";
+	if( $platform eq 'linux' || $platform eq 'macosx' ) {
+		pushCwd( "$sdkDir/$sdk" );
+			executeCmd( "sh ./configure --with-openssl", 1 );
+				# I need SSL to connect to DBs on Heroku (tfb)
+		popCwd();
+		pushCwd( "$sdkDir/$sdk" );
+			executeCmd( "make clean", 1 );
+			executeCmd( "make", 1 );
+		popCwd();
+	}
+	elsif( $platform eq 'win32' ) {
+		pushCwd( "$sdkDir/$sdk" );
+		# TODO
+		popCwd();
+	}
+
+	mkdir( "postgres_test" );
+	open( TEST, ">postgres_test/postgres_test.cpp" ) || die "Unable to create postgres test file";
+	print TEST '
+ 		#include "libpq-fe.h"
+        #include "stdio.h"
+        #include "string.h"
+
+        int main( int argc, char **argv ) {
+            PGresult *result = PQexec( NULL, NULL );
+            	// we dont explect this call to succeed - we are just seeing that
+            	// we can link to it in this test.
+            printf( "SUCCESS\n" );
+            return 0;
+        }	';
+	print TEST "\n\n";
+	close( TEST );
+
+	platform_compile(
+		includes => [ "$sdkDir/$sdk/src/interfaces/libpq", "$sdkDir/$sdk/src/include", "." ],
+		file => "postgres_test/postgres_test.cpp",
+		outfile => "postgres_test/postgres_test.obj",
+	) || die "Compile error";
+
+	platform_link(
+		# Note that I am linking in OpenSSL libs because I've built postgres --with-openssl 
+		linuxlibs => $sdkHash{'postgres'}{linuxlibs},
+		macosxlibs => $sdkHash{'postgres'}{macosxlibs},
+		files => [ "postgres_test/postgres_test.obj" ],
+		outfile => "postgres_test/postgres_test.exe",
+	) || die "Linker error";
+
+	`postgres_test/postgres_test.exe`;
+	if( $? == 0 ) {
+		print "success\n";
+		recursiveUnlink( "postgres_test" );
+	}
+	else {
+		print "FAILURE. postgres_test directory NOT removed for debugging.\n";
+	}
+}
+
 
 
 true;
