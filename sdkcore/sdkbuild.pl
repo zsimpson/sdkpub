@@ -40,8 +40,6 @@ sub sdkSetup {
         
    		'glfw-2.7.2' => {
 			includes => [ "$sdkDir/glfw-2.7.2/include", "." ],
-			macosxincludes => [ "$sdkDir/glheaders_osx" ],
-				# see readme at that location for details
 			win32libs => [ "$sdkDir/glfw-2.7.2/lib/win32/glfw.lib", "user32.lib" ],
 			linuxlibs => [ "$sdkDir/glfw-2.7.2/lib/x11/libglfw.a", "-lXrandr", "-lXxf86vm" ],
 			macosxlibs => [ "$sdkDir/glfw-2.7.2/lib/cocoa/libglfw.a" ],
