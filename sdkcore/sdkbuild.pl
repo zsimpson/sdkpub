@@ -223,10 +223,10 @@ sub sdkSetup {
 		'usbkey_secutech' => {
 			# I am updated to new libraries downloaded in Mar2013 because the old libraries stopped working
 			# for windows 8.  I am not switching to the new libraries for OSX because we are experiencing
-			# no problems on OSX at the moment, and we had a lot of troubles getting blis that would work 
+			# no problems on OSX at the moment, and we had a lot of troubles getting libs that would work 
 			# well under various versions of OSX previously.  Likewise I'm doing nothing with linux
 			# because we don't use this lib on linux at the moment. TFB March2013
-			# the 
+			#
 			# win32includes => [ "$sdkDir/usbkey_secutech/win32/lib2011" ],
 			# win32libs => [ "$sdkDir/usbkey_secutech/win32/lib2011/VC9/UniKey.ia32.MT.VC9.lib", "user32.lib" ],
 			win32includes => [ "$sdkDir/usbkey_secutech/win32/lib2013" ],
@@ -234,10 +234,19 @@ sub sdkSetup {
 
 			# NOTE: the .a specified below for OSX is a universal binary created by
 			# hand by running the lipo tool on the separate .a files provided by Secutech.
-			macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2011" ],
-			macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2011/UniKey.a" ],
+#			 macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2011" ],
+#			 macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2011/UniKey.a" ],
+
+#macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2013" ],
+#macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2013/UniKey.a" ],
+
+#macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2014" ],
+#macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2014/UniKeyIntel64.a" ],
+
+macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2014_dl" ],
+macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2014_dl/UniKey.a" ],
 	
-                        # lib2011 untested on linux
+			# lib2011 untested on linux
 			linuxincludes => [ "$sdkDir/usbkey_secutech/linux/lib2011/Linux64.C" ],
 			linuxlibs => [ "$sdkDir/usbkey_secutech/linux/lib2011/Linux64.C/GCC4.X/UniKey.x64.a" ],
 
@@ -445,6 +454,15 @@ sub sdkSetup {
 				
 			platforms => [ qw/linux macosx/ ],
 			test => \&sdkTest_postgres,
+		},
+
+		'levmar' => {
+			includes => [ "$sdkDir/levmar-2.6/" ],
+			win32libs => [ "$sdkDir/levmar-2.6/" ],
+			macosxlibs => [ "$sdkDir/levmar-2.6/liblevmar.a" ],
+			linuxlibs => [ "$sdkDir/levmar-2.6/liblevmar.a" ],
+			test => \&sdkTest_levmar,
+			platforms => [ qw/win32 linux macosx/ ],
 		},
 
 
@@ -2857,6 +2875,104 @@ sub sdkTest_postgres {
 	}
 }
 
+sub sdkTest_levmar {
+	my $sdk = "levmar-2.6";
+	if( $platform eq 'linux' || $platform eq 'macosx' ) {
+		pushCwd( "$sdkDir/$sdk" );
+			executeCmd( "make cleanall", 1 );
+			executeCmd( "make", 1 );
+		popCwd();
+	}
+	elsif( $platform eq 'win32' ) {
+		pushCwd( "$sdkDir/$sdk" );
+		# TODO
+		popCwd();
+	}
+	
+	mkdir( "levmar_test" );
+	open( TEST, ">levmar_test/levmar_test.cpp" ) || die "Unable to create levmar test file";
+	print TEST '
+ 		#include <stdio.h>
+		#include <stdlib.h>
+		#include <math.h>
+		#include <float.h>
+		#include "levmar.h"
+
+		// Meyers (reformulated) problem, minimum at (2.48, 6.18, 3.45)
+		// Taken from lmdemo.c
+
+		void meyer(double *p, double *x, int m, int n, void *data) {
+			register int i;
+			double ui;
+			for(i=0; i<n; ++i){
+				ui=0.45+0.05*i;
+				x[i]=p[0]*exp(10.0*p[1]/(ui+p[2]) - 13.0);
+			}
+		}
+
+        int main( int argc, char **argv ) {
+			double p[3], x[16], info[LM_INFO_SZ], opts[LM_OPTS_SZ];
+
+  			opts[0]=LM_INIT_MU; opts[1]=1E-15; opts[2]=1E-15; opts[3]=1E-20;
+  			opts[4]= LM_DIFF_DELTA; 
+  				// relevant only if the Jacobian is approximated using finite differences; specifies forward differencing 
+  			//opts[4]=-LM_DIFF_DELTA;
+  				// specifies central differencing to approximate Jacobian; more accurate but more expensive to compute!
+
+
+			int ret, m, n;
+
+		    m=3; n=16;
+		    p[0]=8.85; p[1]=4.0; p[2]=2.5;
+		    x[0]=34.780;	x[1]=28.610; x[2]=23.650; x[3]=19.630;
+		    x[4]=16.370;	x[5]=13.720; x[6]=11.540; x[7]=9.744;
+		    x[8]=8.261;	x[9]=7.030; x[10]=6.005; x[11]=5.147;
+		    x[12]=4.427;	x[13]=3.820; x[14]=3.307; x[15]=2.872;
+			double *work, *covar;
+		    work=(double*)malloc((LM_DIF_WORKSZ(m, n)+m*m)*sizeof(double));
+		    if(!work){
+		    	fprintf(stderr, "memory allocation request failed in main()\n");
+		      	return 1;
+		    }
+		    covar=work+LM_DIF_WORKSZ(m, n);
+		    ret=dlevmar_dif(meyer, p, x, m, n, 1000, opts, info, work, covar, NULL); // no Jacobian, caller allocates work memory, covariance estimated
+	    	free(work);
+
+		    // From lmdemo.c, we know what the minimization is expected to return:
+		    printf( "p[0] is %g\n", p[0] );
+		    if( p[0] > 2.48 && p[0] < 2.49 ) {
+	            printf( "SUCCESS\n" );
+	            return 0;
+		    }
+		    return 1;
+        }	';
+
+	print TEST "\n\n";
+	close( TEST );
+
+	platform_compile(
+		includes => [ "$sdkDir/$sdk" ],
+		file => "levmar_test/levmar_test.cpp",
+		outfile => "levmar_test/levmar_test.obj",
+	) || die "Compile error";
+
+	platform_link(
+		# Note that I am linking in OpenSSL libs because I've built levmar --with-openssl 
+		linuxlibs => $sdkHash{'levmar'}{linuxlibs},
+		macosxlibs => $sdkHash{'levmar'}{macosxlibs},
+		files => [ "levmar_test/levmar_test.obj" ],
+		outfile => "levmar_test/levmar_test.exe",
+	) || die "Linker error";
+
+	`levmar_test/levmar_test.exe`;
+	if( $? == 0 ) {
+		print "success\n";
+		#recursiveUnlink( "levmar_test" );
+	}
+	else {
+		print "FAILURE. levmar_test directory NOT removed for debugging.\n";
+	}	
+}
 
 
 true;
