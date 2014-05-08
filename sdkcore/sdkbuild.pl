@@ -234,8 +234,8 @@ sub sdkSetup {
 
 			# NOTE: the .a specified below for OSX is a universal binary created by
 			# hand by running the lipo tool on the separate .a files provided by Secutech.
-#			 macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2011" ],
-#			 macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2011/UniKey.a" ],
+			 macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2011" ],
+			 macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2011/UniKey.a" ],
 
 #macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2013" ],
 #macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2013/UniKey.a" ],
@@ -243,8 +243,8 @@ sub sdkSetup {
 #macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2014" ],
 #macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2014/UniKeyIntel64.a" ],
 
-macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2014_dl" ],
-macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2014_dl/UniKey.a" ],
+#macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2014_dl" ],
+#macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2014_dl/UniKey.a" ],
 	
 			# lib2011 untested on linux
 			linuxincludes => [ "$sdkDir/usbkey_secutech/linux/lib2011/Linux64.C" ],
@@ -2920,7 +2920,7 @@ sub sdkTest_levmar {
   				// specifies central differencing to approximate Jacobian; more accurate but more expensive to compute!
 
 
-			int ret, m, n;
+			int ret, m , n;
 
 		    m=3; n=16;
 		    p[0]=8.85; p[1]=4.0; p[2]=2.5;
