@@ -53,7 +53,7 @@
 /* specifies whether double precision routines will be compiled or not */
 #define LM_DBL_PREC
 /* specifies whether single precision routines will be compiled or not */
-#define LM_SNGL_PREC
+// #define LM_SNGL_PREC
 
 /****************** End of configuration options, no changes necessary beyond this point ******************/
 
@@ -104,7 +104,8 @@ extern "C" {
 /* double precision LM, with & without Jacobian */
 /* unconstrained minimization */
 extern int dlevmar_der(
-      void (*func)(double *p, double *hx, int m, int n, void *adata),
+      void (*func)(double *p, double *hx, double *e, int m, int n, void *adata ),
+        // tfb adds double *e to pass error terms
       void (*jacf)(double *p, double *j, int m, int n, void *adata),
       double *p, double *x, int m, int n, int itmax, double *opts,
       double *info, double *work, double *covar, void *adata);

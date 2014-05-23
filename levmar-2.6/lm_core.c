@@ -62,7 +62,7 @@
  */
 
 int LEVMAR_DER(
-  void (*func)(LM_REAL *p, LM_REAL *hx, int m, int n, void *adata), /* functional relation describing measurements. A p \in R^m yields a \hat{x} \in  R^n */
+  void (*func)(LM_REAL *p, LM_REAL *hx, LM_REAL *e, int m, int n, void *adata ), /* functional relation describing measurements. A p \in R^m yields a \hat{x} \in  R^n */
   void (*jacf)(LM_REAL *p, LM_REAL *j, int m, int n, void *adata),  /* function to evaluate the Jacobian \part x / \part p */ 
   LM_REAL *p,         /* I/O: initial parameter estimates. On output has the estimated solution */
   LM_REAL *x,         /* I: measurement vector. NULL implies a zero vector */
@@ -164,17 +164,30 @@ int (*linsolver)(LM_REAL *A, LM_REAL *B, LM_REAL *x, int m)=NULL;
   diag_jacTjac=Dp + m;
   pDp=diag_jacTjac + m;
 
+  //
+  // Levmar is getting back the fn eval in hx, and computing the vector e
+  // as well as the sse term p_eL2.  But we really want to make use of our
+  // own sigma-weighting (per data point, possibly) as well as varied weighting
+  // per experiment, so we really want to compute e for levmar. (tfb)
+  //
+
   /* compute e=x - f(p) and its L2 norm */
-  (*func)(p, hx, m, n, adata); nfev=1;
+  e[0] = NAN;
+    // If this is still NAN after the function call, we know the user is not providing 
+    // the error terms and we'll compute them ourselves. (tfb)
+  (*func)(p, hx, e, m, n, adata); nfev=1;
   /* ### e=x-hx, p_eL2=||e|| */
-#if 1
-  p_eL2=LEVMAR_L2NRMXMY(e, x, hx, n);  
-#else
-  for(i=0, p_eL2=0.0; i<n; ++i){
-    e[i]=tmp=x[i]-hx[i];
-    p_eL2+=tmp*tmp;
+  if( e[0] != e[0] )  {// NaN, which I set as a flag 
+    p_eL2=LEVMAR_L2NRMXMY(e, x, hx, n);  
   }
-#endif
+  else {
+    // tfb - func() returned it's own error terms in e
+    for(i=0, p_eL2=0.0; i<n; ++i){
+      tmp = e[i];
+      p_eL2+=tmp*tmp;
+    }
+  }
+
   init_p_eL2=p_eL2;
   if(!LM_FINITE(p_eL2)) stop=7;
 
@@ -340,17 +353,25 @@ if(!(k%100)){
          break;
        }
 
-        (*func)(pDp, hx, m, n, adata); ++nfev; /* evaluate function at p + Dp */
+        e[0] = NAN;
+          // If this is still NAN after the function call, we know the user is not providing 
+          // the error terms and we'll compute them ourselves. (tfb)
+        (*func)(pDp, hx, e, m, n, adata); ++nfev; /* evaluate function at p + Dp */
         /* compute ||e(pDp)||_2 */
         /* ### hx=x-hx, pDp_eL2=||hx|| */
-#if 1
-        pDp_eL2=LEVMAR_L2NRMXMY(hx, x, hx, n);
-#else
-        for(i=0, pDp_eL2=0.0; i<n; ++i){
-          hx[i]=tmp=x[i]-hx[i];
-          pDp_eL2+=tmp*tmp;
+
+        if( e[0] != e[0] ) { // NaN, which I set as a flag to NOT use my error terms
+          pDp_eL2=LEVMAR_L2NRMXMY(hx, x, hx, n);
         }
-#endif
+        else {
+          // tfb code - our function did not pass back the feval, it passed back the error 
+          // at each term.  we've already done this once, but for now just compute the l2 norm
+          // again on these terms:
+          for(i=0, pDp_eL2=0.0; i<n; ++i){
+            pDp_eL2+=e[i]*e[i];
+          }
+        }
+
         if(!LM_FINITE(pDp_eL2)){ /* sum of squares is not finite, most probably due to a user error.
                                   * This check makes sure that the inner loop does not run indefinitely.
                                   * Thanks to Steve Danauskas for reporting such cases
@@ -373,8 +394,12 @@ if(!(k%100)){
           for(i=0 ; i<m; ++i) /* update p's estimate */
             p[i]=pDp[i];
 
-          for(i=0; i<n; ++i) /* update e and ||e||_2 */
-            e[i]=hx[i];
+          if( e[0] != e[0] ) {  // NaN, a flag we set to indicate user is not providing error terms (tfb)
+            for(i=0; i<n; ++i) { /* update e and ||e||_2 */
+              e[i]=hx[i];
+            }
+          }
+
           p_eL2=pDp_eL2;
           break;
         }
