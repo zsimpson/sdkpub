@@ -61,6 +61,15 @@
  * non-linear least squares at http://www.imm.dtu.dk/pubdb/views/edoc_download.php/3215/pdf/imm3215.pdf
  */
 
+  //
+  // Levmar is getting back the fn eval in hx, and computing the vector e
+  // as well as the sse term p_eL2.  But we really want to make use of our
+  // own sigma-weighting (per data point, possibly) as well as varied weighting
+  // per experiment, so we really want to compute e for levmar. (tfb)
+  // So I've modified the func() callback to provide the e vector.
+
+#define TFB_MAGIC 12345.12345
+
 int LEVMAR_DER(
   void (*func)(LM_REAL *p, LM_REAL *hx, LM_REAL *e, int m, int n, void *adata ), /* functional relation describing measurements. A p \in R^m yields a \hat{x} \in  R^n */
   void (*jacf)(LM_REAL *p, LM_REAL *j, int m, int n, void *adata),  /* function to evaluate the Jacobian \part x / \part p */ 
@@ -164,20 +173,13 @@ int (*linsolver)(LM_REAL *A, LM_REAL *B, LM_REAL *x, int m)=NULL;
   diag_jacTjac=Dp + m;
   pDp=diag_jacTjac + m;
 
-  //
-  // Levmar is getting back the fn eval in hx, and computing the vector e
-  // as well as the sse term p_eL2.  But we really want to make use of our
-  // own sigma-weighting (per data point, possibly) as well as varied weighting
-  // per experiment, so we really want to compute e for levmar. (tfb)
-  //
-
   /* compute e=x - f(p) and its L2 norm */
-  e[0] = NAN;
-    // If this is still NAN after the function call, we know the user is not providing 
+  e[0] = TFB_MAGIC;
+    // If this is still TFB_MAGIC after the function call, we know the user is not providing 
     // the error terms and we'll compute them ourselves. (tfb)
   (*func)(p, hx, e, m, n, adata); nfev=1;
   /* ### e=x-hx, p_eL2=||e|| */
-  if( e[0] != e[0] )  {// NaN, which I set as a flag 
+  if( e[0] == TFB_MAGIC )  { 
     p_eL2=LEVMAR_L2NRMXMY(e, x, hx, n);  
   }
   else {
@@ -353,14 +355,13 @@ if(!(k%100)){
          break;
        }
 
-        e[0] = NAN;
-          // If this is still NAN after the function call, we know the user is not providing 
-          // the error terms and we'll compute them ourselves. (tfb)
+		e[0] = TFB_MAGIC;
+          // See comments above.
         (*func)(pDp, hx, e, m, n, adata); ++nfev; /* evaluate function at p + Dp */
         /* compute ||e(pDp)||_2 */
         /* ### hx=x-hx, pDp_eL2=||hx|| */
 
-        if( e[0] != e[0] ) { // NaN, which I set as a flag to NOT use my error terms
+        if( e[0] == TFB_MAGIC ) { 
           pDp_eL2=LEVMAR_L2NRMXMY(hx, x, hx, n);
         }
         else {
