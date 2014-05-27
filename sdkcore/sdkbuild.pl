@@ -234,17 +234,15 @@ sub sdkSetup {
 
 			# NOTE: the .a specified below for OSX is a universal binary created by
 			# hand by running the lipo tool on the separate .a files provided by Secutech.
-			 macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2011" ],
-			 macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2011/UniKey.a" ],
-
-#macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2013" ],
-#macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2013/UniKey.a" ],
-
-#macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2014" ],
-#macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2014/UniKeyIntel64.a" ],
-
-#macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2014_dl" ],
-#macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2014_dl/UniKey.a" ],
+			#macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2011" ],
+			#macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2011/UniKey.a" ],
+			#macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2013" ],
+			#macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2013/UniKey.a" ],
+			macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2014_fujimi" ],
+			macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2014_fujimi/UniKey.a" ],
+				# this is not universal lib.  It is for 64bit intel, which by now (may 2014)
+				# should be fine for mac users.  If not, we'll create a universal when
+				# fujimi posts a new SDK with correct osx libs.  See readme in the secutech sdk folder.
 	
 			# lib2011 untested on linux
 			linuxincludes => [ "$sdkDir/usbkey_secutech/linux/lib2011/Linux64.C" ],
