@@ -1,3 +1,10 @@
+May 2014:
+
+A new set of keys ordered no longer generates the same password reliably in OSX using our seed.  Much debugging with 
+Fujimi Bentley at Secutech resulting in a new library he sent me for OSX which is in lib2014_fujimi.
+Libs for other platforms were not updated.  fujimi.bentley@esecutech.com
+
+
 Mar 2013:
 
 I have added lib2013 folders to each OS from the sdk 5_6_02 (downloaded 2 mar 2013)
