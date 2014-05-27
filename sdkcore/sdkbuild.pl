@@ -456,7 +456,7 @@ sub sdkSetup {
 
 		'levmar' => {
 			includes => [ "$sdkDir/levmar-2.6/" ],
-			win32libs => [ "$sdkDir/levmar-2.6/" ],
+			win32libs => [ "$sdkDir/levmar-2.6/levmar_win32/Release/levmar_win32.lib" ],
 			macosxlibs => [ "$sdkDir/levmar-2.6/liblevmar.a" ],
 			linuxlibs => [ "$sdkDir/levmar-2.6/liblevmar.a" ],
 			test => \&sdkTest_levmar,
@@ -2882,7 +2882,11 @@ sub sdkTest_levmar {
 		popCwd();
 	}
 	elsif( $platform eq 'win32' ) {
-		pushCwd( "$sdkDir/$sdk" );
+		pushCwd( "$sdkDir/$sdk/levmar_win32" );
+  			executeCmd( "vcbuild levmar_win32.vcproj /clean Debug", 1 );
+			executeCmd( "vcbuild levmar_win32.vcproj Debug", 1 );
+   			executeCmd( "vcbuild levmar_win32.vcproj /clean Release", 1 );
+			executeCmd( "vcbuild levmar_win32.vcproj Release", 1 );
 		# TODO
 		popCwd();
 	}
@@ -2955,7 +2959,8 @@ sub sdkTest_levmar {
 	) || die "Compile error";
 
 	platform_link(
-		# Note that I am linking in OpenSSL libs because I've built levmar --with-openssl 
+		win32libs => $sdkHash{'levmar'}{win32libs},
+		win32excludelibs => [ qw^libcmt.lib^ ],
 		linuxlibs => $sdkHash{'levmar'}{linuxlibs},
 		macosxlibs => $sdkHash{'levmar'}{macosxlibs},
 		files => [ "levmar_test/levmar_test.obj" ],
