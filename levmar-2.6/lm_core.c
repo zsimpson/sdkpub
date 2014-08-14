@@ -395,7 +395,7 @@ if(!(k%100)){
           for(i=0 ; i<m; ++i) /* update p's estimate */
             p[i]=pDp[i];
 
-          if( e[0] != e[0] ) {  // NaN, a flag we set to indicate user is not providing error terms (tfb)
+          if( e[0] == TFB_MAGIC ) {  
             for(i=0; i<n; ++i) { /* update e and ||e||_2 */
               e[i]=hx[i];
             }
