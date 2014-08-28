@@ -68,8 +68,6 @@
   // per experiment, so we really want to compute e for levmar. (tfb)
   // So I've modified the func() callback to provide the e vector.
 
-#define TFB_MAGIC 12345.12345
-
 int LEVMAR_DER(
   void (*func)(LM_REAL *p, LM_REAL *hx, LM_REAL *e, int m, int n, void *adata ), /* functional relation describing measurements. A p \in R^m yields a \hat{x} \in  R^n */
   void (*jacf)(LM_REAL *p, LM_REAL *j, int m, int n, void *adata),  /* function to evaluate the Jacobian \part x / \part p */ 
@@ -176,14 +174,16 @@ int (*linsolver)(LM_REAL *A, LM_REAL *B, LM_REAL *x, int m)=NULL;
   /* compute e=x - f(p) and its L2 norm */
   e[0] = TFB_MAGIC;
     // If this is still TFB_MAGIC after the function call, we know the user is not providing 
-    // the error terms and we'll compute them ourselves. (tfb)
+    // the error terms and we'll set func_errors to flag this. (tfb)
+  int func_errors = 0;
   (*func)(p, hx, e, m, n, adata); nfev=1;
   /* ### e=x-hx, p_eL2=||e|| */
   if( e[0] == TFB_MAGIC )  { 
     p_eL2=LEVMAR_L2NRMXMY(e, x, hx, n);  
   }
   else {
-    // tfb - func() returned it's own error terms in e
+    // tfb - func() returned it's own error terms in e, 
+    func_errors = 1;
     for(i=0, p_eL2=0.0; i<n; ++i){
       tmp = e[i];
       p_eL2+=tmp*tmp;
@@ -355,13 +355,11 @@ if(!(k%100)){
          break;
        }
 
-		e[0] = TFB_MAGIC;
-          // See comments above.
         (*func)(pDp, hx, e, m, n, adata); ++nfev; /* evaluate function at p + Dp */
         /* compute ||e(pDp)||_2 */
         /* ### hx=x-hx, pDp_eL2=||hx|| */
 
-        if( e[0] == TFB_MAGIC ) { 
+        if( !func_errors ) { 
           pDp_eL2=LEVMAR_L2NRMXMY(hx, x, hx, n);
         }
         else {

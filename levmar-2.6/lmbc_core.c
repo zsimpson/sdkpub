@@ -173,12 +173,13 @@ struct FUNC_STATE{
   int n, *nfev;
   LM_REAL *hx, *x;
   LM_REAL *lb, *ub;
+  int func_errors; // tfb, flag
   void *adata;
 };
 
 static void
 LNSRCH(int m, LM_REAL *x, LM_REAL f, LM_REAL *g, LM_REAL *p, LM_REAL alpha, LM_REAL *xpls,
-       LM_REAL *ffpls, void (*func)(LM_REAL *p, LM_REAL *hx, int m, int n, void *adata), struct FUNC_STATE *state,
+       LM_REAL *ffpls, void (*func)(LM_REAL *p, LM_REAL *hx, LM_REAL *e, int m, int n, void *adata), struct FUNC_STATE *state,
        int *mxtake, int *iretcd, LM_REAL stepmx, LM_REAL steptl, LM_REAL *sx)
 {
 /* Find a next newton iterate by backtracking line search.
@@ -214,6 +215,9 @@ LNSRCH(int m, LM_REAL *x, LM_REAL f, LM_REAL *g, LM_REAL *p, LM_REAL alpha, LM_R
  *	sln		 newton length
  *	rln		 relative length of newton step
 */
+
+    // printf( "******* Entering LNSRCH%s\n", state->func_errors ? ", (client computes errors)" : "" );
+    // int tfbcounter = 0;
 
     register int i, j;
     int firstback = 1;
@@ -257,22 +261,25 @@ LNSRCH(int m, LM_REAL *x, LM_REAL f, LM_REAL *g, LM_REAL *p, LM_REAL alpha, LM_R
 
       /* evaluate function at new point */
       if(!sx){
-        (*func)(xpls, state->hx, m, state->n, state->adata); ++(*(state->nfev));
+        (*func)(xpls, state->hx, state->hx, m, state->n, state->adata); ++(*(state->nfev));
       }
       else{
         for (i = m; i-- > 0;  ) xpls[i] *= sx[i];
-        (*func)(xpls, state->hx, m, state->n, state->adata); ++(*(state->nfev));
+        (*func)(xpls, state->hx, state->hx, m, state->n, state->adata); ++(*(state->nfev));
         for (i = m; i-- > 0;  ) xpls[i] /= sx[i];
       }
       /* ### state->hx=state->x-state->hx, tmp1=||state->hx|| */
-#if 1
-       tmp1=LEVMAR_L2NRMXMY(state->hx, state->x, state->hx, state->n);
-#else
-      for(i=0, tmp1=0.0; i<state->n; ++i){
-        state->hx[i]=tmp2=state->x[i]-state->hx[i];
-        tmp1+=tmp2*tmp2;
+      if( !state->func_errors )  { 
+        tmp1=LEVMAR_L2NRMXMY(state->hx, state->x, state->hx, state->n);  
       }
-#endif
+      else {
+        // tfb - func() returned it's own error terms in hx
+        for(i=0, tmp1=0.0; i<state->n; ++i){
+          tmp2 = state->hx[i];
+          tmp1+=tmp2*tmp2;
+        }
+      }
+      //printf( "%d: LNSRCH err is %g\n", tfbcounter++, tmp1 );
       fpls=LM_CNST(0.5)*tmp1; *ffpls=tmp1;
 
 	    if (fpls <= f + slp * alpha * lambda) { /* solution found */
@@ -366,8 +373,15 @@ LNSRCH(int m, LM_REAL *x, LM_REAL f, LM_REAL *g, LM_REAL *p, LM_REAL alpha, LM_R
  * the final point. Note also that jac_q=jac_p*D, where jac_q, jac_p are the jacobians w.r.t. q & p, resp.
  */
 
+//
+// Levmar is getting back the fn eval in hx, and computing the vector e
+// as well as the sse term p_eL2.  But we really want to make use of our
+// own sigma-weighting (per data point, possibly) as well as varied weighting
+// per experiment, so we really want to compute e for levmar. (tfb)
+// So I've modified the func() callback to provide the e vector.
+
 int LEVMAR_BC_DER(
-  void (*func)(LM_REAL *p, LM_REAL *hx, int m, int n, void *adata), /* functional relation describing measurements. A p \in R^m yields a \hat{x} \in  R^n */
+  void (*func)(LM_REAL *p, LM_REAL *hx, LM_REAL *e, int m, int n, void *adata), /* functional relation describing measurements. A p \in R^m yields a \hat{x} \in  R^n */
   void (*jacf)(LM_REAL *p, LM_REAL *j, int m, int n, void *adata),  /* function to evaluate the Jacobian \part x / \part p */ 
   LM_REAL *p,         /* I/O: initial parameter estimates. On output has the estimated solution */
   LM_REAL *x,         /* I: measurement vector. NULL implies a zero vector */
@@ -507,6 +521,7 @@ int (*linsolver)(LM_REAL *A, LM_REAL *B, LM_REAL *x, int m)=NULL;
   fstate.x=x;
   fstate.lb=lb;
   fstate.ub=ub;
+  fstate.func_errors=0;
   fstate.adata=adata;
   fstate.nfev=&nfev;
   
@@ -519,17 +534,30 @@ int (*linsolver)(LM_REAL *A, LM_REAL *B, LM_REAL *x, int m)=NULL;
       fprintf(stderr, RCAT("Warning: component %d of starting point not feasible in ", LEVMAR_BC_DER) "()! [%g projected to %g]\n",
                       i, pDp[i], p[i]);
 
+
   /* compute e=x - f(p) and its L2 norm */
-  (*func)(p, hx, m, n, adata); nfev=1;
+  e[0] = TFB_MAGIC;
+  int func_errors = 0;
+    // If e[0] is still TFB_MAGIC after the function call, we know the user is not providing 
+    // the error terms in (*func) and we'll compute them ourselves from here forward.
+  (*func)(p, hx, e, m, n, adata); nfev=1;
   /* ### e=x-hx, p_eL2=||e|| */
-#if 1
-  p_eL2=LEVMAR_L2NRMXMY(e, x, hx, n);
-#else
-  for(i=0, p_eL2=0.0; i<n; ++i){
-    e[i]=tmp=x[i]-hx[i];
-    p_eL2+=tmp*tmp;
+
+  if( e[0] == TFB_MAGIC )  { 
+    p_eL2=LEVMAR_L2NRMXMY(e, x, hx, n);
   }
-#endif
+  else {
+    // tfb - func() returned it's own error terms in e, set flag to use those from
+    // here forward.
+    func_errors = 1;
+    for(i=0, p_eL2=0.0; i<n; ++i){
+      tmp = e[i];
+      p_eL2+=tmp*tmp;
+    }
+  }
+  fstate.func_errors=func_errors;
+
+
   init_p_eL2=p_eL2;
   if(!LM_FINITE(p_eL2)) stop=7;
 
@@ -725,23 +753,25 @@ if(!(k%100)){
           break;
         }
 
+        // NOTE: (tfb) we are writing error terms into hx here, not e!
         if(!dscl){
-          (*func)(pDp, hx, m, n, adata); ++nfev; /* evaluate function at p + Dp */
+          (*func)(pDp, hx, hx, m, n, adata); ++nfev; /* evaluate function at p + Dp */
         }
         else{
           for(i=m; i-->0; ) sp_pDp[i]=pDp[i]*dscl[i];
-          (*func)(sp_pDp, hx, m, n, adata); ++nfev; /* evaluate function at p + Dp */
+          (*func)(sp_pDp, hx, hx, m, n, adata); ++nfev; /* evaluate function at p + Dp */
         }
 
         /* ### hx=x-hx, pDp_eL2=||hx|| */
-#if 1
-        pDp_eL2=LEVMAR_L2NRMXMY(hx, x, hx, n);
-#else
-        for(i=0, pDp_eL2=0.0; i<n; ++i){ /* compute ||e(pDp)||_2 */
-          hx[i]=tmp=x[i]-hx[i];
-          pDp_eL2+=tmp*tmp;
+        if( !func_errors ) { 
+          pDp_eL2=LEVMAR_L2NRMXMY(hx, x, hx, n);
         }
-#endif
+        else {
+          // the (*func) call computed error terms into hx
+          for(i=0, pDp_eL2=0.0; i<n; ++i){
+            pDp_eL2+=hx[i]*hx[i];
+          }
+        }
         /* the following test ensures that the computation of pDp_eL2 has not overflowed.
          * Such an overflow does no harm here, thus it is not signalled as an error
          */
@@ -891,25 +921,25 @@ gradproj:
             Dp_L2+=tmp*tmp;
           }
 
+          // NOTE: compting errors into hx, not e! (tfb)
           if(!dscl){
-            (*func)(pDp, hx, m, n, adata); ++nfev; /* evaluate function at p - t*g */
+            (*func)(pDp, hx, hx, m, n, adata); ++nfev; /* evaluate function at p - t*g */
           }
           else{
             for(i=m; i-->0; ) sp_pDp[i]=pDp[i]*dscl[i];
-            (*func)(sp_pDp, hx, m, n, adata); ++nfev; /* evaluate function at p - t*g */
+            (*func)(sp_pDp, hx, hx, m, n, adata); ++nfev; /* evaluate function at p - t*g */
           }
 
           /* compute ||e(pDp)||_2 */
           /* ### hx=x-hx, pDp_eL2=||hx|| */
-#if 1
-          pDp_eL2=LEVMAR_L2NRMXMY(hx, x, hx, n);
-#else
-          for(i=0, pDp_eL2=0.0; i<n; ++i){
-            hx[i]=tmp=x[i]-hx[i];
-            pDp_eL2+=tmp*tmp;
+          if( !func_errors ) { 
+            pDp_eL2=LEVMAR_L2NRMXMY(hx, x, hx, n);
           }
-#endif
-          /* the following test ensures that the computation of pDp_eL2 has not overflowed.
+          else {
+            for(i=0, pDp_eL2=0.0; i<n; ++i){
+              pDp_eL2+=hx[i]*hx[i];
+            }
+          }          /* the following test ensures that the computation of pDp_eL2 has not overflowed.
            * Such an overflow does no harm here, thus it is not signalled as an error
            */
           if(!LM_FINITE(pDp_eL2) && !LM_FINITE(VECNORM(hx, n))){
@@ -961,8 +991,11 @@ terminatePGLS:
       for(i=0 ; i<m; ++i) /* update p's estimate */
         p[i]=pDp[i];
 
+      // NOTE: recent (*func) calls have computed err terms into hx,
+      // so this is necessary even if (*func) is computing errors.
       for(i=0; i<n; ++i) /* update e and ||e||_2 */
         e[i]=hx[i];
+
       p_eL2=pDp_eL2;
       break;
     } /* inner loop */

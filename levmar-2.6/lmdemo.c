@@ -674,7 +674,7 @@ register int i, j;
  * constri: p[i]>=0.0001; (i=1..5)
  * constri+5: p[i]<=100.0; (i=1..5)
  */
-void combust(double *p, double *x, int m, int n, void *data)
+void combust(double *p, double *x, double *e, int m, int n, void *data)
 {
   double R, R5, R6, R7, R8, R9, R10;
 
@@ -691,6 +691,13 @@ void combust(double *p, double *x, int m, int n, void *data)
   x[2]=2*p[1]*p[2]*p[2]+R7*p[1]*p[2]+2*R5*p[2]*p[2]+R6*p[2]-8*p[4];
   x[3]=R9*p[1]*p[3]+2*p[3]*p[3]-4*R*p[4];
   x[4]=p[0]*p[1]+p[0]+R10*p[1]*p[1]+p[1]*p[2]*p[2]+R7*p[1]*p[2]+R9*p[1]*p[3]+R8*p[1]+R5*p[2]*p[2]+R6*p[2]+p[3]*p[3]-1.0;
+
+  //TFB: passing error back to the fitter like we do in kinexp; we know that the values
+  //are supposed to be 0 at each index.
+  for( int i=0; i<5; i++ ) {
+    e[i] = 0 - x[i];
+      // ydata - yfit
+  }
 }
 
 void jaccombust(double *p, double *jac, int m, int n, void *data)
@@ -823,7 +830,7 @@ char *probname[]={
 		  //1; // modified Rosenbrock problem
 		  //2; // Powell's function
       //3; // Wood's function
-		  4; // Meyer's (reformulated) problem
+		  //4; // Meyer's (reformulated) problem
 		  //5; // Osborne's problem
       //6; // helical valley function
 #ifdef HAVE_LAPACK
@@ -843,7 +850,7 @@ char *probname[]={
       //12; // Hock - Schittkowski modified problem 21
       //13; // hatfldb problem
       //14; // hatfldc problem
-      //15; // equilibrium combustion problem
+      15; // equilibrium combustion problem
 #ifdef HAVE_LAPACK
       //16; // Hock - Schittkowski modified #1 problem 52
       //17; // Schittkowski modified problem 235

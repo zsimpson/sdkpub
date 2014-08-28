@@ -101,6 +101,9 @@ extern "C" {
 #define LM_DIFF_DELTA    1E-06
 #define LM_VERSION       "2.6 (November 2011)"
 
+#define TFB_MAGIC 12345.12345
+  // see lm_core.c and other analogous files for the use of this value as a marker/flag.
+
 #ifdef LM_DBL_PREC
 /* double precision LM, with & without Jacobian */
 /* unconstrained minimization */
@@ -118,7 +121,8 @@ extern int dlevmar_dif(
 
 /* box-constrained minimization */
 extern int dlevmar_bc_der(
-       void (*func)(double *p, double *hx, int m, int n, void *adata),
+       void (*func)(double *p, double *hx, double *e, int m, int n, void *adata),
+        // tfb adds double *e to pass error terms
        void (*jacf)(double *p, double *j, int m, int n, void *adata),  
        double *p, double *x, int m, int n, double *lb, double *ub, double *dscl,
        int itmax, double *opts, double *info, double *work, double *covar, void *adata);
