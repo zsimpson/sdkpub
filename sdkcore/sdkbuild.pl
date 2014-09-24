@@ -118,6 +118,16 @@ sub sdkSetup {
 			platforms => [ qw/win32 linux macosx/ ],
 		},
 
+		'clapack-3.2.1' => {
+			includes => [ "$sdkDir/CLAPACK-3.2.1/INCLUDE" ],
+			win32libs => [ "$sdkDir/CLAPACK-3.2.1/Release/CLAPACK-3.2.1.lib", "$sdkDir/CLAPACK-3.2.1/blas/Release/blas.lib", "$sdkDir/CLAPACK-3.2.1/f2clibs/Release/libf77.lib" ],
+			linuxlibs  => [ "$sdkDir/CLAPACK-3.2.1/lapack_LINUX.a", "$sdkDir/CLAPACK-3.2.1/blas_LINUX.a", "$sdkDir/CLAPACK-3.2.1/F2CLIBS/libf2c.a" ],
+			macosxlibs => [ "$sdkDir/CLAPACK-3.2.1/lapack_LINUX.a", "$sdkDir/CLAPACK-3.2.1/blas_LINUX.a", "$sdkDir/CLAPACK-3.2.1/F2CLIBS/libf2c.a" ], 
+			test => \&sdkTest_CLAPACK_3_2_1,
+			platforms => [ qw/linux macosx/ ],
+		},
+
+
 		'pthread' => {
 			win32includes => [ "$sdkDir/pthreadw32" ],
 			win32libs => [ "$sdkDir/pthreadw32/pthreadVC1.lib" ],
@@ -455,14 +465,15 @@ sub sdkSetup {
 		},
 
 		'levmar' => {
+			# NOTE, I currently have levmar configured with HAVE_LAPACK, so anything you
+			# build with levmar will need clapack-3.2.1 pulled in as well.  tfb sept 2014
 			includes => [ "$sdkDir/levmar-2.6/" ],
 			win32libs => [ "$sdkDir/levmar-2.6/levmar_win32/Release/levmar_win32.lib" ],
-			macosxlibs => [ "$sdkDir/levmar-2.6/liblevmar.a" ],
-			linuxlibs => [ "$sdkDir/levmar-2.6/liblevmar.a" ],
+			macosxlibs => [ "$sdkDir/levmar-2.6/liblevmar.a", "$sdkDir/CLAPACK-3.2.1/lapack_LINUX.a", "$sdkDir/CLAPACK-3.2.1/blas_LINUX.a", "$sdkDir/CLAPACK-3.2.1/F2CLIBS/libf2c.a" ],
+			linuxlibs => [ "$sdkDir/levmar-2.6/liblevmar.a", "$sdkDir/CLAPACK-3.2.1/lapack_LINUX.a", "$sdkDir/CLAPACK-3.2.1/blas_LINUX.a", "$sdkDir/CLAPACK-3.2.1/F2CLIBS/libf2c.a" ],
 			test => \&sdkTest_levmar,
 			platforms => [ qw/win32 linux macosx/ ],
 		},
-
 
 		
 		
@@ -1020,62 +1031,70 @@ sub sdkTest_freeimage {
 sub sdkTest_clapack {
 	my $sdk = "clapack";
 	print "(About 10 minutes on Linux / Mac)\n";
-	pushCwd( "$sdkDir/$sdk" );
-		if( $platform eq 'linux' ) {
-			executeCmd( "ln -s -f F2CLIBS f2clibs" );
-		}
-		$ret = platform_runMakefile(
-			win32name => 'clapack.vcproj',
-			linuxname => 'Makefile',
-			macosxname => 'Makefile',
-			target => 'clean',
-			win32config => 'Release',
-		);
-
-		pushCwd( "f2clibs" );
+	if( $platform eq 'macosx' ) {
+		pushCwd( "$sdkDir/$sdk" );
+			executeCmd( "make -f Makefile clean" );
+			executeCmd( "make -f Makefile" );
+		popCwd();
+	}
+	else {
+		pushCwd( "$sdkDir/$sdk" );
+			if( $platform eq 'linux' ) {
+				executeCmd( "ln -s -f F2CLIBS f2clibs" );
+			}
 			$ret = platform_runMakefile(
-				win32name => 'libF77.vcproj',
+				win32name => 'clapack.vcproj',
+				linuxname => 'Makefile',
+				macosxname => 'Makefile',
 				target => 'clean',
 				win32config => 'Release',
 			);
 
-			$ret = platform_runMakefile(
-				win32name => 'libI77.vcproj',
-				target => 'clean',
-				win32config => 'Release',
-			);
+			pushCwd( "f2clibs" );
+				$ret = platform_runMakefile(
+					win32name => 'libF77.vcproj',
+					target => 'clean',
+					win32config => 'Release',
+				);
+
+				$ret = platform_runMakefile(
+					win32name => 'libI77.vcproj',
+					target => 'clean',
+					win32config => 'Release',
+				);
+
+				$ret = platform_runMakefile(
+					win32name => 'libF77.vcproj',
+					win32config => 'Release',
+				);
+
+				$ret = platform_runMakefile(
+					win32name => 'libI77.vcproj',
+					win32config => 'Release',
+				);
+			popCwd();
+
+			pushCwd( "BLAS" );
+				$ret = platform_runMakefile(
+					win32name => 'blas.vcproj',
+					target => 'clean',
+					win32config => 'Release',
+				);
+
+				$ret = platform_runMakefile(
+					win32name => 'blas.vcproj',
+					win32config => 'Release',
+				);
+			popCwd();
 
 			$ret = platform_runMakefile(
-				win32name => 'libF77.vcproj',
-				win32config => 'Release',
-			);
-
-			$ret = platform_runMakefile(
-				win32name => 'libI77.vcproj',
+				win32name => 'clapack.vcproj',
+				linuxname => 'Makefile',
+				macosxname => 'Makefile',
 				win32config => 'Release',
 			);
 		popCwd();
-
-		pushCwd( "BLAS" );
-			$ret = platform_runMakefile(
-				win32name => 'blas.vcproj',
-				target => 'clean',
-				win32config => 'Release',
-			);
-
-			$ret = platform_runMakefile(
-				win32name => 'blas.vcproj',
-				win32config => 'Release',
-			);
-		popCwd();
-
-		$ret = platform_runMakefile(
-			win32name => 'clapack.vcproj',
-			linuxname => 'Makefile',
-			macosxname => 'Makefile',
-			win32config => 'Release',
-		);
-	popCwd();
+	}
 
 	mkdir( "clapack_test" );
 	open( TEST, ">clapack_test/clapack_test.cpp" ) || die "Unable to create clapack test file";
@@ -1141,6 +1160,86 @@ sub sdkTest_clapack {
 		print "FAILURE. clapack_test directory NOT removed for debugging.\n";
 	}
 }
+
+sub sdkTest_CLAPACK_3_2_1 {
+	my $sdk = "CLAPACK-3.2.1";
+	print "(About 10 minutes on Linux / Mac)\n";
+	if( $platform eq 'macosx' || $platform eq 'linux' ) {
+		pushCwd( "$sdkDir/$sdk" );
+			executeCmd( "make clean" );
+			executeCmd( "make lib" );
+				# note, do a make all (or just 'make') if you want to include all the testing.
+		popCwd();
+	}
+	elsif( $platform eq 'win32' ) {
+		# TODO
+	}
+
+	mkdir( "clapack_test" );
+	open( TEST, ">clapack_test/clapack_test.cpp" ) || die "Unable to create clapack test file";
+	print TEST '
+		#include "stdio.h"
+		#include "stdlib.h"
+		#include "math.h"
+		extern "C" {
+		#include "f2c.h"
+		#include "clapack.h"
+		}
+		int main( int argc, char **argv ) {
+			// See http://www.alab.t.u-tokyo.ac.jp/~bond/doc/clapack.html
+			// See also http://www.ece.osu.edu/ips/IPSOnly/lapack/example.c
+			//#define N 3
+			if( sizeof(real) != sizeof(float) ) return -2;
+			if( sizeof(integer) != sizeof(int) ) return -3;
+			int Lina_numRows = 2;
+			real *A = (real *)malloc( sizeof(real) * Lina_numRows * Lina_numRows );
+			real *vl = (real *)malloc( sizeof(real) * Lina_numRows * Lina_numRows );
+			real *vr = (real *)malloc( sizeof(real) * Lina_numRows * Lina_numRows );
+			real *wr = (real *)malloc( sizeof(real) * Lina_numRows );
+			real *wi = (real *)malloc( sizeof(real) * Lina_numRows );
+			real *work = (real *)malloc( sizeof(real) * 4 * Lina_numRows );
+			int n=Lina_numRows, lda=Lina_numRows, ldvl=Lina_numRows, ldvr=Lina_numRows, lwork = 4*Lina_numRows, info;
+			A[0*n+0] = 1.f;
+			A[0*n+1] = 2.f;
+			A[1*n+0] = 3.f;
+			A[1*n+1] = 4.f;
+			sgeev_( "N", "V", &n, A, &lda, wr, wi, vl, &ldvl, vr, &ldvr, work, &lwork, &info );
+			if( fabs(A[0]- -0.372281f) < 0.0001f && fabs(A[3]- 5.372281f) < 0.0001f  ) {
+				printf( "SUCCESS\n" );
+				return 0;
+			}
+			printf( "FAILURE\n" );
+			return -1;
+		}
+	';
+	print TEST "\n\n";
+	close( TEST );
+
+	platform_compile(
+		includes => [ "$sdkDir/$sdk/INCLUDE", "." ],
+		file => "clapack_test/clapack_test.cpp",
+		outfile => "clapack_test/clapack_test.obj",
+	) || die "Compile error";
+
+	platform_link(
+		win32libs => [ "$sdkDir/$sdk/Release/clapack.lib", "$sdkDir/$sdk/blas/Release/blas.lib", "$sdkDir/$sdk/f2clibs/Release/libf77.lib" ],
+		win32excludelibs => [ qw^libcmt.lib^ ],
+		linuxlibs => [ "$sdkDir/$sdk/lapack_LINUX.a", "$sdkDir/$sdk/blas_LINUX.a", "$sdkDir/$sdk/F2CLIBS/libf2c.a" ],
+		macosxlibs => [ "$sdkDir/$sdk/lapack_LINUX.a", "$sdkDir/$sdk/blas_LINUX.a", "$sdkDir/$sdk/F2CLIBS/libf2c.a" ],
+		files => [ "clapack_test/clapack_test.obj" ],
+		outfile => "clapack_test/clapack_test.exe",
+	) || die "Linker error";
+
+	`clapack_test/clapack_test.exe`;
+	if( $? == 0 ) {
+		print "success\n";
+		recursiveUnlink( "clapack_test" );
+	}
+	else {
+		print "FAILURE. clapack_test directory NOT removed for debugging.\n";
+	}
+}
+
 
 ############################################################################################################
 #
@@ -2878,7 +2977,7 @@ sub sdkTest_levmar {
 	if( $platform eq 'linux' || $platform eq 'macosx' ) {
 		pushCwd( "$sdkDir/$sdk" );
 			executeCmd( "make cleanall", 1 );
-			executeCmd( "make", 1 );
+			executeCmd( "make liblevmar.a", 1 );
 		popCwd();
 	}
 	elsif( $platform eq 'win32' ) {
