@@ -18,7 +18,7 @@ RANLIB=ranlib
 
 # zlab:
 LDFLAGS=-L../CLAPACK-3.2.1 -L../CLAPACK-3.2.1/F2CLIBS -L.
-LAPACKLIBS=-lblas_LINUX -llapack_LINUX  -lf2c
+LAPACKLIBS=../CLAPACK-3.2.1/blas_LINUX.a ../CLAPACK-3.2.1/lapack_LINUX.a  -lf2c
 
 #LAPACKLIBS=-llapack -lblas -lf2c # comment this line if you are not using LAPACK.
                                  # On systems with a FORTRAN (not f2c'ed) version of LAPACK, -lf2c is

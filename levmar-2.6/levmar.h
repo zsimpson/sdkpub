@@ -63,10 +63,6 @@
 extern "C" {
 #endif
 
-#include "blaswrap.h"
-#include "f2c.h"
-
-
 /* work arrays size for ?levmar_der and ?levmar_dif functions.
  * should be multiplied by sizeof(double) or sizeof(float) to be converted to bytes
  */
