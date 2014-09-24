@@ -6,7 +6,7 @@
 CC=gcc
 CONFIGFLAGS=#-ULINSOLVERS_RETAIN_MEMORY
 #ARCHFLAGS=-march=pentium4 # YOU MIGHT WANT TO UNCOMMENT THIS FOR P4
-CFLAGS=$(CONFIGFLAGS) $(ARCHFLAGS) -O3 -funroll-loops -Wall #-g #-ffast-math #-pg
+CFLAGS=$(CONFIGFLAGS) $(ARCHFLAGS) -I../CLAPACK-3.2.1/INCLUDE -O3 -funroll-loops -Wall #-g #-ffast-math #-pg
 LAPACKLIBS_PATH=/usr/local/lib # WHEN USING LAPACK, CHANGE THIS TO WHERE YOUR COMPILED LIBS ARE!
 LDFLAGS=-L$(LAPACKLIBS_PATH) -L.
 LIBOBJS=lm.o Axb.o misc.o lmlec.o lmbc.o lmblec.o lmbleic.o
@@ -15,6 +15,11 @@ DEMOBJS=lmdemo.o
 DEMOSRCS=lmdemo.c
 AR=ar
 RANLIB=ranlib
+
+# zlab:
+LDFLAGS=-L../CLAPACK-3.2.1 -L../CLAPACK-3.2.1/F2CLIBS -L.
+LAPACKLIBS=-lblas_LINUX -llapack_LINUX  -lf2c
+
 #LAPACKLIBS=-llapack -lblas -lf2c # comment this line if you are not using LAPACK.
                                  # On systems with a FORTRAN (not f2c'ed) version of LAPACK, -lf2c is
                                  # not necessary; on others, -lf2c is equivalent to -lF77 -lI77

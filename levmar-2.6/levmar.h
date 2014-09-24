@@ -28,7 +28,7 @@
  */
 
 /* specifies whether to use LAPACK or not. Using LAPACK is strongly recommended */
-/*#define HAVE_LAPACK*/
+#define HAVE_LAPACK
 
 /* specifies whether the PLASMA parallel library for multicore CPUs is available */
 /* #undef HAVE_PLASMA */
@@ -62,6 +62,10 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#include "blaswrap.h"
+#include "f2c.h"
+
 
 /* work arrays size for ?levmar_der and ?levmar_dif functions.
  * should be multiplied by sizeof(double) or sizeof(float) to be converted to bytes
