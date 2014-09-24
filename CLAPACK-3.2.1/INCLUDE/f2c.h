@@ -7,8 +7,10 @@
 #ifndef F2C_INCLUDE
 #define F2C_INCLUDE
 
-typedef long int integer;
-typedef unsigned long int uinteger;
+// typedef long int integer;
+// typedef unsigned long int uinteger;
+typedef int integer;
+typedef unsigned int uinteger;
 typedef char *address;
 typedef short int shortint;
 typedef float real;
@@ -42,9 +44,12 @@ typedef short flag;
 typedef short ftnlen;
 typedef short ftnint;
 #else
-typedef long int flag;
-typedef long int ftnlen;
-typedef long int ftnint;
+// typedef long int flag;
+// typedef long int ftnlen;
+// typedef long int ftnint;
+typedef int flag;
+typedef int ftnlen;
+typedef int ftnint;
 #endif
 
 /*external read, write*/
