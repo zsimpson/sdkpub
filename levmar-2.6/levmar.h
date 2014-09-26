@@ -135,7 +135,7 @@ extern int dlevmar_bc_dif(
 #ifdef HAVE_LAPACK
 /* linear equation constrained minimization */
 extern int dlevmar_lec_der(
-      void (*func)(double *p, double *hx, int m, int n, void *adata),
+      void (*func)(double *p, double *hx, double *e, int m, int n, void *adata),
       void (*jacf)(double *p, double *j, int m, int n, void *adata),
       double *p, double *x, int m, int n, double *A, double *b, int k,
       int itmax, double *opts, double *info, double *work, double *covar, void *adata);
@@ -147,7 +147,7 @@ extern int dlevmar_lec_dif(
 
 /* box & linear equation constrained minimization */
 extern int dlevmar_blec_der(
-      void (*func)(double *p, double *hx, int m, int n, void *adata),
+      void (*func)(double *p, double *hx, double *e, int m, int n, void *adata),
       void (*jacf)(double *p, double *j, int m, int n, void *adata),
       double *p, double *x, int m, int n, double *lb, double *ub, double *A, double *b, int k, double *wghts,
       int itmax, double *opts, double *info, double *work, double *covar, void *adata);

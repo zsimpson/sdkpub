@@ -74,13 +74,13 @@
 struct LMBLEC_DATA{
   LM_REAL *x, *lb, *ub, *w;
   int *bctype;
-  void (*func)(LM_REAL *p, LM_REAL *hx, int m, int n, void *adata);
+  void (*func)(LM_REAL *p, LM_REAL *hx, LM_REAL *e, int m, int n, void *adata);
   void (*jacf)(LM_REAL *p, LM_REAL *jac, int m, int n, void *adata);
   void *adata;
 };
 
 /* augmented measurements */
-static void LMBLEC_FUNC(LM_REAL *p, LM_REAL *hx, int m, int n, void *adata)
+static void LMBLEC_FUNC(LM_REAL *p, LM_REAL *hx, LM_REAL *e, int m, int n, void *adata)
 {
 struct LMBLEC_DATA *data=(struct LMBLEC_DATA *)adata;
 int nn;
@@ -92,7 +92,7 @@ register LM_REAL *lb, *ub, *w, tmp;
   ub=data->ub;
   w=data->w;
   typ=data->bctype;
-  (*(data->func))(p, hx, m, nn, data->adata);
+  (*(data->func))(p, hx, e, m, nn, data->adata);
 
   for(i=nn, j=0; i<n; ++i, ++j){
     switch(typ[j]){
@@ -109,6 +109,15 @@ register LM_REAL *lb, *ub, *w, tmp;
         hx[i]=w[j]*__MAX__(p[j]-ub[j], LM_CNST(0.0));
       break;
     }
+
+    // If the client callback func() is providing error terms, then it will have provided them
+    // only for the non-augmented measurement vector hx with nn points, but this is extended to
+    // n.  So compute those error terms here.  If the client is NOT computing error terms,
+    // this represents a slight duplication of effort since it will be done in lm_core.c
+    // tfb
+    e[i] = 0 - hx[i];
+      // because we know that the measurement vector x is zero-filled for augmented dimension
+    // end tfb
   }
 }
 
@@ -183,7 +192,7 @@ register LM_REAL *lb, *ub, *w, tmp;
  *
  */
 int LEVMAR_BLEC_DER(
-  void (*func)(LM_REAL *p, LM_REAL *hx, int m, int n, void *adata), /* functional relation describing measurements. A p \in R^m yields a \hat{x} \in  R^n */
+  void (*func)(LM_REAL *p, LM_REAL *hx, LM_REAL *e, int m, int n, void *adata), /* functional relation describing measurements. A p \in R^m yields a \hat{x} \in  R^n */
   void (*jacf)(LM_REAL *p, LM_REAL *j, int m, int n, void *adata),  /* function to evaluate the Jacobian \part x / \part p */ 
   LM_REAL *p,         /* I/O: initial parameter estimates. On output has the estimated solution */
   LM_REAL *x,         /* I: measurement vector. NULL implies a zero vector */

@@ -174,16 +174,15 @@ int (*linsolver)(LM_REAL *A, LM_REAL *B, LM_REAL *x, int m)=NULL;
   /* compute e=x - f(p) and its L2 norm */
   e[0] = TFB_MAGIC;
     // If this is still TFB_MAGIC after the function call, we know the user is not providing 
-    // the error terms and we'll set func_errors to flag this. (tfb)
-  int func_errors = 0;
+    // the error terms and we'll set client_errors to flag this. (tfb)
+  int client_errors = 0;
   (*func)(p, hx, e, m, n, adata); nfev=1;
   /* ### e=x-hx, p_eL2=||e|| */
   if( e[0] == TFB_MAGIC )  { 
     p_eL2=LEVMAR_L2NRMXMY(e, x, hx, n);  
   }
   else {
-    // tfb - func() returned it's own error terms in e, 
-    func_errors = 1;
+    client_errors = 1;
     for(i=0, p_eL2=0.0; i<n; ++i){
       tmp = e[i];
       p_eL2+=tmp*tmp;
@@ -195,7 +194,6 @@ int (*linsolver)(LM_REAL *A, LM_REAL *B, LM_REAL *x, int m)=NULL;
 
   for(k=0; k<itmax && !stop; ++k){
     /* Note that p and e have been updated at a previous iteration */
-
     if(p_eL2<=eps3){ /* error is small */
       stop=6;
       break;
@@ -359,13 +357,14 @@ if(!(k%100)){
         /* compute ||e(pDp)||_2 */
         /* ### hx=x-hx, pDp_eL2=||hx|| */
 
-        if( !func_errors ) { 
+        if( !client_errors ) { 
           pDp_eL2=LEVMAR_L2NRMXMY(hx, x, hx, n);
         }
         else {
           // tfb code - our function did not pass back the feval, it passed back the error 
           // at each term.  we've already done this once, but for now just compute the l2 norm
           // again on these terms:
+
           for(i=0, pDp_eL2=0.0; i<n; ++i){
             pDp_eL2+=e[i]*e[i];
           }
@@ -390,10 +389,11 @@ if(!(k%100)){
           mu=mu*( (tmp>=LM_CNST(ONE_THIRD))? tmp : LM_CNST(ONE_THIRD) );
           nu=2;
 
-          for(i=0 ; i<m; ++i) /* update p's estimate */
+          for(i=0 ; i<m; ++i) /* update p's estimate */ {
             p[i]=pDp[i];
+          }
 
-          if( e[0] == TFB_MAGIC ) {  
+          if( !client_errors ) {  
             for(i=0; i<n; ++i) { /* update e and ||e||_2 */
               e[i]=hx[i];
             }

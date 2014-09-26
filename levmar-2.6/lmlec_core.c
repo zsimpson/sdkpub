@@ -42,7 +42,7 @@
 struct LMLEC_DATA{
   LM_REAL *c, *Z, *p, *jac;
   int ncnstr;
-  void (*func)(LM_REAL *p, LM_REAL *hx, int m, int n, void *adata);
+  void (*func)(LM_REAL *p, LM_REAL *hx, LM_REAL *e, int m, int n, void *adata);
   void (*jacf)(LM_REAL *p, LM_REAL *jac, int m, int n, void *adata);
   void *adata;
 };
@@ -106,8 +106,11 @@ register int i, j, k;
 
   /* calculate required memory size */
   worksz=-1; // workspace query. Optimal work size is returned in aux
-  //ORGQR((int *)&tm, (int *)&tm, (int *)&mintmn, NULL, (int *)&tm, NULL, (LM_REAL *)&aux, &worksz, &info);
-  GEQP3((int *)&tm, (int *)&tn, NULL, (int *)&tm, NULL, NULL, (LM_REAL *)&aux, (int *)&worksz, &info);
+  ORGQR((int *)&tm, (int *)&tm, (int *)&mintmn, NULL, (int *)&tm, NULL, (LM_REAL *)&aux, &worksz, &info);
+  //GEQP3((int *)&tm, (int *)&tn, NULL, (int *)&tm, NULL, NULL, (LM_REAL *)&aux, (int *)&worksz, &info);
+    //TFB: in the original levmar source, GEQP3 was begin called for workspace query.  But this is not 
+    //     enough workspace for the later call to ORGQR.  The above call to ORGQR was there, but commented out,
+    //     and I reinstated it.
   worksz=(int)aux;
   a_sz=tm*tm; // tm*tn is enough for xgeqp3()
   jpvt_sz=tn;
@@ -260,7 +263,7 @@ register int i, j, k;
 }
 
 /* constrained measurements: given pp, compute the measurements at c + Z*pp */
-static void LMLEC_FUNC(LM_REAL *pp, LM_REAL *hx, int mm, int n, void *adata)
+static void LMLEC_FUNC(LM_REAL *pp, LM_REAL *hx, double *e, int mm, int n, void *adata)
 {
 struct LMLEC_DATA *data=(struct LMLEC_DATA *)adata;
 int m;
@@ -280,7 +283,7 @@ LM_REAL *c, *Z, *p, *Zimm;
     p[i]=sum;
   }
 
-  (*(data->func))(p, hx, m, n, data->adata);
+  (*(data->func))(p, hx, e, m, n, data->adata);
 }
 
 /* constrained Jacobian: given pp, compute the Jacobian at c + Z*pp
@@ -371,7 +374,7 @@ LM_REAL *c, *Z, *p, *jac;
  *
  */
 int LEVMAR_LEC_DER(
-  void (*func)(LM_REAL *p, LM_REAL *hx, int m, int n, void *adata), /* functional relation describing measurements. A p \in R^m yields a \hat{x} \in  R^n */
+  void (*func)(LM_REAL *p, LM_REAL *hx, LM_REAL *e, int m, int n, void *adata), /* functional relation describing measurements. A p \in R^m yields a \hat{x} \in  R^n */
   void (*jacf)(LM_REAL *p, LM_REAL *j, int m, int n, void *adata),  /* function to evaluate the Jacobian \part x / \part p */ 
   LM_REAL *p,         /* I/O: initial parameter estimates. On output has the estimated solution */
   LM_REAL *x,         /* I: measurement vector. NULL implies a zero vector */
@@ -412,6 +415,7 @@ int LEVMAR_LEC_DER(
   register int i, j;
   register LM_REAL tmp;
   LM_REAL locinfo[LM_INFO_SZ];
+
 
   if(!jacf){
     fprintf(stderr, RCAT("No function specified for computing the Jacobian in ", LEVMAR_LEC_DER)

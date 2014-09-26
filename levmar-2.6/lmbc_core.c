@@ -173,7 +173,7 @@ struct FUNC_STATE{
   int n, *nfev;
   LM_REAL *hx, *x;
   LM_REAL *lb, *ub;
-  int func_errors; // tfb, flag
+  int client_errors; // tfb, flag
   void *adata;
 };
 
@@ -216,7 +216,7 @@ LNSRCH(int m, LM_REAL *x, LM_REAL f, LM_REAL *g, LM_REAL *p, LM_REAL alpha, LM_R
  *	rln		 relative length of newton step
 */
 
-    // printf( "******* Entering LNSRCH%s\n", state->func_errors ? ", (client computes errors)" : "" );
+    // printf( "******* Entering LNSRCH%s\n", state->client_errors ? ", (client computes errors)" : "" );
     // int tfbcounter = 0;
 
     register int i, j;
@@ -269,7 +269,7 @@ LNSRCH(int m, LM_REAL *x, LM_REAL f, LM_REAL *g, LM_REAL *p, LM_REAL alpha, LM_R
         for (i = m; i-- > 0;  ) xpls[i] /= sx[i];
       }
       /* ### state->hx=state->x-state->hx, tmp1=||state->hx|| */
-      if( !state->func_errors )  { 
+      if( !state->client_errors )  { 
         tmp1=LEVMAR_L2NRMXMY(state->hx, state->x, state->hx, state->n);  
       }
       else {
@@ -521,7 +521,7 @@ int (*linsolver)(LM_REAL *A, LM_REAL *B, LM_REAL *x, int m)=NULL;
   fstate.x=x;
   fstate.lb=lb;
   fstate.ub=ub;
-  fstate.func_errors=0;
+  fstate.client_errors=0;
   fstate.adata=adata;
   fstate.nfev=&nfev;
   
@@ -537,7 +537,7 @@ int (*linsolver)(LM_REAL *A, LM_REAL *B, LM_REAL *x, int m)=NULL;
 
   /* compute e=x - f(p) and its L2 norm */
   e[0] = TFB_MAGIC;
-  int func_errors = 0;
+  int client_errors = 0;
     // If e[0] is still TFB_MAGIC after the function call, we know the user is not providing 
     // the error terms in (*func) and we'll compute them ourselves from here forward.
   (*func)(p, hx, e, m, n, adata); nfev=1;
@@ -549,13 +549,13 @@ int (*linsolver)(LM_REAL *A, LM_REAL *B, LM_REAL *x, int m)=NULL;
   else {
     // tfb - func() returned it's own error terms in e, set flag to use those from
     // here forward.
-    func_errors = 1;
+    client_errors = 1;
     for(i=0, p_eL2=0.0; i<n; ++i){
       tmp = e[i];
       p_eL2+=tmp*tmp;
     }
   }
-  fstate.func_errors=func_errors;
+  fstate.client_errors=client_errors;
 
 
   init_p_eL2=p_eL2;
@@ -763,7 +763,7 @@ if(!(k%100)){
         }
 
         /* ### hx=x-hx, pDp_eL2=||hx|| */
-        if( !func_errors ) { 
+        if( !client_errors ) { 
           pDp_eL2=LEVMAR_L2NRMXMY(hx, x, hx, n);
         }
         else {
@@ -932,7 +932,7 @@ gradproj:
 
           /* compute ||e(pDp)||_2 */
           /* ### hx=x-hx, pDp_eL2=||hx|| */
-          if( !func_errors ) { 
+          if( !client_errors ) { 
             pDp_eL2=LEVMAR_L2NRMXMY(hx, x, hx, n);
           }
           else {

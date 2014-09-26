@@ -614,10 +614,22 @@ register int j=0;
  * constr4: 0.7 <= p[2];
  *
  */
-void mods235(double *p, double *x, int m, int n, void *data)
+//       double A[2*3]={1.0, 0.0, 1.0,  0.0, 1.0, -4.0},
+//              b[2]={-1.0, 0.0};
+//
+void mods235(double *p, double *x, double *e, int m, int n, void *data)
 {
   x[0]=0.1*(p[0]-1.0);
   x[1]=p[1]-p[0]*p[0];
+
+
+  //TFB: passing error back to the fitter like we do in kinexp; we know that the values
+  //are supposed to be 0 at each index.
+  for( int i=0; i<n; i++ ) {
+    e[i] = 0 - x[i];
+      // ydata - yfit
+  }
+
 }
 
 void jacmods235(double *p, double *jac, int m, int n, void *data)
@@ -850,10 +862,10 @@ char *probname[]={
       //12; // Hock - Schittkowski modified problem 21
       //13; // hatfldb problem
       //14; // hatfldc problem
-      15; // equilibrium combustion problem
+      //15; // equilibrium combustion problem
 #ifdef HAVE_LAPACK
       //16; // Hock - Schittkowski modified #1 problem 52
-      //17; // Schittkowski modified problem 235
+      17; // Schittkowski modified problem 235
       //18; // Boggs & Tolle modified problem #7
       //19; // Hock - Schittkowski modified #2 problem 52
       //20; // Hock - Schittkowski modified problem #76"
