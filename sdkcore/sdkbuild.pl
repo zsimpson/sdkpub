@@ -120,7 +120,8 @@ sub sdkSetup {
 
 		'clapack-3.2.1' => {
 			includes => [ "$sdkDir/CLAPACK-3.2.1/INCLUDE" ],
-			win32libs => [ "$sdkDir/CLAPACK-3.2.1/Release/CLAPACK-3.2.1.lib", "$sdkDir/CLAPACK-3.2.1/blas/Release/blas.lib", "$sdkDir/CLAPACK-3.2.1/f2clibs/Release/libf77.lib" ],
+			win32includes => [ "$sdkDir/CLAPACK-3.2.1/win32/prebuilt" ],
+			win32libs => [ "$sdkDir/CLAPACK-3.2.1/win32/prebuilt/lapack.lib", "$sdkDir/CLAPACK-3.2.1/win32/prebuilt/blas.lib", "$sdkDir/CLAPACK-3.2.1/win32/prebuilt/libf2c.lib" ],
 			linuxlibs  => [ "$sdkDir/CLAPACK-3.2.1/lapack_LINUX.a", "$sdkDir/CLAPACK-3.2.1/blas_LINUX.a", "$sdkDir/CLAPACK-3.2.1/F2CLIBS/libf2c.a" ],
 			macosxlibs => [ "$sdkDir/CLAPACK-3.2.1/lapack_LINUX.a", "$sdkDir/CLAPACK-3.2.1/blas_LINUX.a", "$sdkDir/CLAPACK-3.2.1/F2CLIBS/libf2c.a" ], 
 			test => \&sdkTest_CLAPACK_3_2_1,
@@ -1217,13 +1218,13 @@ sub sdkTest_CLAPACK_3_2_1 {
 
 	platform_compile(
 		includes => [ "$sdkDir/$sdk/INCLUDE", "." ],
+		win32includes => [ "$sdkDir/CLAPACK-3.2.1/win32/prebuilt" ],
 		file => "clapack_test/clapack_test.cpp",
 		outfile => "clapack_test/clapack_test.obj",
 	) || die "Compile error";
 
 	platform_link(
-		win32libs => [ "$sdkDir/$sdk/Release/clapack.lib", "$sdkDir/$sdk/blas/Release/blas.lib", "$sdkDir/$sdk/f2clibs/Release/libf77.lib" ],
-		win32excludelibs => [ qw^libcmt.lib^ ],
+		win32libs => [ "$sdkDir/CLAPACK-3.2.1/win32/prebuilt/lapack.lib", "$sdkDir/CLAPACK-3.2.1/win32/prebuilt/blas.lib", "$sdkDir/CLAPACK-3.2.1/win32/prebuilt/libf2c.lib" ],
 		linuxlibs => [ "$sdkDir/$sdk/lapack_LINUX.a", "$sdkDir/$sdk/blas_LINUX.a", "$sdkDir/$sdk/F2CLIBS/libf2c.a" ],
 		macosxlibs => [ "$sdkDir/$sdk/lapack_LINUX.a", "$sdkDir/$sdk/blas_LINUX.a", "$sdkDir/$sdk/F2CLIBS/libf2c.a" ],
 		files => [ "clapack_test/clapack_test.obj" ],
