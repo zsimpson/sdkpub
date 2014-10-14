@@ -469,7 +469,7 @@ sub sdkSetup {
 			# NOTE, I currently have levmar configured with HAVE_LAPACK, so anything you
 			# build with levmar will need clapack-3.2.1 pulled in as well.  tfb sept 2014
 			includes => [ "$sdkDir/levmar-2.6/" ],
-			win32libs => [ "$sdkDir/levmar-2.6/levmar_win32/Release/levmar_win32.lib" ],
+			win32libs => [ "$sdkDir/levmar-2.6/levmar_win32/Release/levmar_win32.lib", "$sdkDir/CLAPACK-3.2.1/win32/prebuilt/lapack.lib", "$sdkDir/CLAPACK-3.2.1/win32/prebuilt/blas.lib", "$sdkDir/CLAPACK-3.2.1/win32/prebuilt/libf2c.lib" ],
 			macosxlibs => [ "$sdkDir/levmar-2.6/liblevmar.a", "$sdkDir/CLAPACK-3.2.1/lapack_LINUX.a", "$sdkDir/CLAPACK-3.2.1/blas_LINUX.a", "$sdkDir/CLAPACK-3.2.1/F2CLIBS/libf2c.a" ],
 			linuxlibs => [ "$sdkDir/levmar-2.6/liblevmar.a", "$sdkDir/CLAPACK-3.2.1/lapack_LINUX.a", "$sdkDir/CLAPACK-3.2.1/blas_LINUX.a", "$sdkDir/CLAPACK-3.2.1/F2CLIBS/libf2c.a" ],
 			test => \&sdkTest_levmar,
