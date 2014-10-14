@@ -619,13 +619,14 @@ register int j=0;
 //
 void mods235(double *p, double *x, double *e, int m, int n, void *data)
 {
+  int i;
   x[0]=0.1*(p[0]-1.0);
   x[1]=p[1]-p[0]*p[0];
 
 
   //TFB: passing error back to the fitter like we do in kinexp; we know that the values
   //are supposed to be 0 at each index.
-  for( int i=0; i<n; i++ ) {
+  for( i=0; i<n; i++ ) {
     e[i] = 0 - x[i];
       // ydata - yfit
   }
@@ -689,6 +690,7 @@ register int i, j;
 void combust(double *p, double *x, double *e, int m, int n, void *data)
 {
   double R, R5, R6, R7, R8, R9, R10;
+  int i;
 
   R=10;
   R5=0.193;
@@ -706,7 +708,7 @@ void combust(double *p, double *x, double *e, int m, int n, void *data)
 
   //TFB: passing error back to the fitter like we do in kinexp; we know that the values
   //are supposed to be 0 at each index.
-  for( int i=0; i<5; i++ ) {
+  for( i=0; i<5; i++ ) {
     e[i] = 0 - x[i];
       // ydata - yfit
   }

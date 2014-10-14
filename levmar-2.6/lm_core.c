@@ -122,6 +122,8 @@ LM_REAL init_p_eL2;
 int nu=2, nu2, stop=0, nfev, njev=0, nlss=0;
 const int nm=n*m;
 int (*linsolver)(LM_REAL *A, LM_REAL *B, LM_REAL *x, int m)=NULL;
+int client_errors = 0;
+  
 
   mu=jacTe_inf=0.0; /* -Wall */
 
@@ -175,7 +177,6 @@ int (*linsolver)(LM_REAL *A, LM_REAL *B, LM_REAL *x, int m)=NULL;
   e[0] = TFB_MAGIC;
     // If this is still TFB_MAGIC after the function call, we know the user is not providing 
     // the error terms and we'll set client_errors to flag this. (tfb)
-  int client_errors = 0;
   (*func)(p, hx, e, m, n, adata); nfev=1;
   /* ### e=x-hx, p_eL2=||e|| */
   if( e[0] == TFB_MAGIC )  { 

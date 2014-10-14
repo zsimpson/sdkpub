@@ -448,6 +448,8 @@ const LM_REAL tini=LM_CNST(1.0); /* initial step length for LS and PG steps */
 int nLMsteps=0, nLSsteps=0, nPGsteps=0, gprevtaken=0;
 int numactive;
 int (*linsolver)(LM_REAL *A, LM_REAL *B, LM_REAL *x, int m)=NULL;
+int client_errors = 0;
+  
 
   mu=jacTe_inf=t=0.0;  tmin=tmin; /* -Wall */
 
@@ -537,7 +539,6 @@ int (*linsolver)(LM_REAL *A, LM_REAL *B, LM_REAL *x, int m)=NULL;
 
   /* compute e=x - f(p) and its L2 norm */
   e[0] = TFB_MAGIC;
-  int client_errors = 0;
     // If e[0] is still TFB_MAGIC after the function call, we know the user is not providing 
     // the error terms in (*func) and we'll compute them ourselves from here forward.
   (*func)(p, hx, e, m, n, adata); nfev=1;
