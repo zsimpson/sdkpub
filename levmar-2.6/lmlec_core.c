@@ -90,7 +90,7 @@ static int LMLEC_ELIM(LM_REAL *A, LM_REAL *b, LM_REAL *c, LM_REAL *Y, LM_REAL *Z
 static LM_REAL eps=LM_CNST(-1.0);
 
 LM_REAL *buf=NULL;
-LM_REAL *a, *tau, *work, *r, aux;
+LM_REAL *a, *tau, *work, *r, aux, aux2;
 register LM_REAL tmp;
 int a_sz, jpvt_sz, tau_sz, r_sz, Y_sz, worksz;
 int info, rank, *jpvt, tot_sz, mintmn, tm, tn;
@@ -105,12 +105,19 @@ register int i, j, k;
   mintmn=m;
 
   /* calculate required memory size */
+  printf( "calculate worksz with tm=%d, tn=%d, mintmn=%d\n", tm, tn, mintmn );
   worksz=-1; // workspace query. Optimal work size is returned in aux
   ORGQR((int *)&tm, (int *)&tm, (int *)&mintmn, NULL, (int *)&tm, NULL, (LM_REAL *)&aux, &worksz, &info);
-  //GEQP3((int *)&tm, (int *)&tn, NULL, (int *)&tm, NULL, NULL, (LM_REAL *)&aux, (int *)&worksz, &info);
+  worksz=-1; // workspace query. Optimal work size is returned in aux2
+  GEQP3((int *)&tm, (int *)&tn, NULL, (int *)&tm, NULL, NULL, (LM_REAL *)&aux2, (int *)&worksz, &info);
     //TFB: in the original levmar source, GEQP3 was begin called for workspace query.  But this is not 
     //     enough workspace for the later call to ORGQR.  The above call to ORGQR was there, but commented out,
     //     and I reinstated it.
+
+  printf( "ORGQR returns aux as %d, GEQP3 returns aux2 as %d\n", (int)aux, (int)aux2 );
+  if( aux2 > aux ) {
+    aux = aux2;
+  }
   worksz=(int)aux;
   a_sz=tm*tm; // tm*tn is enough for xgeqp3()
   jpvt_sz=tn;
