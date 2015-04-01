@@ -105,7 +105,6 @@ register int i, j, k;
   mintmn=m;
 
   /* calculate required memory size */
-  printf( "calculate worksz with tm=%d, tn=%d, mintmn=%d\n", tm, tn, mintmn );
   worksz=-1; // workspace query. Optimal work size is returned in aux
   ORGQR((int *)&tm, (int *)&tm, (int *)&mintmn, NULL, (int *)&tm, NULL, (LM_REAL *)&aux, &worksz, &info);
   worksz=-1; // workspace query. Optimal work size is returned in aux2
@@ -114,7 +113,6 @@ register int i, j, k;
     //     enough workspace for the later call to ORGQR.  The above call to ORGQR was there, but commented out,
     //     and I reinstated it.
 
-  printf( "ORGQR returns aux as %d, GEQP3 returns aux2 as %d\n", (int)aux, (int)aux2 );
   if( aux2 > aux ) {
     aux = aux2;
   }
