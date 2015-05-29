@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug-DLL|Win32">
+      <Configuration>Debug-DLL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug-DLL|x64">
+      <Configuration>Debug-DLL</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug-StaticLib|Win32">
+      <Configuration>Debug-StaticLib</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug-StaticLib|x64">
+      <Configuration>Debug-StaticLib</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release-DLL|Win32">
+      <Configuration>Release-DLL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release-DLL|x64">
+      <Configuration>Release-DLL</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release-StaticLib|Win32">
+      <Configuration>Release-StaticLib</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release-StaticLib|x64">
+      <Configuration>Release-StaticLib</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F12C72B9-A7C8-4FE1-8CA7-00B06819033A}</ProjectGuid>
+    <RootNamespace>libgslcblas</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">
+    <PreBuildEvent>
+      <Command>if not exist .\..\..\config.h goto COPY_CONFIG_H
+
+fc .\..\config.h.msvc .\..\..\config.h
+if NOT ERRORLEVEL 1 goto EXIT_BAT
+
+:COPY_CONFIG_H
+if exist .\..\..\config.h del .\..\..\config.h
+copy .\..\config.h.msvc .\..\..\config.h
+goto EXIT_BAT
+
+:EXIT_BAT
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.\..;.\..\..;..\include;..\..\include;..\include\gsl;..\..\include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling />
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName)_d.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">
+    <PreBuildEvent>
+      <Command>if not exist .\..\..\config.h goto COPY_CONFIG_H
+
+fc .\..\config.h.msvc .\..\..\config.h
+if NOT ERRORLEVEL 1 goto EXIT_BAT
+
+:COPY_CONFIG_H
+if exist .\..\..\config.h del .\..\..\config.h
+copy .\..\config.h.msvc .\..\..\config.h
+goto EXIT_BAT
+
+:EXIT_BAT
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.\..;.\..\..;..\include;..\..\include;..\include\gsl;..\..\include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName)_d.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">
+    <PreBuildEvent>
+      <Command>if not exist .\..\..\config.h goto COPY_CONFIG_H
+
+fc .\..\config.h.msvc .\..\..\config.h
+if NOT ERRORLEVEL 1 goto EXIT_BAT
+
+:COPY_CONFIG_H
+if exist .\..\..\config.h del .\..\..\config.h
+copy .\..\config.h.msvc .\..\..\config.h
+goto EXIT_BAT
+
+:EXIT_BAT
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\..;.\..\..;..\include;..\..\include;..\include\gsl;..\..\include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">
+    <PreBuildEvent>
+      <Command>if not exist .\..\..\config.h goto COPY_CONFIG_H
+
+fc .\..\config.h.msvc .\..\..\config.h
+if NOT ERRORLEVEL 1 goto EXIT_BAT
+
+:COPY_CONFIG_H
+if exist .\..\..\config.h del .\..\..\config.h
+copy .\..\config.h.msvc .\..\..\config.h
+goto EXIT_BAT
+
+:EXIT_BAT
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\..;.\..\..;..\include;..\..\include;..\include\gsl;..\..\include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">
+    <PreBuildEvent>
+      <Command>if not exist .\..\..\config.h goto COPY_CONFIG_H
+
+fc .\..\config.h.msvc .\..\..\config.h
+if NOT ERRORLEVEL 1 goto EXIT_BAT
+
+:COPY_CONFIG_H
+if exist .\..\..\config.h del .\..\..\config.h
+copy .\..\config.h.msvc .\..\..\config.h
+goto EXIT_BAT
+
+:EXIT_BAT
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.\..;.\..\..;..\include;..\..\include;..\include\gsl;..\..\include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GSL_DLL;DLL_EXPORT;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling />
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName)_d.dll</OutputFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <ImportLibrary>$(TargetDir)$(ProjectName)_dll_d.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">
+    <PreBuildEvent>
+      <Command>if not exist .\..\..\config.h goto COPY_CONFIG_H
+
+fc .\..\config.h.msvc .\..\..\config.h
+if NOT ERRORLEVEL 1 goto EXIT_BAT
+
+:COPY_CONFIG_H
+if exist .\..\..\config.h del .\..\..\config.h
+copy .\..\config.h.msvc .\..\..\config.h
+goto EXIT_BAT
+
+:EXIT_BAT
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.\..;.\..\..;..\include;..\..\include;..\include\gsl;..\..\include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GSL_DLL;DLL_EXPORT;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName)_d.dll</OutputFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>$(TargetDir)$(ProjectName)_dll_d.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">
+    <PreBuildEvent>
+      <Command>if not exist .\..\..\config.h goto COPY_CONFIG_H
+
+fc .\..\config.h.msvc .\..\..\config.h
+if NOT ERRORLEVEL 1 goto EXIT_BAT
+
+:COPY_CONFIG_H
+if exist .\..\..\config.h del .\..\..\config.h
+copy .\..\config.h.msvc .\..\..\config.h
+goto EXIT_BAT
+
+:EXIT_BAT
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\..;.\..\..;..\include;..\..\include;..\include\gsl;..\..\include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GSL_DLL;DLL_EXPORT;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling />
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Link>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <ImportLibrary>$(TargetDir)$(TargetName)_dll.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">
+    <PreBuildEvent>
+      <Command>if not exist .\..\..\config.h goto COPY_CONFIG_H
+
+fc .\..\config.h.msvc .\..\..\config.h
+if NOT ERRORLEVEL 1 goto EXIT_BAT
+
+:COPY_CONFIG_H
+if exist .\..\..\config.h del .\..\..\config.h
+copy .\..\config.h.msvc .\..\..\config.h
+goto EXIT_BAT
+
+:EXIT_BAT
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\..;.\..\..;..\include;..\..\include;..\include\gsl;..\..\include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GSL_DLL;DLL_EXPORT;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Link>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>$(TargetDir)$(TargetName)_dll.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\cblas\caxpy.c" />
+    <ClCompile Include="..\..\cblas\ccopy.c" />
+    <ClCompile Include="..\..\cblas\cdotc_sub.c" />
+    <ClCompile Include="..\..\cblas\cdotu_sub.c" />
+    <ClCompile Include="..\..\cblas\cgbmv.c" />
+    <ClCompile Include="..\..\cblas\cgemm.c" />
+    <ClCompile Include="..\..\cblas\cgemv.c" />
+    <ClCompile Include="..\..\cblas\cgerc.c" />
+    <ClCompile Include="..\..\cblas\cgeru.c" />
+    <ClCompile Include="..\..\cblas\chbmv.c" />
+    <ClCompile Include="..\..\cblas\chemm.c" />
+    <ClCompile Include="..\..\cblas\chemv.c" />
+    <ClCompile Include="..\..\cblas\cher.c" />
+    <ClCompile Include="..\..\cblas\cher2.c" />
+    <ClCompile Include="..\..\cblas\cher2k.c" />
+    <ClCompile Include="..\..\cblas\cherk.c" />
+    <ClCompile Include="..\..\cblas\chpmv.c" />
+    <ClCompile Include="..\..\cblas\chpr.c" />
+    <ClCompile Include="..\..\cblas\chpr2.c" />
+    <ClCompile Include="..\..\cblas\cscal.c" />
+    <ClCompile Include="..\..\cblas\csscal.c" />
+    <ClCompile Include="..\..\cblas\cswap.c" />
+    <ClCompile Include="..\..\cblas\csymm.c" />
+    <ClCompile Include="..\..\cblas\csyr2k.c" />
+    <ClCompile Include="..\..\cblas\csyrk.c" />
+    <ClCompile Include="..\..\cblas\ctbmv.c" />
+    <ClCompile Include="..\..\cblas\ctbsv.c" />
+    <ClCompile Include="..\..\cblas\ctpmv.c" />
+    <ClCompile Include="..\..\cblas\ctpsv.c" />
+    <ClCompile Include="..\..\cblas\ctrmm.c" />
+    <ClCompile Include="..\..\cblas\ctrmv.c" />
+    <ClCompile Include="..\..\cblas\ctrsm.c" />
+    <ClCompile Include="..\..\cblas\ctrsv.c" />
+    <ClCompile Include="..\..\cblas\dasum.c" />
+    <ClCompile Include="..\..\cblas\daxpy.c" />
+    <ClCompile Include="..\..\cblas\dcopy.c" />
+    <ClCompile Include="..\..\cblas\ddot.c" />
+    <ClCompile Include="..\..\cblas\dgbmv.c" />
+    <ClCompile Include="..\..\cblas\dgemm.c" />
+    <ClCompile Include="..\..\cblas\dgemv.c" />
+    <ClCompile Include="..\..\cblas\dger.c" />
+    <ClCompile Include="..\..\cblas\dnrm2.c" />
+    <ClCompile Include="..\..\cblas\drot.c" />
+    <ClCompile Include="..\..\cblas\drotg.c" />
+    <ClCompile Include="..\..\cblas\drotm.c" />
+    <ClCompile Include="..\..\cblas\drotmg.c" />
+    <ClCompile Include="..\..\cblas\dsbmv.c" />
+    <ClCompile Include="..\..\cblas\dscal.c" />
+    <ClCompile Include="..\..\cblas\dsdot.c" />
+    <ClCompile Include="..\..\cblas\dspmv.c" />
+    <ClCompile Include="..\..\cblas\dspr.c" />
+    <ClCompile Include="..\..\cblas\dspr2.c" />
+    <ClCompile Include="..\..\cblas\dswap.c" />
+    <ClCompile Include="..\..\cblas\dsymm.c" />
+    <ClCompile Include="..\..\cblas\dsymv.c" />
+    <ClCompile Include="..\..\cblas\dsyr.c" />
+    <ClCompile Include="..\..\cblas\dsyr2.c" />
+    <ClCompile Include="..\..\cblas\dsyr2k.c" />
+    <ClCompile Include="..\..\cblas\dsyrk.c" />
+    <ClCompile Include="..\..\cblas\dtbmv.c" />
+    <ClCompile Include="..\..\cblas\dtbsv.c" />
+    <ClCompile Include="..\..\cblas\dtpmv.c" />
+    <ClCompile Include="..\..\cblas\dtpsv.c" />
+    <ClCompile Include="..\..\cblas\dtrmm.c" />
+    <ClCompile Include="..\..\cblas\dtrmv.c" />
+    <ClCompile Include="..\..\cblas\dtrsm.c" />
+    <ClCompile Include="..\..\cblas\dtrsv.c" />
+    <ClCompile Include="..\..\cblas\dzasum.c" />
+    <ClCompile Include="..\..\cblas\dznrm2.c" />
+    <ClCompile Include="..\..\cblas\icamax.c" />
+    <ClCompile Include="..\..\cblas\idamax.c" />
+    <ClCompile Include="..\..\cblas\isamax.c" />
+    <ClCompile Include="..\..\cblas\izamax.c" />
+    <ClCompile Include="..\..\cblas\sasum.c" />
+    <ClCompile Include="..\..\cblas\saxpy.c" />
+    <ClCompile Include="..\..\cblas\scasum.c" />
+    <ClCompile Include="..\..\cblas\scnrm2.c" />
+    <ClCompile Include="..\..\cblas\scopy.c" />
+    <ClCompile Include="..\..\cblas\sdot.c" />
+    <ClCompile Include="..\..\cblas\sdsdot.c" />
+    <ClCompile Include="..\..\cblas\sgbmv.c" />
+    <ClCompile Include="..\..\cblas\sgemm.c" />
+    <ClCompile Include="..\..\cblas\sgemv.c" />
+    <ClCompile Include="..\..\cblas\sger.c" />
+    <ClCompile Include="..\..\cblas\snrm2.c" />
+    <ClCompile Include="..\..\cblas\srot.c" />
+    <ClCompile Include="..\..\cblas\srotg.c" />
+    <ClCompile Include="..\..\cblas\srotm.c" />
+    <ClCompile Include="..\..\cblas\srotmg.c" />
+    <ClCompile Include="..\..\cblas\ssbmv.c" />
+    <ClCompile Include="..\..\cblas\sscal.c" />
+    <ClCompile Include="..\..\cblas\sspmv.c" />
+    <ClCompile Include="..\..\cblas\sspr.c" />
+    <ClCompile Include="..\..\cblas\sspr2.c" />
+    <ClCompile Include="..\..\cblas\sswap.c" />
+    <ClCompile Include="..\..\cblas\ssymm.c" />
+    <ClCompile Include="..\..\cblas\ssymv.c" />
+    <ClCompile Include="..\..\cblas\ssyr.c" />
+    <ClCompile Include="..\..\cblas\ssyr2.c" />
+    <ClCompile Include="..\..\cblas\ssyr2k.c" />
+    <ClCompile Include="..\..\cblas\ssyrk.c" />
+    <ClCompile Include="..\..\cblas\stbmv.c" />
+    <ClCompile Include="..\..\cblas\stbsv.c" />
+    <ClCompile Include="..\..\cblas\stpmv.c" />
+    <ClCompile Include="..\..\cblas\stpsv.c" />
+    <ClCompile Include="..\..\cblas\strmm.c" />
+    <ClCompile Include="..\..\cblas\strmv.c" />
+    <ClCompile Include="..\..\cblas\strsm.c" />
+    <ClCompile Include="..\..\cblas\strsv.c" />
+    <ClCompile Include="..\..\cblas\xerbla.c" />
+    <ClCompile Include="..\..\cblas\zaxpy.c" />
+    <ClCompile Include="..\..\cblas\zcopy.c" />
+    <ClCompile Include="..\..\cblas\zdotc_sub.c" />
+    <ClCompile Include="..\..\cblas\zdotu_sub.c" />
+    <ClCompile Include="..\..\cblas\zdscal.c" />
+    <ClCompile Include="..\..\cblas\zgbmv.c" />
+    <ClCompile Include="..\..\cblas\zgemm.c" />
+    <ClCompile Include="..\..\cblas\zgemv.c" />
+    <ClCompile Include="..\..\cblas\zgerc.c" />
+    <ClCompile Include="..\..\cblas\zgeru.c" />
+    <ClCompile Include="..\..\cblas\zhbmv.c" />
+    <ClCompile Include="..\..\cblas\zhemm.c" />
+    <ClCompile Include="..\..\cblas\zhemv.c" />
+    <ClCompile Include="..\..\cblas\zher.c" />
+    <ClCompile Include="..\..\cblas\zher2.c" />
+    <ClCompile Include="..\..\cblas\zher2k.c" />
+    <ClCompile Include="..\..\cblas\zherk.c" />
+    <ClCompile Include="..\..\cblas\zhpmv.c" />
+    <ClCompile Include="..\..\cblas\zhpr.c" />
+    <ClCompile Include="..\..\cblas\zhpr2.c" />
+    <ClCompile Include="..\..\cblas\zscal.c" />
+    <ClCompile Include="..\..\cblas\zswap.c" />
+    <ClCompile Include="..\..\cblas\zsymm.c" />
+    <ClCompile Include="..\..\cblas\zsyr2k.c" />
+    <ClCompile Include="..\..\cblas\zsyrk.c" />
+    <ClCompile Include="..\..\cblas\ztbmv.c" />
+    <ClCompile Include="..\..\cblas\ztbsv.c" />
+    <ClCompile Include="..\..\cblas\ztpmv.c" />
+    <ClCompile Include="..\..\cblas\ztpsv.c" />
+    <ClCompile Include="..\..\cblas\ztrmm.c" />
+    <ClCompile Include="..\..\cblas\ztrmv.c" />
+    <ClCompile Include="..\..\cblas\ztrsm.c" />
+    <ClCompile Include="..\..\cblas\ztrsv.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

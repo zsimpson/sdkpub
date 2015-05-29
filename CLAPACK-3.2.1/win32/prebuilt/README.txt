@@ -23,3 +23,13 @@ files.  The CMAKE run generates quite a number of vcproj files for vs2008, so I'
 resulting libs into win32/prebuilt.  The reason I needed to build after all is that the prebuilt
 versions available for download link against DLLs and so externally ref'd fns have the __imp_ prefix.
 
+####
+
+To build 64bit versions of these libs, I used the vcupdate.exe tool that comes with the free vs2013
+and converted the specific projects for blas.lib, lapack.lib, and libf2c.lib to the newer .vcxproj
+format.  I opened these in vs2013, created a new x64 build configuration, and build  them in that
+tool.  I copied the libs into the vc12_64bit folder.  The sdkbuild.pl entry for clapack-3.2.1 will
+copy either the 32bit or the 64bit libs in the the prebuilt folder so that the path to the lib
+remains the same in the win32lib entry etc.
+
+tfb may 2015

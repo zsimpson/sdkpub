@@ -1,0 +1,1505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug-DLL|Win32">
+      <Configuration>Debug-DLL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug-DLL|x64">
+      <Configuration>Debug-DLL</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug-StaticLib|Win32">
+      <Configuration>Debug-StaticLib</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug-StaticLib|x64">
+      <Configuration>Debug-StaticLib</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release-DLL|Win32">
+      <Configuration>Release-DLL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release-DLL|x64">
+      <Configuration>Release-DLL</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release-StaticLib|Win32">
+      <Configuration>Release-StaticLib</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release-StaticLib|x64">
+      <Configuration>Release-StaticLib</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{91EC13AF-6E6D-4138-9545-86E10A740CD5}</ProjectGuid>
+    <RootNamespace>libgsl</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">
+    <PreBuildEvent>
+      <Command>if not exist .\..\..\config.h goto COPY_CONFIG_H
+
+fc .\..\config.h.msvc .\..\..\config.h
+if NOT ERRORLEVEL 1 goto EXIT_BAT
+
+:COPY_CONFIG_H
+if exist .\..\..\config.h del .\..\..\config.h
+copy .\..\config.h.msvc .\..\..\config.h
+goto EXIT_BAT
+
+:EXIT_BAT
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.\..;.\..\..;..\include;..\..\include;..\include\gsl;..\..\include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling />
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName)_d.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">
+    <PreBuildEvent>
+      <Command>if not exist .\..\..\config.h goto COPY_CONFIG_H
+
+fc .\..\config.h.msvc .\..\..\config.h
+if NOT ERRORLEVEL 1 goto EXIT_BAT
+
+:COPY_CONFIG_H
+if exist .\..\..\config.h del .\..\..\config.h
+copy .\..\config.h.msvc .\..\..\config.h
+goto EXIT_BAT
+
+:EXIT_BAT
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.\..;.\..\..;..\include;..\..\include;..\include\gsl;..\..\include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName)_d.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">
+    <PreBuildEvent>
+      <Command>if not exist .\..\..\config.h goto COPY_CONFIG_H
+
+fc .\..\config.h.msvc .\..\..\config.h
+if NOT ERRORLEVEL 1 goto EXIT_BAT
+
+:COPY_CONFIG_H
+if exist .\..\..\config.h del .\..\..\config.h
+copy .\..\config.h.msvc .\..\..\config.h
+goto EXIT_BAT
+
+:EXIT_BAT
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\..;.\..\..;..\include;..\..\include;..\include\gsl;..\..\include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">
+    <PreBuildEvent>
+      <Command>if not exist .\..\..\config.h goto COPY_CONFIG_H
+
+fc .\..\config.h.msvc .\..\..\config.h
+if NOT ERRORLEVEL 1 goto EXIT_BAT
+
+:COPY_CONFIG_H
+if exist .\..\..\config.h del .\..\..\config.h
+copy .\..\config.h.msvc .\..\..\config.h
+goto EXIT_BAT
+
+:EXIT_BAT
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\..;.\..\..;..\include;..\..\include;..\include\gsl;..\..\include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">
+    <PreBuildEvent>
+      <Command>if not exist .\..\..\config.h goto COPY_CONFIG_H
+
+fc .\..\config.h.msvc .\..\..\config.h
+if NOT ERRORLEVEL 1 goto EXIT_BAT
+
+:COPY_CONFIG_H
+if exist .\..\..\config.h del .\..\..\config.h
+copy .\..\config.h.msvc .\..\..\config.h
+goto EXIT_BAT
+
+:EXIT_BAT
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.\..;.\..\..;..\include;..\..\include;..\include\gsl;..\..\include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GSL_DLL;DLL_EXPORT;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling />
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName)_d.dll</OutputFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <ImportLibrary>$(TargetDir)$(ProjectName)_dll_d.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">
+    <PreBuildEvent>
+      <Command>if not exist .\..\..\config.h goto COPY_CONFIG_H
+
+fc .\..\config.h.msvc .\..\..\config.h
+if NOT ERRORLEVEL 1 goto EXIT_BAT
+
+:COPY_CONFIG_H
+if exist .\..\..\config.h del .\..\..\config.h
+copy .\..\config.h.msvc .\..\..\config.h
+goto EXIT_BAT
+
+:EXIT_BAT
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.\..;.\..\..;..\include;..\..\include;..\include\gsl;..\..\include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GSL_DLL;DLL_EXPORT;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName)_d.dll</OutputFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>$(TargetDir)$(ProjectName)_dll_d.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">
+    <PreBuildEvent>
+      <Command>if not exist .\..\..\config.h goto COPY_CONFIG_H
+
+fc .\..\config.h.msvc .\..\..\config.h
+if NOT ERRORLEVEL 1 goto EXIT_BAT
+
+:COPY_CONFIG_H
+if exist .\..\..\config.h del .\..\..\config.h
+copy .\..\config.h.msvc .\..\..\config.h
+goto EXIT_BAT
+
+:EXIT_BAT
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\..;.\..\..;..\include;..\..\include;..\include\gsl;..\..\include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GSL_DLL;DLL_EXPORT;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling />
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Link>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <ImportLibrary>$(TargetDir)$(TargetName)_dll.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">
+    <PreBuildEvent>
+      <Command>if not exist .\..\..\config.h goto COPY_CONFIG_H
+
+fc .\..\config.h.msvc .\..\..\config.h
+if NOT ERRORLEVEL 1 goto EXIT_BAT
+
+:COPY_CONFIG_H
+if exist .\..\..\config.h del .\..\..\config.h
+copy .\..\config.h.msvc .\..\..\config.h
+goto EXIT_BAT
+
+:EXIT_BAT
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\..;.\..\..;..\include;..\..\include;..\include\gsl;..\..\include\gsl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GSL_DLL;DLL_EXPORT;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Link>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>$(TargetDir)$(TargetName)_dll.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\blas\blas.c" />
+    <ClCompile Include="..\..\block\block.c" />
+    <ClCompile Include="..\..\block\file.c" />
+    <ClCompile Include="..\..\block\init.c" />
+    <ClCompile Include="..\..\cdf\beta.c" />
+    <ClCompile Include="..\..\cdf\betainv.c" />
+    <ClCompile Include="..\..\cdf\binomial.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\cdf\cauchy.c" />
+    <ClCompile Include="..\..\cdf\cauchyinv.c" />
+    <ClCompile Include="..\..\cdf\chisq.c" />
+    <ClCompile Include="..\..\cdf\chisqinv.c" />
+    <ClCompile Include="..\..\cdf\exponential.c" />
+    <ClCompile Include="..\..\cdf\exponentialinv.c" />
+    <ClCompile Include="..\..\cdf\exppow.c" />
+    <ClCompile Include="..\..\cdf\fdist.c" />
+    <ClCompile Include="..\..\cdf\fdistinv.c" />
+    <ClCompile Include="..\..\cdf\flat.c" />
+    <ClCompile Include="..\..\cdf\flatinv.c" />
+    <ClCompile Include="..\..\cdf\gamma.c" />
+    <ClCompile Include="..\..\cdf\gammainv.c" />
+    <ClCompile Include="..\..\cdf\gauss.c" />
+    <ClCompile Include="..\..\cdf\gaussinv.c" />
+    <ClCompile Include="..\..\cdf\geometric.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\cdf\gumbel1.c" />
+    <ClCompile Include="..\..\cdf\gumbel1inv.c" />
+    <ClCompile Include="..\..\cdf\gumbel2.c" />
+    <ClCompile Include="..\..\cdf\gumbel2inv.c" />
+    <ClCompile Include="..\..\cdf\hypergeometric.c" />
+    <ClCompile Include="..\..\cdf\laplace.c" />
+    <ClCompile Include="..\..\cdf\laplaceinv.c" />
+    <ClCompile Include="..\..\cdf\logistic.c" />
+    <ClCompile Include="..\..\cdf\logisticinv.c" />
+    <ClCompile Include="..\..\cdf\lognormal.c" />
+    <ClCompile Include="..\..\cdf\lognormalinv.c" />
+    <ClCompile Include="..\..\cdf\nbinomial.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\cdf\pareto.c" />
+    <ClCompile Include="..\..\cdf\paretoinv.c" />
+    <ClCompile Include="..\..\cdf\pascal.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\cdf\poisson.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\cdf\rayleigh.c" />
+    <ClCompile Include="..\..\cdf\rayleighinv.c" />
+    <ClCompile Include="..\..\cdf\tdist.c" />
+    <ClCompile Include="..\..\cdf\tdistinv.c" />
+    <ClCompile Include="..\..\cdf\weibull.c" />
+    <ClCompile Include="..\..\cdf\weibullinv.c" />
+    <ClCompile Include="..\..\cheb\deriv.c" />
+    <ClCompile Include="..\..\cheb\eval.c" />
+    <ClCompile Include="..\..\cheb\init.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\cheb\integ.c" />
+    <ClCompile Include="..\..\combination\combination.c" />
+    <ClCompile Include="..\..\combination\file.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\combination\init.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\complex\math.c" />
+    <ClCompile Include="..\..\deriv\deriv.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\dht\dht.c" />
+    <ClCompile Include="..\..\diff\diff.c" />
+    <ClCompile Include="..\..\eigen\herm.c" />
+    <ClCompile Include="..\..\eigen\hermv.c" />
+    <ClCompile Include="..\..\eigen\jacobi.c" />
+    <ClCompile Include="..\..\eigen\sort.c" />
+    <ClCompile Include="..\..\eigen\symm.c" />
+    <ClCompile Include="..\..\eigen\symmv.c" />
+    <ClCompile Include="..\..\err\error.c" />
+    <ClCompile Include="..\..\err\message.c" />
+    <ClCompile Include="..\..\err\stream.c" />
+    <ClCompile Include="..\..\err\strerror.c" />
+    <ClCompile Include="..\..\fft\dft.c" />
+    <ClCompile Include="..\..\fft\fft.c" />
+    <ClCompile Include="..\..\fit\linear.c" />
+    <ClCompile Include="..\..\histogram\add.c" />
+    <ClCompile Include="..\..\histogram\add2d.c" />
+    <ClCompile Include="..\..\histogram\calloc_range.c" />
+    <ClCompile Include="..\..\histogram\calloc_range2d.c" />
+    <ClCompile Include="..\..\histogram\copy.c" />
+    <ClCompile Include="..\..\histogram\copy2d.c" />
+    <ClCompile Include="..\..\histogram\file.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\histogram\file2d.c" />
+    <ClCompile Include="..\..\histogram\get.c" />
+    <ClCompile Include="..\..\histogram\get2d.c" />
+    <ClCompile Include="..\..\histogram\init.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\histogram\init2d.c" />
+    <ClCompile Include="..\..\histogram\maxval.c" />
+    <ClCompile Include="..\..\histogram\maxval2d.c" />
+    <ClCompile Include="..\..\histogram\oper.c" />
+    <ClCompile Include="..\..\histogram\oper2d.c" />
+    <ClCompile Include="..\..\histogram\params.c" />
+    <ClCompile Include="..\..\histogram\params2d.c" />
+    <ClCompile Include="..\..\histogram\pdf.c" />
+    <ClCompile Include="..\..\histogram\pdf2d.c" />
+    <ClCompile Include="..\..\histogram\reset.c" />
+    <ClCompile Include="..\..\histogram\reset2d.c" />
+    <ClCompile Include="..\..\histogram\stat.c" />
+    <ClCompile Include="..\..\histogram\stat2d.c" />
+    <ClCompile Include="..\..\ieee-utils\env.c" />
+    <ClCompile Include="..\..\ieee-utils\fp.c" />
+    <ClCompile Include="..\..\ieee-utils\make_rep.c" />
+    <ClCompile Include="..\..\ieee-utils\print.c" />
+    <ClCompile Include="..\..\ieee-utils\read.c" />
+    <ClCompile Include="..\..\integration\qag.c" />
+    <ClCompile Include="..\..\integration\qagp.c" />
+    <ClCompile Include="..\..\integration\qags.c" />
+    <ClCompile Include="..\..\integration\qawc.c" />
+    <ClCompile Include="..\..\integration\qawf.c" />
+    <ClCompile Include="..\..\integration\qawo.c" />
+    <ClCompile Include="..\..\integration\qaws.c" />
+    <ClCompile Include="..\..\integration\qcheb.c" />
+    <ClCompile Include="..\..\integration\qk.c" />
+    <ClCompile Include="..\..\integration\qk15.c" />
+    <ClCompile Include="..\..\integration\qk21.c" />
+    <ClCompile Include="..\..\integration\qk31.c" />
+    <ClCompile Include="..\..\integration\qk41.c" />
+    <ClCompile Include="..\..\integration\qk51.c" />
+    <ClCompile Include="..\..\integration\qk61.c" />
+    <ClCompile Include="..\..\integration\qmomo.c" />
+    <ClCompile Include="..\..\integration\qmomof.c" />
+    <ClCompile Include="..\..\integration\qng.c" />
+    <ClCompile Include="..\..\integration\workspace.c" />
+    <ClCompile Include="..\..\interpolation\accel.c" />
+    <ClCompile Include="..\..\interpolation\akima.c" />
+    <ClCompile Include="..\..\interpolation\bsearch.c" />
+    <ClCompile Include="..\..\interpolation\cspline.c" />
+    <ClCompile Include="..\..\interpolation\interp.c" />
+    <ClCompile Include="..\..\interpolation\linear.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\interpolation\poly.c" />
+    <ClCompile Include="..\..\interpolation\spline.c" />
+    <ClCompile Include="..\..\linalg\balance.c" />
+    <ClCompile Include="..\..\linalg\bidiag.c" />
+    <ClCompile Include="..\..\linalg\cholesky.c" />
+    <ClCompile Include="..\..\linalg\exponential.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\linalg\hermtd.c" />
+    <ClCompile Include="..\..\linalg\hh.c" />
+    <ClCompile Include="..\..\linalg\householder.c" />
+    <ClCompile Include="..\..\linalg\householdercomplex.c" />
+    <ClCompile Include="..\..\linalg\lq.c" />
+    <ClCompile Include="..\..\linalg\lu.c" />
+    <ClCompile Include="..\..\linalg\luc.c" />
+    <ClCompile Include="..\..\linalg\multiply.c" />
+    <ClCompile Include="..\..\linalg\ptlq.c" />
+    <ClCompile Include="..\..\linalg\qr.c" />
+    <ClCompile Include="..\..\linalg\qrpt.c" />
+    <ClCompile Include="..\..\linalg\svd.c" />
+    <ClCompile Include="..\..\linalg\symmtd.c" />
+    <ClCompile Include="..\..\linalg\tridiag.c" />
+    <ClCompile Include="..\..\matrix\copy.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\matrix\file.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\matrix\getset.c" />
+    <ClCompile Include="..\..\matrix\init.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\matrix\matrix.c" />
+    <ClCompile Include="..\..\matrix\minmax.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\matrix\oper.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\matrix\prop.c" />
+    <ClCompile Include="..\..\matrix\rowcol.c">
+      <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">false</PreprocessToFile>
+      <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">false</PreprocessToFile>
+      <PreprocessSuppressLineNumbers Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">false</PreprocessSuppressLineNumbers>
+      <PreprocessSuppressLineNumbers Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">false</PreprocessSuppressLineNumbers>
+      <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">false</PreprocessToFile>
+      <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">false</PreprocessToFile>
+      <PreprocessSuppressLineNumbers Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">false</PreprocessSuppressLineNumbers>
+      <PreprocessSuppressLineNumbers Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">false</PreprocessSuppressLineNumbers>
+    </ClCompile>
+    <ClCompile Include="..\..\matrix\submatrix.c">
+      <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">false</PreprocessToFile>
+      <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">false</PreprocessToFile>
+      <PreprocessSuppressLineNumbers Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">false</PreprocessSuppressLineNumbers>
+      <PreprocessSuppressLineNumbers Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">false</PreprocessSuppressLineNumbers>
+      <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">false</PreprocessToFile>
+      <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">false</PreprocessToFile>
+      <PreprocessSuppressLineNumbers Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">false</PreprocessSuppressLineNumbers>
+      <PreprocessSuppressLineNumbers Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">false</PreprocessSuppressLineNumbers>
+    </ClCompile>
+    <ClCompile Include="..\..\matrix\swap.c" />
+    <ClCompile Include="..\..\matrix\view.c" />
+    <ClCompile Include="..\..\min\bracketing.c" />
+    <ClCompile Include="..\..\min\brent.c" />
+    <ClCompile Include="..\..\min\convergence.c" />
+    <ClCompile Include="..\..\min\fsolver.c" />
+    <ClCompile Include="..\..\min\golden.c" />
+    <ClCompile Include="..\..\monte\miser.c" />
+    <ClCompile Include="..\..\monte\plain.c" />
+    <ClCompile Include="..\..\monte\vegas.c" />
+    <ClCompile Include="..\..\multifit\convergence.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\multifit\covar.c" />
+    <ClCompile Include="..\..\multifit\fdfsolver.c" />
+    <ClCompile Include="..\..\multifit\fsolver.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\multifit\gradient.c" />
+    <ClCompile Include="..\..\multifit\lmder.c" />
+    <ClCompile Include="..\..\multifit\multilinear.c" />
+    <ClCompile Include="..\..\multifit\work.c" />
+    <ClCompile Include="..\..\multimin\conjugate_fr.c" />
+    <ClCompile Include="..\..\multimin\conjugate_pr.c" />
+    <ClCompile Include="..\..\multimin\convergence.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\multimin\diff.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\multimin\fdfminimizer.c" />
+    <ClCompile Include="..\..\multimin\fminimizer.c" />
+    <ClCompile Include="..\..\multimin\simplex.c" />
+    <ClCompile Include="..\..\multimin\steepest_descent.c" />
+    <ClCompile Include="..\..\multimin\vector_bfgs.c" />
+    <ClCompile Include="..\..\multiroots\broyden.c" />
+    <ClCompile Include="..\..\multiroots\convergence.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\multiroots\dnewton.c" />
+    <ClCompile Include="..\..\multiroots\fdfsolver.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\multiroots\fdjac.c" />
+    <ClCompile Include="..\..\multiroots\fsolver.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\multiroots\gnewton.c" />
+    <ClCompile Include="..\..\multiroots\hybrid.c" />
+    <ClCompile Include="..\..\multiroots\hybridj.c" />
+    <ClCompile Include="..\..\multiroots\newton.c" />
+    <ClCompile Include="..\..\ntuple\ntuple.c" />
+    <ClCompile Include="..\..\ode-initval\bsimp.c" />
+    <ClCompile Include="..\..\ode-initval\control.c" />
+    <ClCompile Include="..\..\ode-initval\cscal.c" />
+    <ClCompile Include="..\..\ode-initval\cstd.c" />
+    <ClCompile Include="..\..\ode-initval\evolve.c" />
+    <ClCompile Include="..\..\ode-initval\gear1.c" />
+    <ClCompile Include="..\..\ode-initval\gear2.c" />
+    <ClCompile Include="..\..\ode-initval\rk2.c" />
+    <ClCompile Include="..\..\ode-initval\rk2imp.c" />
+    <ClCompile Include="..\..\ode-initval\rk2simp.c" />
+    <ClCompile Include="..\..\ode-initval\rk4.c" />
+    <ClCompile Include="..\..\ode-initval\rk4imp.c" />
+    <ClCompile Include="..\..\ode-initval\rk8pd.c" />
+    <ClCompile Include="..\..\ode-initval\rkck.c" />
+    <ClCompile Include="..\..\ode-initval\rkf45.c" />
+    <ClCompile Include="..\..\ode-initval\step.c" />
+    <ClCompile Include="..\..\permutation\canonical.c" />
+    <ClCompile Include="..\..\permutation\file.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)5.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)5.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)5.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)5.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)5.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)5.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)5.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)5.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\permutation\init.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)6.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)6.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)6.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)6.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)6.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)6.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)6.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)6.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\permutation\permutation.c" />
+    <ClCompile Include="..\..\permutation\permute.c" />
+    <ClCompile Include="..\..\poly\dd.c" />
+    <ClCompile Include="..\..\poly\eval.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\poly\solve_cubic.c" />
+    <ClCompile Include="..\..\poly\solve_quadratic.c" />
+    <ClCompile Include="..\..\poly\zsolve.c" />
+    <ClCompile Include="..\..\poly\zsolve_cubic.c" />
+    <ClCompile Include="..\..\poly\zsolve_init.c" />
+    <ClCompile Include="..\..\poly\zsolve_quadratic.c" />
+    <ClCompile Include="..\..\qrng\niederreiter-2.c" />
+    <ClCompile Include="..\..\qrng\qrng.c" />
+    <ClCompile Include="..\..\qrng\sobol.c" />
+    <ClCompile Include="..\..\randist\bernoulli.c" />
+    <ClCompile Include="..\..\randist\beta.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\randist\bigauss.c" />
+    <ClCompile Include="..\..\randist\binomial.c" />
+    <ClCompile Include="..\..\randist\binomial_tpe.c" />
+    <ClCompile Include="..\..\randist\cauchy.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\randist\chisq.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\randist\dirichlet.c" />
+    <ClCompile Include="..\..\randist\discrete.c" />
+    <ClCompile Include="..\..\randist\erlang.c" />
+    <ClCompile Include="..\..\randist\exponential.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\randist\exppow.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\randist\fdist.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\randist\flat.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\randist\gamma.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\randist\gauss.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\randist\gausstail.c" />
+    <ClCompile Include="..\..\randist\gausszig.c" />
+    <ClCompile Include="..\..\randist\geometric.c" />
+    <ClCompile Include="..\..\randist\gumbel.c" />
+    <ClCompile Include="..\..\randist\hyperg.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\randist\landau.c" />
+    <ClCompile Include="..\..\randist\laplace.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\randist\levy.c" />
+    <ClCompile Include="..\..\randist\logarithmic.c" />
+    <ClCompile Include="..\..\randist\logistic.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\randist\lognormal.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\randist\multinomial.c" />
+    <ClCompile Include="..\..\randist\nbinomial.c" />
+    <ClCompile Include="..\..\randist\pareto.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\randist\pascal.c" />
+    <ClCompile Include="..\..\randist\poisson.c" />
+    <ClCompile Include="..\..\randist\rayleigh.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\randist\shuffle.c" />
+    <ClCompile Include="..\..\randist\sphere.c" />
+    <ClCompile Include="..\..\randist\tdist.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\randist\weibull.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\rng\borosh13.c" />
+    <ClCompile Include="..\..\rng\cmrg.c" />
+    <ClCompile Include="..\..\rng\coveyou.c" />
+    <ClCompile Include="..\..\rng\default.c" />
+    <ClCompile Include="..\..\rng\file.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)6.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)6.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)6.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)6.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)6.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)6.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)6.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)6.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\rng\fishman18.c" />
+    <ClCompile Include="..\..\rng\fishman20.c" />
+    <ClCompile Include="..\..\rng\fishman2x.c" />
+    <ClCompile Include="..\..\rng\gfsr4.c" />
+    <ClCompile Include="..\..\rng\knuthran.c" />
+    <ClCompile Include="..\..\rng\knuthran2.c" />
+    <ClCompile Include="..\..\rng\lecuyer21.c" />
+    <ClCompile Include="..\..\rng\minstd.c" />
+    <ClCompile Include="..\..\rng\mrg.c" />
+    <ClCompile Include="..\..\rng\mt.c" />
+    <ClCompile Include="..\..\rng\r250.c" />
+    <ClCompile Include="..\..\rng\ran0.c" />
+    <ClCompile Include="..\..\rng\ran1.c" />
+    <ClCompile Include="..\..\rng\ran2.c" />
+    <ClCompile Include="..\..\rng\ran3.c" />
+    <ClCompile Include="..\..\rng\rand.c" />
+    <ClCompile Include="..\..\rng\rand48.c" />
+    <ClCompile Include="..\..\rng\random.c" />
+    <ClCompile Include="..\..\rng\randu.c" />
+    <ClCompile Include="..\..\rng\ranf.c" />
+    <ClCompile Include="..\..\rng\ranlux.c" />
+    <ClCompile Include="..\..\rng\ranlxd.c" />
+    <ClCompile Include="..\..\rng\ranlxs.c" />
+    <ClCompile Include="..\..\rng\ranmar.c" />
+    <ClCompile Include="..\..\rng\rng.c" />
+    <ClCompile Include="..\..\rng\slatec.c" />
+    <ClCompile Include="..\..\rng\taus.c" />
+    <ClCompile Include="..\..\rng\taus113.c" />
+    <ClCompile Include="..\..\rng\transputer.c" />
+    <ClCompile Include="..\..\rng\tt.c" />
+    <ClCompile Include="..\..\rng\types.c" />
+    <ClCompile Include="..\..\rng\uni.c" />
+    <ClCompile Include="..\..\rng\uni32.c" />
+    <ClCompile Include="..\..\rng\vax.c" />
+    <ClCompile Include="..\..\rng\waterman14.c" />
+    <ClCompile Include="..\..\rng\zuf.c" />
+    <ClCompile Include="..\..\roots\bisection.c" />
+    <ClCompile Include="..\..\roots\brent.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\roots\convergence.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\roots\falsepos.c" />
+    <ClCompile Include="..\..\roots\fdfsolver.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\roots\fsolver.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\roots\newton.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\roots\secant.c" />
+    <ClCompile Include="..\..\roots\steffenson.c" />
+    <ClCompile Include="..\..\siman\siman.c" />
+    <ClCompile Include="..\..\sort\sort.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\sort\sortind.c" />
+    <ClCompile Include="..\..\sort\sortvec.c" />
+    <ClCompile Include="..\..\sort\sortvecind.c" />
+    <ClCompile Include="..\..\sort\subset.c" />
+    <ClCompile Include="..\..\sort\subsetind.c" />
+    <ClCompile Include="..\..\specfunc\airy.c" />
+    <ClCompile Include="..\..\specfunc\airy_der.c" />
+    <ClCompile Include="..\..\specfunc\airy_zero.c" />
+    <ClCompile Include="..\..\specfunc\atanint.c" />
+    <ClCompile Include="..\..\specfunc\bessel.c" />
+    <ClCompile Include="..\..\specfunc\bessel_amp_phase.c" />
+    <ClCompile Include="..\..\specfunc\bessel_i.c" />
+    <ClCompile Include="..\..\specfunc\bessel_I0.c" />
+    <ClCompile Include="..\..\specfunc\bessel_I1.c" />
+    <ClCompile Include="..\..\specfunc\bessel_In.c" />
+    <ClCompile Include="..\..\specfunc\bessel_Inu.c" />
+    <ClCompile Include="..\..\specfunc\bessel_j.c" />
+    <ClCompile Include="..\..\specfunc\bessel_J0.c" />
+    <ClCompile Include="..\..\specfunc\bessel_J1.c" />
+    <ClCompile Include="..\..\specfunc\bessel_Jn.c" />
+    <ClCompile Include="..\..\specfunc\bessel_Jnu.c" />
+    <ClCompile Include="..\..\specfunc\bessel_k.c" />
+    <ClCompile Include="..\..\specfunc\bessel_K0.c" />
+    <ClCompile Include="..\..\specfunc\bessel_K1.c" />
+    <ClCompile Include="..\..\specfunc\bessel_Kn.c" />
+    <ClCompile Include="..\..\specfunc\bessel_Knu.c" />
+    <ClCompile Include="..\..\specfunc\bessel_olver.c" />
+    <ClCompile Include="..\..\specfunc\bessel_sequence.c" />
+    <ClCompile Include="..\..\specfunc\bessel_temme.c" />
+    <ClCompile Include="..\..\specfunc\bessel_y.c" />
+    <ClCompile Include="..\..\specfunc\bessel_Y0.c" />
+    <ClCompile Include="..\..\specfunc\bessel_Y1.c" />
+    <ClCompile Include="..\..\specfunc\bessel_Yn.c" />
+    <ClCompile Include="..\..\specfunc\bessel_Ynu.c" />
+    <ClCompile Include="..\..\specfunc\bessel_zero.c" />
+    <ClCompile Include="..\..\specfunc\beta.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\specfunc\beta_inc.c" />
+    <ClCompile Include="..\..\specfunc\clausen.c" />
+    <ClCompile Include="..\..\specfunc\coulomb.c" />
+    <ClCompile Include="..\..\specfunc\coulomb_bound.c" />
+    <ClCompile Include="..\..\specfunc\coupling.c" />
+    <ClCompile Include="..\..\specfunc\dawson.c" />
+    <ClCompile Include="..\..\specfunc\debye.c" />
+    <ClCompile Include="..\..\specfunc\dilog.c" />
+    <ClCompile Include="..\..\specfunc\elementary.c" />
+    <ClCompile Include="..\..\specfunc\ellint.c" />
+    <ClCompile Include="..\..\specfunc\elljac.c" />
+    <ClCompile Include="..\..\specfunc\erfc.c" />
+    <ClCompile Include="..\..\specfunc\exp.c" />
+    <ClCompile Include="..\..\specfunc\expint.c" />
+    <ClCompile Include="..\..\specfunc\expint3.c" />
+    <ClCompile Include="..\..\specfunc\fermi_dirac.c" />
+    <ClCompile Include="..\..\specfunc\gamma.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\specfunc\gamma_inc.c" />
+    <ClCompile Include="..\..\specfunc\gegenbauer.c" />
+    <ClCompile Include="..\..\specfunc\hyperg.c" />
+    <ClCompile Include="..\..\specfunc\hyperg_0F1.c" />
+    <ClCompile Include="..\..\specfunc\hyperg_1F1.c" />
+    <ClCompile Include="..\..\specfunc\hyperg_2F0.c" />
+    <ClCompile Include="..\..\specfunc\hyperg_2F1.c" />
+    <ClCompile Include="..\..\specfunc\hyperg_U.c" />
+    <ClCompile Include="..\..\specfunc\laguerre.c" />
+    <ClCompile Include="..\..\specfunc\lambert.c" />
+    <ClCompile Include="..\..\specfunc\legendre_con.c" />
+    <ClCompile Include="..\..\specfunc\legendre_H3d.c" />
+    <ClCompile Include="..\..\specfunc\legendre_poly.c" />
+    <ClCompile Include="..\..\specfunc\legendre_Qn.c" />
+    <ClCompile Include="..\..\specfunc\log.c" />
+    <ClCompile Include="..\..\specfunc\poch.c" />
+    <ClCompile Include="..\..\specfunc\pow_int.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\specfunc\psi.c" />
+    <ClCompile Include="..\..\specfunc\result.c" />
+    <ClCompile Include="..\..\specfunc\shint.c" />
+    <ClCompile Include="..\..\specfunc\sinint.c" />
+    <ClCompile Include="..\..\specfunc\synchrotron.c" />
+    <ClCompile Include="..\..\specfunc\transport.c" />
+    <ClCompile Include="..\..\specfunc\trig.c" />
+    <ClCompile Include="..\..\specfunc\zeta.c" />
+    <ClCompile Include="..\..\statistics\absdev.c" />
+    <ClCompile Include="..\..\statistics\covariance.c" />
+    <ClCompile Include="..\..\statistics\kurtosis.c" />
+    <ClCompile Include="..\..\statistics\lag1.c" />
+    <ClCompile Include="..\..\statistics\mean.c" />
+    <ClCompile Include="..\..\statistics\median.c" />
+    <ClCompile Include="..\..\statistics\minmax.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)3.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\statistics\p_variance.c" />
+    <ClCompile Include="..\..\statistics\quantiles.c" />
+    <ClCompile Include="..\..\statistics\skew.c" />
+    <ClCompile Include="..\..\statistics\ttest.c" />
+    <ClCompile Include="..\..\statistics\variance.c" />
+    <ClCompile Include="..\..\statistics\wabsdev.c" />
+    <ClCompile Include="..\..\statistics\wkurtosis.c" />
+    <ClCompile Include="..\..\statistics\wmean.c" />
+    <ClCompile Include="..\..\statistics\wskew.c" />
+    <ClCompile Include="..\..\statistics\wvariance.c" />
+    <ClCompile Include="..\..\sum\levin_u.c" />
+    <ClCompile Include="..\..\sum\levin_utrunc.c" />
+    <ClCompile Include="..\..\sum\work_u.c" />
+    <ClCompile Include="..\..\sum\work_utrunc.c" />
+    <ClCompile Include="..\..\sys\coerce.c" />
+    <ClCompile Include="..\..\sys\expm1.c" />
+    <ClCompile Include="..\..\sys\fcmp.c" />
+    <ClCompile Include="..\..\sys\fdiv.c" />
+    <ClCompile Include="..\..\sys\hypot.c" />
+    <ClCompile Include="..\..\sys\infnan.c" />
+    <ClCompile Include="..\..\sys\invhyp.c" />
+    <ClCompile Include="..\..\sys\ldfrexp.c" />
+    <ClCompile Include="..\..\sys\log1p.c" />
+    <ClCompile Include="..\..\sys\minmax.c">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">GSL_BUILD_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">GSL_BUILD_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">GSL_BUILD_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">GSL_BUILD_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">GSL_BUILD_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">GSL_BUILD_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">GSL_BUILD_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">GSL_BUILD_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\..\sys\pow_int.c" />
+    <ClCompile Include="..\..\sys\prec.c" />
+    <ClCompile Include="..\..\test\results.c" />
+    <ClCompile Include="..\..\utils\placeholder.c" />
+    <ClCompile Include="..\..\vector\copy.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\vector\file.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)4.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\vector\init.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)5.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)5.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)5.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)5.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)5.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)5.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)5.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)5.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\vector\minmax.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\vector\oper.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)2.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\vector\prop.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\vector\reim.c" />
+    <ClCompile Include="..\..\vector\subvector.c" />
+    <ClCompile Include="..\..\vector\swap.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\vector\vector.c" />
+    <ClCompile Include="..\..\vector\view.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-DLL|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release-StaticLib|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\wavelet\bspline.c" />
+    <ClCompile Include="..\..\wavelet\daubechies.c" />
+    <ClCompile Include="..\..\wavelet\dwt.c" />
+    <ClCompile Include="..\..\wavelet\haar.c" />
+    <ClCompile Include="..\..\wavelet\wavelet.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
