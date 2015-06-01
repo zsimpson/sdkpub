@@ -40,7 +40,7 @@ sub sdkSetup {
         
    		'glfw-2.7.2' => {
 			includes => [ "$sdkDir/glfw-2.7.2/include", "." ],
-			win32libs => [ "$sdkDir/glfw-2.7.2/lib/win32/glfw.lib", "user32.lib" ],
+			win32libs => [ "$sdkDir/glfw-2.7.2/lib/win32/glfw.lib" ],
 			linuxlibs => [ "$sdkDir/glfw-2.7.2/lib/x11/libglfw.a", "-lXrandr", "-lXxf86vm" ],
 			macosxlibs => [ "$sdkDir/glfw-2.7.2/lib/cocoa/libglfw.a" ],
 			test => \&sdkTest_glfw272,
@@ -137,6 +137,15 @@ sub sdkSetup {
 			linuxlibs => [ "-lpthread" ],
 			platforms => [ qw/win32 linux macosx/ ],
 			test => \&sdkTest_pthread,
+		},
+
+		'pthread2' => {
+			win32includes => [ "$sdkDir/pthread2w32" ],
+			win32libs => [ "$sdkDir/pthread2w32/pthreadVC2.lib" ],
+			macosxlibs => [ "-lpthread" ],
+			linuxlibs => [ "-lpthread" ],
+			platforms => [ qw/win32 linux macosx/ ],
+			test => \&sdkTest_pthread2,
 		},
 
 		'expat' => {
@@ -240,8 +249,11 @@ sub sdkSetup {
 			#
 			# win32includes => [ "$sdkDir/usbkey_secutech/win32/lib2011" ],
 			# win32libs => [ "$sdkDir/usbkey_secutech/win32/lib2011/VC9/UniKey.ia32.MT.VC9.lib", "user32.lib" ],
-			win32includes => [ "$sdkDir/usbkey_secutech/win32/lib2013" ],
-			win32libs => [ "$sdkDir/usbkey_secutech/win32/lib2013/VC9/UniKey.ia32.MT.VC9.lib", "user32.lib" ],
+			win32includes => [ "$sdkDir/usbkey_secutech" ],
+			win32libs => [ "$sdkDir/usbkey_secutech/UniKey.lib" ],
+				# may2015 - the appropriate libs from either win32 or win64 folder will be copied
+				# into the parent usbkey_secutech folder as part of building/testing the SDK to
+				# support win64 builds where appropriate.
 
 			# NOTE: the .a specified below for OSX is a universal binary created by
 			# hand by running the lipo tool on the separate .a files provided by Secutech.
@@ -674,6 +686,7 @@ sub sdkTest_freetype
 	}	
 	elsif( $platform eq 'win32' ) {
 		pushCwd( "$sdkDir/$sdk/lib" );
+			executeCmd( "nmake /f arch\\win32\\Makefile.CL clean", 1 );
 			executeCmd( "nmake /f arch\\win32\\Makefile.CL", 1 );
 		popCwd();
 	}
@@ -856,12 +869,22 @@ sub sdkTest_glfw272 {
 		popCwd();
 	}
 	elsif( $platform eq 'win32' ) {
-		pushCwd( "$sdkDir/$sdk/support/msvc90" );
-   			executeCmd( "vcbuild GLFW.vcproj /clean Debug", 1 );
+		if( platformBuild64Bit() ) {
+   			pushCwd( "$sdkDir/$sdk/support/msvc120" );
+			executeCmd( "msbuild GLFW.vcxproj /t:clean /p:Platform=x64 /p:Configuration=Debug", 1 );
+			executeCmd( "msbuild GLFW.vcxproj /p:Platform=x64 /p:Configuration=Debug", 1 );
+   			executeCmd( "msbuild GLFW.vcxproj /t:clean /p:Platform=x64 /p:Configuration=Release", 1 );
+			executeCmd( "msbuild GLFW.vcxproj /p:Platform=x64 /p:Configuration=Release", 1 );
+			popCwd();
+		}
+		else {
+   			pushCwd( "$sdkDir/$sdk/support/msvc90" );
+			executeCmd( "vcbuild GLFW.vcproj /clean Debug", 1 );
 			executeCmd( "vcbuild GLFW.vcproj Debug", 1 );
    			executeCmd( "vcbuild GLFW.vcproj /clean Release", 1 );
 			executeCmd( "vcbuild GLFW.vcproj Release", 1 );
-		popCwd();
+			popCwd();
+		}
 	}
 
 	mkdir( "glfw-2.7.2_test" );
@@ -890,7 +913,9 @@ sub sdkTest_glfw272 {
 	) || die "Compile error";
 
 	platform_link(
+		win32excludelibs => platformBuild64Bit() ? [ "libcmt.lib" ] : [],
 		win32libs => [ "$sdkDir/$sdk/lib/win32/glfw.lib", "opengl32.lib", "user32.lib" ],
+#		win32libs => [ "$sdkDir/$sdk/lib/win32/glfw.lib", "opengl32.lib", "user32.lib" ],
 		linuxlibs => [ "$sdkDir/$sdk/lib/x11/libglfw.a", "-lGL", "-lXrandr", "-lXxf86vm", "-lpthread" ],
 		macosxlibs => [ "$sdkDir/$sdk/lib/cocoa/libglfw.a" ],
 		macosxextralink => , "-framework AGL -framework OpenGL -framework Cocoa",
@@ -937,10 +962,10 @@ sub sdkTest_freeimage {
 			#executeCmd( "msdev freeimage.dsp /make /clean \"FreeImageLib - Win32 Release\"", 1 );
 			#executeCmd( "msdev freeimage.dsp /make \"FreeImageLib - Win32 Release\"", 1 );
 				# the above hangs sometimes for some unknown reason.  (tfb)
-			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Release\" CLEAN", 1 );
+			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Release\" CLEAN RECURSE=1", 1 );
 			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Release\"", 1 );
-			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Debug\" CLEAN", 1 );
-			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Debug\"", 1 );
+#			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Debug\" CLEAN RECURSE=1", 1 );
+#			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Debug\"", 1 );
 		popCwd();	}
 
 	mkdir( "freeimage_test" );
@@ -1173,7 +1198,13 @@ sub sdkTest_CLAPACK_3_2_1 {
 		popCwd();
 	}
 	elsif( $platform eq 'win32' ) {
-		# TODO
+		# There are prebuilt 32bit and 64bit versions of these libs.  Copy the ones
+		# we want to use into the prebuilt parent folder, and those will be linked against.
+		my $srcFolder = "$sdkDir\\$sdk\\win32\\prebuilt\\vc9_32bit";
+		if( platformBuild64Bit() ) {
+			$srcFolder = "$sdkDir\\$sdk\\win32\\prebuilt\\vc12_64bit";
+		}
+		executeCmd( "copy $srcFolder\\*.lib $srcFolder\\.." );
 	}
 
 	mkdir( "clapack_test" );
@@ -1252,21 +1283,41 @@ sub sdkTest_gsl18 {
 	print "(about 5 minutes on Linux / Mac)\n";
 	my $sdk = "gsl-1.8";
 	if( $platform eq 'win32' ) {
-		pushCwd( "$sdkDir/$sdk/vc8/libgsl" );
-			executeCmd( "vcbuild libgsl.vcproj /clean Release-StaticLib", 1 );
-			executeCmd( "vcbuild libgsl.vcproj /clean Debug-StaticLib", 1 );
+		if( platformBuild64Bit() ) {
+			# I converted the .vcproj files for vc2008 with the vcupgrade.exe tool that is
+			# installed with vs2013, and now use the msbuild.exe with new switches to build
+			# these projects for x64. tfb may 2015
+			pushCwd( "$sdkDir/$sdk/vc8/libgsl" );
+				executeCmd( "msbuild libgsl.vcxproj /t:clean /p:Platform=x64 /p:Configuration=Release-StaticLib", 1 );
+				executeCmd( "msbuild libgsl.vcxproj /t:clean /p:Platform=x64 /p:Configuration=Debug-StaticLib", 1 );
+				executeCmd( "msbuild libgsl.vcxproj /p:Platform=x64 /p:Configuration=Release-StaticLib", 1 );
+				executeCmd( "msbuild libgsl.vcxproj /p:Platform=x64 /p:Configuration=Debug-StaticLib", 1 );
+			popCwd();
 
-			executeCmd( "vcbuild libgsl.vcproj Release-StaticLib", 1 );
-			executeCmd( "vcbuild libgsl.vcproj Debug-StaticLib", 1 );
-		popCwd();
+			pushCwd( "$sdkDir/$sdk/vc8/libgslcblas" );
+				executeCmd( "msbuild libgslcblas.vcxproj /t:clean /p:Platform=x64 /p:Configuration=Release-StaticLib", 1 );
+				executeCmd( "msbuild libgslcblas.vcxproj /t:clean /p:Platform=x64 /p:Configuration=Debug-StaticLib", 1 );
+				executeCmd( "msbuild libgslcblas.vcxproj /p:Platform=x64 /p:Configuration=Release-StaticLib", 1 );
+				executeCmd( "msbuild libgslcblas.vcxproj /p:Platform=x64 /p:Configuration=Debug-StaticLib", 1 );
+			popCwd();
+		}
+		else {
+			pushCwd( "$sdkDir/$sdk/vc8/libgsl" );
+				executeCmd( "vcbuild libgsl.vcproj /clean Release-StaticLib", 1 );
+				executeCmd( "vcbuild libgsl.vcproj /clean Debug-StaticLib", 1 );
 
-		pushCwd( "$sdkDir/$sdk/vc8/libgslcblas" );
-			executeCmd( "vcbuild libgslcblas.vcproj /clean Debug-StaticLib", 1 );
-			executeCmd( "vcbuild libgslcblas.vcproj /clean Release-StaticLib", 1 );
+				executeCmd( "vcbuild libgsl.vcproj Release-StaticLib", 1 );
+				executeCmd( "vcbuild libgsl.vcproj Debug-StaticLib", 1 );
+			popCwd();
 
-			executeCmd( "vcbuild libgslcblas.vcproj Debug-StaticLib", 1 );
-			executeCmd( "vcbuild libgslcblas.vcproj Release-StaticLib", 1 );
-		popCwd();
+			pushCwd( "$sdkDir/$sdk/vc8/libgslcblas" );
+				executeCmd( "vcbuild libgslcblas.vcproj /clean Debug-StaticLib", 1 );
+				executeCmd( "vcbuild libgslcblas.vcproj /clean Release-StaticLib", 1 );
+
+				executeCmd( "vcbuild libgslcblas.vcproj Debug-StaticLib", 1 );
+				executeCmd( "vcbuild libgslcblas.vcproj Release-StaticLib", 1 );
+			popCwd();			
+		}
 
 	}
         elsif( $platform eq 'macosx' ) {
@@ -1619,7 +1670,6 @@ sub sdkTest_lua {
 
 sub sdkTest_pthread {
 	my $sdk = "pthread";
-
 	mkdir( "pthread_test" );
 	open( TEST, ">pthread_test/pthread_test.cpp" ) || die "Unable to create pthread test file";
 	print TEST '
@@ -1678,6 +1728,76 @@ sub sdkTest_pthread {
 	}
 	else {
 		print "FAILURE. pthread_test directory NOT removed for debugging.\n";
+	}
+}
+
+sub sdkTest_pthread2 {
+	my $sdk = "pthread2w32";
+	if( $platform eq 'win32' ) {
+		pushCwd( "$sdkDir/$sdk" );
+#			executeCmd( "vcbuild pthread.vcproj /clean Release", 1 );
+#			executeCmd( "vcbuild pthread.vcproj Release", 1 );
+# those work for vc9 32bit
+			executeCmd( "nmake realclean", 1 );
+			executeCmd( "nmake VC-static", 1 );
+		popCwd();
+	}
+
+	mkdir( "pthread2_test" );
+	open( TEST, ">pthread2_test/pthread2_test.cpp" ) || die "Unable to create pthread2 test file";
+	print TEST '
+		#include "pthread.h"
+		#include "stdio.h"
+		int testVar = 0;
+		void * test1( void *arg ) {
+			testVar = 1;
+			return 0;
+		}
+		int main() {
+			pthread_t id;
+			pthread_create( &id, 0, test1, 0 );
+			for( int i=0; i<100000000; i++ ) {
+				if( testVar ) break;
+			}
+			if( testVar ) {
+				printf( "SUCCESS\n" );
+				return 0;
+			}
+			printf( "FAIL\n" );
+			return 1;
+		}
+	';
+	print TEST "\n\n";
+	close( TEST );
+
+	platform_compile(
+		includes => $sdkHash{pthread2}{includes},
+		win32includes => $sdkHash{pthread2}{win32includes},
+		osxincludes => $sdkHash{pthread2}{osxincludes},
+		linuxincludes => $sdkHash{pthread2}{linuxincludes},
+		file => "pthread2_test/pthread2_test.cpp",
+		outfile => "pthread2_test/pthread2_test.obj",
+		debugsymbols => 1
+	) || die "Compile error";
+
+	platform_link(
+		win32excludelibs => [ 'libcmt' ],
+		win32libs => $sdkHash{pthread2}{win32libs},
+		macosxlibs => $sdkHash{pthread2}{maxosxlibs},
+		linuxlibs => $sdkHash{pthread2}{linuxlibs},
+		files => [ "pthread2_test/pthread2_test.obj" ],
+		outfile => "pthread2_test/pthread2_test.exe",
+		debugsymbols => 1
+	) || die "Linker error";
+
+	`pthread2_test/pthread2_test.exe`;
+
+	if( $? == 0 ) {
+		print "success\n";
+		recursiveUnlink( "pthread2_test" );
+	}
+	else {
+		print "FAILURE. pthread2_test directory NOT removed for debugging.\n";
 	}
 }
 
@@ -1791,6 +1911,27 @@ sub sdkTest_usbkey_dlpd {
 
 sub sdkTest_usbkey_secutech {
 	my $sdk = "usbkey_secutech";
+
+	if( $platform eq 'win32' ) {
+		#
+		# For windows, until we promote 'win64' to full platform status, we
+		# copy the appropriate library depending on whether or not we are
+		# building for 64bit.
+		#		
+		pushCwd( "$sdkDir/$sdk" );
+		if( platformBuild64Bit() ) {
+			# copy win64 files to parent folder, which will be used by build
+			executeCmd( "copy win64\\lib2013\\VC10\\UniKey.x64.MT.VC10.lib UniKey.lib" );
+			executeCmd( "copy win64\\lib2013\\UniKeyFR.h UniKeyFR.h" );
+		}
+		else {
+			# copy win32 files to parent folder, which will be used by build
+			executeCmd( "copy win32\\lib2013\\VC9\\UniKey.ia32.MT.VC9.lib UniKey.lib" );
+			executeCmd( "copy win32\\lib2013\\UniKeyFR.h UniKeyFR.h" );
+		}
+		popCwd();
+	}
+
 
 	mkdir( "usbkey_test" );
 	open( TEST, ">usbkey_test/usbkey_test.cpp" ) || die "Unable to create usbkey test file";
@@ -2983,11 +3124,18 @@ sub sdkTest_levmar {
 	}
 	elsif( $platform eq 'win32' ) {
 		pushCwd( "$sdkDir/$sdk/levmar_win32" );
-  			executeCmd( "vcbuild levmar_win32.vcproj /clean Debug", 1 );
-			executeCmd( "vcbuild levmar_win32.vcproj Debug", 1 );
-   			executeCmd( "vcbuild levmar_win32.vcproj /clean Release", 1 );
-			executeCmd( "vcbuild levmar_win32.vcproj Release", 1 );
-		# TODO
+			if( platformBuild64Bit() ) {
+	  			executeCmd( "msbuild levmar_win32.vcxproj /t:clean /p:Platform=x64 /p:Configuration=Debug", 1 );
+				executeCmd( "msbuild levmar_win32.vcxproj /p:Platform=x64 /p:Configuration=Debug", 1 );
+	   			executeCmd( "msbuild levmar_win32.vcxproj /t:clean /p:Platform=x64 /p:Configuration=Release", 1 );
+				executeCmd( "msbuild levmar_win32.vcxproj /p:Platform=x64 /p:Configuration=Release", 1 );
+			}
+			else {
+	  			executeCmd( "vcbuild levmar_win32.vcproj /clean Debug", 1 );
+				executeCmd( "vcbuild levmar_win32.vcproj Debug", 1 );
+	   			executeCmd( "vcbuild levmar_win32.vcproj /clean Release", 1 );
+				executeCmd( "vcbuild levmar_win32.vcproj Release", 1 );
+			}
 		popCwd();
 	}
 	
@@ -3070,7 +3218,7 @@ sub sdkTest_levmar {
 	`levmar_test/levmar_test.exe`;
 	if( $? == 0 ) {
 		print "success\n";
-		#recursiveUnlink( "levmar_test" );
+		recursiveUnlink( "levmar_test" );
 	}
 	else {
 		print "FAILURE. levmar_test directory NOT removed for debugging.\n";

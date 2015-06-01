@@ -71,7 +71,7 @@ CLEAN :
 	-@erase "$(INTDIR)\tif_warning.obj"
 	-@erase "$(INTDIR)\tif_write.obj"
 	-@erase "$(INTDIR)\tif_zip.obj"
-	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc*.idb"
 	-@erase "$(OUTDIR)\LibTIFF.lib"
 
 "$(OUTDIR)" :
@@ -204,8 +204,8 @@ CLEAN :
 	-@erase "$(INTDIR)\tif_warning.obj"
 	-@erase "$(INTDIR)\tif_write.obj"
 	-@erase "$(INTDIR)\tif_zip.obj"
-	-@erase "$(INTDIR)\vc60.idb"
-	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(INTDIR)\vc*.idb"
+	-@erase "$(INTDIR)\vc*.pdb"
 	-@erase "$(OUTDIR)\LibTIFF.lib"
 
 "$(OUTDIR)" :

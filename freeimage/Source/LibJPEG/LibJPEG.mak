@@ -84,7 +84,7 @@ CLEAN :
 	-@erase "$(INTDIR)\jquant2.obj"
 	-@erase "$(INTDIR)\jutils.obj"
 	-@erase "$(INTDIR)\transupp.obj"
-	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc*.idb"
 	-@erase "$(OUTDIR)\LibJPEG.lib"
 
 "$(OUTDIR)" :
@@ -243,8 +243,8 @@ CLEAN :
 	-@erase "$(INTDIR)\jquant2.obj"
 	-@erase "$(INTDIR)\jutils.obj"
 	-@erase "$(INTDIR)\transupp.obj"
-	-@erase "$(INTDIR)\vc60.idb"
-	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(INTDIR)\vc*.idb"
+	-@erase "$(INTDIR)\vc*.pdb"
 	-@erase "$(OUTDIR)\LibJPEG.lib"
 
 "$(OUTDIR)" :

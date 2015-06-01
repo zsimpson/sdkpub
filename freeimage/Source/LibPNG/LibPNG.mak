@@ -54,7 +54,7 @@ CLEAN :
 	-@erase "$(INTDIR)\pngwrite.obj"
 	-@erase "$(INTDIR)\pngwtran.obj"
 	-@erase "$(INTDIR)\pngwutil.obj"
-	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc*.idb"
 	-@erase "$(OUTDIR)\LibPNG.lib"
 
 "$(OUTDIR)" :
@@ -153,8 +153,8 @@ CLEAN :
 	-@erase "$(INTDIR)\pngwrite.obj"
 	-@erase "$(INTDIR)\pngwtran.obj"
 	-@erase "$(INTDIR)\pngwutil.obj"
-	-@erase "$(INTDIR)\vc60.idb"
-	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(INTDIR)\vc*.idb"
+	-@erase "$(INTDIR)\vc*.pdb"
 	-@erase "$(OUTDIR)\LibPNG.lib"
 
 "$(OUTDIR)" :

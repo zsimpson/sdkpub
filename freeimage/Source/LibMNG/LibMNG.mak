@@ -56,7 +56,7 @@ CLEAN :
 	-@erase "$(INTDIR)\libmng_trace.obj"
 	-@erase "$(INTDIR)\libmng_write.obj"
 	-@erase "$(INTDIR)\libmng_zlib.obj"
-	-@erase "$(INTDIR)\vc60.idb"
+	-@erase "$(INTDIR)\vc*.idb"
 	-@erase "$(OUTDIR)\LibMNG.lib"
 
 "$(OUTDIR)" :
