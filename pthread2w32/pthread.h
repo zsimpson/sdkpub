@@ -1,7 +1,7 @@
 
 // TFB MODIFICATION FOR SDKPUB: I want to always use this version of pthread as a static library,
 // and not require the user to know to define this, so I define it here:
-#define PTW32_STATIC_LIB
+//#define PTW32_STATIC_LIB
 // END TFB MODIFICATION (No other mods made to this library)
 
 /* This is an implementation of the threads API of POSIX 1003.1-2001.

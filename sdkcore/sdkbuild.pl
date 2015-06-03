@@ -142,6 +142,7 @@ sub sdkSetup {
 		'pthread2' => {
 			win32includes => [ "$sdkDir/pthread2w32" ],
 			win32libs => [ "$sdkDir/pthread2w32/pthreadVC2.lib" ],
+			win32dlls => [ "$sdkDir/pthread2w32/pthreadVC2.dll" ],
 			macosxlibs => [ "-lpthread" ],
 			linuxlibs => [ "-lpthread" ],
 			platforms => [ qw/win32 linux macosx/ ],
@@ -1738,8 +1739,8 @@ sub sdkTest_pthread2 {
 #			executeCmd( "vcbuild pthread.vcproj /clean Release", 1 );
 #			executeCmd( "vcbuild pthread.vcproj Release", 1 );
 # those work for vc9 32bit
-			executeCmd( "nmake realclean", 1 );
-			executeCmd( "nmake VC-static", 1 );
+			executeCmd( "nmake clean VC", 1 );
+#			executeCmd( "nmake VC-static", 1 );
 		popCwd();
 	}
 
@@ -1748,20 +1749,54 @@ sub sdkTest_pthread2 {
 	print TEST '
 		#include "pthread.h"
 		#include "stdio.h"
+
+		pthread_mutex_t mutex;
+
 		int testVar = 0;
 		void * test1( void *arg ) {
-			testVar = 1;
+			while( true ) {
+				testVar = 1;
+			}
 			return 0;
 		}
 		int main() {
 			pthread_t id;
-			pthread_create( &id, 0, test1, 0 );
-			for( int i=0; i<100000000; i++ ) {
-				if( testVar ) break;
+			//
+			// Test thread create & cancel state
+			//
+			int err = pthread_create( &id, 0, test1, 0 );
+			if( !err ) {
+				err = pthread_setcancelstate( PTHREAD_CANCEL_ASYNCHRONOUS, 0 );
 			}
-			if( testVar ) {
-				printf( "SUCCESS\n" );
-				return 0;
+			//
+			// Test mutex
+			//
+			if( !err ) {
+				err = pthread_mutex_init( &mutex, 0 );
+				if( !err ) {
+					err = pthread_mutex_lock( &mutex ); 
+					if( !err ) {
+						err = pthread_mutex_unlock( &mutex );
+						if( !err ) {
+							err = pthread_mutex_destroy( &mutex );
+						}
+					}
+				}
+			}
+			//
+			// Thread thread execute, cancel
+			//
+			if( !err ) {
+				for( int i=0; i<100000000; i++ ) {
+					if( testVar ) break;
+				}
+				if( testVar ) {
+					err = pthread_cancel( id );
+					if( !err ) {
+						printf( "SUCCESS\n" );
+						return 0;
+					}
+				}
 			}
 			printf( "FAIL\n" );
 			return 1;
@@ -1769,6 +1804,9 @@ sub sdkTest_pthread2 {
 	';
 	print TEST "\n\n";
 	close( TEST );
+
+
+	print "devVersion is $devVersion\n";
 
 	platform_compile(
 		includes => $sdkHash{pthread2}{includes},
@@ -1781,7 +1819,7 @@ sub sdkTest_pthread2 {
 	) || die "Compile error";
 
 	platform_link(
-		win32excludelibs => [ 'libcmt' ],
+#		win32excludelibs => [ 'libcmt' ],
 		win32libs => $sdkHash{pthread2}{win32libs},
 		macosxlibs => $sdkHash{pthread2}{maxosxlibs},
 		linuxlibs => $sdkHash{pthread2}{linuxlibs},
@@ -1790,11 +1828,15 @@ sub sdkTest_pthread2 {
 		debugsymbols => 1
 	) || die "Linker error";
 
+	foreach( @{$sdkHash{pthread2}{win32dlls}} ) {
+		cp( $_, "pthread2_test" );
+	}
+
 	`pthread2_test/pthread2_test.exe`;
 
 	if( $? == 0 ) {
 		print "success\n";
-		recursiveUnlink( "pthread2_test" );
+#		recursiveUnlink( "pthread2_test" );
 	}
 	else {
 		print "FAILURE. pthread2_test directory NOT removed for debugging.\n";
