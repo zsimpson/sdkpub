@@ -125,7 +125,7 @@ sub sdkSetup {
 			linuxlibs  => [ "$sdkDir/CLAPACK-3.2.1/lapack_LINUX.a", "$sdkDir/CLAPACK-3.2.1/blas_LINUX.a", "$sdkDir/CLAPACK-3.2.1/F2CLIBS/libf2c.a" ],
 			macosxlibs => [ "$sdkDir/CLAPACK-3.2.1/lapack_LINUX.a", "$sdkDir/CLAPACK-3.2.1/blas_LINUX.a", "$sdkDir/CLAPACK-3.2.1/F2CLIBS/libf2c.a" ], 
 			test => \&sdkTest_CLAPACK_3_2_1,
-			platforms => [ qw/linux macosx/ ],
+			platforms => [ qw/win32 linux macosx/ ],
 		},
 
 
