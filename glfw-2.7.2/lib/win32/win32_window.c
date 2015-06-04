@@ -1875,12 +1875,12 @@ void _glfwPlatformSetMouseCursorPos( int x, int y )
 
 // Function added by ZBS 19 Apr 2004; brought to GLFW2.7.2 by TFB
 void _glfwPlatformGetWindowGeom( int *x, int *y, int *w, int *h ) {
-	int a, b, c;
-	int style;
+	int a, b, c, pad;
+	LONG_PTR style;
 	RECT rect;
 	GetWindowRect( _glfwWin.window, &rect );
 
-	style = GetWindowLong( _glfwWin.window, GWL_STYLE );
+	style = GetWindowLongPtr( _glfwWin.window, GWL_STYLE );
 	if( style & WS_POPUP ) {
 		*x = rect.left;
 		*y = rect.top;
@@ -1891,6 +1891,15 @@ void _glfwPlatformGetWindowGeom( int *x, int *y, int *w, int *h ) {
 		a = GetSystemMetrics( SM_CYCAPTION );
 		b = GetSystemMetrics( SM_CXSIZEFRAME );
 		c = GetSystemMetrics( SM_CYSIZEFRAME );
+
+        pad = GetSystemMetrics( 92 );
+            // This is SM_CXPADDEDBORDER, which is not defined for subsystem 5.1 and earlier (winxp).
+            // But I want this to build with vc9, and this will return 0 in that case.
+            // This is necessary because with subsystem 6 and later, CXSIZEFRAME doesn't actually give
+            // you the full frame width.  It has to do with "Aero" on Vista and later. (tfb june 2015)
+        b += pad;
+        c += pad;
+
 		*x = rect.left;
 		*y = rect.top;
 		*w = rect.right - rect.left - b - b;
