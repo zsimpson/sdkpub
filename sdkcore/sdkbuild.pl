@@ -960,13 +960,12 @@ sub sdkTest_freeimage {
 	}
 	elsif( $platform eq 'win32' ) {
 		pushCwd( "$sdkDir/$sdk/Source/FreeImageLib" );
-			#executeCmd( "msdev freeimage.dsp /make /clean \"FreeImageLib - Win32 Release\"", 1 );
-			#executeCmd( "msdev freeimage.dsp /make \"FreeImageLib - Win32 Release\"", 1 );
-				# the above hangs sometimes for some unknown reason.  (tfb)
 			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Release\" CLEAN RECURSE=1", 1 );
 			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Release\"", 1 );
-#			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Debug\" CLEAN RECURSE=1", 1 );
-#			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Debug\"", 1 );
+			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Debug\" CLEAN RECURSE=1", 1 );
+			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Debug\"", 1 );
+				# Note that even though the configs are called "Win32", since the makefile is executing CL to
+				# compile, it will find whichever CL is in the path, so if 64bit is pathed, we'll build 64bit... 
 		popCwd();	}
 
 	mkdir( "freeimage_test" );
@@ -1804,9 +1803,6 @@ sub sdkTest_pthread2 {
 	';
 	print TEST "\n\n";
 	close( TEST );
-
-
-	print "devVersion is $devVersion\n";
 
 	platform_compile(
 		includes => $sdkHash{pthread2}{includes},
