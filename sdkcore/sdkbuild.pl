@@ -1832,7 +1832,7 @@ sub sdkTest_pthread2 {
 
 	if( $? == 0 ) {
 		print "success\n";
-#		recursiveUnlink( "pthread2_test" );
+		recursiveUnlink( "pthread2_test" );
 	}
 	else {
 		print "FAILURE. pthread2_test directory NOT removed for debugging.\n";
