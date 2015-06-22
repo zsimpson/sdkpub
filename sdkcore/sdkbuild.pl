@@ -142,7 +142,8 @@ sub sdkSetup {
 		'pthread2' => {
 			win32includes => [ "$sdkDir/pthread2w32" ],
 			win32libs => [ "$sdkDir/pthread2w32/pthreadVC2.lib" ],
-			win32dlls => [ "$sdkDir/pthread2w32/pthreadVC2.dll" ],
+			win32dlls => [ "$sdkDir/pthread2w32/pthreadVC2.dll", "$sdkDir/pthread2w32/vs2013/msvcr120.dll" ],
+				# Note: msvcr120.dll is only required for 64bit builds with vs2013 at present.s
 			macosxlibs => [ "-lpthread" ],
 			linuxlibs => [ "-lpthread" ],
 			platforms => [ qw/win32 linux macosx/ ],
