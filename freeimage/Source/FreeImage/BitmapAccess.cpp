@@ -79,11 +79,17 @@ FI_STRUCT (FREEIMAGEHEADER) {
 // ----------------------------------------------------------
 
 void* FreeImage_Aligned_Malloc(size_t amount, size_t alignment) {
-	void* mem_real = malloc( amount + alignment*2 );
-	if( !mem_real ) return NULL;
+	void* mem_real = malloc(amount + alignment * 2);
+	if (!mem_real) return NULL;
 
-	char *mem_align = (char*)( (unsigned long)(2*alignment - (unsigned long)mem_real % (unsigned long)alignment) + (unsigned long)mem_real );
+#ifdef _WIN64
+	// @TFB: on Win64, longs are 32bit, so we need to use long long in the math etc.
+	char *mem_align = (char*)((unsigned long long)(2 * alignment - (unsigned long long)mem_real % (unsigned long long)alignment) + (unsigned long long)mem_real);
+	*((long long*)mem_align - 1) = (long long)mem_real;
+#else
+	char *mem_align = (char*)((unsigned long)(2 * alignment - (unsigned long)mem_real % (unsigned long)alignment) + (unsigned long)mem_real);
 	*((long*)mem_align - 1) = (long)mem_real;
+#endif
 	return mem_align;
 }
 
@@ -100,7 +106,12 @@ void* FreeImage_Aligned_Malloc(size_t amount, size_t alignment) {
 */
 
 void FreeImage_Aligned_Free(void* mem) {
+#ifdef _WIN64
+	free((void*)*((long long*)mem - 1));
+#else
 	free((void*)*((long*)mem - 1));
+#endif
+
 }
 
 // ----------------------------------------------------------
