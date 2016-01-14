@@ -1,0 +1,15 @@
+This folder is an attempt to provide matplotlib functionality to C++ programs via an embedded Python
+interpreter using matplotlib libraries with additional matplotlib toolkits.
+
+There was already a python folder in sdkpub added by Ken I think, but it is older, contains a library
+for win32 only, and does not contain matplotlib.  The intent here is to provide specifically matplotlib
+for both OSX and win32/win64, such that adding this sdk to your project dependencies will make available
+matplotlib and associated toolkits.
+
+This is used for KinTek software to provide the ability to output EPS/postscript plots, where easily
+modifiable python scripts are executed by the C++ software to generate the output.
+
+You can also use this SDK if you just need to embed Python 2.7.11 in an OSX or win32/64 app.  Linux
+support should be trivial to add with a ./configure && make type build in sdkbuild.pl.
+
+tfb jan 2016
