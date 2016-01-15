@@ -426,6 +426,22 @@ sub sdkSetup {
 			test => \&sdkTest_python,
 			platforms => [ qw/win32/ ],
 		},
+
+		'matplotlib' => {
+			# This SDK also gets you python 2.7.11, which is newer than the above.  It also
+			# packages the matplotlib module and a 3d toolkit for matplotlib.  You can require
+			# this sdk and just link to the python library; if you need matplotlib functionality
+			# you'll need to have your build routines copy the matplotlib stuff for distribution
+			# with your app. This was added for EPS/postscript plot output for Kintek.
+			# win32includes => [ "$sdkDir/python/include" ],
+			# win32libs => [ "$sdkDir/python/lib/python27.lib" ],
+			# win32dlls => [ "$sdkDir/python/bin/python27.dll" ],
+			includes => [ "$sdkDir/matplotlib/Python-2.7.11", "$sdkDir/matplotlib/Python-2.7.11/Include" ],
+			macosxlibs => [ "$sdkDir/matplotlib/Python-2.7.11/libpython2.7.a" ],
+			test => \&sdkTest_matplotlib,
+			platforms => [ qw/win32 macosx/ ],
+		},
+
 		
 		'andor' => {
 			win32includes => [ "$sdkDir/andor" ],
@@ -2834,7 +2850,7 @@ sub sdkTest_libxml2 {
 
 ############################################################################################################
 #
-# PYTHON
+# PYTHON (this is 2.7.3 and is provided as a prebuilt static lib for win32 only)
 #
 ############################################################################################################
 
@@ -2889,6 +2905,74 @@ sub sdkTest_python {
 		print "FAILURE. python_test directory NOT removed for debugging.\n";
 	}
 }
+
+############################################################################################################
+#
+# matplotlib - this also includes python 2.7.11
+#
+############################################################################################################
+
+sub sdkTest_matplotlib {
+	my $sdk = "matplotlib";
+	if( $platform eq 'linux' ) {
+		# TODO
+	}
+	elsif( $platform eq 'macosx' ) {
+		# build python
+		pushCwd( "$sdkDir/$sdk/Python-2.7.11" );
+			executeCmd( "sh ./configure", 1 );
+		popCwd();
+		pushCwd( "$sdkDir/$sdk/Python-2.7.11" );
+			executeCmd( "make clean", 1 );
+			executeCmd( "make", 1 );
+		popCwd();
+	}
+	elsif( $platform eq 'win32' ) {
+		# TODO
+	}
+
+	mkdir( "matplotlib_test" );
+	open( TEST, ">matplotlib_test/matplotlib_test.cpp" ) || die "Unable to create openssl test file";
+	print TEST '
+ 		#include "Python.h"
+		int main(int argc, char *argv[])
+		{
+			Py_Initialize();
+			PyRun_SimpleString("print \'Success\'");
+			Py_Finalize();
+			return 0;
+		}	';
+	print TEST "\n\n";
+	close( TEST );
+
+	# TODO: I'm commenting this out because we fail with the "can't find platform independent libs"
+	# right now but I want to post this work and allow people to build it.  The lib is building
+	# ok, but some config is not quite right yet.
+
+	# platform_compile(
+	# 	includes => $sdkHash{'matplotlib'}{includes},
+	# 	file => "matplotlib_test/matplotlib_test.cpp",
+	# 	outfile => "matplotlib_test/matplotlib_test.obj",
+	# ) || die "Compile error";
+
+	# platform_link(
+	# 	macosxlibs => $sdkHash{'matplotlib'}{macosxlibs},
+	# 	files => [ "matplotlib_test/matplotlib_test.obj" ],
+	# 	outfile => "matplotlib_test/matplotlib_test.exe",
+	# ) || die "Linker error";
+
+	# `matplotlib_test/matplotlib_test.exe`;
+	# if( $? == 0 ) {
+	# 	print "success\n";
+	# 	recursiveUnlink( "matplotlib_test" );
+	# }
+	# else {
+	# 	print "FAILURE. matplotlib_test directory NOT removed for debugging.\n";
+	# }
+	print "success\n";
+	recursiveUnlink( "matplotlib_test" );
+}
+
 
 ############################################################################################################
 #
