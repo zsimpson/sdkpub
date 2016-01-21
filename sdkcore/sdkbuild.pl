@@ -2937,6 +2937,8 @@ sub sdkTest_matplotlib {
  		#include "Python.h"
 		int main(int argc, char *argv[])
 		{
+			Py_SetPythonHome( "/System/Library/Frameworks/Python.framework/Versions/2.7" );
+				// this path is for "modern" OSX installs, and current as of jan
 			Py_Initialize();
 			PyRun_SimpleString("print \'Success\'");
 			Py_Finalize();
@@ -2949,28 +2951,28 @@ sub sdkTest_matplotlib {
 	# right now but I want to post this work and allow people to build it.  The lib is building
 	# ok, but some config is not quite right yet.
 
-	# platform_compile(
-	# 	includes => $sdkHash{'matplotlib'}{includes},
-	# 	file => "matplotlib_test/matplotlib_test.cpp",
-	# 	outfile => "matplotlib_test/matplotlib_test.obj",
-	# ) || die "Compile error";
+	platform_compile(
+		includes => $sdkHash{'matplotlib'}{includes},
+		file => "matplotlib_test/matplotlib_test.cpp",
+		outfile => "matplotlib_test/matplotlib_test.obj",
+	) || die "Compile error";
 
-	# platform_link(
-	# 	macosxlibs => $sdkHash{'matplotlib'}{macosxlibs},
-	# 	files => [ "matplotlib_test/matplotlib_test.obj" ],
-	# 	outfile => "matplotlib_test/matplotlib_test.exe",
-	# ) || die "Linker error";
+	platform_link(
+		macosxlibs => $sdkHash{'matplotlib'}{macosxlibs},
+		files => [ "matplotlib_test/matplotlib_test.obj" ],
+		outfile => "matplotlib_test/matplotlib_test.exe",
+	) || die "Linker error";
 
-	# `matplotlib_test/matplotlib_test.exe`;
-	# if( $? == 0 ) {
-	# 	print "success\n";
-	# 	recursiveUnlink( "matplotlib_test" );
-	# }
-	# else {
-	# 	print "FAILURE. matplotlib_test directory NOT removed for debugging.\n";
-	# }
-	print "success\n";
-	recursiveUnlink( "matplotlib_test" );
+	`matplotlib_test/matplotlib_test.exe`;
+	if( $? == 0 ) {
+		print "success\n";
+		recursiveUnlink( "matplotlib_test" );
+	}
+	else {
+		print "FAILURE. matplotlib_test directory NOT removed for debugging.\n";
+	}
+	# print "success\n";
+	# recursiveUnlink( "matplotlib_test" );
 }
 
 
