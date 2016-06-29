@@ -895,8 +895,23 @@ static LRESULT CALLBACK windowProc( HWND hWnd, UINT uMsg,
             // WM_MOUSEWHEEL is not supported under Windows 95
             if( _glfwLibrary.Sys.winVer != _GLFW_WIN_95 )
             {
-                wheelDelta = (((int)wParam) >> 16) / WHEEL_DELTA;
-                _glfwInput.WheelPos += wheelDelta;
+                // There is a problem here on newer machines with hires trackpads that pass a 
+                // wheelDelta that is less than WHEEL_DELTA, which is 120.  The result, due to
+                // integer division, was that scrolling would not work with these trackpads.
+                // So, ensure the minimum scroll is at least "1 click" of a mouse wheel.
+                // (e.g. standard mouse sends this message with wheelDelta of 120.  A new Dell
+                // laptop running windows 10 sends this message with wheelDelta of 3 using the 
+                // builtin trackpad, no matter the trackpad setting I configure.  This is likely
+                // fixed in newer versions of GLFW.)
+                // (tfb) june 2016
+                wheelDelta = ((int)wParam) >> 16;
+                if ( wheelDelta > 0 && wheelDelta < WHEEL_DELTA ) {
+                    wheelDelta = WHEEL_DELTA;
+                }
+                else if ( wheelDelta < 0 && (-wheelDelta) < WHEEL_DELTA ) {
+                    wheelDelta = -WHEEL_DELTA;
+                }
+                _glfwInput.WheelPos += wheelDelta / WHEEL_DELTA;
                 if( _glfwWin.mouseWheelCallback )
                 {
                     _glfwWin.mouseWheelCallback( _glfwInput.WheelPos );
@@ -1875,22 +1890,22 @@ void _glfwPlatformSetMouseCursorPos( int x, int y )
 
 // Function added by ZBS 19 Apr 2004; brought to GLFW2.7.2 by TFB
 void _glfwPlatformGetWindowGeom( int *x, int *y, int *w, int *h ) {
-	int a, b, c, pad;
-	LONG_PTR style;
-	RECT rect;
-	GetWindowRect( _glfwWin.window, &rect );
+    int a, b, c, pad;
+    LONG_PTR style;
+    RECT rect;
+    GetWindowRect( _glfwWin.window, &rect );
 
-	style = GetWindowLongPtr( _glfwWin.window, GWL_STYLE );
-	if( style & WS_POPUP ) {
-		*x = rect.left;
-		*y = rect.top;
-		*w = rect.right - rect.left;
-		*h = rect.bottom - rect.top;
-	}
-	else {
-		a = GetSystemMetrics( SM_CYCAPTION );
-		b = GetSystemMetrics( SM_CXSIZEFRAME );
-		c = GetSystemMetrics( SM_CYSIZEFRAME );
+    style = GetWindowLongPtr( _glfwWin.window, GWL_STYLE );
+    if( style & WS_POPUP ) {
+        *x = rect.left;
+        *y = rect.top;
+        *w = rect.right - rect.left;
+        *h = rect.bottom - rect.top;
+    }
+    else {
+        a = GetSystemMetrics( SM_CYCAPTION );
+        b = GetSystemMetrics( SM_CXSIZEFRAME );
+        c = GetSystemMetrics( SM_CYSIZEFRAME );
 
         pad = GetSystemMetrics( 92 );
             // This is SM_CXPADDEDBORDER, which is not defined for subsystem 5.1 and earlier (winxp).
@@ -1900,9 +1915,9 @@ void _glfwPlatformGetWindowGeom( int *x, int *y, int *w, int *h ) {
         b += pad;
         c += pad;
 
-		*x = rect.left;
-		*y = rect.top;
-		*w = rect.right - rect.left - b - b;
-		*h = rect.bottom - rect.top - a - c - c;
-	}
+        *x = rect.left;
+        *y = rect.top;
+        *w = rect.right - rect.left - b - b;
+        *h = rect.bottom - rect.top - a - c - c;
+    }
 }

@@ -609,8 +609,23 @@ LRESULT CALLBACK _glfwWindowCallback( HWND hWnd, UINT uMsg,
             // WM_MOUSEWHEEL is not supported under Windows 95
             if( _glfwSys.WinVer != _GLFW_WIN_95 )
             {
-                WheelDelta = (((int)wParam) >> 16) / WHEEL_DELTA;
-                _glfwInput.WheelPos += WheelDelta;
+                // There is a problem here on newer machines with hires trackpads that pass a 
+                // wheelDelta that is less than WHEEL_DELTA, which is 120.  The result, due to
+                // integer division, was that scrolling would not work with these trackpads.
+                // So, ensure the minimum scroll is at least "1 click" of a mouse wheel.
+                // (e.g. standard mouse sends this message with wheelDelta of 120.  A new Dell
+                // laptop running windows 10 sends this message with wheelDelta of 3 using the 
+                // builtin trackpad, no matter the trackpad setting I configure.  This is likely
+                // fixed in newer versions of GLFW.)
+                // (tfb) june 2016
+                wheelDelta = ((int)wParam) >> 16;
+                if ( wheelDelta > 0 && wheelDelta < WHEEL_DELTA ) {
+                    wheelDelta = WHEEL_DELTA;
+                }
+                else if ( wheelDelta < 0 && (-wheelDelta) < WHEEL_DELTA ) {
+                    wheelDelta = -WHEEL_DELTA;
+                }
+                _glfwInput.WheelPos += wheelDelta / WHEEL_DELTA;
                 if( winPtr->MouseWheelCallback )
                 {
                     winPtr->MouseWheelCallback( _glfwInput.WheelPos );
