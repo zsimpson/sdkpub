@@ -506,7 +506,15 @@ sub sdkSetup {
 			platforms => [ qw/win32 linux macosx/ ],
 		},
 
-		
+		'eigen' => {
+			# eigen is a header-only linear algebra library
+			includes => [ "$sdkDir/eigen-3.2.8/" ],
+			win32libs => [  ],
+			macosxlibs => [  ],
+			linuxlibs => [  ],
+			test => \&sdkTest_eigen,
+			platforms => [ qw/win32 linux macosx/ ],
+		},
 		
 		########################## SG unique SDKS, not found in zlab ###############################
 		# @TODO: Move into their own build
@@ -3363,5 +3371,59 @@ sub sdkTest_levmar {
 	}	
 }
 
+sub sdkTest_eigen {
+	my $sdk = "eigen-3.2.8";
+
+	# There is nothing to build for the main eigen library, which is modern c++ templates, header only.
+	
+	mkdir( "eigen_test" );
+	open( TEST, ">eigen_test/eigen_test.cpp" ) || die "Unable to create eigen test file";
+	print TEST '
+ 	#include <iostream>
+	#include <Eigen/Dense>
+	using namespace std;
+	using namespace Eigen;
+	int main()
+	{
+	   Matrix3f A;
+	   Vector3f b;
+	   A << 1,2,3,  4,5,6,  7,8,10;
+	   b << 3, 3, 4;
+	   cout << "Here is the matrix A:\n" << A << endl;
+	   cout << "Here is the vector b:\n" << b << endl;
+	   Vector3f x = A.colPivHouseholderQr().solve(b);
+	   cout << "The solution is:\n" << x << endl;
+	   if( x(0) > -2.0001 && x(0) < -1.9999 ) {
+	   	return 0;
+	   }
+	   return 1;
+	}';
+
+	print TEST "\n\n";
+	close( TEST );
+
+	platform_compile(
+		includes => [ "$sdkDir/$sdk" ],
+		file => "eigen_test/eigen_test.cpp",
+		outfile => "eigen_test/eigen_test.obj",
+	) || die "Compile error";
+
+	platform_link(
+		win32libs => $sdkHash{'eigen'}{win32libs},
+		linuxlibs => $sdkHash{'eigen'}{linuxlibs},
+		macosxlibs => $sdkHash{'eigen'}{macosxlibs},
+		files => [ "eigen_test/eigen_test.obj" ],
+		outfile => "eigen_test/eigen_test.exe",
+	) || die "Linker error";
+
+	`eigen_test/eigen_test.exe`;
+	if( $? == 0 ) {
+		print "success\n";
+		recursiveUnlink( "eigen_test" );
+	}
+	else {
+		print "FAILURE. eigen_test directory NOT removed for debugging.\n";
+	}	
+}
 
 true;
