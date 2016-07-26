@@ -545,6 +545,17 @@ sub sdkSetup {
 			#win32dlls => [ "$sdkPrvDir/firei/ubcore32/ub1394.dll", "$sdkPrvDir/firei/ubcore32/ub1394dh.dll", "$sdkPrvDir/firei/ubcore32/ubshared.dll", "$sdkPrvDir/firei/ubcore32/ubui.dll", "$sdkPrvDir/firei/ubcore32/ubvideo.dll" ],
 			platforms => [ qw/win32/ ],
 		},
+
+		'nr3' => {
+			# nr3 is header-only
+			includes => [ "$sdkPrvDir/nr3/code" ],
+			win32libs => [  ],
+			macosxlibs => [  ],
+			linuxlibs => [  ],
+			test => \&sdkTest_nr3,
+			platforms => [ qw/win32 linux macosx/ ],
+		},
+
 	);
 }
 
@@ -3425,5 +3436,53 @@ sub sdkTest_eigen {
 		print "FAILURE. eigen_test directory NOT removed for debugging.\n";
 	}	
 }
+
+sub sdkTest_nr3 {
+	my $sdk = "nr3";
+
+	# There is nothing to build for nr3, which is modern c++ header only
+	
+	mkdir( "nr3_test" );
+	open( TEST, ">nr3_test/nr3_test.cpp" ) || die "Unable to create nr3 test file";
+	print TEST '
+	#include "nr3.h"
+	#include "erf.h"
+	int main()
+	{
+		Normaldist nrm;
+		double cdf = nrm.cdf( 0 );
+		if( cdf > .49999 && cdf < .500001 ) {
+			return 0;
+		}
+		return 1;
+	}';
+
+	print TEST "\n\n";
+	close( TEST );
+
+	platform_compile(
+		includes => [ "$sdkPrvDir/$sdk/code" ],
+		file => "nr3_test/nr3_test.cpp",
+		outfile => "nr3_test/nr3_test.obj",
+	) || die "Compile error";
+
+	platform_link(
+		win32libs => $sdkHash{'nr3'}{win32libs},
+		linuxlibs => $sdkHash{'nr3'}{linuxlibs},
+		macosxlibs => $sdkHash{'nr3'}{macosxlibs},
+		files => [ "nr3_test/nr3_test.obj" ],
+		outfile => "nr3_test/nr3_test.exe",
+	) || die "Linker error";
+
+	`nr3_test/nr3_test.exe`;
+	if( $? == 0 ) {
+		print "success\n";
+		recursiveUnlink( "nr3_test" );
+	}
+	else {
+		print "FAILURE. nr3_test directory NOT removed for debugging.\n";
+	}	
+}
+
 
 true;
