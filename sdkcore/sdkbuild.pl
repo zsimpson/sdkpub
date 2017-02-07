@@ -906,13 +906,26 @@ sub sdkTest_glfw272 {
 		popCwd();
 	}
 	elsif( $platform eq 'win32' ) {
-		if( platformBuild64Bit() ) {
-   			pushCwd( "$sdkDir/$sdk/support/msvc120" );
-			executeCmd( "msbuild GLFW.vcxproj /t:clean /p:Platform=x64 /p:Configuration=Debug", 1 );
-			executeCmd( "msbuild GLFW.vcxproj /p:Platform=x64 /p:Configuration=Debug", 1 );
-   			executeCmd( "msbuild GLFW.vcxproj /t:clean /p:Platform=x64 /p:Configuration=Release", 1 );
-			executeCmd( "msbuild GLFW.vcxproj /p:Platform=x64 /p:Configuration=Release", 1 );
-			popCwd();
+		if( $devVersion >= 18 ) {
+			# This means vs2013 or later, which doesn't have vcbuild but rather msbuild.
+			if( platformBuild64Bit() ) {
+	   			pushCwd( "$sdkDir/$sdk/support/msvc120" );
+			#	executeCmd( "msbuild GLFW.vcxproj /t:clean /p:Platform=x64 /p:Configuration=Debug", 1 );
+			#	executeCmd( "msbuild GLFW.vcxproj /p:Platform=x64 /p:Configuration=Debug", 1 );
+	   			executeCmd( "msbuild GLFW.vcxproj /t:clean /p:Platform=x64 /p:Configuration=Release", 1 );
+				executeCmd( "msbuild GLFW.vcxproj /p:Platform=x64 /p:Configuration=Release", 1 );
+				popCwd();
+			}
+			else {
+				print( "building x86 with msbuild...\n" );
+	   			pushCwd( "$sdkDir/$sdk/support/msvc120" );
+			#	executeCmd( "msbuild GLFW.vcxproj /t:clean /p:Platform=x86 /p:Configuration=Debug", 1 );
+			#	executeCmd( "msbuild GLFW.vcxproj /p:Platform=x86 /p:Configuration=Debug", 1 );
+	   			executeCmd( "msbuild GLFW.vcxproj /t:clean /p:Platform=x86 /p:Configuration=Release", 1 );
+				executeCmd( "msbuild GLFW.vcxproj /p:Platform=x86 /p:Configuration=Release", 1 );
+				executeCmd( "copy Release\\GLFW.lib ..\\..\\lib\\win32" );
+				popCwd();				
+			}
 		}
 		else {
    			pushCwd( "$sdkDir/$sdk/support/msvc90" );
@@ -950,7 +963,7 @@ sub sdkTest_glfw272 {
 	) || die "Compile error";
 
 	platform_link(
-		win32excludelibs => platformBuild64Bit() ? [ "libcmt.lib" ] : [],
+		win32excludelibs => [ "libcmt.lib" ],
 		win32libs => [ "$sdkDir/$sdk/lib/win32/glfw.lib", "opengl32.lib", "user32.lib" ],
 #		win32libs => [ "$sdkDir/$sdk/lib/win32/glfw.lib", "opengl32.lib", "user32.lib" ],
 		linuxlibs => [ "$sdkDir/$sdk/lib/x11/libglfw.a", "-lGL", "-lXrandr", "-lXxf86vm", "-lpthread" ],
