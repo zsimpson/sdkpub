@@ -1,0 +1,24 @@
+The current libs work for local functionality on OSX - see the keytest.cpp program.  I never tested 
+network functionality (yet) because the lib2017 versions for win64 crash some of the time in 
+the same simple test of finding and logging on to the key.  So at present I reverted the
+sdkbuild.pl script so that it is referencing the previous set of libraries and we're
+using the UniKey STD instead while I work on a software-based license approach.
+
+tfb 31 august 2017
+
+---
+
+Originally the netowrk version of the library for OSX did not work.  See emails to dragos and cynthia 
+starting 7 Aug 2017.  They sent a couple updated libraries until the simple tests passed.
+
+tfb 16 august 2017
+
+---
+
+These files from the SDK downloaded Aug 2017 to test network functionality of UniKey PRO & Time models.
+
+The header was renamed from UniKey.h to UniKeyFR.h to maintain consistency with previous versions of the SDK
+and not have to modify various build scripts, at least until/if we make a decision to upgrade which key
+and libraries we are using.
+
+tfb 7 august 2017

@@ -1,0 +1,28 @@
+[Header]
+FileType	=NetUniKey.ini
+FileVersion 	=1
+[General]
+WorkingMode 	=2
+				# 1 local UniKey
+				# 2 Network UniKey
+				# 3 local UniKey -> Network UniKey (default)
+				# 4 Network UniKey -> local UniKey
+AccessMode	=2
+				# 0 Access NetUniKey per IP address (default) 
+				# 1 Access NetUniKey per process
+				# 2 Access NetUniKey per thread
+				# 3 Access NetUniKey per Shared IP Mode
+[ServerSetting]
+SearchingMode 	=1
+				# 0 direct connect, no broadcast
+				# 1 direct connect, then broadcast (default)
+				# 2 broadcast first, then direct connect
+ServerIP	=192.168.0.101
+Port		=5680
+TimeOut		=5
+				# send/receive time out value in second
+
+AutoStart	=0
+				# 1 auto start server when system starts
+				# 0 disable auto start function (default)
+

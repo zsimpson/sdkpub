@@ -268,6 +268,9 @@ sub sdkSetup {
 				# this is not universal lib.  It is for 64bit intel, which by now (may 2014)
 				# should be fine for mac users.  If not, we'll create a universal when
 				# fujimi posts a new SDK with correct osx libs.  See readme in the secutech sdk folder.
+			# macosxincludes => [ "$sdkDir/usbkey_secutech/osx/lib2017_net" ],
+			# macosxlibs => [ "$sdkDir/usbkey_secutech/osx/lib2017_net/NetUniKey64.a" ],
+				# updated libraries to try the network functionality of the UniKey Pro/Time.
 	
 			# lib2011 untested on linux
 			linuxincludes => [ "$sdkDir/usbkey_secutech/linux/lib2011/Linux64.C" ],
@@ -2021,8 +2024,14 @@ sub sdkTest_usbkey_secutech {
 		pushCwd( "$sdkDir/$sdk" );
 		if( platformBuild64Bit() ) {
 			# copy win64 files to parent folder, which will be used by build
+
 			executeCmd( "copy win64\\lib2013\\VC10\\UniKey.x64.MT.VC10.lib UniKey.lib" );
 			executeCmd( "copy win64\\lib2013\\UniKeyFR.h UniKeyFR.h" );
+
+			# executeCmd( "copy win64\\lib2017_net\\NetUniKey.x64.VC12.MT.lib UniKey.lib" );
+			# executeCmd( "copy win64\\lib2017_net\\UniKey.h UniKeyFR.h" );
+				# The new libraries for testing network/time functionality 
+
 		}
 		else {
 			# copy win32 files to parent folder, which will be used by build
@@ -2964,7 +2973,7 @@ sub sdkTest_matplotlib {
 	}
 
 	mkdir( "matplotlib_test" );
-	open( TEST, ">matplotlib_test/matplotlib_test.cpp" ) || die "Unable to create openssl test file";
+	open( TEST, ">matplotlib_test/matplotlib_test.cpp" ) || die "Unable to create matplotlib test file";
 	print TEST '
  		#include "Python.h"
 		int main(int argc, char *argv[])
@@ -3176,10 +3185,10 @@ sub sdkTest_openssl {
             // just matching what the ruby default is for openssl since that is how
             // this data is being encrypted
         EVP_CIPHER_CTX decryptor;
-        int aesInit( char *passphrase ) {
+        int aesInit( const unsigned char *passphrase ) {
             unsigned char *salt = 0;
                     // default attr_encrypted in ruby app uses no salt
-            int keylen = EVP_BytesToKey( EVP_aes_256_cbc(), EVP_md5(), salt, passphrase, strlen(passphrase), NUM_ITERATIONS, key, iv);
+            int keylen = EVP_BytesToKey( EVP_aes_256_cbc(), EVP_md5(), salt, passphrase, strlen((char*)passphrase), NUM_ITERATIONS, key, iv);
                     // note: EVP_aes_256_cbc, EVP_md5() again is what the default ruby impl uses so we use it here.
             if (keylen != 32) {
                     printf("Key size is %d bytes - it should be 32 bytes (256bits)\n", keylen);
@@ -3191,7 +3200,7 @@ sub sdkTest_openssl {
         }
 
         int main( int argc, char **argv ) {
-            int retval = aesInit( "my secret passphrase" );
+            int retval = aesInit( (const unsigned char *)"my secret passphrase" );
             if( retval == 0 ) {
                     printf( "SUCCESS\n" );
                     return 0;
