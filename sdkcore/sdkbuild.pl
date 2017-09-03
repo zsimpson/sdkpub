@@ -464,16 +464,22 @@ sub sdkSetup {
 #		},
 
 		'openssl' => {
-			macosxincludes => [ "$sdkDir/openssl-1.0.1e/include" ] ,
-			macosxlibs => [ "$sdkDir/openssl-1.0.1e/libcrypto.a", "$sdkDir/openssl-1.0.1e/libssl.a" ],
+			# NOTE: tfb initially used 1.0.1e because that was current in 2013 when this was needed
+			# for work with Traitwise.  Now it's Sep 2017 and I want to use what is currently avail
+			# in the 1.0 line (still used by current Node.js etc).  tfb 2 sep 2017
 
-			linuxincludes => [ "$sdkDir/openssl-1.0.1e/include" ],
-			linuxlibs => [ "$sdkDir/openssl-1.0.1e/libcrypto.a", "$sdkDir/openssl-1.0.1e/libssl.a", "-ldl" ],
+			# macosxincludes => [ "$sdkDir/openssl-1.0.1e/include" ] ,
+			# macosxlibs => [ "$sdkDir/openssl-1.0.1e/libcrypto.a", "$sdkDir/openssl-1.0.1e/libssl.a" ],
+			macosxincludes => [ "$sdkDir/openssl-1.0.2l/include" ] ,
+			macosxlibs => [ "$sdkDir/openssl-1.0.2l/libcrypto.a", "$sdkDir/openssl-1.0.2l/libssl.a" ],
 
-			# I did not mess with this for win32.  The sdk contains symlinks in the include/openssl
-			# folder that would need to be fixed for windows.  Probably we could just get rid of
-			# the symlinks and copy the crypto headers directly into openssl.  tfb
-				
+			# linuxincludes => [ "$sdkDir/openssl-1.0.1e/include" ],
+			# linuxlibs => [ "$sdkDir/openssl-1.0.1e/libcrypto.a", "$sdkDir/openssl-1.0.1e/libssl.a", "-ldl" ],
+			linuxincludes => [ "$sdkDir/openssl-1.0.2l/include" ],
+			linuxlibs => [ "$sdkDir/openssl-1.0.2l/libcrypto.a", "$sdkDir/openssl-1.0.2l/libssl.a", "-ldl" ],
+
+			# TODO: windows
+
 			platforms => [ qw/linux macosx/ ],
 			test => \&sdkTest_openssl,
 		},
@@ -3143,7 +3149,7 @@ sub sdkTest_libtiff {
 ############################################################################################################
 
 sub sdkTest_openssl {
-	my $sdk = "openssl-1.0.1e";
+	my $sdk = "openssl-1.0.2l";
 	if( $platform eq 'linux' ) {
 		pushCwd( "$sdkDir/$sdk" );
 			executeCmd( "sh ./config no-shared", 1 );
