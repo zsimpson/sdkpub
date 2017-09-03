@@ -479,8 +479,10 @@ sub sdkSetup {
 			linuxlibs => [ "$sdkDir/openssl-1.0.2l/libcrypto.a", "$sdkDir/openssl-1.0.2l/libssl.a", "-ldl" ],
 
 			# TODO: windows
+			win32includes => [ "$sdkDir/openssl-1.0.2l/inc32" ] ,
+			win32libs => [ "$sdkDir/openssl-1.0.2l/out32/libeay32.lib", "$sdkDir/openssl-1.0.2l/out32/ssleay32.lib", "advapi32.lib", "user32.lib", "gdi32.lib" ],
 
-			platforms => [ qw/linux macosx/ ],
+			platforms => [ qw/win32 linux macosx/ ],
 			test => \&sdkTest_openssl,
 		},
 
@@ -3170,7 +3172,18 @@ sub sdkTest_openssl {
 	}
 	elsif( $platform eq 'win32' ) {
 		pushCwd( "$sdkDir/$sdk" );
-		# TODO
+			if( platformBuild64Bit() ) {
+				#executeCmd( "perl Configure VC-WIN64A" );
+				#executeCmd( "ms\\do_win64a" );
+				#executeCmd( "nmake -f ms\\nt.mak" );
+			}
+			else {
+				# tfb: I use 64bit above, have not tested this.
+				# see INSTALL.W32 in the openssl sdk folder.
+				executeCmd( "perl Configure VC-WIN32 no-asm" );
+				executeCmd( "ms\\do_ms" );
+				executeCmd( "nmake -f ms\\nt.mak" );
+			}			
 		popCwd();
 	}
 
@@ -3218,7 +3231,9 @@ sub sdkTest_openssl {
 	close( TEST );
 
 	platform_compile(
-		includes => [ "$sdkDir/$sdk/include", "." ],
+		win32includes => $sdkHash{'openssl'}{win32includes},
+		macosxincludes => $sdkHash{'openssl'}{macosxincludes},
+		linuxincludes => $sdkHash{'openssl'}{linuxincludes},
 		file => "openssl_test/openssl_test.cpp",
 		outfile => "openssl_test/openssl_test.obj",
 	) || die "Compile error";
@@ -3226,6 +3241,7 @@ sub sdkTest_openssl {
 	platform_link(
 		linuxlibs => $sdkHash{'openssl'}{linuxlibs},
 		macosxlibs => $sdkHash{'openssl'}{macosxlibs},
+		win32libs => $sdkHash{'openssl'}{win32libs},
 		files => [ "openssl_test/openssl_test.obj" ],
 		outfile => "openssl_test/openssl_test.exe",
 	) || die "Linker error";
