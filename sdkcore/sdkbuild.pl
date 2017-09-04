@@ -3173,9 +3173,9 @@ sub sdkTest_openssl {
 	elsif( $platform eq 'win32' ) {
 		pushCwd( "$sdkDir/$sdk" );
 			if( platformBuild64Bit() ) {
-				#executeCmd( "perl Configure VC-WIN64A" );
-				#executeCmd( "ms\\do_win64a" );
-				#executeCmd( "nmake -f ms\\nt.mak" );
+				executeCmd( "perl Configure VC-WIN64A" );
+				executeCmd( "ms\\do_win64a" );
+				executeCmd( "nmake -f ms\\nt.mak" );
 			}
 			else {
 				# tfb: I use 64bit above, have not tested this.
