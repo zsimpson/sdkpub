@@ -12,7 +12,7 @@ sub sdkSetup {
 			test => \&sdkTest_pcre,
 			platforms => [ qw/win32 linux macosx/ ],
 		},
-
+ 
 		'freetype' => {
 			includes => [ "$sdkDir/freetype/lib", "." ],
 			win32libs => [ "$sdkDir/freetype/lib/libttf.lib" ],
@@ -464,21 +464,12 @@ sub sdkSetup {
 #		},
 
 		'openssl' => {
-			# NOTE: tfb initially used 1.0.1e because that was current in 2013 when this was needed
-			# for work with Traitwise.  Now it's Sep 2017 and I want to use what is currently avail
-			# in the 1.0 line (still used by current Node.js etc).  tfb 2 sep 2017
-
-			# macosxincludes => [ "$sdkDir/openssl-1.0.1e/include" ] ,
-			# macosxlibs => [ "$sdkDir/openssl-1.0.1e/libcrypto.a", "$sdkDir/openssl-1.0.1e/libssl.a" ],
 			macosxincludes => [ "$sdkDir/openssl-1.0.2l/include" ] ,
 			macosxlibs => [ "$sdkDir/openssl-1.0.2l/libcrypto.a", "$sdkDir/openssl-1.0.2l/libssl.a" ],
 
-			# linuxincludes => [ "$sdkDir/openssl-1.0.1e/include" ],
-			# linuxlibs => [ "$sdkDir/openssl-1.0.1e/libcrypto.a", "$sdkDir/openssl-1.0.1e/libssl.a", "-ldl" ],
 			linuxincludes => [ "$sdkDir/openssl-1.0.2l/include" ],
 			linuxlibs => [ "$sdkDir/openssl-1.0.2l/libcrypto.a", "$sdkDir/openssl-1.0.2l/libssl.a", "-ldl" ],
 
-			# TODO: windows
 			win32includes => [ "$sdkDir/openssl-1.0.2l/inc32" ] ,
 			win32libs => [ "$sdkDir/openssl-1.0.2l/out32/libeay32.lib", "$sdkDir/openssl-1.0.2l/out32/ssleay32.lib", "advapi32.lib", "user32.lib", "gdi32.lib" ],
 
@@ -495,7 +486,12 @@ sub sdkSetup {
 			linuxincludes => [ "$sdkDir/curl-7.55.1/include" ],
 			linuxlibs => [ "$sdkDir/curl-7.55.1/lib/.libs/libcurl.a", "$sdkDir/openssl-1.0.2l/libcrypto.a", "$sdkDir/openssl-1.0.2l/libssl.a", "-lldap", "-lz" ],
 
-			platforms => [ qw/linux macosx/ ],
+			win32includes => [ "$sdkDir/curl-7.55.1/include" ] ,
+			win32libs => [ "$sdkDir/curl-7.55.1/build/Win64/VC12/LIB Release - LIB OpenSSL/libcurl.lib", "$sdkDir/openssl-1.0.2l/out32/libeay32.lib", "$sdkDir/openssl-1.0.2l/out32/ssleay32.lib", "advapi32.lib", "user32.lib", "gdi32.lib", "wldap32.lib", "ws2_32.lib" ],
+			win32releasedefines => [ "CURL_STATICLIB" ],
+			win32debugdefines => [ "CURL_STATICLIB" ],
+
+			platforms => [ qw/win32 linux macosx/ ],
 			test => \&sdkTest_curl,
 		},
 
@@ -3300,18 +3296,27 @@ sub sdkTest_curl {
 		popCwd();
 	}
 	elsif( $platform eq 'win32' ) {
-		pushCwd( "$sdkDir/$sdk" );
+		pushCwd( "$sdkDir/$sdk/projects/Windows/VC12/lib" );
 			if( platformBuild64Bit() ) {
-				executeCmd( "perl Configure VC-WIN64A" );
-				executeCmd( "ms\\do_win64a" );
-				executeCmd( "nmake -f ms\\nt.mak" );
+				executeCmd( "msbuild libcurl.vcxproj /t:clean /p:Platform=x64 /p:Configuration=\"LIB Release - LIB OpenSSL\"", 1 );
+				executeCmd( "msbuild libcurl.vcxproj /p:Platform=x64 /p:Configuration=\"LIB Release - LIB OpenSSL\"", 1 );
 			}
 			else {
-				# tfb: I use 64bit above, have not tested this.
-				# see INSTALL.W32 in the openssl sdk folder.
-				executeCmd( "perl Configure VC-WIN32 no-asm" );
-				executeCmd( "ms\\do_ms" );
-				executeCmd( "nmake -f ms\\nt.mak" );
+				# tfb: I use 64bit above, have not tested this.  Normally when we build 32bit, we use an older VC9
+				# compiler, so it may be you want to alter this to use VC9 if that's what you're using for the
+				# rest of your code.  There is a VC9 folder parallel to the VC12 folder given below that you would
+				# use instead, and it may be that the Configuration is named differently.  See other examples in
+				# this file, e.g. levmar, for the command-line for building with vcbuild instead of msdev.
+				# You will also need to ensure the SSL libraries referenced get built as 32bit as well.
+				# Finally, the output folder will be different for a 32bit build.  You'll want to specify a 
+				# common folder for libraries to get linked from, and copy those within this function from the 
+				# appropriate output location depending on whether you want 64 or 32bit.  See the usbkey_secutech
+				# entry in this file for an example of doing that.  tfb 5 sept 2017.
+				
+				print( "\n\n*** TODO? 32bit builds! (currently only x64 builds are implemented).\n*** See sdkTest_curl in sdkbuild.pl\n\n" );
+				# It may be that these will work for you, but they are untested:
+				#executeCmd( "msbuild libcurl.vcxproj /t:clean /p:Platform=Win32 /p:Configuration=\"LIB Release - LIB OpenSSL\"", 1 );
+				#executeCmd( "msbuild libcurl.vcxproj /p:Platform=Win32 /p:Configuration=\"LIB Release - LIB OpenSSL\"", 1 );
 			}			
 		popCwd();
 	}
@@ -3351,6 +3356,7 @@ sub sdkTest_curl {
 
 	platform_compile(
 		win32includes => $sdkHash{'curl'}{win32includes},
+		win32defines => $sdkHash{'curl'}{win32releasedefines},
 		macosxincludes => $sdkHash{'curl'}{macosxincludes},
 		linuxincludes => $sdkHash{'curl'}{linuxincludes},
 		file => "curl_test/curl_test.cpp",
@@ -3361,6 +3367,7 @@ sub sdkTest_curl {
 		linuxlibs => $sdkHash{'curl'}{linuxlibs},
 		macosxlibs => $sdkHash{'curl'}{macosxlibs},
 		win32libs => $sdkHash{'curl'}{win32libs},
+		win32excludelibs => [ "libcmtd.lib", "libcmt.lib" ],
 		files => [ "curl_test/curl_test.obj" ],
 		outfile => "curl_test/curl_test.exe",
 	) || die "Linker error";
