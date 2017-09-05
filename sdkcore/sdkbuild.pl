@@ -486,6 +486,19 @@ sub sdkSetup {
 			test => \&sdkTest_openssl,
 		},
 
+		'curl' => {
+			depends => [ 'openssl' ],
+
+			macosxincludes => [ "$sdkDir/curl-7.55.1/include" ] ,
+			macosxlibs => [ "$sdkDir/curl-7.55.1/lib/.libs/libcurl.a", "$sdkDir/openssl-1.0.2l/libcrypto.a", "$sdkDir/openssl-1.0.2l/libssl.a", "-lldap", "-lz" ],
+
+			linuxincludes => [ "$sdkDir/curl-7.55.1/include" ],
+			linuxlibs => [ "$sdkDir/curl-7.55.1/lib/.libs/libcurl.a", "$sdkDir/openssl-1.0.2l/libcrypto.a", "$sdkDir/openssl-1.0.2l/libssl.a", "-lldap", "-lz" ],
+
+			platforms => [ qw/linux macosx/ ],
+			test => \&sdkTest_curl,
+		},
+
 		'postgres' => {
 			# Really I just wanted the libpq library to talk to a postgres database from C, but I
 			# couldn't find a distro for this -- so what we have (and build herein) is actually 
@@ -3253,6 +3266,112 @@ sub sdkTest_openssl {
 	}
 	else {
 		print "FAILURE. openssl_test directory NOT removed for debugging.\n";
+	}
+}
+
+############################################################################################################
+#
+# curl (libcurl)
+#
+############################################################################################################
+
+sub sdkTest_curl {
+	my $sdk = "curl-7.55.1";
+	if( $platform eq 'linux' ) {
+		pushCwd( "$sdkDir/$sdk" );
+			my $sslInc = $sdkHash{'openssl'}{linuxincludes}[0];
+			my($file, $sslLib, $ext) = fileparse($sdkHash{'openssl'}{linuxlibs}[0]);
+			executeCmd( "CPPFLAGS=\"-I$sslInc\" LDFLAGS=\"-L$sslLib\" ./configure --disable-shared", 1 );
+			executeCmd( "make clean", 1 );
+			executeCmd( "make", 1 );
+		popCwd();
+		pushCwd( "$sdkDir/$sdk" );
+			executeCmd( "make clean", 1 );
+			executeCmd( "make", 1 );
+		popCwd();
+	}
+	if( $platform eq 'macosx' ) {
+		pushCwd( "$sdkDir/$sdk" );
+			my $sslInc = $sdkHash{'openssl'}{macosxincludes}[0];
+			my($file, $sslLib, $ext) = fileparse($sdkHash{'openssl'}{macosxlibs}[0]);
+			executeCmd( "CPPFLAGS=\"-I$sslInc\" LDFLAGS=\"-L$sslLib\" ./configure --disable-shared", 1 );
+			executeCmd( "make clean", 1 );
+			executeCmd( "make", 1 );
+		popCwd();
+	}
+	elsif( $platform eq 'win32' ) {
+		pushCwd( "$sdkDir/$sdk" );
+			if( platformBuild64Bit() ) {
+				executeCmd( "perl Configure VC-WIN64A" );
+				executeCmd( "ms\\do_win64a" );
+				executeCmd( "nmake -f ms\\nt.mak" );
+			}
+			else {
+				# tfb: I use 64bit above, have not tested this.
+				# see INSTALL.W32 in the openssl sdk folder.
+				executeCmd( "perl Configure VC-WIN32 no-asm" );
+				executeCmd( "ms\\do_ms" );
+				executeCmd( "nmake -f ms\\nt.mak" );
+			}			
+		popCwd();
+	}
+
+	mkdir( "curl_test" );
+	open( TEST, ">curl_test/curl_test.cpp" ) || die "Unable to create curl test file";
+	print TEST '
+		#include <stdio.h>
+		#include <curl/curl.h>
+		 
+		int main(void)
+		{
+		  CURL *curl;
+		  CURLcode res;
+		 
+		  curl = curl_easy_init();
+		  if(curl) {
+		    curl_easy_setopt(curl, CURLOPT_URL, "http://example.com");
+		    /* example.com is redirected, so we tell libcurl to follow redirection */ 
+		    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+		 
+		    /* Perform the request, res will get the return code */ 
+		    res = curl_easy_perform(curl);
+		    /* Check for errors */ 
+		    if(res != CURLE_OK) {
+		      fprintf(stderr, "curl_easy_perform() failed: %s\n",
+		              curl_easy_strerror(res));
+		    }
+		 
+		    /* always cleanup */ 
+		    curl_easy_cleanup(curl);
+		  }
+		  return 0;
+		}	';
+	print TEST "\n\n";
+	close( TEST );
+
+	platform_compile(
+		win32includes => $sdkHash{'curl'}{win32includes},
+		macosxincludes => $sdkHash{'curl'}{macosxincludes},
+		linuxincludes => $sdkHash{'curl'}{linuxincludes},
+		file => "curl_test/curl_test.cpp",
+		outfile => "curl_test/curl_test.obj",
+	) || die "Compile error";
+
+	platform_link(
+		linuxlibs => $sdkHash{'curl'}{linuxlibs},
+		macosxlibs => $sdkHash{'curl'}{macosxlibs},
+		win32libs => $sdkHash{'curl'}{win32libs},
+		files => [ "curl_test/curl_test.obj" ],
+		outfile => "curl_test/curl_test.exe",
+	) || die "Linker error";
+
+	`curl_test/curl_test.exe`;
+	if( $? == 0 ) {
+		print "success\n";
+		recursiveUnlink( "curl_test" );
+	}
+	else {
+		print "FAILURE. curl_test directory NOT removed for debugging.\n";
 	}
 }
 
