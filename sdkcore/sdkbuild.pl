@@ -3331,24 +3331,35 @@ sub sdkTest_curl {
 		{
 		  CURL *curl;
 		  CURLcode res;
+
+		  /* In windows, this will init the winsock stuff */ 
+  		curl_global_init(CURL_GLOBAL_ALL);
 		 
 		  curl = curl_easy_init();
 		  if(curl) {
-		    curl_easy_setopt(curl, CURLOPT_URL, "http://example.com");
-		    /* example.com is redirected, so we tell libcurl to follow redirection */ 
-		    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
-		 
-		    /* Perform the request, res will get the return code */ 
-		    res = curl_easy_perform(curl);
-		    /* Check for errors */ 
-		    if(res != CURLE_OK) {
-		      fprintf(stderr, "curl_easy_perform() failed: %s\n",
-		              curl_easy_strerror(res));
-		    }
+		  	FILE *f = fopen( "curl_test/curl_test_out.txt", "wt" );
+		  	if( f ) {
+			    curl_easy_setopt(curl, CURLOPT_URL, "http://example.com");
+			    /* example.com is redirected, so we tell libcurl to follow redirection */ 
+			    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+			    curl_easy_setopt(curl, CURLOPT_POSTFIELDS, "testing=1" );
+			    curl_easy_setopt( curl, CURLOPT_WRITEDATA, f );
+
+			 
+			    /* Perform the request, res will get the return code */ 
+			    res = curl_easy_perform(curl);
+			    /* Check for errors */ 
+			    if(res != CURLE_OK) {
+			      fprintf(stderr, "curl_easy_perform() failed: %s\n",
+			              curl_easy_strerror(res));
+			    }
+			    fclose( f );
+			  }
 		 
 		    /* always cleanup */ 
 		    curl_easy_cleanup(curl);
 		  }
+		  curl_global_cleanup();
 		  return 0;
 		}	';
 	print TEST "\n\n";
@@ -3367,7 +3378,8 @@ sub sdkTest_curl {
 		linuxlibs => $sdkHash{'curl'}{linuxlibs},
 		macosxlibs => $sdkHash{'curl'}{macosxlibs},
 		win32libs => $sdkHash{'curl'}{win32libs},
-		win32excludelibs => [ "libcmtd.lib", "libcmt.lib" ],
+		win32excludelibs => [ "msvcrtd.lib", "msvcrt.lib" ],
+			# exclude these to make sure we've not built libcurl against dll version of c runtime.
 		files => [ "curl_test/curl_test.obj" ],
 		outfile => "curl_test/curl_test.exe",
 	) || die "Linker error";
