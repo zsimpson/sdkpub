@@ -480,14 +480,14 @@ sub sdkSetup {
 		'curl' => {
 			depends => [ 'openssl' ],
 
-			macosxincludes => [ "$sdkDir/curl-7.55.1/include" ] ,
-			macosxlibs => [ "$sdkDir/curl-7.55.1/lib/.libs/libcurl.a", "$sdkDir/openssl-1.0.2l/libcrypto.a", "$sdkDir/openssl-1.0.2l/libssl.a", "-lldap", "-lz" ],
+			macosxincludes => [ "$sdkDir/curl-7.56.0/include" ] ,
+			macosxlibs => [ "$sdkDir/curl-7.56.0/lib/.libs/libcurl.a", "$sdkDir/openssl-1.0.2l/libcrypto.a", "$sdkDir/openssl-1.0.2l/libssl.a", "-lldap", "-lz" ],
 
-			linuxincludes => [ "$sdkDir/curl-7.55.1/include" ],
-			linuxlibs => [ "$sdkDir/curl-7.55.1/lib/.libs/libcurl.a", "$sdkDir/openssl-1.0.2l/libcrypto.a", "$sdkDir/openssl-1.0.2l/libssl.a", "-lldap", "-lz" ],
+			linuxincludes => [ "$sdkDir/curl-7.56.0/include" ],
+			linuxlibs => [ "$sdkDir/curl-7.56.0/lib/.libs/libcurl.a", "$sdkDir/openssl-1.0.2l/libcrypto.a", "$sdkDir/openssl-1.0.2l/libssl.a", "-lldap", "-lz" ],
 
-			win32includes => [ "$sdkDir/curl-7.55.1/include" ] ,
-			win32libs => [ "$sdkDir/curl-7.55.1/build/Win64/VC12/LIB Release - LIB OpenSSL/libcurl.lib", "$sdkDir/openssl-1.0.2l/out32/libeay32.lib", "$sdkDir/openssl-1.0.2l/out32/ssleay32.lib", "advapi32.lib", "user32.lib", "gdi32.lib", "wldap32.lib", "ws2_32.lib" ],
+			win32includes => [ "$sdkDir/curl-7.56.0/include" ] ,
+			win32libs => [ "$sdkDir/curl-7.56.0/build/Win64/VC12/LIB Release - LIB OpenSSL/libcurl.lib", "$sdkDir/openssl-1.0.2l/out32/libeay32.lib", "$sdkDir/openssl-1.0.2l/out32/ssleay32.lib", "advapi32.lib", "user32.lib", "gdi32.lib", "wldap32.lib", "ws2_32.lib" ],
 			win32releasedefines => [ "CURL_STATICLIB" ],
 			win32debugdefines => [ "CURL_STATICLIB" ],
 
@@ -3272,7 +3272,7 @@ sub sdkTest_openssl {
 ############################################################################################################
 
 sub sdkTest_curl {
-	my $sdk = "curl-7.55.1";
+	my $sdk = "curl-7.56.0";
 	if( $platform eq 'linux' ) {
 		pushCwd( "$sdkDir/$sdk" );
 			my $sslInc = $sdkHash{'openssl'}{linuxincludes}[0];
