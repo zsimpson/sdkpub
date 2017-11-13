@@ -364,7 +364,15 @@ static int convertMacKeyCode( unsigned int macKeyCode )
         {
             if( !_glfwWin.sysKeysDisabled )
             {
-                [super keyDown:event];
+                // tfb nov 2017 - I want to allow command-c/v/x copy-paste functionality in our 
+                // app, so have modified zglfwtools etc to allow this.  But if we pass this event
+                // on here, we'll get a "bonk" sound out of OSX because it doesn't have anything
+                // to do and is letting the user know that key doesn't work here.  But it does -
+                // it just copied/pasted in our app.  So if this is a command-c/v/x, don't pass it
+                // on.
+                if( code!='c' && code!='C' && code!='v' && code!='V' && code!='x' && code!='X' ) {
+                    [super keyDown:event];
+                }
             }
         }
         else
