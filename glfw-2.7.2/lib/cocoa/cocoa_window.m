@@ -369,8 +369,9 @@ static int convertMacKeyCode( unsigned int macKeyCode )
                 // on here, we'll get a "bonk" sound out of OSX because it doesn't have anything
                 // to do and is letting the user know that key doesn't work here.  But it does -
                 // it just copied/pasted in our app.  So if this is a command-c/v/x, don't pass it
-                // on.
-                if( code!='c' && code!='C' && code!='v' && code!='V' && code!='x' && code!='X' ) {
+                // on.  Similarly for s,r which we use for save, and reload.
+                if( code!='c' && code!='v' && code!='x' && code!='s' && code!='r' &&
+                    code!='C' && code!='V' && code!='X' && code!='S' && code!='R') {
                     [super keyDown:event];
                 }
             }
