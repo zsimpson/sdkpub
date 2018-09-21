@@ -62,12 +62,12 @@ sub sdkSetup {
 
 		'freeimage-3.18' => {
 			includes => [ "$sdkDir/freeimage-3.18/Dist", "$sdkDir/freeimage-3.18/Source", "." ],
-			win32debuglibs => [ "$sdkDir/freeimage-3.18/Dist/freeimaged.lib" ],
-			win32releaselibs => [ "$sdkDir/freeimage-3.18/Dist/freeimage.lib" ],
+			win32debuglibs => [ "$sdkDir/freeimage-3.18/Dist/FreeImageLibd.lib" ],
+			win32releaselibs => [ "$sdkDir/freeimage-3.18/Dist/FreeImageLib.lib" ],
 			linuxlibs => [ "$sdkDir/freeimage-3.18/Dist/libfreeimage.a" ],
 			macosxlibs => [ "$sdkDir/freeimage-3.18/Dist/libfreeimage.a" ],
-			win32debugdefines => [ "freeimage_LIB" ],
-			win32releasedefines => [ "freeimage_LIB" ],
+			win32debugdefines => [ "FREEIMAGE_LIB" ],
+			win32releasedefines => [ "FREEIMAGE_LIB" ],
 			test => \&sdkTest_freeimage318,
 			platforms => [ qw/win32 linux macosx/ ],
 		},
@@ -1150,14 +1150,29 @@ sub sdkTest_freeimage318 {
 		popCwd();
 	}
 	elsif( $platform eq 'win32' ) {
-		pushCwd( "$sdkDir/$sdk/Source/FreeImageLib" );
-			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Release\" CLEAN RECURSE=1", 1 );
-			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Release\"", 1 );
-			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Debug\" CLEAN RECURSE=1", 1 );
-			executeCmd( "nmake /C /f FreeImageLib.mak CFG=\"FreeImageLib - Win32 Debug\"", 1 );
-				# Note that even though the configs are called "Win32", since the makefile is executing CL to
-				# compile, it will find whichever CL is in the path, so if 64bit is pathed, we'll build 64bit... 
-		popCwd();	}
+		pushCwd( "$sdkDir/$sdk" );
+			if( platformBuild64Bit() ) {
+	  			executeCmd( "msbuild FreeImage.2013.sln /t:clean /p:Platform=x64 /p:Configuration=Debug_static", 1 );
+				executeCmd( "msbuild FreeImage.2013.sln /p:Platform=x64 /p:Configuration=Debug_static", 1 );
+	   			executeCmd( "msbuild FreeImage.2013.sln /t:clean /p:Platform=x64 /p:Configuration=Release_static", 1 );
+				executeCmd( "msbuild FreeImage.2013.sln /p:Platform=x64 /p:Configuration=Release_static", 1 );
+				#executeCmd( "copy Dist\\x64\\Debug_static\\FreeImageLib.lib Dist\\FreeImageLibd.lib" );
+				#executeCmd( "copy Dist\\x64\\Release_static\\FreeImageLib.lib Dist\\FreeImageLib.lib" );
+				#executeCmd( "copy Dist\\x64\\FreeImage.h Dist\\FreeImage.h" );
+			}
+			else {
+				# This assumes you're still bulding with vs2013.  If you are building with vc9 for 32bit,
+				# you're probably best off having your plugin use freeimage library instead of freeimage-3.18
+	  			executeCmd( "msbuild FreeImage.2013.sln /t:clean /p:Platform=Win32 /p:Configuration=Debug_static", 1 );
+				executeCmd( "msbuild FreeImage.2013.sln /p:Platform=Win32 /p:Configuration=Debug_static", 1 );
+	   			executeCmd( "msbuild FreeImage.2013.sln /t:clean /p:Platform=Win32 /p:Configuration=Release_static", 1 );
+				executeCmd( "msbuild FreeImage.2013.sln /p:Platform=Win32 /p:Configuration=Release_static", 1 );
+				#executeCmd( "copy Dist\\Win32\\Debug_static\\FreeImageLib.lib Dist\\FreeImageLibd.lib" );
+				#executeCmd( "copy Dist\\Win32\\Release_static\\FreeImageLib.lib Dist\\FreeImageLib.lib" );
+				#executeCmd( "copy Dist\\Win32\\FreeImage.h Dist\\FreeImage.h" );
+			}
+		popCwd();	
+	}
 
 	mkdir( "freeimage318_test" );
 	open( TEST, ">freeimage318_test/freeimage_test.cpp" ) || die "Unable to create freeimage test file";
@@ -1216,8 +1231,8 @@ sub sdkTest_freeimage318 {
 	) || die "Compile error";
 
 	platform_link(
-		win32libs => [ "$sdkDir/$sdk/dist/freeimage.lib" ],
-		win32excludelibs => [ "libc.lib" ],
+		win32libs => [ "$sdkDir/$sdk/dist/freeimagelibd.lib" ],
+		win32excludelibs => [ "libc.lib", "libcmt.lib" ],
 		linuxlibs => [ "$sdkDir/$sdk/Dist/libfreeimage.a" ],
 		macosxlibs => [ "$sdkDir/$sdk/Dist/libfreeimage.a" ],
 		files => [ "freeimage318_test/freeimage_test.obj" ],
