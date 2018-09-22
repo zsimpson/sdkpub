@@ -649,7 +649,7 @@ sub sdkTest_pcre {
 	elsif( $platform eq 'macosx' ) {
 		pushCwd( "$sdkDir/$sdk" );
       			#my $osxCFLAGS='CFLAGS=\'-m32 -O3 -mmacosx-version-min=10.4\'';
-      			my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.4\'';
+      			my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.11\'';
 			executeCmd( "$osxCFLAGS sh configure --disable-shared", 1 );
 		popCwd();
 		pushCwd( "$sdkDir/$sdk" );
@@ -742,9 +742,10 @@ sub sdkTest_freetype
 	}
 	elsif(  $platform eq 'macosx' ) {
 		pushCwd( "$sdkDir/$sdk" );
-			#my $osxCFLAGS='CFLAGS=\'-m32 -O3 -mmacosx-version-min=10.4\'';
-			my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.4\'';
-			executeCmd( "$osxCFLAGS sh configure --disable-shared -host=powerpc-apple-macosx", 1 );
+			#my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.4\'';
+			my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.11\'';
+			# executeCmd( "$osxCFLAGS sh configure --disable-shared -host=powerpc-apple-macosx", 1 );
+			executeCmd( "$osxCFLAGS sh configure --disable-shared", 1 );
 					# allow compat with 10.4/Tiger even if built on a 10.5/Leopard or later osx machine.
 		popCwd();
 		
@@ -1530,7 +1531,7 @@ sub sdkTest_gsl18 {
 		pushCwd( "$sdkDir/$sdk" );
 			executeCmd( "chmod +x configure" );
 			#my $osxCFLAGS='CFLAGS=\'-m32 -O3 -mmacosx-version-min=10.4\'';
-			my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.4\'';
+			my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.11\'';
         		executeCmd( "$osxCFLAGS sh configure --disable-shared", 1 );
 			executeCmd( "make clean", 1 );
 			executeCmd( "make", 1 );
@@ -1627,7 +1628,7 @@ sub sdkTest_gsl115 {
 		pushCwd( "$sdkDir/$sdk" );
 			executeCmd( "chmod +x configure" );
 			#my $osxCFLAGS='CFLAGS=\'-m32 -O3 -mmacosx-version-min=10.4\'';
-			my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.4\'';
+			my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.11\'';
         		executeCmd( "$osxCFLAGS sh configure --disable-shared", 1 );
 			executeCmd( "make clean", 1 );
 			executeCmd( "make", 1 );
