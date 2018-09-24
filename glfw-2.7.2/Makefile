@@ -164,6 +164,9 @@ cocoa:
 	cd examples;  $(MAKE) -f Makefile.cocoa
 	cd tests;     $(MAKE) -f Makefile.cocoa
 
+cocoa-static:
+	cd lib/cocoa; $(MAKE) -f Makefile.cocoa libglfw.a
+
 cocoa-clean:
 	cd lib/cocoa; $(MAKE) -f Makefile.cocoa clean
 	cd examples;  $(MAKE) -f Makefile.cocoa clean

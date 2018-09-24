@@ -935,7 +935,7 @@ sub sdkTest_glfw272 {
 	elsif( $platform eq 'macosx' ) {
 		pushCwd( "$sdkDir/$sdk" );
 			executeCmd( "make cocoa-clean", 1 );
-			executeCmd( "make cocoa", 1 );
+			executeCmd( "make cocoa-static", 1 );
 		popCwd();
 	}
 	elsif( $platform eq 'win32' ) {
