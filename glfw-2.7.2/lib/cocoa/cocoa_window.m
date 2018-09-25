@@ -28,6 +28,7 @@
 //========================================================================
 
 #include "internal.h"
+#include <assert.h>
 
 #include <AvailabilityMacros.h>
 
@@ -512,6 +513,14 @@ int  _glfwPlatformOpenWindow( int width, int height,
     CFDictionaryRef fullscreenMode = NULL;
     if( wndconfig->mode == GLFW_FULLSCREEN )
     {
+        // Due to issues on one of KAJ build machines, I'm disabling fullscreen
+        // on OSX (which we don't use anyway). The problem is a that 
+        // CGDisplayBestModeForParametersAndRefreshRateWithProperty which has been
+        // deprecated since 10.6 seems to be missing from libraries/frameworks on
+        // on of his machines.
+        assert(false);
+
+#if 0
         fullscreenMode =
             // I think it's safe to pass 0 to the refresh rate for this function
             // rather than conditionalizing the code to call the version which
@@ -528,6 +537,7 @@ int  _glfwPlatformOpenWindow( int width, int height,
 
         width = [[(id)fullscreenMode objectForKey:(id)kCGDisplayWidth] intValue];
         height = [[(id)fullscreenMode objectForKey:(id)kCGDisplayHeight] intValue];
+#endif
     }
 
     unsigned int styleMask = 0;
