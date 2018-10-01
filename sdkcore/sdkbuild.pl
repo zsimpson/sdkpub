@@ -60,6 +60,18 @@ sub sdkSetup {
 			platforms => [ qw/win32 linux macosx/ ],
 		},
 
+		'freeimage-3.18' => {
+			includes => [ "$sdkDir/freeimage-3.18/Dist", "$sdkDir/freeimage-3.18/Source", "." ],
+			win32debuglibs => [ "$sdkDir/freeimage-3.18/Dist/FreeImageLibd.lib" ],
+			win32releaselibs => [ "$sdkDir/freeimage-3.18/Dist/FreeImageLib.lib" ],
+			linuxlibs => [ "$sdkDir/freeimage-3.18/Dist/libfreeimage.a" ],
+			macosxlibs => [ "$sdkDir/freeimage-3.18/Dist/libfreeimage.a" ],
+			win32debugdefines => [ "FREEIMAGE_LIB" ],
+			win32releasedefines => [ "FREEIMAGE_LIB" ],
+			test => \&sdkTest_freeimage318,
+			platforms => [ qw/win32 linux macosx/ ],
+		},
+
 		'hp871x' => {
 			includes => [ "$sdkDir/hp871x/include" ],
 			win32libs => [ "$sdkDir/hp871x/lib/msc/hp871x_32.lib" ],
@@ -637,7 +649,7 @@ sub sdkTest_pcre {
 	elsif( $platform eq 'macosx' ) {
 		pushCwd( "$sdkDir/$sdk" );
       			#my $osxCFLAGS='CFLAGS=\'-m32 -O3 -mmacosx-version-min=10.4\'';
-      			my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.4\'';
+      			my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.11\'';
 			executeCmd( "$osxCFLAGS sh configure --disable-shared", 1 );
 		popCwd();
 		pushCwd( "$sdkDir/$sdk" );
@@ -730,9 +742,10 @@ sub sdkTest_freetype
 	}
 	elsif(  $platform eq 'macosx' ) {
 		pushCwd( "$sdkDir/$sdk" );
-			#my $osxCFLAGS='CFLAGS=\'-m32 -O3 -mmacosx-version-min=10.4\'';
-			my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.4\'';
-			executeCmd( "$osxCFLAGS sh configure --disable-shared -host=powerpc-apple-macosx", 1 );
+			#my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.4\'';
+			my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.11\'';
+			# executeCmd( "$osxCFLAGS sh configure --disable-shared -host=powerpc-apple-macosx", 1 );
+			executeCmd( "$osxCFLAGS sh configure --disable-shared", 1 );
 					# allow compat with 10.4/Tiger even if built on a 10.5/Leopard or later osx machine.
 		popCwd();
 		
@@ -922,7 +935,7 @@ sub sdkTest_glfw272 {
 	elsif( $platform eq 'macosx' ) {
 		pushCwd( "$sdkDir/$sdk" );
 			executeCmd( "make cocoa-clean", 1 );
-			executeCmd( "make cocoa", 1 );
+			executeCmd( "make cocoa-static", 1 );
 		popCwd();
 	}
 	elsif( $platform eq 'win32' ) {
@@ -1113,6 +1126,131 @@ sub sdkTest_freeimage {
 	}
 	else {
 		print "FAILURE. freeimage_test directory NOT removed for debugging.\n";
+	}
+}
+
+############################################################################################################
+#
+# FREEIMAGE
+#
+############################################################################################################
+
+sub sdkTest_freeimage318 {
+	my $sdk = "freeimage-3.18";
+	if( $platform eq 'linux' ) {
+		pushCwd( "$sdkDir/$sdk" );
+			executeCmd( "chmod +x clean.sh" );
+			executeCmd( "sh clean.sh", 1 );
+			executeCmd( "make", 1 );
+		popCwd();
+	}
+	elsif( $platform eq 'macosx' ) {
+		pushCwd( "$sdkDir/$sdk" );
+			executeCmd( "make -f Makefile.osx clean" );
+			executeCmd( "make -f Makefile.osx" );
+		popCwd();
+	}
+	elsif( $platform eq 'win32' ) {
+		pushCwd( "$sdkDir/$sdk" );
+			if( platformBuild64Bit() ) {
+	  			executeCmd( "msbuild FreeImage.2013.sln /t:clean /p:Platform=x64 /p:Configuration=Debug_static", 1 );
+				executeCmd( "msbuild FreeImage.2013.sln /p:Platform=x64 /p:Configuration=Debug_static", 1 );
+	   			executeCmd( "msbuild FreeImage.2013.sln /t:clean /p:Platform=x64 /p:Configuration=Release_static", 1 );
+				executeCmd( "msbuild FreeImage.2013.sln /p:Platform=x64 /p:Configuration=Release_static", 1 );
+				#executeCmd( "copy Dist\\x64\\Debug_static\\FreeImageLib.lib Dist\\FreeImageLibd.lib" );
+				#executeCmd( "copy Dist\\x64\\Release_static\\FreeImageLib.lib Dist\\FreeImageLib.lib" );
+				#executeCmd( "copy Dist\\x64\\FreeImage.h Dist\\FreeImage.h" );
+			}
+			else {
+				# This assumes you're still bulding with vs2013.  If you are building with vc9 for 32bit,
+				# you're probably best off having your plugin use freeimage library instead of freeimage-3.18
+	  			executeCmd( "msbuild FreeImage.2013.sln /t:clean /p:Platform=Win32 /p:Configuration=Debug_static", 1 );
+				executeCmd( "msbuild FreeImage.2013.sln /p:Platform=Win32 /p:Configuration=Debug_static", 1 );
+	   			executeCmd( "msbuild FreeImage.2013.sln /t:clean /p:Platform=Win32 /p:Configuration=Release_static", 1 );
+				executeCmd( "msbuild FreeImage.2013.sln /p:Platform=Win32 /p:Configuration=Release_static", 1 );
+				#executeCmd( "copy Dist\\Win32\\Debug_static\\FreeImageLib.lib Dist\\FreeImageLibd.lib" );
+				#executeCmd( "copy Dist\\Win32\\Release_static\\FreeImageLib.lib Dist\\FreeImageLib.lib" );
+				#executeCmd( "copy Dist\\Win32\\FreeImage.h Dist\\FreeImage.h" );
+			}
+		popCwd();	
+	}
+
+	mkdir( "freeimage318_test" );
+	open( TEST, ">freeimage318_test/freeimage_test.cpp" ) || die "Unable to create freeimage test file";
+	print TEST '
+		#include "FreeImage.h"
+		#include "stdio.h"
+		#define assert( x ) if( !(x) ) return -1;
+		// This is a 2 x 2 png file, white at 0,0 and 1,1 otherwise black
+		static unsigned char testPng[] = {
+			0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A,   0x00, 0x00, 0x00, 0x0D, 0x49, 0x48, 0x44, 0x52,
+			0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x02,   0x08, 0x00, 0x00, 0x00, 0x00, 0x57, 0xDD, 0x52,
+			0xF8, 0x00, 0x00, 0x00, 0x04, 0x67, 0x41, 0x4D,   0x41, 0x00, 0x00, 0xB1, 0x8E, 0x7C, 0xFB, 0x51,
+			0x93, 0x00, 0x00, 0x00, 0x20, 0x63, 0x48, 0x52,   0x4D, 0x00, 0x00, 0x7A, 0x25, 0x00, 0x00, 0x80,
+			0x83, 0x00, 0x00, 0xF9, 0xFF, 0x00, 0x00, 0x80,   0xE8, 0x00, 0x00, 0x75, 0x30, 0x00, 0x00, 0xEA,
+			0x60, 0x00, 0x00, 0x3A, 0x97, 0x00, 0x00, 0x17,   0x6F, 0x97, 0xA9, 0x99, 0xD4, 0x00, 0x00, 0x00,
+			0x13, 0x49, 0x44, 0x41, 0x54, 0x78, 0x9C, 0x62,   0xF8, 0xCF, 0x00, 0x10, 0x40, 0x0C, 0x0C, 0x7F,
+			0x01, 0x02, 0x0C, 0x00, 0x05, 0xFE, 0x01, 0xFD,   0x25, 0x60, 0x94, 0xF7, 0x00, 0x00, 0x00, 0x00,
+			0x49, 0x45, 0x4E, 0x44, 0xAE, 0x42, 0x60, 0x82,
+		};
+		int main() {
+			FILE *testfile = fopen( "test.png", "wb" );
+			fwrite( testPng, sizeof(testPng), 1, testfile );
+			fclose( testfile );
+			FreeImage_Initialise();
+			const char *a = FreeImage_GetVersion();
+			FIBITMAP *fbitmap = FreeImage_Load( FIF_PNG, "test.png" );
+			int d = FreeImage_GetBPP( fbitmap );
+			int w = FreeImage_GetWidth( fbitmap );
+			int h = FreeImage_GetHeight( fbitmap );
+			assert( d == 8 );
+			assert( w == 2 );
+			assert( h == 2 );
+			//	for( int y=0; y<h; y++ ) {
+			//		BYTE *src = FreeImage_GetScanLine( fbitmap, y );
+			//		for( int x=0; x<w; x++ ) printf( "%c", " .:-;!/>)|&IH%*#"[ (src[x]) >> 4 ] );
+			//		printf( "\n" );
+			//	}
+			BYTE value;
+			FreeImage_GetPixelIndex( fbitmap, 0, 0, &value );
+			assert( value == 0 );
+			FreeImage_GetPixelIndex( fbitmap, 1, 0, &value );
+			assert( value == 253 );
+			FreeImage_DeInitialise();
+			return 0;
+		}
+	';
+	print TEST "\n\n";
+	close( TEST );
+
+	platform_compile(
+		includes => [ "$sdkDir/$sdk/Dist" ],
+		file => "freeimage318_test/freeimage_test.cpp",
+		outfile => "freeimage318_test/freeimage_test.obj",
+		debugsymbols => 1,
+		win32defines => [ "FREEIMAGE_LIB" ],
+	) || die "Compile error";
+
+	platform_link(
+		win32libs => [ "$sdkDir/$sdk/dist/freeimagelibd.lib" ],
+		win32excludelibs => [ "libc.lib", "libcmt.lib" ],
+		linuxlibs => [ "$sdkDir/$sdk/Dist/libfreeimage.a" ],
+		macosxlibs => [ "$sdkDir/$sdk/Dist/libfreeimage.a" ],
+		files => [ "freeimage318_test/freeimage_test.obj" ],
+		outfile => "freeimage318_test/freeimage_test.exe",
+		debugsymbols => 1
+	) || die "Linker error";
+
+	pushCwd( "freeimage318_test" );
+		`./freeimage_test.exe`;
+	popCwd();
+
+	if( $? == 0 ) {
+		print "success\n";
+		recursiveUnlink( "freeimage_test" );
+	}
+	else {
+		print "FAILURE. freeimage318_test directory NOT removed for debugging.\n";
 	}
 }
 
@@ -1393,7 +1531,7 @@ sub sdkTest_gsl18 {
 		pushCwd( "$sdkDir/$sdk" );
 			executeCmd( "chmod +x configure" );
 			#my $osxCFLAGS='CFLAGS=\'-m32 -O3 -mmacosx-version-min=10.4\'';
-			my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.4\'';
+			my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.11\'';
         		executeCmd( "$osxCFLAGS sh configure --disable-shared", 1 );
 			executeCmd( "make clean", 1 );
 			executeCmd( "make", 1 );
@@ -1490,7 +1628,7 @@ sub sdkTest_gsl115 {
 		pushCwd( "$sdkDir/$sdk" );
 			executeCmd( "chmod +x configure" );
 			#my $osxCFLAGS='CFLAGS=\'-m32 -O3 -mmacosx-version-min=10.4\'';
-			my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.4\'';
+			my $osxCFLAGS='CFLAGS=\'-O3 -mmacosx-version-min=10.11\'';
         		executeCmd( "$osxCFLAGS sh configure --disable-shared", 1 );
 			executeCmd( "make clean", 1 );
 			executeCmd( "make", 1 );
