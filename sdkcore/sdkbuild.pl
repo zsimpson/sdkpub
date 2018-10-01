@@ -1157,20 +1157,14 @@ sub sdkTest_freeimage318 {
 				executeCmd( "msbuild FreeImage.2013.sln /p:Platform=x64 /p:Configuration=Debug_static", 1 );
 	   			executeCmd( "msbuild FreeImage.2013.sln /t:clean /p:Platform=x64 /p:Configuration=Release_static", 1 );
 				executeCmd( "msbuild FreeImage.2013.sln /p:Platform=x64 /p:Configuration=Release_static", 1 );
-				#executeCmd( "copy Dist\\x64\\Debug_static\\FreeImageLib.lib Dist\\FreeImageLibd.lib" );
-				#executeCmd( "copy Dist\\x64\\Release_static\\FreeImageLib.lib Dist\\FreeImageLib.lib" );
-				#executeCmd( "copy Dist\\x64\\FreeImage.h Dist\\FreeImage.h" );
 			}
 			else {
-				# This assumes you're still bulding with vs2013.  If you are building with vc9 for 32bit,
+				# This assumes you're still building with vs2013.  If you are building with vc9 for 32bit,
 				# you're probably best off having your plugin use freeimage library instead of freeimage-3.18
 	  			executeCmd( "msbuild FreeImage.2013.sln /t:clean /p:Platform=Win32 /p:Configuration=Debug_static", 1 );
 				executeCmd( "msbuild FreeImage.2013.sln /p:Platform=Win32 /p:Configuration=Debug_static", 1 );
 	   			executeCmd( "msbuild FreeImage.2013.sln /t:clean /p:Platform=Win32 /p:Configuration=Release_static", 1 );
 				executeCmd( "msbuild FreeImage.2013.sln /p:Platform=Win32 /p:Configuration=Release_static", 1 );
-				#executeCmd( "copy Dist\\Win32\\Debug_static\\FreeImageLib.lib Dist\\FreeImageLibd.lib" );
-				#executeCmd( "copy Dist\\Win32\\Release_static\\FreeImageLib.lib Dist\\FreeImageLib.lib" );
-				#executeCmd( "copy Dist\\Win32\\FreeImage.h Dist\\FreeImage.h" );
 			}
 		popCwd();	
 	}
@@ -1247,7 +1241,7 @@ sub sdkTest_freeimage318 {
 
 	if( $? == 0 ) {
 		print "success\n";
-		recursiveUnlink( "freeimage_test" );
+		recursiveUnlink( "freeimage318_test" );
 	}
 	else {
 		print "FAILURE. freeimage318_test directory NOT removed for debugging.\n";
